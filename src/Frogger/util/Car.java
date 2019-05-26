@@ -1,9 +1,11 @@
+package Frogger.util;
+
 public class Car extends Rectengle
 {
     private int speed;
     private String ImageName;
 
-    Car(int x, int y, int w, int h, int speed, String ImageName){
+    public Car(int x, int y, int w, int h, int speed, String ImageName){
         super(x, y, w, h);
         this.speed = speed;
         this.ImageName = ImageName;

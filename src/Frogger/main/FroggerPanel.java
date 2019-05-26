@@ -1,4 +1,4 @@
-
+package Frogger.main;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 import java.awt.event.KeyEvent;
@@ -11,6 +11,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import javax.imageio.*;
+import Frogger.util.*;
+
 
 
 

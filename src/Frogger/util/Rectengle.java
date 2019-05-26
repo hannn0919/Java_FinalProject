@@ -1,5 +1,5 @@
 
-
+package Frogger.util;
 public class Rectengle{
 
     private int x;

@@ -1,7 +1,7 @@
-
+package Frogger.util;
 public class Frog extends Rectengle
 {
-    Frog(int x, int y, int w, int h){
+    public Frog(int x, int y, int w, int h){
         super(x, y, w, h);
     }
 
