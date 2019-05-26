@@ -10,6 +10,9 @@ import java.util.TimerTask;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.awt.*;
+import java.io.*;
+import javax.imageio.*;
+
 
 
 public class FroggerPanel extends JPanel
@@ -17,12 +20,13 @@ public class FroggerPanel extends JPanel
 
    private Timer timer;
    private int time;
-   private ArrayList<Rectengle> rectengle; 
+   private Image frogImage;
+   private ArrayList<Car> cars; 
    private Frog frog;
    private Car[] CarsRoadOne = new Car[5];
-   private Car[] CarsRoadTwo = new Car[5];
-   private Car[] CarsRoadThree = new Car[5];
-   private Car[] CarsRoadFour = new Car[5];
+   private Car[] CarsRoadTwo = new Car[3];
+   private Car[] CarsRoadThree = new Car[4];
+   private Car[] CarsRoadFour = new Car[6];
    private Car police;
    private int end;
    private JPanel panel;
@@ -69,6 +73,9 @@ public class FroggerPanel extends JPanel
 	  data.add(l2);
 	  data.add(l3);
 	  data.add(l4);
+	  
+	
+	  
 	  add(panel, BorderLayout.WEST);
 	  add(data, BorderLayout.NORTH);
 	  this.setFocusable(true);
@@ -91,19 +98,19 @@ public class FroggerPanel extends JPanel
 	 
 			switch (key1) {
 				case KeyEvent.VK_UP:
-					frog.move(0, -50);
+					frog.move(0, -80);
 					break;
 				 
 				case KeyEvent.VK_LEFT:
-					frog.move(-50, 0);
+					frog.move(-40, 0);
 					break;
 				 
 				case KeyEvent.VK_DOWN:
-					frog.move(0, 50);
+					frog.move(0, 80);
 					break;
 				 
 				case KeyEvent.VK_RIGHT:
-					frog.move(50, 0);
+					frog.move(40, 0);
 					break;
 				case KeyEvent.VK_P:
 					end = 0;
@@ -118,18 +125,25 @@ public class FroggerPanel extends JPanel
    private void Init()
    {	
 		this.end = 1;
-		rectengle = new ArrayList<>();
-		frog = new Frog(600, 570, 50, 50);
+		cars = new ArrayList<>();
+		frog = new Frog(605, 500, 70, 70);
 		for(int i =0;i<5;i++){
-			CarsRoadOne[i] = new Car(10 + i * 300, 470, 100, 50, 5);
-			CarsRoadTwo[i] = new Car( 20 + i * 250, 370, 70, 50, -8);
-			CarsRoadThree[i] = new Car( 40 + i * 350, 270, 80, 50, 12);
-			CarsRoadFour[i] = new Car( 15 + i * 500 , 70, 40, 50, -5);
-			rectengle.add(CarsRoadOne[i]);
-			rectengle.add(CarsRoadTwo[i]);
-			rectengle.add(CarsRoadThree[i]);
-			rectengle.add(CarsRoadFour[i]);
+			CarsRoadOne[i] = new Car(10 + i * 280, 415, 120-10, 80-10, 1, "orangecarr.png"); // 5
+			cars.add(CarsRoadOne[i]);
 		}
+		for(int i =0;i<3;i++){
+			CarsRoadTwo[i] = new Car( 20 + i * 466, 335, 200-10, 80-10, 4, "truck200r.png"); // 3
+			cars.add(CarsRoadTwo[i]);
+		}
+		for(int i =0;i<4;i++){
+			CarsRoadThree[i] = new Car( 40 + i * 350, 175, 170-10, 80-10, -3, "truck170l.png"); // 4
+			cars.add(CarsRoadThree[i]);
+		}
+		for(int i =0;i<6;i++){
+			CarsRoadFour[i] = new Car( 15 + i * 240 , 95, 120-10 , 80-10, -2, "bluecarl.png"); // 6
+			cars.add(CarsRoadFour[i]);
+		}
+		
    }
    
    private void gameStart() {
@@ -140,12 +154,12 @@ public class FroggerPanel extends JPanel
 				if(end == 0){
 					timer.cancel();
 				}
-				for( Rectengle r : rectengle){
-					if(r.intersect(frog)){
-						frog.setX(600);
-						frog.setY(570);
+				for( Car c : cars){
+					if(c.intersect(frog)){
+						frog.setX(605);
+						frog.setY(500);
 					}
-					r.update();
+					c.update();
 				}
 				
 				repaint();
@@ -161,9 +175,25 @@ public class FroggerPanel extends JPanel
    public void paintComponent(Graphics g)
    {
       super.paintComponent(g); // clears drawing area
-	  g.fillRect(frog.getX(), frog.getY(), frog.getW(), frog.getH());
-	  for( Rectengle r : rectengle){
-			g.fillRect(r.getX()+1, r.getY()+1, r.getW()-2, r.getH()-2);
+	    try {
+            frogImage = ImageIO.read(new File("image\\characters50.png"));
+        }
+        catch (Exception ex) {
+            System.out.println("No example.jpg!!");
+		}
+	  
+	  g.drawImage(frogImage, frog.getX(), frog.getY(), null);
+	  //g.fillRect( 610, 550, frog.getW(), frog.getH());
+	  //g.fillRect(frog.getX()+20, frog.getY()+20,frog.getW(), frog.getH());
+	  for( Car c : cars){
+		  try{
+			Image tempImage = ImageIO.read(new File("image\\" + c.getImageName()));
+			g.drawImage(tempImage, c.getX()-5, c.getY()-5 , null);
+		  }
+		  catch (Exception ex) {
+            System.out.println("No example.jpg!!");
+		}
+			
 	  }
    } 
 } // end class PaintPanel
