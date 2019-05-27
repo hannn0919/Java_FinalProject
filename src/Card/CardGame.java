@@ -1,12 +1,14 @@
+package Card;
+
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
-import CardGameModule.RememberCard;
+import Card.RememberCard;
 
 public class CardGame {
 
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 RememberCard remCard = new RememberCard();
@@ -16,6 +18,6 @@ public class CardGame {
                 remCard.setVisible(true);
             }
         });
-	}
+    }
 
 }

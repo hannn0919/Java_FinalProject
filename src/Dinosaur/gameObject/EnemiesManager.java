@@ -46,9 +46,9 @@ public class EnemiesManager {
     private Enemy createEnemy() {
         int type = rand.nextInt(2);
         if(type == 0) {
-            return new Cactus(mainCharacter, 800, cactus1.getWidth() - 10, cactus1.getHeight() - 10, cactus1);
+            return new Water(mainCharacter, 800, cactus1.getWidth() - 10, cactus1.getHeight() - 10, cactus1);
         } else {
-            return new Cactus(mainCharacter, 800, cactus2.getWidth() - 10, cactus2.getHeight() - 10, cactus2);
+            return new Water(mainCharacter, 800, cactus2.getWidth() - 10, cactus2.getHeight() - 10, cactus2);
         }
     }
 

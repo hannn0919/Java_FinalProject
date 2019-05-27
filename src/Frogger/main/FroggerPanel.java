@@ -177,7 +177,7 @@ public class FroggerPanel extends JPanel
     {
         super.paintComponent(g); // clears drawing area
         try {
-            frogImage = ImageIO.read(new File("data\\image\\characters50.png"));
+            frogImage = ImageIO.read(new File("data/Frogger/image/characters50.png"));
         }
         catch (Exception ex) {
             System.out.println("No example.jpg!!");
@@ -188,7 +188,7 @@ public class FroggerPanel extends JPanel
         //g.fillRect(frog.getX()+20, frog.getY()+20,frog.getW(), frog.getH());
         for( Car c : cars){
             try{
-                Image tempImage = ImageIO.read(new File("data\\image\\" + c.getImageName()));
+                Image tempImage = ImageIO.read(new File("data/Frogger/image/" + c.getImageName()));
                 g.drawImage(tempImage, c.getX()-5, c.getY()-5 , null);
             }
             catch (Exception ex) {

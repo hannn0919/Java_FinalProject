@@ -1,4 +1,4 @@
-package CardGameModule;
+package Card;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -17,11 +17,11 @@ import javax.swing.border.LineBorder;
 
 /**
  * @author jqs
- * 
-   *         圖片面板，主要實現了圖片的顯示與圖片相同判斷
+ *
+ *         圖片面板，主要實現了圖片的顯示與圖片相同判斷
  */
 public class PicPanel extends JPanel {
-	private static final long serialVersionUID = 2172162568449349737L;
+    private static final long serialVersionUID = 2172162568449349737L;
     private String picPath;
     private JLabel lbl_Pic = new JLabel();
     private ImageIcon bgIcon = null;
@@ -48,11 +48,11 @@ public class PicPanel extends JPanel {
     }
 
     /**
-           * 圖片面板的滑鼠事件監聽，配對過程在此完成
+     * 圖片面板的滑鼠事件監聽，配對過程在此完成
      */
     private MouseAdapter mouseAdapter = new MouseAdapter() {
         @Override
-        
+
         public void mouseClicked(MouseEvent e) {
             new Thread() {
                 public void run() {
@@ -68,7 +68,7 @@ public class PicPanel extends JPanel {
                         PicPanel preOne = parent.getPreOne();//第1個
                         if (preOne == null) {
                             parent.setPreOne(curOne);
-                        } 
+                        }
                         else {
                             boolean right = checkRight(curOne, preOne);
                             if (right) {//配對成功
@@ -76,13 +76,13 @@ public class PicPanel extends JPanel {
                                 curOne.setFinished(true);
                                 preOne.setFinished(true);
                                 parent.addCount();
-                            } 
+                            }
                             else {
                                 lbl_Pic.setIcon(bgIcon);
                                 repaint();
                                 try {
                                     Thread.sleep(500);//0.5s後蓋掉卡片
-                                } 
+                                }
                                 catch (InterruptedException e1) {
                                     e1.printStackTrace();
                                 }
@@ -105,8 +105,8 @@ public class PicPanel extends JPanel {
         }
 
         /**
-                        * 檢查兩個面板顯示的圖片是否一致，根據圖片的路徑來判斷，同時要保證兩個面板不是同一個面板
-         * 
+         * 檢查兩個面板顯示的圖片是否一致，根據圖片的路徑來判斷，同時要保證兩個面板不是同一個面板
+         *
          * @param curOne
          * @param preOne
          * @return
@@ -114,12 +114,12 @@ public class PicPanel extends JPanel {
         private boolean checkRight(PicPanel curOne, PicPanel preOne) {
             return curOne.getPicPath().equals(preOne.getPicPath()) && !curOne.equals(preOne);
         }
-        
-       
+
+
     };
 
     /**
-              * 初始化Label物件的image
+     * 初始化Label物件的image
      */
     private void initLabelImage() {
         try {
@@ -127,28 +127,30 @@ public class PicPanel extends JPanel {
             if (image != null) {
                 //int lblWidth = this.getWidth();
                 //int lblHeight = this.getHeight();
-            	int lblWidth = 280;//圖片的長寬
-            	int lblHeight = 188;
+                int lblWidth = 280;//圖片的長寬
+                int lblHeight = 188;
                 //System.out.println("PicPanel initLabelImage " + lblWidth + " " + lblHeight);
                 bgIcon = new ImageIcon(image.getScaledInstance(lblWidth, lblHeight, Image.SCALE_DEFAULT));
                 lbl_Pic.setIcon(bgIcon);
             }
-        } 
+        }
         catch (IOException e) {
             e.printStackTrace();
         }
     }
- 
+
     /**
-              * 當找到配對的圖片面板後設置完成狀態為true，此時點選圖片面板已經無效了。
-     * 
+     * 當找到配對的圖片面板後設置完成狀態為true，此時點選圖片面板已經無效了。
+     *
      * @param b
      */
     protected void setFinished(boolean b) {
         finished = b;
     }
 
-	public void setLabelPicNull() {
-		lbl_Pic.setIcon(null);
-	}
+    public void setLabelPicNull() {
+        lbl_Pic.setIcon(null);
+    }
 }
+
+
