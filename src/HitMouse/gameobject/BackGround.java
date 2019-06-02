@@ -1,5 +1,4 @@
-package gameobject;
-
+package HitMouse.gameobject;
 import javax.swing.JPanel;
 public class BackGround{
     private JPanel backGround;

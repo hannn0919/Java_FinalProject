@@ -1,5 +1,4 @@
-package gameobject;
-
+package HitMouse.gameobject;
 public class Num {
     private int num=0;
     public int getNum() {

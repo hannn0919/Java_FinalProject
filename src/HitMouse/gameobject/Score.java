@@ -1,5 +1,4 @@
-package gameobject;
-
+package HitMouse.gameobject;
 public class Score {
     private int score=0,last=0,djs=60,sd=3000;//sd->地鼠出現速度，last->上一隻地鼠出現位置，djs倒數計時
     public int getSd() {
