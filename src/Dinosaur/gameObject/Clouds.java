@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import Dinosaur.userinterface.GameWindow;
 import Dinosaur.util.Resource;
 
 public class Clouds {
@@ -17,53 +16,36 @@ public class Clouds {
 
     public Clouds(int width, MainCharacter mainCharacter) {
         this.mainCharacter = mainCharacter;
-        cloud = Resource.getResouceImage("data/dinosaur/cloud.png");
+        cloud = Resource.getResouceImage("data/dinosaur/cloud1.png");
         listCloud = new ArrayList<ImageCloud>();
-        // maybe can use for loop and random;
         ImageCloud imageCloud = new ImageCloud();
         imageCloud.posX = 0;
-        imageCloud.posY = 210;
+        imageCloud.posY = 80;
         listCloud.add(imageCloud);
 
-        imageCloud = new ImageCloud();
-        imageCloud.posX = 150;
-        imageCloud.posY = 220;
-        listCloud.add(imageCloud);
 
         imageCloud = new ImageCloud();
         imageCloud.posX = 300;
-        imageCloud.posY = 230;
+        imageCloud.posY = 130;
         listCloud.add(imageCloud);
 
         imageCloud = new ImageCloud();
         imageCloud.posX = 450;
-        imageCloud.posY = 200;
+        imageCloud.posY = 100;
         listCloud.add(imageCloud);
 
-        imageCloud = new ImageCloud();
-        imageCloud.posX = 600;
-        imageCloud.posY = 240;
-        listCloud.add(imageCloud);
 
         imageCloud = new ImageCloud();
         imageCloud.posX = 750;
-        imageCloud.posY = 180;
+        imageCloud.posY = 150;
         listCloud.add(imageCloud);
 
-        imageCloud = new ImageCloud();
-        imageCloud.posX = 900;
-        imageCloud.posY = 250;
-        listCloud.add(imageCloud);
 
         imageCloud = new ImageCloud();
         imageCloud.posX = 1050;
-        imageCloud.posY = 210;
+        imageCloud.posY = 110;
         listCloud.add(imageCloud);
 
-        imageCloud = new ImageCloud();
-        imageCloud.posX = 1200;
-        imageCloud.posY = 190;
-        listCloud.add(imageCloud);
     }
 
     public void update(){
@@ -76,7 +58,7 @@ public class Clouds {
         }
         if(firstElement.posX < -cloud.getWidth()) {
             listCloud.remove(firstElement);
-            firstElement.posX = GameWindow.SCREEN_WIDTH;
+            firstElement.posX = 1200;
             listCloud.add(firstElement);
         }
     }

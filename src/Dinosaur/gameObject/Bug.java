@@ -5,9 +5,9 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
-public class Water extends Enemy {
+public class Bug extends Enemy {
 
-    public static final int Y_LAND = 515;
+    public static final int Y_LAND = 400;
 
     private int posX;
     private int width;
@@ -18,7 +18,7 @@ public class Water extends Enemy {
 
     private Rectangle rectBound;
 
-    public Water(MainCharacter mainCharacter, int posX, int width, int height, BufferedImage image) {
+    public Bug(MainCharacter mainCharacter, int posX, int width, int height, BufferedImage image) {
         this.posX = posX;
         this.width = width;
         this.height = height;

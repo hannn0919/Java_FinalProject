@@ -11,6 +11,7 @@ import Dinosaur.util.Resource;
 public class EnemiesManager {
     private BufferedImage cactus1;
     private BufferedImage cactus2;
+    private BufferedImage bug;
     private Random rand;
 
     private List<Enemy> enemies;
@@ -18,8 +19,9 @@ public class EnemiesManager {
 
     public EnemiesManager(MainCharacter mainCharacter) {
         rand = new Random();
-        cactus1 = Resource.getResouceImage("data/dinosaur/cactus1.png");
-        cactus2 = Resource.getResouceImage("data/dinosaur/cactus2.png");
+        cactus1 = Resource.getResouceImage("data/dinosaur/水灘1.png");
+        cactus2 = Resource.getResouceImage("data/dinosaur/水灘2.png");
+        bug = Resource.getResouceImage("data/dinosaur/bug.png");
         enemies = new ArrayList<Enemy>();
         this.mainCharacter = mainCharacter;
         enemies.add(createEnemy());
@@ -31,7 +33,6 @@ public class EnemiesManager {
         }
         Enemy enemy = enemies.get(0);
         if(enemy.isOutOfScreen()) {
-            mainCharacter.upScore();
             enemies.clear();
             enemies.add(createEnemy());
         }
@@ -44,11 +45,14 @@ public class EnemiesManager {
     }
 
     private Enemy createEnemy() {
-        int type = rand.nextInt(2);
+        int type = rand.nextInt(3);
         if(type == 0) {
-            return new Water(mainCharacter, 800, cactus1.getWidth() - 10, cactus1.getHeight() - 10, cactus1);
+            return new Water(mainCharacter, 1150, cactus1.getWidth() - 10, cactus1.getHeight() - 10, cactus1);
+        }
+        else if(type == 1) {
+            return new Water(mainCharacter, 1150, cactus2.getWidth() - 10, cactus2.getHeight() - 10, cactus2);
         } else {
-            return new Water(mainCharacter, 800, cactus2.getWidth() - 10, cactus2.getHeight() - 10, cactus2);
+            return new Bug(mainCharacter, 1150, bug.getWidth() - 10, bug.getHeight() - 10, bug);
         }
     }
 

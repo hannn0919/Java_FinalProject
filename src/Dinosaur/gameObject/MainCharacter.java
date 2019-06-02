@@ -13,7 +13,7 @@ import Dinosaur.util.Animation;
 import Dinosaur.util.Resource;
 
 public class MainCharacter {
-    public static final int LAND_POSY = 450;
+    public static final int LAND_POSY = 380;
     public static final float GRAVITY = 0.4f;
 
     private static final int NORMAL_RUN = 0;
@@ -27,7 +27,7 @@ public class MainCharacter {
     private float speedY;
     private Rectangle rectBound;
 
-    public int score = 0;
+    public double score = 0;
 
     private int state = NORMAL_RUN;
 
@@ -41,17 +41,17 @@ public class MainCharacter {
     private AudioClip scoreUpSound;
 
     public MainCharacter() {
-        posX = 50;
+        posX = 150;
         posY = LAND_POSY;
         rectBound = new Rectangle();
         normalRunAnim = new Animation(90);
-        normalRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/main-character1.png"));
-        normalRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/main-character2.png"));
-        jumping = Resource.getResouceImage("data/dinosaur/main-character3.png");
+        normalRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/LV1肝.png"));
+        normalRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/LV1肝.png"));
+        jumping = Resource.getResouceImage("data/dinosaur/LV1肝.png");
         downRunAnim = new Animation(90);
-        downRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/main-character5.png"));
-        downRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/main-character6.png"));
-        deathImage = Resource.getResouceImage("data/dinosaur/main-character4.png");
+        downRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/LV1肝.png"));
+        downRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/LV1肝.png"));
+        deathImage = Resource.getResouceImage("data/dinosaur/LV1肝.png");
 
         try {
             jumpSound =  Applet.newAudioClip(new URL("file","","data/dinosaur/jump.wav"));
@@ -106,7 +106,7 @@ public class MainCharacter {
             if(jumpSound != null) {
                 jumpSound.play();
             }
-            speedY = -7.5f;
+            speedY = -10.5f;
             posY += speedY;
             state = JUMPING;
         }
@@ -157,7 +157,7 @@ public class MainCharacter {
     }
 
     public void upScore() {
-        score += 20;
+        score += 0.1;
         if(score % 100 == 0) {
             scoreUpSound.play();
         }
