@@ -41,7 +41,7 @@ public class Mouse {
         });
     }
     public Mouse(){
-        ImageIcon image=new ImageIcon("data/background/background.png");//background
+        ImageIcon image=new ImageIcon("data/HitMouse/background/background.png");//background
         frame = new JFrame("打地鼠");
         frame.setSize(900,675);
         //frame.setBounds(0,0,900,675);
@@ -65,8 +65,8 @@ public class Mouse {
         for(int i=0;i<6;i++){
             teacher[i]=new ImageIcon(Teachers.teachers[i]);
         }
-        ImageIcon dishu=new ImageIcon("data/image/dishu.jpg");//mouse icon
-        kaishi=new ImageIcon("data/image/start.jpg");
+        ImageIcon dishu=new ImageIcon("data/HitMouse/image/dishu.jpg");//mouse icon
+        kaishi=new ImageIcon("data/HitMouse/image/start.jpg");
         JButton btnStart = new JButton();
         btnStart.setIcon(kaishi);
         btnStart.setBounds(736, 35, 125, 59);
@@ -76,7 +76,7 @@ public class Mouse {
         int k=0;
         for(int i=65;i<=695;i+=210){
             for(int j=155;j<=505;j+=170){
-                but[k] = new Windows(i,j,"data/background/窗戶.png");
+                but[k] = new Windows(i,j,"data/HitMouse/background/窗戶.png");
                 layeredPane.add(but[k],JLayeredPane.MODAL_LAYER);
                 k++;
             }
