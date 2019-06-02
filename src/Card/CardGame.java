@@ -12,7 +12,7 @@ public class CardGame {
             @Override
             public void run() {
                 RememberCard remCard = new RememberCard();
-                remCard.setSize(900, 675);
+                remCard.setSize(1200, 675);
                 remCard.setLocationRelativeTo(null);
                 remCard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 remCard.setVisible(true);
