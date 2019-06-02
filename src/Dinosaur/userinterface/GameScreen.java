@@ -35,12 +35,13 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 
     public GameScreen() {
         mainCharacter = new MainCharacter();
-        land = new Land(GameWindow.SCREEN_WIDTH, mainCharacter);
-        mainCharacter.setSpeedX(4);
-        replayButtonImage = Resource.getResouceImage("data/replay_button.png");
-        gameOverButtonImage = Resource.getResouceImage("data/gameover_text.png");
+        land = new Land(1200, mainCharacter);
+        mainCharacter.setSpeedX(5);
+        replayButtonImage = Resource.getResouceImage("data/dinosaur/replay_button.png");
+        gameOverButtonImage = Resource.getResouceImage("data/dinosaur/gameover_text.png");
         enemiesManager = new EnemiesManager(mainCharacter);
-        clouds = new Clouds(GameWindow.SCREEN_WIDTH, mainCharacter);
+        clouds = new Clouds(1200, mainCharacter);
+        startGame();
     }
 
     public void startGame() {
@@ -53,6 +54,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
             clouds.update();
             land.update();
             mainCharacter.update();
+            mainCharacter.upScore();
             enemiesManager.update();
             if (enemiesManager.isCollision()) {
                 mainCharacter.playDeadSound();
@@ -77,10 +79,10 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
                 enemiesManager.draw(g);
                 mainCharacter.draw(g);
                 g.setColor(Color.BLACK);
-                g.drawString("HI " + mainCharacter.score, 500, 20);
+                g.drawString("Score " + (int)mainCharacter.score, 950, 20);
                 if (gameState == GAME_OVER_STATE) {
-                    g.drawImage(gameOverButtonImage, 200, 30, null);
-                    g.drawImage(replayButtonImage, 283, 50, null);
+                    g.drawImage(gameOverButtonImage, 520, 330, null);
+                    g.drawImage(replayButtonImage, 603, 350, null);
 
                 }
                 break;
@@ -161,7 +163,6 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        // TODO Auto-generated method stub
 
     }
 
