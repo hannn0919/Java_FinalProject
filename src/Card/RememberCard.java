@@ -1,24 +1,12 @@
 package Card;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-//import java.awt.GraphicsConfiguration;
-import java.awt.GridLayout;
-//import java.awt.Image;
-//import java.awt.HeadlessException;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.util.LinkedList;
-import java.util.Random;
-
-//import javax.imageio.ImageIO;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
 
 
 
@@ -30,7 +18,7 @@ public class RememberCard extends JFrame {
     /**
      * 初始化遊戲的行列數，行列數成績必須為偶數
      */
-    private static final int ROWS = 4;
+    private static final int ROWS = 6;
     private static final int COLUMNS = 5;
     private static final long serialVersionUID = -8908268719780973221L;
     private JTextField txt_Time;
@@ -49,47 +37,108 @@ public class RememberCard extends JFrame {
     private JPanel panel_Pic;
 
     public RememberCard() {
+
+        panel_Pic = new JPanel();//右邊的面板
+        
         setTitle("相同卡牌");
+        JPanel panel_another = new JPanel();//左邊的面板
+        JPanel panel_another1 = new JPanel();//時間的面板
+        JPanel panel_another2 = new JPanel();//rule的面板
+        JPanel panel_another3 = new JPanel();//item的面板
+        JPanel panel_another4 = new JPanel();//exp and money的面板
+        
+        getContentPane().add(panel_another, BorderLayout.WEST);
+        getContentPane().add(panel_Pic, FlowLayout.CENTER);
+        panel_another.setLayout(new FlowLayout(FlowLayout.CENTER));
+        
+        panel_Pic.setSize(900, 675);//右邊的面板
+        panel_Pic.setBackground(Color.blue);
 
-        JPanel panel_Time = new JPanel();//新的面板
-        getContentPane().add(panel_Time, BorderLayout.NORTH);//放在上面 panel time
+        panel_another.setPreferredSize(new Dimension(300, 675));//左邊的面板
+        panel_another.setBackground(Color.yellow);
 
+        panel_another1.setPreferredSize(new Dimension(300, 168));
+        panel_another1.setBackground(Color.green);
+
+        panel_another2.setPreferredSize(new Dimension(300, 168));
+        panel_another2.setBackground(Color.red);
+
+        panel_another3.setPreferredSize(new Dimension(300, 168));
+        panel_another3.setBackground(Color.gray);
+
+        panel_another4.setPreferredSize(new Dimension(300, 168));
+
+        //////////////////////////////////////
+        ////////time//////////////////////////
         JLabel lbl_Time = new JLabel("已經過");
-        panel_Time.add(lbl_Time);//放在上面 panel time
+        panel_another1.add(lbl_Time);//放在上面 panel time
 
         txt_Time = new JTextField();
-        txt_Time.setEditable(false);
-        panel_Time.add(txt_Time);
+        txt_Time.setEditable(false);    
         txt_Time.setColumns(10);////放秒的框框
+        panel_another1.add(txt_Time);
 
         JLabel lbl_Unit = new JLabel("秒");
-        panel_Time.add(lbl_Unit);
+        panel_another1.add(lbl_Unit);
+        panel_another.add(panel_another1);
+        //////////////////////////////////////
+        ////////rule//////////////////////////
+        JLabel lbl_rule = new JLabel("規則:");
+        panel_another2.add(lbl_rule);//放在上面 panel time
 
+        JButton btn_rule = new JButton("點擊看規則!");
+        panel_another2.add(btn_rule);
+        panel_another.add(panel_another2);
+        ///////////////////////////////////////////////////////////////
+
+        ////////item//////////////////////////
+        JLabel lbl_item = new JLabel("道具/裝備:");
+        panel_another3.add(lbl_item);
+        
+        panel_another.add(panel_another3);
+        ///////////////////////////////////////////////////////////////
+        ////////exp and money//////////////////////////
+        panel_another4.setLayout(new FlowLayout(FlowLayout.LEFT));
+        JLabel lbl_exp = new JLabel("exp:");
+        JLabel lbl_money = new JLabel("money:");
+        lbl_exp.setPreferredSize(new Dimension(300, 50));
+        panel_another4.add(lbl_exp);
+        panel_another4.add(lbl_money);
+
+        panel_another.add(panel_another4);
+        ///////////////////////////////////////////////////////////////
+
+        //JPanel panel_Time = new JPanel();//新的面板
         JButton btn_Start = new JButton("開始遊戲");
-        panel_Time.add(btn_Start);
+        panel_Pic.add(btn_Start);
 
-        JButton btn_Item = new JButton("道具");
-        panel_Time.add(btn_Item);
-        /////////////////////////////////////
-
-        panel_Pic = new JPanel();
         getContentPane().add(panel_Pic, BorderLayout.CENTER);///照片的位置
 
-        btn_Item.addActionListener(new ActionListener() {//道具的按鈕click
+        /*btn_Item.addActionListener(new ActionListener() {//道具的按鈕click
             public void actionPerformed(ActionEvent e) {//按下道具後  框框的時間還在跑 得改
                 openCard();//翻開全部的卡三秒
             }
 
-        });
+        });*/
 
         btn_Start.addActionListener(new ActionListener() {//開始遊戲的按鈕click
             @Override
             public void actionPerformed(ActionEvent e) {
+                panel_Pic.remove(btn_Start);
                 if (isRunning) {
                     return;
                 }
                 setRunning(true);
                 startGame();
+
+            }
+
+        });
+        ///////////////////////////////////////////////////////
+        btn_rule.addActionListener(new ActionListener() {//rule
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame_rule = new JFrame("規則說明");
+                //frame_rule.setTitle("規則說明");
 
             }
 
@@ -255,3 +304,9 @@ public class RememberCard extends JFrame {
     }
 
 }
+
+//public class Rule extends JFrame{
+    
+
+
+//}
