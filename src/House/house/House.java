@@ -1,5 +1,4 @@
 package House.house;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,6 +10,10 @@ public class House {
     private static int exp;
     private static int holdMoney;
     private Map<String,Integer> map = new HashMap<String, Integer>();
+    private float[] stock;
+    private float[] stockLast;
+    private float[] stockPrs;
+    private int[] stockTicket;
 
     public House()
     {
@@ -18,6 +21,14 @@ public class House {
         this.level = 1;
         this.role = "鮮嫩小心肝";
         this.exp = 0;
+        this.stock = new float[4];
+        this.stockTicket = new int[4];
+        this.stockLast = new float[4];
+        this.stockPrs = new float[4];
+        for (int i = 0;i<4;i++) {
+            stock[i] = (float) (10 * (i+1) );
+            stockTicket[i] = 0;
+        }
     }
 
     public House(Map<String,Integer> map)
@@ -134,5 +145,49 @@ public class House {
             return map.get(element);
         }
         return 0;
+    }
+
+    //get stock
+    public float[] getStock()
+    {
+        return stock;
+    }
+
+    //set stock
+    public void setStock(int i, float f)
+    {
+        stock[i] = f;
+    }
+    //get ticket
+    public int[] getStockTicket(){
+        return stockTicket;
+    }
+    // set ticket
+    public void setStockTicket( int i, int n){
+        stockTicket[i] = n;
+    }
+
+
+    //set stock
+    public void setStockLast(int i, float f)
+    {
+        stockLast[i] = f;
+    }
+    //get stock
+    public float[] getStockLast()
+    {
+        return stockLast;
+    }
+
+    //set stock
+    public void setStockPrs(int i, float f)
+    {
+        stockPrs[i] = f;
+    }
+
+    //get stock
+    public float[] getStockPrs()
+    {
+        return stockPrs;
     }
 }
