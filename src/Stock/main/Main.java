@@ -17,8 +17,6 @@ public class Main {
         StockPanel stockPanel = new StockPanel(h);
         application.add(stockPanel, BorderLayout.CENTER);
 
-        //froggerPanel.setFocusable(true);
-        //froggerPanel.requestFocusInWindow();
 
         // create a label and place it in SOUTH of BorderLayout
         application.add(new JLabel("Frogger.java"),

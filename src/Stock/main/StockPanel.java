@@ -1,9 +1,11 @@
 
 
-package Stock.util;
+package Stock.main;
 // JLabels with text and icons.
 import java.awt.*; // specifies how components are arranged
 import java.awt.event.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import javax.swing.JLabel; // displays text and images
 import javax.swing.JPanel;
@@ -11,7 +13,6 @@ import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-import Stock.main.TempHouse;
 import Stock.util.*;
 
 public class StockPanel extends JPanel
@@ -27,6 +28,10 @@ public class StockPanel extends JPanel
     private JTextField[] LastField;
     private JTextField[] newField;
     private JTextField[] PesField;
+
+    private JPanel moneyPanel;
+    private JLabel moneyLabel;
+    private JTextField moneyField;
 
     private final JLabel buyLabel;
     private final JLabel saleLabel;
@@ -49,8 +54,20 @@ public class StockPanel extends JPanel
 
     public StockPanel(TempHouse h)
     {
+
+
         this.temph = h;
         nextStock(temph);
+
+
+        moneyPanel = new JPanel(new GridLayout(1,2));
+        moneyLabel = new JLabel("擁有金額：");
+        moneyPanel.add(moneyLabel);
+
+        moneyField = new JTextField(String.valueOf(temph.getHoldMoney()));
+        moneyField.setEditable(false);
+        moneyPanel.add(moneyField);
+
         StockName = new JLabel("股票");
         StockLast = new JLabel("前次股價");
         StockNew = new JLabel("現在股價");
@@ -60,7 +77,6 @@ public class StockPanel extends JPanel
         LastField= new JTextField[4];
         newField= new JTextField[4];
         PesField= new JTextField[4];
-
 
 
         upPanel = new JPanel();
@@ -116,10 +132,13 @@ public class StockPanel extends JPanel
 
         pronoucingLabel = new JLabel();
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
         add(Box.createVerticalStrut(100));
         add(upPanel);
         add(Box.createVerticalStrut(100));
         add(downPanel);
+        add(Box.createVerticalStrut(50));
+        add(moneyPanel);
         add(Box.createVerticalStrut(100));
         add(pronoucingLabel);
 
@@ -151,6 +170,7 @@ public class StockPanel extends JPanel
                     temph.setStockTicket( JComboBoxSale.getSelectedIndex(),  temph.getStockTicket()[ JComboBoxSale.getSelectedIndex() ]
                             - Integer.parseInt(saleticketField.getText()));
                     temph.setHoldMoney(temph.getHoldMoney() + dollar);
+                    moneyField.setText(String.valueOf(temph.getHoldMoney()));
                     pronoucingLabel.setText("謝謝惠顧");
                 }
             }else if(event.getSource() == BuyButton ){
@@ -164,6 +184,7 @@ public class StockPanel extends JPanel
                     temph.setStockTicket( JComboBoxBuy.getSelectedIndex(),  temph.getStockTicket()[ JComboBoxBuy.getSelectedIndex() ]
                             + Integer.parseInt(buyticketField.getText()));
                     temph.setHoldMoney(temph.getHoldMoney() - dollar);
+                    moneyField.setText(String.valueOf(temph.getHoldMoney()));
                     pronoucingLabel.setText("謝謝惠顧");
                 }
             }else if(event.getSource() == buyticketField){
@@ -215,5 +236,4 @@ public class StockPanel extends JPanel
         }
         return tempf;
     }
-
 }
