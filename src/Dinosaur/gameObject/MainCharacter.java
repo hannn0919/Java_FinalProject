@@ -46,7 +46,7 @@ public class MainCharacter {
         rectBound = new Rectangle();
         normalRunAnim = new Animation(90);
         normalRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/LV1肝.png"));
-        normalRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/LV1肝.png"));
+        normalRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/LV1肝憋腳.png"));
         jumping = Resource.getResouceImage("data/dinosaur/LV1肝.png");
         downRunAnim = new Animation(90);
         downRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/LV1肝.png"));
