@@ -22,12 +22,12 @@ import HitMouse.gameobject.Character;
 
 import java.lang.Thread;
 
-public class Mouse {
+public class Mouse extends JLayeredPane{
     private JFrame frame;
     private ImageIcon[] teacher=new ImageIcon[6];
     private ImageIcon[] student = new ImageIcon[5];
     private ImageIcon kaishi;
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -42,26 +42,32 @@ public class Mouse {
     }
     public Mouse(){
         ImageIcon image=new ImageIcon("data/HitMouse/background/background.png");//background
-        frame = new JFrame("打地鼠");
+       /* frame = new JFrame("打地鼠");
         frame.setSize(900,675);
         //frame.setBounds(0,0,900,675);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
 
         JLayeredPane layeredPane=new JLayeredPane();
-        MyPanel panel=new MyPanel();
+
+        JPanel panel=new JPanel();
         frame.add(panel);
         panel.setLayout(null);
         panel.setBounds(0,0,image.getIconWidth(),image.getIconHeight());
-
+        panel.add(layeredPane);
+*/
+       // layeredPane.add(panel,JLayeredPane.DEFAULT_LAYER);  //背景放在最下層
         JLabel jl=new JLabel(image);
         jl.setBounds(0,0,image.getIconWidth(),image.getIconHeight());
-        panel.add(jl);
+        add(jl,JLayeredPane.DEFAULT_LAYER);
 
-        layeredPane.add(panel,JLayeredPane.DEFAULT_LAYER);  //背景放在最下層
+        // panel.add(jl);
+        //frame.add(layeredPane);
+        /*
         frame.setLayeredPane(layeredPane);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+        */
         for(int i=0;i<6;i++){
             teacher[i]=new ImageIcon(Character.teachers[i]);
         }
@@ -72,7 +78,7 @@ public class Mouse {
         JButton btnStart = new JButton();
         btnStart.setIcon(kaishi);
         btnStart.setBounds(736, 35, 125, 59);
-        layeredPane.add(btnStart,JLayeredPane.MODAL_LAYER);
+        add(btnStart,JLayeredPane.MODAL_LAYER);
         JButton[] win=new JButton[16];
         JButton[] but=new JButton[16];
         int k=0;
@@ -89,7 +95,7 @@ public class Mouse {
                 but[k].setContentAreaFilled(false);
 
 
-                layeredPane.add(but[k],JLayeredPane.MODAL_LAYER);
+                add(but[k],JLayeredPane.MODAL_LAYER);
 
                 win[k] = new JButton();
                 win[k].setIcon(new ImageIcon("data/HitMouse/background/窗戶.png"));
@@ -98,19 +104,19 @@ public class Mouse {
                 win[k].setBorder(null);
                 win[k].setFocusPainted(false);
                 win[k].setContentAreaFilled(false);
-                layeredPane.add(win[k],JLayeredPane.PALETTE_LAYER);
+                add(win[k],JLayeredPane.PALETTE_LAYER);
                 k++;
             }
         }
         Score score =new Score();
         JLabel djs =new JLabel("倒計時："); //Countdown
         djs.setBounds(8, 16, 250, 59);
-        layeredPane.add(djs,JLayeredPane.MODAL_LAYER);
+        add(djs,JLayeredPane.MODAL_LAYER);
 
 
         JLabel jfb =new JLabel("得分：0"); //Scoreboard
         jfb.setBounds(8, 40, 200, 59);
-        layeredPane.add(jfb,JLayeredPane.MODAL_LAYER);
+        add(jfb,JLayeredPane.MODAL_LAYER);
 
 
         Timer timer=new Timer(score.getSd()-10,new ActionListener() {
@@ -196,12 +202,64 @@ public class Mouse {
                 }
                 @Override
                 public void mousePressed(MouseEvent e) {
+                    int c = e.getButton();// 得到按下的滑鼠鍵
+                    if (c == MouseEvent.BUTTON1){ // 判斷是滑鼠左鍵按下
+                        if (but[ii].getIcon() != null) {
+                            boolean judge=false;
+                            for(int j=0;j<6;j++){
+                                if(Character.teachers[j].equals(but[ii].getIcon().toString())) judge=true;
+                            }
+                            if(judge==true) score.setScore(score.getScore() + 1);
+                            else score.setScore(score.getScore() - 1);
 
+                            but[score.getLast()].setIcon(null);
+
+                        }
+                    }
+                    if (c == MouseEvent.BUTTON3) {// 判斷是滑鼠右鍵按下
+                        if (but[ii].getIcon() != null) {
+                            boolean judge=false;
+                            for(int j=0;j<5;j++){
+                                if(Character.students[j].equals(but[ii].getIcon().toString())) judge=true;
+                            }
+                            if(judge==true) score.setScore(score.getScore() + 1);
+                            else score.setScore(score.getScore() - 1);
+
+                            but[score.getLast()].setIcon(null);
+
+                        }
+                    }
                 }
 
                 @Override
                 public void mouseReleased(MouseEvent e) {
+                    int c = e.getButton();// 得到按下的滑鼠鍵
+                    if (c == MouseEvent.BUTTON1){ // 判斷是滑鼠左鍵按下
+                        if (but[ii].getIcon() != null) {
+                            boolean judge=false;
+                            for(int j=0;j<6;j++){
+                                if(Character.teachers[j].equals(but[ii].getIcon().toString())) judge=true;
+                            }
+                            if(judge==true) score.setScore(score.getScore() + 1);
+                            else score.setScore(score.getScore() - 1);
 
+                            but[score.getLast()].setIcon(null);
+
+                        }
+                    }
+                    if (c == MouseEvent.BUTTON3) {// 判斷是滑鼠右鍵按下
+                        if (but[ii].getIcon() != null) {
+                            boolean judge=false;
+                            for(int j=0;j<5;j++){
+                                if(Character.students[j].equals(but[ii].getIcon().toString())) judge=true;
+                            }
+                            if(judge==true) score.setScore(score.getScore() + 1);
+                            else score.setScore(score.getScore() - 1);
+
+                            but[score.getLast()].setIcon(null);
+
+                        }
+                    }
                 }
 
                 @Override
@@ -217,6 +275,6 @@ public class Mouse {
 
         }
 
-        frame.setVisible(true);
+//        frame.setVisible(true);
     }
 }
