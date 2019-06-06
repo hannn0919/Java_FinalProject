@@ -32,7 +32,7 @@ public class PicPanel extends JPanel {
     public PicPanel(RememberCard rememberCard, String picPath) {
         this.picPath = picPath;
         this.parent = rememberCard;
-        this.setBorder(new CompoundBorder(null, new LineBorder(new Color(0, 0, 0), 2)));
+        this.setBorder(new CompoundBorder(null, new LineBorder(new Color(0, 0, 0), 1)));
         this.setLayout(new BorderLayout());
         this.add(lbl_Pic, BorderLayout.CENTER);
         this.addMouseListener(mouseAdapter);
@@ -127,8 +127,8 @@ public class PicPanel extends JPanel {
             if (image != null) {
                 //int lblWidth = this.getWidth();
                 //int lblHeight = this.getHeight();
-                int lblWidth = 280;//圖片的長寬
-                int lblHeight = 188;
+                int lblWidth = 170;//圖片的長寬
+                int lblHeight = 135;
                 //System.out.println("PicPanel initLabelImage " + lblWidth + " " + lblHeight);
                 bgIcon = new ImageIcon(image.getScaledInstance(lblWidth, lblHeight, Image.SCALE_DEFAULT));
                 lbl_Pic.setIcon(bgIcon);

@@ -6,12 +6,14 @@ public class Rectengle{
     private int y;
     private int w;
     private int h;
+    private String ImageName;
 
-    public Rectengle(int x, int y, int w, int h){
+    public Rectengle(int x, int y, int w, int h, String ImageName){
         this.x = x;
         this.y = y;
         this.w = w;
         this.h = h;
+        this.ImageName = ImageName;
     }
 
     public boolean intersect(Rectengle other){
@@ -62,6 +64,14 @@ public class Rectengle{
     }
 
     public void update(){
+    }
+
+    public String getImageName(){
+        return ImageName;
+    }
+
+    public void setImageName(String s){
+        this.ImageName = s;
     }
 
 }

@@ -9,8 +9,8 @@ import java.util.Random;
 import Dinosaur.util.Resource;
 
 public class EnemiesManager {
-    private BufferedImage cactus1;
-    private BufferedImage cactus2;
+    private BufferedImage water1;
+    private BufferedImage water2;
     private BufferedImage bug;
     private Random rand;
 
@@ -19,8 +19,8 @@ public class EnemiesManager {
 
     public EnemiesManager(MainCharacter mainCharacter) {
         rand = new Random();
-        cactus1 = Resource.getResouceImage("data/dinosaur/水灘1.png");
-        cactus2 = Resource.getResouceImage("data/dinosaur/水灘2.png");
+        water1 = Resource.getResouceImage("data/dinosaur/水灘1.png");
+        water2 = Resource.getResouceImage("data/dinosaur/水灘2.png");
         bug = Resource.getResouceImage("data/dinosaur/bug.png");
         enemies = new ArrayList<Enemy>();
         this.mainCharacter = mainCharacter;
@@ -47,10 +47,10 @@ public class EnemiesManager {
     private Enemy createEnemy() {
         int type = rand.nextInt(3);
         if(type == 0) {
-            return new Water(mainCharacter, 1150, cactus1.getWidth() - 10, cactus1.getHeight() - 10, cactus1);
+            return new Water(mainCharacter, 1150, water1.getWidth() - 10, water1.getHeight() - 10, water1);
         }
         else if(type == 1) {
-            return new Water(mainCharacter, 1150, cactus2.getWidth() - 10, cactus2.getHeight() - 10, cactus2);
+            return new Water(mainCharacter, 1150, water2.getWidth() - 10, water2.getHeight() - 10, water2);
         } else {
             return new Bug(mainCharacter, 1150, bug.getWidth() - 10, bug.getHeight() - 10, bug);
         }

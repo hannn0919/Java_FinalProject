@@ -1,5 +1,6 @@
 package HitMouse;
-
+import House.house.House;
+import Main.Main;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.Color;
@@ -27,20 +28,11 @@ public class Mouse extends JLayeredPane{
     private ImageIcon[] teacher=new ImageIcon[6];
     private ImageIcon[] student = new ImageIcon[5];
     private ImageIcon kaishi;
-    public static void main1(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    Mouse window = new Mouse();
-
-                }
-                catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-    public Mouse(){
+    private Main mainFrame ;
+    private House house;
+    public Mouse(Main mainFrame,House house){
+        this.house=house;
+        this.mainFrame=mainFrame;
         ImageIcon image=new ImageIcon("data/HitMouse/background/background.png");//background
        /* frame = new JFrame("打地鼠");
         frame.setSize(900,675);
@@ -202,64 +194,12 @@ public class Mouse extends JLayeredPane{
                 }
                 @Override
                 public void mousePressed(MouseEvent e) {
-                    int c = e.getButton();// 得到按下的滑鼠鍵
-                    if (c == MouseEvent.BUTTON1){ // 判斷是滑鼠左鍵按下
-                        if (but[ii].getIcon() != null) {
-                            boolean judge=false;
-                            for(int j=0;j<6;j++){
-                                if(Character.teachers[j].equals(but[ii].getIcon().toString())) judge=true;
-                            }
-                            if(judge==true) score.setScore(score.getScore() + 1);
-                            else score.setScore(score.getScore() - 1);
 
-                            but[score.getLast()].setIcon(null);
-
-                        }
-                    }
-                    if (c == MouseEvent.BUTTON3) {// 判斷是滑鼠右鍵按下
-                        if (but[ii].getIcon() != null) {
-                            boolean judge=false;
-                            for(int j=0;j<5;j++){
-                                if(Character.students[j].equals(but[ii].getIcon().toString())) judge=true;
-                            }
-                            if(judge==true) score.setScore(score.getScore() + 1);
-                            else score.setScore(score.getScore() - 1);
-
-                            but[score.getLast()].setIcon(null);
-
-                        }
-                    }
                 }
 
                 @Override
                 public void mouseReleased(MouseEvent e) {
-                    int c = e.getButton();// 得到按下的滑鼠鍵
-                    if (c == MouseEvent.BUTTON1){ // 判斷是滑鼠左鍵按下
-                        if (but[ii].getIcon() != null) {
-                            boolean judge=false;
-                            for(int j=0;j<6;j++){
-                                if(Character.teachers[j].equals(but[ii].getIcon().toString())) judge=true;
-                            }
-                            if(judge==true) score.setScore(score.getScore() + 1);
-                            else score.setScore(score.getScore() - 1);
 
-                            but[score.getLast()].setIcon(null);
-
-                        }
-                    }
-                    if (c == MouseEvent.BUTTON3) {// 判斷是滑鼠右鍵按下
-                        if (but[ii].getIcon() != null) {
-                            boolean judge=false;
-                            for(int j=0;j<5;j++){
-                                if(Character.students[j].equals(but[ii].getIcon().toString())) judge=true;
-                            }
-                            if(judge==true) score.setScore(score.getScore() + 1);
-                            else score.setScore(score.getScore() - 1);
-
-                            but[score.getLast()].setIcon(null);
-
-                        }
-                    }
                 }
 
                 @Override

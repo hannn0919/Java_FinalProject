@@ -40,18 +40,18 @@ public class MainCharacter {
     private AudioClip deadSound;
     private AudioClip scoreUpSound;
 
-    public MainCharacter() {
+    public MainCharacter(int lv) {
         posX = 150;
         posY = LAND_POSY;
         rectBound = new Rectangle();
         normalRunAnim = new Animation(90);
-        normalRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/LV1肝.png"));
-        normalRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/LV1肝憋腳.png"));
-        jumping = Resource.getResouceImage("data/dinosaur/LV1肝.png");
+        normalRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/LV"+lv+"肝.png"));
+        normalRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/LV"+lv+"肝憋腳.png"));
+        jumping = Resource.getResouceImage("data/dinosaur/LV"+lv+"肝.png");
         downRunAnim = new Animation(90);
-        downRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/LV1肝.png"));
-        downRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/LV1肝.png"));
-        deathImage = Resource.getResouceImage("data/dinosaur/LV1肝.png");
+        downRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/LV"+lv+"肝.png"));
+        downRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/LV"+lv+"肝.png"));
+        deathImage = Resource.getResouceImage("data/dinosaur/LV"+lv+"肝.png");
 
         try {
             jumpSound =  Applet.newAudioClip(new URL("file","","data/dinosaur/jump.wav"));
@@ -141,7 +141,8 @@ public class MainCharacter {
 
     public void dead(boolean isDeath) {
         if(isDeath) {
-            state = DEATH;
+            if(score<0)
+                score = 0;
         } else {
             state = NORMAL_RUN;
         }

@@ -5,6 +5,8 @@ import javax.swing.SwingUtilities;
 
 import Card.RememberCard;
 
+//private Main mainframe;
+//private House house;
 public class CardGame {
 
     public static void main(String[] args) {
@@ -12,10 +14,12 @@ public class CardGame {
             @Override
             public void run() {
                 RememberCard remCard = new RememberCard();
+
                 remCard.setSize(1200, 675);
                 remCard.setLocationRelativeTo(null);
                 remCard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 remCard.setVisible(true);
+                Rule r = new Rule();
             }
         });
     }

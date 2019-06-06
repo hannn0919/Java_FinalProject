@@ -13,7 +13,9 @@ import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
+import House.house.House;
 import Stock.util.*;
+import Main.*;
 
 public class StockPanel extends JPanel
 {
@@ -44,7 +46,7 @@ public class StockPanel extends JPanel
     private final JComboBox<String> JComboBoxBuy;
     private final JComboBox<String> JComboBoxSale;
 
-    private TempHouse temph;
+    private House temph;
 
     private JLabel pronoucingLabel;
 
@@ -52,7 +54,7 @@ public class StockPanel extends JPanel
             "微積分", "普通物理", "線性代數", "程式設計"
     };
 
-    public StockPanel(TempHouse h)
+    public StockPanel(Main mainFrame, House h)
     {
 
 
@@ -60,7 +62,7 @@ public class StockPanel extends JPanel
         nextStock(temph);
 
 
-        moneyPanel = new JPanel(new GridLayout(1,2));
+        moneyPanel = new JPanel(new GridLayout(1,4));
         moneyLabel = new JLabel("擁有金額：");
         moneyPanel.add(moneyLabel);
 
@@ -215,7 +217,7 @@ public class StockPanel extends JPanel
     }
 
 
-    public static void nextStock(TempHouse h){
+    public static void nextStock(House h){
         for(int i = 0;i<4;i++) {
             h.setStockLast(i, h.getStock()[i]);
             h.setStockPrs(i, getNextPercent());

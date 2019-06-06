@@ -9,11 +9,8 @@ public class Frogger
     {
         // create JFrame
         JFrame application = new JFrame("Froger");
-
-        FroggerPanel froggerPanel = new FroggerPanel();
-        application.add(froggerPanel, BorderLayout.CENTER);
-
-        //froggerPanel.setFocusable(true);
+        //FroggerPanel froggerPanel = new FroggerPanel()
+          //froggerPanel.setFocusable(true);
         //froggerPanel.requestFocusInWindow();
 
         // create a label and place it in SOUTH of BorderLayout

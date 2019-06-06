@@ -6,9 +6,9 @@ public class Car extends Rectengle
     private String ImageName;
 
     public Car(int x, int y, int w, int h, int speed, String ImageName){
-        super(x, y, w, h);
+        super(x, y, w, h, ImageName);
         this.speed = speed;
-        this.ImageName = ImageName;
+
     }
 
 
@@ -19,14 +19,6 @@ public class Car extends Rectengle
 
     public int getSpeed(){
         return this.speed;
-    }
-
-    public void setImageName(String s){
-        this.ImageName = s;
-    }
-
-    public String getImageName(){
-        return this.ImageName;
     }
 
     @Override
