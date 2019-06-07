@@ -3,7 +3,7 @@ package Main;
 import Dinosaur.userinterface.GameScreen;
 import Frogger.main.FroggerPanel;
 import House.house.House;
-import Stock.main.StockPanel;
+
 import House.bag.BagWindow;
 import House.store.Store;
 import HitMouse.Mouse;
@@ -142,7 +142,7 @@ public class Main extends JFrame {
         froggermusic.stop();
         cardmusic.stop();
         StockWindow.nextStock(house);
-        JPanel stock  = new StockPanel(this, this.house);
+        JPanel stock  = new StockWindow(this, this.house);
         this.setTitle("股市");
         this.setContentPane(stock);
         this.setVisible(true);
