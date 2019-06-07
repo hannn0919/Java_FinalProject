@@ -82,7 +82,6 @@ public class House {
     //set the Equipment
     public void setEquipment(String element) {
         if( map.containsKey(element))  {
-                System.out.println(map.get(element));
                 JOptionPane.showMessageDialog(null, "肝，北七?你已經有了");
         }
         else {
@@ -137,7 +136,6 @@ public class House {
     public int getItem(String element){
         if(map.containsKey(element))
         {
-            System.out.println("獲得道具:"+element);
             return map.get(element);
         }
         else return 0;
@@ -147,7 +145,6 @@ public class House {
     public int getEquipment(String element){
         if(map.containsKey(element))
         {
-            JOptionPane.showMessageDialog(null, "獲得裝備:"+element);
             return map.get(element);
         }
         return 0;
@@ -157,7 +154,6 @@ public class House {
     public int useItem(String element){
         if(map.containsKey(element))
         {
-            System.out.println("使用道具:"+element);
             map.put(element,map.get(element)-1);
             return map.get(element);
         }
@@ -165,11 +161,10 @@ public class House {
     }
 
     //use the Equipment
-    public int useEquipment(String element){
+    public int dontUseEquipment(String element){
         if(map.containsKey(element))
         {
-            JOptionPane.showMessageDialog(null, "使用裝備:"+element);
-            //map.put(element,2);
+            map.put(element,2);
             return map.get(element);
         }
         return 0;

@@ -147,7 +147,7 @@ public class Store extends JPanel {
             } else if (event.getSource() == b2) {
                 int opt= JOptionPane.showConfirmDialog(null, "分數增為兩倍，效果維持十秒\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 // 0=yes, 1=no
-                if(opt==0)  house.setItem("時間加倍券");
+                if(opt==0)  house.setItem("金錢加倍券");
             } else if (event.getSource() == b3) {
                 int opt= JOptionPane.showConfirmDialog(null, "變身無敵狀態，效果維持十秒\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 // 0=yes, 1=no
@@ -164,7 +164,7 @@ public class Store extends JPanel {
                 int opt= JOptionPane.showConfirmDialog(null, "起點向前移至分隔島\n-------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 // 0=yes, 1=no
                 if(opt==0){
-                    house.setItem("地下室鑰匙");
+                    house.setItem("地下道鑰匙");
                 }
             } else if (event.getSource() == b6) {
                 int opt= JOptionPane.showConfirmDialog(null, "被警察抓到時不需處罰\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
@@ -284,7 +284,7 @@ public class Store extends JPanel {
                 iconB2 = new ImageIcon("data//Bag&Store/exp.png");
                 iconB3 = new ImageIcon("data//Bag&Store/電蚊拍.png");
                 iconB4 = new ImageIcon("data//Bag&Store/增時卡.png");
-                iconB5 = new ImageIcon("data//Bag&Store/地下室鑰匙.png");
+                iconB5 = new ImageIcon("data//Bag&Store/地下道鑰匙.png");
                 iconB6 = new ImageIcon("data//Bag&Store/警察卡.png");
                 iconB7 = new ImageIcon("data//Bag&Store/老師卡.png");
                 iconB8 = new ImageIcon("data//Bag&Store/加倍卡.png");

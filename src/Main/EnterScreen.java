@@ -31,6 +31,8 @@ public class EnterScreen extends JPanel{
             @Override
             public void mouseEntered(MouseEvent e){
                 buttonSound();
+                btnNew.setToolTipText("这是按钮");
+                ToolTipManager.sharedInstance().setDismissDelay(5000);// 设置为5秒
                 btnNew.setIcon(resize(btnNew.getIcon().getIconWidth()+10,btnNew.getIcon().getIconHeight()+10,(ImageIcon)btnNew.getIcon()));
                 setCursor(new Cursor(Cursor.HAND_CURSOR));
             }
