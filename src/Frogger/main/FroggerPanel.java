@@ -87,8 +87,8 @@ public class FroggerPanel extends JPanel
                     frog.move(40, 0);
                     break;
                 case KeyEvent.VK_P:
-                    mainFrame.changeToMainScreen();
                     timer.cancel();
+                    mainFrame.changeToMainScreen();
                     end = 0;
                     break;
                 default:
@@ -100,6 +100,7 @@ public class FroggerPanel extends JPanel
 
     private void Init()
     {
+        time = 6000;
         this.end = 1;
         cars = new ArrayList<>();
         frog = new Frog(Frog.startX, Frog.startY, 70, 70, "characters50.png");
@@ -127,17 +128,30 @@ public class FroggerPanel extends JPanel
         }
     }
 
-    private void gameStart() {
-
+    private void gameStart()
+    {
         timer = new Timer();
         timer.schedule(new TimerTask(){
             @Override
             public void run(){
+                if(time == 6000){
+                    int temp = JOptionPane.showConfirmDialog(null, "小心肝過馬路\n馬路如虎口，小心罰三百\n(Yes : 開始遊戲 No : 回選單)", "", JOptionPane.YES_NO_OPTION);
+                    if(temp == 1){
+                        timer.cancel();
+                        mainFrame.changeToMainScreen();
+                    }
+                }
                 time--;
-                timeLabel.setText(String.valueOf(time/100 + 1));
-                if(time == 0){
-                    timer.cancel();
-                    mainFrame.changeToMainScreen();
+                //System.out.println("test");
+                timeLabel.setText(String.valueOf(time/100));
+                if(time == 99){
+                    int temp = JOptionPane.showConfirmDialog(null, "遊戲結束\n是否要重新(Yes : 重新遊戲 No : 回選單)", "", JOptionPane.YES_NO_OPTION);
+                    if(temp == 0){ // 0 yew 1 no
+                        Init();
+                    }else if(temp == 1){
+                        timer.cancel();
+                        mainFrame.changeToMainScreen();
+                    }
                 }
                 if(time == 5000){
                     police.setSpeed(-1);
@@ -167,8 +181,14 @@ public class FroggerPanel extends JPanel
                     police.update();
                 }
                 if(frog.win()){
-                    timer.cancel();
-                    mainFrame.changeToMainScreen();
+                    int temp = JOptionPane.showConfirmDialog(null, "遊戲勝利\n你增加了"+time+"經驗值\n是否要重新(Yes : 重新遊戲 No : 回選單)", "", JOptionPane.YES_NO_OPTION);
+                    if(temp == 0){ // 0 yew 1 no
+                        Init();
+                        time = 5999;
+                    }else if(temp == 1) {
+                        timer.cancel();
+                        mainFrame.changeToMainScreen();
+                    }
                 }
                 repaint();
             }

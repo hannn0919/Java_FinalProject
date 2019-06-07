@@ -1,6 +1,8 @@
 package House.house;
 //import Stock.main.StockWindow;
 
+import Stock.main.StockWindow;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,10 +33,10 @@ public class House {
             stock[i] = (float) (10 * (i+1) );
             stockTicket[i] = 0;
             data[i][0][0]= stock[i];
-            /*for(int j = 1;j<9;j++){
+            for(int j = 1;j<9;j++){
                 data[i][0][j] = data[i][0][j-1] * (1F + StockWindow.getNextPercent() );
             }
-            stockPrs[i] = StockWindow.getNextPercent();*/
+            stockPrs[i] = StockWindow.getNextPercent();
             data[i][0][9] = data[i][0][8] * ( 1F + stockPrs[i]);
             stock[i] = (float) data[i][0][9];
         }

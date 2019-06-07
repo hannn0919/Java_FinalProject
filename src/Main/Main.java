@@ -7,6 +7,7 @@ import Stock.main.StockPanel;
 import House.bag.BagWindow;
 import House.store.Store;
 import HitMouse.Mouse;
+import Stock.main.StockWindow;
 
 import javax.sound.sampled.*;
 import javax.swing.JFrame;
@@ -140,6 +141,7 @@ public class Main extends JFrame {
         hamstermusic.stop();
         froggermusic.stop();
         cardmusic.stop();
+        StockWindow.nextStock(house);
         JPanel stock  = new StockPanel(this, this.house);
         this.setTitle("股市");
         this.setContentPane(stock);
