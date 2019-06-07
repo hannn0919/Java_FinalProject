@@ -4,17 +4,20 @@
     <list default="true" id="3654a9fa-f7dd-4cde-a891-63b6d81e107a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Project/Dinosaur/gameObject/EnemiesManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/Dinosaur/gameObject/EnemiesManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Project/Dinosaur/gameObject/MainCharacter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/Dinosaur/gameObject/MainCharacter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Final_Project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Final_Project/Dinosaur/userinterface/GameScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/Dinosaur/userinterface/GameScreen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final_Project/Frogger/main/FroggerPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/Frogger/main/FroggerPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final_Project/Frogger/main/FroggerPanel$Keylisten.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/Frogger/main/FroggerPanel$Keylisten.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final_Project/Frogger/main/FroggerPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/Frogger/main/FroggerPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Final_Project/House/bag/BagWindow$ButtonHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/House/bag/BagWindow$ButtonHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Final_Project/House/bag/BagWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/House/bag/BagWindow.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Final_Project/House/house/House.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/House/house/House.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final_Project/House/house/HouseTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final_Project/House/store/Store$ButtonHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/House/store/Store$ButtonHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Final_Project/House/store/Store.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/House/store/Store.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dinosaur/gameObject/EnemiesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dinosaur/gameObject/EnemiesManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dinosaur/gameObject/MainCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dinosaur/gameObject/MainCharacter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Dinosaur/userinterface/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dinosaur/userinterface/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/drama.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/drama.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HitMouse/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HitMouse/Mouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Stock/main/StockPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Stock/main/StockPanel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,19 +27,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/House/house/House.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2190">
+            <state relative-caret-position="361">
               <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-              <folding>
-                <element signature="e#437#454#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -44,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Stock/main/StockWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-361">
-              <caret line="178" column="51" lean-forward="true" selection-start-line="178" selection-start-column="51" selection-end-line="178" selection-end-column="51" />
+            <state relative-caret-position="2945">
+              <caret line="178" column="51" selection-start-line="178" selection-start-column="51" selection-end-line="178" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -53,11 +52,43 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-385">
-              <caret line="228" column="32" lean-forward="true" selection-start-line="228" selection-start-column="32" selection-end-line="228" selection-end-column="32" />
+            <state relative-caret-position="142">
+              <caret line="65" column="36" lean-forward="true" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/HitMouse/Mouse.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="177">
+              <caret line="81" column="42" lean-forward="true" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2842#2843#0" expanded="true" />
+                <element signature="e#2884#2885#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Stock/main/StockPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1197">
+              <caret line="76" selection-start-line="76" selection-end-line="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Dinosaur/userinterface/GameScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="15" selection-start-line="15" selection-end-line="16" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -71,6 +102,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>main</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -82,20 +118,21 @@
         <option value="$PROJECT_DIR$/src/Dinosaur/gameObject/Water.java" />
         <option value="$PROJECT_DIR$/src/Dinosaur/userinterface/LabelDemo.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/HitMouse/Mouse.java" />
         <option value="$PROJECT_DIR$/src/Dinosaur/gameObject/EnemiesManager.java" />
         <option value="$PROJECT_DIR$/src/Dinosaur/gameObject/MainCharacter.java" />
-        <option value="$PROJECT_DIR$/src/Dinosaur/userinterface/GameScreen.java" />
         <option value="$PROJECT_DIR$/src/Main/drama.java" />
         <option value="$PROJECT_DIR$/src/Stock/main/StockWindow.java" />
         <option value="$PROJECT_DIR$/src/House/house/House.java" />
         <option value="$PROJECT_DIR$/src/Main/Main.java" />
+        <option value="$PROJECT_DIR$/src/Dinosaur/userinterface/GameScreen.java" />
+        <option value="$PROJECT_DIR$/src/Stock/main/StockPanel.java" />
+        <option value="$PROJECT_DIR$/src/HitMouse/Mouse.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="1366" />
-    <option name="height" value="768" />
+    <option name="width" value="1368" />
+    <option name="height" value="770" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -103,6 +140,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -124,79 +162,25 @@
               <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Frogger" type="462c0819:PsiDirectoryNode" />
+              <item name="Dinosaur" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Frogger" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Frogger" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="House" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="House" type="462c0819:PsiDirectoryNode" />
-              <item name="bag" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="House" type="462c0819:PsiDirectoryNode" />
-              <item name="house" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="House" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Stock" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Stock" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="Dinosaur" type="462c0819:PsiDirectoryNode" />
+              <item name="userinterface" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559900731301" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/jar/jfreechart-1.0.19.jar!/" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -248,9 +232,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20272315" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2077748" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -259,15 +243,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2819277" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49865952" weight="0.28186968" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50075644" side_tool="true" visible="true" weight="0.33770493" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5013405" side_tool="true" visible="true" weight="0.28186968" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Messages" order="10" sideWeight="0.49924356" visible="true" weight="0.33770493" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49731904" weight="0.3371105" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -391,11 +375,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Stock/main/StockPanel.java" />
     <entry file="file://$PROJECT_DIR$/src/HitMouse/gameobject/BackGround.java" />
     <entry file="file://$PROJECT_DIR$/src/HitMouse/gameobject/Teachers.java" />
     <entry file="file://$PROJECT_DIR$/src/HitMouse/gameobject/Windows.java" />
-    <entry file="file://$PROJECT_DIR$/src/HitMouse/Mouse.java" />
     <entry file="file://$PROJECT_DIR$/src/HitMouse/gameobject/MyPanel.java" />
     <entry file="file://$PROJECT_DIR$/src/HitMouse/gameobject/Score.java" />
     <entry file="file://$PROJECT_DIR$/src/HitMouse/gameobject/Num.java" />
@@ -415,23 +397,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/House/house/HouseTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dinosaur/userinterface/GameScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1615">
-          <caret line="99" column="26" selection-start-line="99" selection-start-column="26" selection-end-line="99" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/House/house/HouseTest.java" />
     <entry file="file://$PROJECT_DIR$/src/Frogger/main/FroggerPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -463,26 +429,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/House/house/House.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2190">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding>
-            <element signature="e#437#454#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Stock/main/StockWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-361">
-          <caret line="178" column="51" lean-forward="true" selection-start-line="178" selection-start-column="51" selection-end-line="178" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/EnterScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
@@ -511,10 +457,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/House/house/House.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Stock/main/StockWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2945">
+          <caret line="178" column="51" selection-start-line="178" selection-start-column="51" selection-end-line="178" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Stock/main/StockPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1197">
+          <caret line="76" selection-start-line="76" selection-end-line="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/IdeaProjects/Test/src/HitMouse/Mouse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1254" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Dinosaur/userinterface/GameScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" selection-start-line="15" selection-end-line="16" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-385">
-          <caret line="228" column="32" lean-forward="true" selection-start-line="228" selection-start-column="32" selection-end-line="228" selection-end-column="32" />
+        <state relative-caret-position="142">
+          <caret line="65" column="36" lean-forward="true" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HitMouse/Mouse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="81" column="42" lean-forward="true" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2842#2843#0" expanded="true" />
+            <element signature="e#2884#2885#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -559,7 +553,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8.0_45</last-edited>
+          <last-edited>11</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -583,7 +577,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>jfreechart-1.0</last-edited>
+          <last-edited>jfreechart-1.0.19</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

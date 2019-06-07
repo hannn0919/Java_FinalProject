@@ -50,9 +50,9 @@ public class GameScreen extends JPanel implements Runnable {
         gameOverButtonImage = Resource.getResouceImage("data/dinosaur/gameover_text.png");
         enemiesManager = new EnemiesManager(mainCharacter);
         clouds = new Clouds(1200, mainCharacter);
-        if(house.useItem("竹蜻蜓")!=0){
+        /*if(house.useItem("竹蜻蜓")!=0){
             mainCharacter.score += 100;
-        }
+        }*/
         Keylisten listener = new Keylisten();
         this.addKeyListener(listener);
         startGame();

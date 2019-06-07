@@ -59,7 +59,7 @@ public class StockPanel extends JPanel
 
 
         this.temph = h;
-        nextStock(temph);
+        //nextStock(temph);
 
 
         moneyPanel = new JPanel(new GridLayout(1,4));
@@ -91,8 +91,8 @@ public class StockPanel extends JPanel
 
             StockLabel[i] = new JLabel(STOCK[i]);
             upPanel.add(StockLabel[i]);
-            LastField[i] = new JTextField(String.valueOf( h.getStockLast()[i]));
-            LastField[i].setEditable(false);
+         //   LastField[i] = new JTextField(String.valueOf( h.getStockLast()[i]));
+          //  LastField[i].setEditable(false);
             newField[i] = new JTextField(String.valueOf( h.getStock()[i] ));
             newField[i].setEditable(false);
             PesField[i] = new JTextField(String.valueOf( h.getStockPrs()[i]));
@@ -216,7 +216,7 @@ public class StockPanel extends JPanel
         }
     }
 
-
+/*
     public static void nextStock(House h){
         for(int i = 0;i<4;i++) {
             h.setStockLast(i, h.getStock()[i]);
@@ -224,6 +224,8 @@ public class StockPanel extends JPanel
             h.setStock(i, h.getStockLast()[i] * (1F + h.getStockPrs()[i]));
         }
     }
+
+ */
 
     public static float getNextPercent() {
         Random random = new Random();

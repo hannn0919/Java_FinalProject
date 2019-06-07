@@ -17,7 +17,7 @@ import HitMouse.gameobject.Character;
 import Main.*;
 import House.house.House;
 
-import java.lang.Thread;
+
 
 public class Mouse extends JLayeredPane{
     private JFrame frame;
@@ -48,7 +48,7 @@ public class Mouse extends JLayeredPane{
     private Score score;
 
     private JLabel backGroundLabel;
-    private JLabel backToMainLabel;
+    private JButton backToMainButton;
     private JLabel disCountLabel;
     private JLabel expandMoneyLabel;
     private JLabel ruleLabel;
@@ -74,9 +74,19 @@ public class Mouse extends JLayeredPane{
 
 
         backToMainImage = new ImageIcon("data/HitMouse/icon/backhome.png");
-        backToMainLabel = new JLabel(backToMainImage);
-        backToMainLabel.setBounds(0,0,backToMainImage.getIconWidth(),backToMainImage.getIconHeight());
-        add(backToMainLabel,JLayeredPane.DEFAULT_LAYER);
+         backToMainButton = new JButton(backToMainImage);
+         backToMainButton.setBounds(0,0,backToMainImage.getIconWidth(),backToMainImage.getIconHeight());
+        add(backToMainButton,JLayeredPane.DEFAULT_LAYER);
+         backToMainButton.setBorderPainted(false);
+         backToMainButton.setBorder(null);
+         backToMainButton.setFocusPainted(false);
+         backToMainButton.setContentAreaFilled(false);
+         backToMainButton.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                 mainFrame.changeToMainScreen();
+             }
+         });
 
         disCountImage = new ImageIcon("data/HitMouse/icon/discount.png");
         disCountLabel = new JLabel(disCountImage);
