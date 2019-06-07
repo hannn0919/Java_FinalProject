@@ -22,6 +22,7 @@ public class mainPanel extends JPanel {
     private JButton shopBtn, bagBtn, stockBtn;     //股市商店背包button
     private ImageIcon shopPic, bagPic, stockPic;    //商店背包股市btn的圖片
     private ImageIcon namePic, LVPic, expPic, moneyPic;
+    private boolean hover = false;
 
     public mainPanel(Main mainFrame) {
         this.mainFrame = mainFrame;
@@ -53,7 +54,7 @@ public class mainPanel extends JPanel {
         add(bagBtn);
         add(stockBtn);
 
-        MouseMotionHandler mouseMotionHandler = new MouseMotionHandler();
+        //MouseMotionHandler mouseMotionHandler = new MouseMotionHandler();
         MouseHandler mouseHandler = new MouseHandler();
         shopBtn.addMouseListener(mouseHandler);
         bagBtn.addMouseListener(mouseHandler);
@@ -112,12 +113,35 @@ public class mainPanel extends JPanel {
         //btnDi.setIcon(new ImageIcon("data/main/載入遊戲小.png"));
         btnFrog.addActionListener(handler);
         btnFrog.addMouseListener(mouseHandler);
-        btnFrog.addMouseMotionListener(mouseMotionHandler);
+        //btnFrog.addMouseMotionListener(mouseMotionHandler);
+        //this.addMouseMotionListener(mouseMotionHandler);
         this.add(btnFrog);
+
+
+        this.addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                // hover=false;
+                //if(e.getSource()==btnFrog) {
+                if(btnFrog.contains(e.getPoint())){
+                    hover=true;
+                    //System.out.println("IN");
+                    setCursor(new Cursor(Cursor.HAND_CURSOR));
+                    mouseToolTip.setIcon(new ImageIcon("data/main/商店2.png"));
+                    mouseToolTip.setLocation(358+(int)(e.getPoint().getX() + 15), 379+(int)(e.getPoint().getY() + 15));
+                } else hover=false;
+                if (hover==false){
+                    //System.out.println("幹");
+                    setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+                    mouseToolTip.setIcon(null);
+                    mouseToolTip.setText(null);
+                }
+            }
+        });
 
         btnMouse = new JButton();
         cleanButtom(btnMouse);
-        btnMouse.setBounds(358,121,660, 137);
+        btnMouse.setBounds(358,242,660, 137);
         btnMouse.addActionListener(handler);
         this.add(btnMouse);
 
@@ -163,19 +187,28 @@ public class mainPanel extends JPanel {
         field.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
     }
 
-    private class MouseMotionHandler implements MouseMotionListener{
+   /* private class MouseMotionHandler implements MouseMotionListener{
         public void mouseDragged(MouseEvent e) {
         }//用不到
         @Override
         public void mouseMoved(MouseEvent e) {
-            if(e.getSource()==btnFrog) {
-                System.out.println((int)(e.getPoint().getX() + 15)+"  "+(int)(e.getPoint().getY() + 15));
+           // hover=false;
+            //if(e.getSource()==btnFrog) {
+            if(btnFrog.contains(e.getPoint())){
+                hover=true;
+                System.out.println("IN");
                 setCursor(new Cursor(Cursor.HAND_CURSOR));
                 mouseToolTip.setIcon(new ImageIcon("data/main/商店2.png"));
-                mouseToolTip.setLocation((int)(e.getPoint().getX() + 15), (int)(e.getPoint().getY() + 15));
+                mouseToolTip.setLocation(358+(int)(e.getPoint().getX() + 15), 379+(int)(e.getPoint().getY() + 15));
+            } else hover=false;
+            if (hover==false){
+                System.out.println("幹");
+                setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+                mouseToolTip.setIcon(null);
+                mouseToolTip.setText(null);
             }
         }
-    }
+    }*/
     private class MouseHandler implements MouseListener {
         public void mouseReleased(MouseEvent event) {
         }//用不到

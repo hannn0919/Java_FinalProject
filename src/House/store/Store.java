@@ -43,19 +43,19 @@ public class Store extends JPanel {
 
         add(equip);
         add(item);
-        b1 = new JButton("售價為47,487",iconB1);
-        b2 = new JButton("售價為47,487",iconB2);
-        b3 = new JButton("售價為47,487",iconB3);
-        b4 = new JButton("售價為47,487",iconB4);
-        b5 = new JButton("售價為47,487",iconB5);
-        b6 = new JButton("售價為47,487",iconB6);
-        b7 = new JButton("售價為47,487",iconB7);
-        b8 = new JButton("售價為47,487",iconB8);
-        b9 = new JButton("售價為47,487",iconB9);
-        e1 = new JButton("售價為47,487",iconE1);
-        e2 = new JButton("售價為47,487",iconE2);
-        e3 = new JButton("售價為47,487",iconE3);
-        e4 = new JButton("售價為47,487",iconE4);
+        b1 = new JButton("時間加倍券",iconB1);
+        b2 = new JButton("經驗加倍券",iconB2);
+        b3 = new JButton("電蚊拍",iconB3);
+        b4 = new JButton("增時卡",iconB4);
+        b5 = new JButton("地下室鑰匙",iconB5);
+        b6 = new JButton("警察卡",iconB6);
+        b7 = new JButton("老師卡",iconB7);
+        b8 = new JButton("加倍卡",iconB8);
+        b9 = new JButton("再看一次",iconB9);
+        e1 = new JButton("竹蜻蜓",iconE1);
+        e2 = new JButton("透視眼鏡",iconE2);
+        e3 = new JButton("彈簧鞋",iconE3);
+        e4 = new JButton("翅膀",iconE4);
 
         setButtonB(b1);
         setButtonB(b2);
@@ -134,18 +134,72 @@ public class Store extends JPanel {
         }//用不到
 
         public void mouseEntered(MouseEvent event) {
-        }//用不到
+            if(event.getSource()==b1){
+                b1.setText("售價為47,487");
+            } else if (event.getSource() == b2) {
+                b2.setText("售價為47,487");
+            } else if (event.getSource() == b3) {
+                b3.setText("售價為47,487");
+            } else if (event.getSource() == b4) {
+                b4.setText("售價為47,487");
+            } else if (event.getSource() == b5) {
+                b5.setText("售價為47,487");
+            } else if (event.getSource() == b6) {
+                b6.setText("售價為47,487");
+            } else if (event.getSource() == b7) {
+                b7.setText("售價為47,487");
+            } else if (event.getSource() == b8) {
+                b8.setText("售價為47,487");
+            } else if (event.getSource() == b9) {
+                b9.setText("售價為47,487");
+            } else if (event.getSource() == e1) {
+                e1.setText("售價為47,487");
+            } else if (event.getSource() == e2) {
+                e2.setText("售價為47,487");
+            } else if (event.getSource() == e3) {
+                e3.setText("售價為47,487");
+            } else if (event.getSource() == e4) {
+                e4.setText("售價為47,487");
+            }
+        }
 
         public void mouseExited(MouseEvent event) {
-        }//用不到
+            if(event.getSource()==b1){
+                b1.setText("經驗加倍券");
+            } else if (event.getSource() == b2) {
+                b2.setText("金錢加倍券");
+            } else if (event.getSource() == b3) {
+                b3.setText("電蚊拍");
+            } else if (event.getSource() == b4) {
+                b4.setText("增時卡");
+            } else if (event.getSource() == b5) {
+                b5.setText("地下道鑰匙");
+            } else if (event.getSource() == b6) {
+                b6.setText("警察卡");
+            } else if (event.getSource() == b7) {
+                b7.setText("老師卡");
+            } else if (event.getSource() == b8) {
+                b8.setText("加倍卡");
+            } else if (event.getSource() == b9) {
+                b9.setText("再看一次");
+            } else if (event.getSource() == e1) {
+                e1.setText("竹蜻蜓");
+            } else if (event.getSource() == e2) {
+                e2.setText("彈簧鞋");
+            } else if (event.getSource() == e3) {
+                e3.setText("透視眼鏡");
+            } else if (event.getSource() == e4) {
+                e4.setText("翅膀");
+            }
+        }
 
         //當遊玩者點下道具或裝備時的反應
         public void mousePressed(MouseEvent event) {//當滑鼠按下物件時
             if (event.getSource() == b1) {
-               int opt= JOptionPane.showConfirmDialog(null, "記憶時間延長十秒\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
+               int opt= JOptionPane.showConfirmDialog(null, "遊戲結算時，獲得兩倍經驗\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 if(opt==0)  house.setItem("經驗加倍券");
             } else if (event.getSource() == b2) {
-                int opt= JOptionPane.showConfirmDialog(null, "分數增為兩倍，效果維持十秒\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
+                int opt= JOptionPane.showConfirmDialog(null, "遊戲結算時，獲得兩倍金錢\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 // 0=yes, 1=no
                 if(opt==0)  house.setItem("金錢加倍券");
             } else if (event.getSource() == b3) {
@@ -280,8 +334,8 @@ public class Store extends JPanel {
             }
             else {
                 backGround = ImageIO.read(new File("data//Bag&Store/背包-道具.png"));
-                iconB1 = new ImageIcon("data//Bag&Store/time.png");
-                iconB2 = new ImageIcon("data//Bag&Store/exp.png");
+                iconB1 = new ImageIcon("data//Bag&Store/exp.png");
+                iconB2 = new ImageIcon("data//Bag&Store/錢加倍.jpg");
                 iconB3 = new ImageIcon("data//Bag&Store/電蚊拍.png");
                 iconB4 = new ImageIcon("data//Bag&Store/增時卡.png");
                 iconB5 = new ImageIcon("data//Bag&Store/地下道鑰匙.png");

@@ -136,25 +136,25 @@ public class BagWindow extends JPanel {
 
         public void mouseEntered(MouseEvent event) {
             if(event.getSource()==b1){
-                b1.setText("擁有數量"+house.getEquipment("經驗加倍券"));
-            } else if (event.getSource() == b2) {
-                b2.setText("擁有數量"+house.getEquipment("金錢加倍券"));
-            } else if (event.getSource() == b3) {
-                b3.setText("擁有數量"+house.getEquipment("電蚊拍"));
-            } else if (event.getSource() == b4) {
-                b4.setText("擁有數量"+house.getEquipment("增時卡"));
-            } else if (event.getSource() == b5) {
-                b5.setText("擁有數量"+house.getEquipment("地下道鑰匙"));
-            } else if (event.getSource() == b6) {
-                b6.setText("擁有數量"+house.getEquipment("警察卡"));
-            } else if (event.getSource() == b7) {
-                b7.setText("擁有數量"+house.getEquipment("老師卡"));
-            } else if (event.getSource() == b8) {
-                b8.setText("擁有數量"+house.getEquipment("加倍卡"));
-            } else if (event.getSource() == b9) {
-                b9.setText("擁有數量"+house.getEquipment("再看一次"));
-            } else if (event.getSource() == e1) {
-                if(house.getEquipment("竹蜻蜓") == 1)
+                    b1.setText("擁有數量"+house.getEquipment("經驗加倍券"));
+                } else if (event.getSource() == b2) {
+                    b2.setText("擁有數量"+house.getEquipment("金錢加倍券"));
+                } else if (event.getSource() == b3) {
+                    b3.setText("擁有數量"+house.getEquipment("電蚊拍"));
+                } else if (event.getSource() == b4) {
+                    b4.setText("擁有數量"+house.getEquipment("增時卡"));
+                } else if (event.getSource() == b5) {
+                    b5.setText("擁有數量"+house.getEquipment("地下道鑰匙"));
+                } else if (event.getSource() == b6) {
+                    b6.setText("擁有數量"+house.getEquipment("警察卡"));
+                } else if (event.getSource() == b7) {
+                    b7.setText("擁有數量"+house.getEquipment("老師卡"));
+                } else if (event.getSource() == b8) {
+                    b8.setText("擁有數量"+house.getEquipment("加倍卡"));
+                } else if (event.getSource() == b9) {
+                    b9.setText("擁有數量"+house.getEquipment("再看一次"));
+                } else if (event.getSource() == e1) {
+                    if(house.getEquipment("竹蜻蜓") == 1)
                     e1.setText("已裝備");
                 else
                     e1.setText("未裝備");
@@ -208,10 +208,10 @@ public class BagWindow extends JPanel {
 
         public void mousePressed(MouseEvent event) {//當滑鼠移動物件時
                 if (event.getSource() == b1) {
-                    JOptionPane.showConfirmDialog(null, "時間她媽變兩倍太久\n", "", JOptionPane.DEFAULT_OPTION);
+                    JOptionPane.showConfirmDialog(null, "遊戲結算時，獲得兩倍經驗\n", "", JOptionPane.DEFAULT_OPTION);
                     house.getItem("經驗加倍券");
                 } else if (event.getSource() == b2) {
-                    JOptionPane.showConfirmDialog(null, "分數增為兩倍，效果維持十秒\n", "", JOptionPane.DEFAULT_OPTION);
+                    JOptionPane.showConfirmDialog(null, "遊戲結算時，獲得兩倍金錢\n", "", JOptionPane.DEFAULT_OPTION);
                     house.getItem("金錢加倍券");
                 } else if (event.getSource() == b3) {
                     JOptionPane.showConfirmDialog(null, "變身無敵狀態，效果維持十秒\n", "", JOptionPane.DEFAULT_OPTION);
@@ -237,7 +237,6 @@ public class BagWindow extends JPanel {
                 }  else if (event.getSource() == e1) {
                     int opt = JOptionPane.showConfirmDialog(null, "起點向前移動100公尺\n--------確定要裝備嗎?--------", "", JOptionPane.YES_NO_OPTION);
                     if(opt == 0){
-                        house.setEquipment("竹蜻蜓");
                         house.getEquipment("竹蜻蜓");
                     }
                     else if (opt==1){
@@ -274,7 +273,6 @@ public class BagWindow extends JPanel {
                 }
         }
     }
-
 
     //判斷遊玩者切換為裝備或是道具
     private class ButtonHandler implements ActionListener {
@@ -338,8 +336,8 @@ public class BagWindow extends JPanel {
             }
             else {
                 backGround = ImageIO.read(new File("data//Bag&Store/背包-道具.png"));
-                iconB1 = new ImageIcon("data//Bag&Store/time.png");
-                iconB2 = new ImageIcon("data//Bag&Store/exp.png");
+                iconB1 = new ImageIcon("data//Bag&Store/exp.png");
+                iconB2 = new ImageIcon("data//Bag&Store/錢加倍.jpg");
                 iconB3 = new ImageIcon("data//Bag&Store/電蚊拍.png");
                 iconB4 = new ImageIcon("data//Bag&Store/增時卡.png");
                 iconB5 = new ImageIcon("data//Bag&Store/地下道鑰匙.png");

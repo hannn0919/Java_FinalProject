@@ -1,7 +1,8 @@
 package House.house;
+//import Stock.main.StockWindow;
+
 import java.util.HashMap;
 import java.util.Map;
-import javax.swing.*;
 
 public class House {
     //private ArrayList<Items> itemsList = new ArrayList<Items>();
@@ -12,26 +13,37 @@ public class House {
     private static int holdMoney;
     private Map<String,Integer> map = new HashMap<String, Integer>();
     private float[] stock;
-    private float[] stockLast;
     private float[] stockPrs;
     private int[] stockTicket;
+    private double[][][] data;
 
-    public House() {
+    public House()
+    {
         this.holdMoney = 479487;
         this.level = 4;
         this.role = "鮮嫩小心肝";
         this.exp = 0;
         this.stock = new float[4];
         this.stockTicket = new int[4];
-        this.stockLast = new float[4];
         this.stockPrs = new float[4];
+        this.data = new double[4][1][10];
         for (int i = 0;i<4;i++) {
             stock[i] = (float) (10 * (i+1) );
             stockTicket[i] = 0;
+            data[i][0][0]= stock[i];
+            /*for(int j = 1;j<9;j++){
+                data[i][0][j] = data[i][0][j-1] * (1F + StockWindow.getNextPercent() );
+            }
+            stockPrs[i] = StockWindow.getNextPercent();*/
+            data[i][0][9] = data[i][0][8] * ( 1F + stockPrs[i]);
+            stock[i] = (float) data[i][0][9];
         }
+
+
     }
 
-    /*public House(Map<String,Integer> map) {
+    public House(Map<String,Integer> map)
+    {
         //角色名稱
         setRole(level);
         //等級
@@ -40,8 +52,7 @@ public class House {
         setExp(exp);
         //擁有金額
         setHoldMoney(holdMoney);
-    }*/
-
+    }
     //set the role
     public void setRole(int num){
         if (num == 1) role = "鮮嫩小心肝";
@@ -49,19 +60,27 @@ public class House {
         else if(num == 3) role="已經快不行了的肝";
         else if(num == 4) role="小心肝硬化";
     }
-
     //set the number of the level
     public void setLevel(int num)
     {
         level = num;
     }
-
     //set the number of the exp
     public void setExp(int num)
     {
-        exp = num;
+        exp=num;
+        if(1000<num&&num<=2000){
+            level=2;
+        } else if(num<=6000){
+            level=3;
+        }else if(num<10000){
+            level=4;
+        }else if(num>=10000) {
+            exp=10000;
+        }
+        setLevel(level);
+        setRole(level);
     }
-
     //set the number of the money
     public void setHoldMoney(int num)
     {
@@ -69,7 +88,8 @@ public class House {
     }
 
     //set the Items
-    public void setItem(String element) {
+    public void setItem(String element)
+    {
         if(map.containsKey(element)) {
             int numElem = map.get(element);
             map.put(element, (numElem+1));
@@ -80,53 +100,28 @@ public class House {
     }
 
     //set the Equipment
-    public void setEquipment(String element) {
-        if( map.containsKey(element))  {
-                JOptionPane.showMessageDialog(null, "肝，北七?你已經有了");
-        }
-        else {
-            map.put(element, 1);
-        }
-    }
-
-    //edit the holding money.If success, return true, or return false
-    public boolean editHoldMoney(int cost) {
-        if(holdMoney + cost>=0) {
-            holdMoney += cost;
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "肝，窮逼八還敢買");
-        }
-        return true;
-    }
-
-    //edit the holding money.If success, return true, or return false
-    public boolean editExp(int cost) {
-        exp += cost;
-        while(exp>=3000){
-            exp-=3000;
-            level++;
-            setLevel(level);
-            setRole(level);
-        }
-        return true;
+    public void setEquipment(String element)
+    {
+        map.put(element, 1);
     }
 
     //get the holding money
-    public int getHoldMoney() {
+    public int getHoldMoney()
+    {
         return holdMoney;
     }
 
     //get the level
-    public int getLevel() {
+    public int getLevel()
+    {
         return level;
     }
 
     //get the exp
-    public int getExp() {
+    public int getExp()
+    {
         return exp;
     }
-
     //get the role
     public String getRole(){
         return role;
@@ -150,65 +145,55 @@ public class House {
         return 0;
     }
 
-    //use the Item
-    public int useItem(String element){
-        if(map.containsKey(element))
-        {
-            map.put(element,map.get(element)-1);
-            return map.get(element);
-        }
-        else return 0;
-    }
-
     //use the Equipment
-    public int dontUseEquipment(String element){
-        if(map.containsKey(element))
-        {
+    public void dontUseEquipment(String element){
+        if(map.containsKey(element)) {
             map.put(element,2);
-            return map.get(element);
         }
-        return 0;
     }
 
     //get stock
-    public float[] getStock() {
+    public float[] getStock()
+    {
         return stock;
     }
 
     //set stock
-    public void setStock(int i, float f) {
+    public void setStock(int i, float f)
+    {
         stock[i] = f;
     }
-
     //get ticket
     public int[] getStockTicket(){
         return stockTicket;
     }
-
     // set ticket
     public void setStockTicket( int i, int n){
         stockTicket[i] = n;
     }
 
     //set stock
-    public void setStockLast(int i, float f)
+    public void setStockPrs(int i, float f)
     {
-        stockLast[i] = f;
-    }
-
-    //get stock
-    public float[] getStockLast()
-    {
-        return stockLast;
-    }
-
-    //set stock
-    public void setStockPrs(int i, float f) {
         stockPrs[i] = f;
     }
 
     //get stock
-    public float[] getStockPrs() {
+    public float[] getStockPrs()
+    {
         return stockPrs;
+    }
+
+    public double[][][] getData(){
+        return data;
+    }
+
+    public void updataData(){
+        for(int i = 0;i<4;i++){
+            for(int j = 0;j<9;j++){
+                data[i][0][j] = data[i][0][j+1];
+            }
+            data[i][0][9] = getStock()[i];
+        }
     }
 }
