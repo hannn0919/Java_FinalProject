@@ -31,6 +31,7 @@ public class Main extends JFrame {
         house = new House();
         // 所有遊戲畫面背景音樂初始化
         ///////////////
+        this.stratDrama();  //開場動畫
         Entermusic();
         Mainmusic();
         Dinosaurmusic();
@@ -39,7 +40,13 @@ public class Main extends JFrame {
         Cardmusic();
         ///////////////
 
-        this.changeToEnterScreen(); // 將主畫面切置登入頁面
+        //this.changeToEnterScreen(); // 將主畫面切置登入頁面
+    }
+
+    //
+    public void stratDrama(){
+        this.setTitle("看片片");
+        this.setContentPane(new drama(this));
     }
 
     // 切換至登入頁面
