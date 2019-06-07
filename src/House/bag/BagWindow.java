@@ -137,17 +137,20 @@ public class BagWindow extends JPanel {
         public void mouseEntered(MouseEvent event) {
             if(event.getSource()==b1){
                 System.out.println("幹你ㄉ");
-                JLabel tempLabel = new JLabel("記憶時間延長十秒");
-                add(tempLabel);
+                b1.setText("擁有數量"+house.getEquipment("經驗加倍券"));
             }
         }//用不到
 
         public void mouseExited(MouseEvent event) {
+            if(event.getSource()==b1){
+                System.out.println("幹你ㄉ");
+                b1.setText("時間兩倍太久");
+            }
         }//用不到
 
         public void mousePressed(MouseEvent event) {//當滑鼠移動物件時
                 if (event.getSource() == b1) {
-                    JOptionPane.showConfirmDialog(null, "記憶時間延長十秒\n", "", JOptionPane.DEFAULT_OPTION);
+                    JOptionPane.showConfirmDialog(null, "時間她媽變兩倍太久\n", "", JOptionPane.DEFAULT_OPTION);
                     house.getItem("經驗加倍券");
                 } else if (event.getSource() == b2) {
                     JOptionPane.showConfirmDialog(null, "分數增為兩倍，效果維持十秒\n", "", JOptionPane.DEFAULT_OPTION);
@@ -188,6 +191,7 @@ public class BagWindow extends JPanel {
                 }
         }
     }
+
 
     //判斷遊玩者切換為裝備或是道具
     private class ButtonHandler implements ActionListener {

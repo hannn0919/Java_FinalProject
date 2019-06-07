@@ -2,9 +2,12 @@ package Main;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.*;
+import javax.sound.sampled.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.border.EmptyBorder;
+
 
 public class EnterScreen extends JPanel{
 
@@ -25,8 +28,21 @@ public class EnterScreen extends JPanel{
             public void mouseClicked(MouseEvent e) {
                 mainFrame.changeToMainScreen();
             }
+            @Override
+            public void mouseEntered(MouseEvent e){
+                buttonSound();
+                btnNew.setIcon(resize(btnNew.getIcon().getIconWidth()+10,btnNew.getIcon().getIconHeight()+10,(ImageIcon)btnNew.getIcon()));
+                setCursor(new Cursor(Cursor.HAND_CURSOR));
+            }
+            @Override
+            public void mouseExited(MouseEvent arg0) {
+                btnNew.setIcon(new ImageIcon("data/main/開始遊戲.png"));
+                setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+            }
+
         });
         this.add(btnNew);
+
 
         JButton btnLoad = new JButton();
         cleanButtom(btnLoad);
@@ -49,6 +65,28 @@ public class EnterScreen extends JPanel{
         this.add(background);
     }
 
+    public ImageIcon resize(int width, int height, ImageIcon img) {
+        Image i = img.getImage();
+        Image new_img = i.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        return  new ImageIcon(new_img);
+    }
+
+    public void buttonSound() {
+        try {
+            File soundFile = new File("music/buttonClicked.wav");
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            clip.start();
+
+        } catch (UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (LineUnavailableException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void cleanButtom(JButton button) {
         button.setOpaque(false);
@@ -56,6 +94,5 @@ public class EnterScreen extends JPanel{
         button.setFocusPainted(false);
         button.setBorder(null);
     }
-
 
 }
