@@ -4,7 +4,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.JPanel;
 
@@ -16,11 +19,14 @@ import Dinosaur.util.Resource;
 import House.house.House;
 import Main.Main;
 
-public class GameScreen extends JPanel implements Runnable {
+public class GameScreen extends JPanel implements Runnable, KeyListener {
 
     private static final int START_GAME_STATE = 0;
     private static final int GAME_PLAYING_STATE = 1;
     private static final int GAME_OVER_STATE = 2;
+
+    private Timer timer;
+    private int time = 6000;
 
     private Main frame;
     private House house;
@@ -31,7 +37,7 @@ public class GameScreen extends JPanel implements Runnable {
     private Clouds clouds;
     private Thread thread;
     private float speed=5;
-    private float max = 0;
+    private double max = 0;
     private boolean isKeyPressed;
 
     private int gameState = START_GAME_STATE;
@@ -53,8 +59,8 @@ public class GameScreen extends JPanel implements Runnable {
         /*if(house.useItem("竹蜻蜓")!=0){
             mainCharacter.score += 100;
         }*/
-        Keylisten listener = new Keylisten();
-        this.addKeyListener(listener);
+        //Keylisten listener = new Keylisten();
+        //this.addKeyListener(listener);
         startGame();
     }
 
@@ -62,6 +68,21 @@ public class GameScreen extends JPanel implements Runnable {
     public void startGame() {
         thread = new Thread(this);
         thread.start();
+
+        //計時60秒
+        timer = new Timer();
+        timer.schedule(new TimerTask(){
+            @Override
+            public void run(){
+                time--;
+                if(time == 0){
+                    timer.cancel();
+                    thread.stop();
+                    frame.changeToMainScreen();
+                }
+                repaint();
+            }
+        }, 0, 10);
     }
 
     // 更新遊戲狀態，產生背景物件、敵人，判斷角色是否有碰撞到障礙物
@@ -74,6 +95,7 @@ public class GameScreen extends JPanel implements Runnable {
             enemiesManager.update();
             mainCharacter.setSpeedX(speed);
             speed += 0.003;
+            if(mainCharacter.score > max) max = mainCharacter.score;
             if (enemiesManager.isCollision()) {
                 if(!mainCharacter.invincible) {
                     mainCharacter.playDeadSound();
@@ -101,10 +123,11 @@ public class GameScreen extends JPanel implements Runnable {
                 enemiesManager.draw(g);
                 mainCharacter.draw(g);
                 g.setColor(Color.BLACK);
-                g.drawString("Score " + (int) mainCharacter.score, 950, 20);
+                g.drawString("Max " + (int) max, 400, 20);
+                g.drawString("Score " + (int) mainCharacter.score, 550, 20);
                 if (gameState == GAME_OVER_STATE) {
-                    g.drawImage(gameOverButtonImage, 475, 280, null);
-                    g.drawImage(replayButtonImage, 558, 300, null);
+                    g.drawImage(gameOverButtonImage, 305, 280, null);
+                    g.drawImage(replayButtonImage, 388, 300, null);
 
                 }
                 break;
@@ -147,46 +170,50 @@ public class GameScreen extends JPanel implements Runnable {
     }
 
     // 偵測鍵盤輸入
-    private class Keylisten extends KeyAdapter {// anonymous inner class
-        @Override
-        public void keyPressed(KeyEvent e) {
-            if (e.getKeyCode() == KeyEvent.VK_P)
-                frame.changeToMainScreen();
-            if (!isKeyPressed) {
-                isKeyPressed = true;
-                switch (gameState) {
-                    case START_GAME_STATE:
-                        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-                            gameState = GAME_PLAYING_STATE;
-                        }
-                        break;
-                    case GAME_PLAYING_STATE:
-                        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-                            mainCharacter.jump();
-                        } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                            mainCharacter.down(true);
-                        }
-                        break;
-                    case GAME_OVER_STATE:
-                        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-                            gameState = GAME_PLAYING_STATE;
-                            resetGame();
-                        }
-                        break;
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_P)
+            frame.changeToMainScreen();
+        if (!isKeyPressed) {
+            isKeyPressed = true;
+            switch (gameState) {
+                case START_GAME_STATE:
+                    if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                        gameState = GAME_PLAYING_STATE;
+                    }
+                    break;
+                case GAME_PLAYING_STATE:
+                    if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                        mainCharacter.jump();
+                    } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                        mainCharacter.down(true);
+                    }
+                    break;
+                case GAME_OVER_STATE:
+                    if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                        gameState = GAME_PLAYING_STATE;
+                        resetGame();
+                    }
+                    break;
 
-                }
             }
         }
+    }
 
-        @Override
-        public void keyReleased(KeyEvent e) {
-            isKeyPressed = false;
-            if (gameState == GAME_PLAYING_STATE) {
-                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                    mainCharacter.down(false);
-                }
+    @Override
+    public void keyReleased(KeyEvent e) {
+        isKeyPressed = false;
+        if (gameState == GAME_PLAYING_STATE) {
+            if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                mainCharacter.down(false);
             }
         }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        // TODO Auto-generated method stub
+
     }
 
     // 若角色死亡，重置遊戲

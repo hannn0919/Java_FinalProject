@@ -1,5 +1,6 @@
 package Main;
 
+import Dinosaur.userinterface.DinoJLayer;
 import Dinosaur.userinterface.GameScreen;
 import Frogger.main.FroggerPanel;
 import House.house.House;
@@ -97,7 +98,7 @@ public class Main extends JFrame {
         hamstermusic.stop();
         froggermusic.stop();
         cardmusic.stop();
-        JPanel dinosaur = new GameScreen(this, this.house);
+        DinoJLayer dinosaur = new DinoJLayer(this, this.house);
         this.setTitle("沒有網際網路連線");
         this.setContentPane(dinosaur);
         this.setVisible(true);
