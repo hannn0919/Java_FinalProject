@@ -25,6 +25,7 @@ public class EnemiesManager {
         enemies = new ArrayList<Enemy>();
         this.mainCharacter = mainCharacter;
         enemies.add(createEnemy());
+
     }
 
     public void update() {

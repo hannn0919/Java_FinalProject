@@ -6,12 +6,29 @@ import javax.swing.border.EmptyBorder;
 import java.awt .*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class drama extends JPanel{
 
     private Main mainFrame;
+    int time = 4400;
 
     public drama(Main mainFrame) {
+
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask(){
+            @Override
+            public void run(){
+                time--;
+                if(time == 0){
+                    timer.cancel();
+                    mainFrame.changeToMainScreen();
+                }
+            }
+        }, 0, 10);
+
         this.mainFrame = mainFrame;
         this.setSize(1200, 675);
         this.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -21,6 +38,8 @@ public class drama extends JPanel{
         Icon startDrama = new ImageIcon("data/main/tmp.gif");
         JButton draBtn = new JButton(startDrama);
         draBtn.setBounds(0, -20, 1200, 675);
+
+
         draBtn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -29,6 +48,8 @@ public class drama extends JPanel{
             }
         });
         add(draBtn);
+
+
     }
 
 }

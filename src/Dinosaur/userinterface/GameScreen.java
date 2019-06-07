@@ -30,7 +30,8 @@ public class GameScreen extends JPanel implements Runnable {
     private EnemiesManager enemiesManager;
     private Clouds clouds;
     private Thread thread;
-
+    private float speed=5;
+    private float max = 0;
     private boolean isKeyPressed;
 
     private int gameState = START_GAME_STATE;
@@ -49,6 +50,9 @@ public class GameScreen extends JPanel implements Runnable {
         gameOverButtonImage = Resource.getResouceImage("data/dinosaur/gameover_text.png");
         enemiesManager = new EnemiesManager(mainCharacter);
         clouds = new Clouds(1200, mainCharacter);
+        if(house.useItem("竹蜻蜓")!=0){
+            mainCharacter.score += 100;
+        }
         Keylisten listener = new Keylisten();
         this.addKeyListener(listener);
         startGame();
@@ -68,10 +72,14 @@ public class GameScreen extends JPanel implements Runnable {
             mainCharacter.update();
             mainCharacter.upScore();
             enemiesManager.update();
+            mainCharacter.setSpeedX(speed);
+            speed += 0.003;
             if (enemiesManager.isCollision()) {
-                mainCharacter.playDeadSound();
-                gameState = GAME_OVER_STATE;
-                mainCharacter.dead(true);
+                if(!mainCharacter.invincible) {
+                    mainCharacter.playDeadSound();
+                    gameState = GAME_OVER_STATE;
+                    mainCharacter.dead(true);
+                }
             }
         }
     }
@@ -183,6 +191,7 @@ public class GameScreen extends JPanel implements Runnable {
 
     // 若角色死亡，重置遊戲
     private void resetGame() {
+        speed = 5;
         enemiesManager.reset();
         mainCharacter.dead(false);
         mainCharacter.reset();

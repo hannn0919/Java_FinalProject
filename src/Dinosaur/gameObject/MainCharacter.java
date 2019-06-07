@@ -21,6 +21,9 @@ public class MainCharacter {
     private static final int DOWN_RUN = 2;
     private static final int DEATH = 3;
 
+    public  boolean invincible = false;
+
+
     private float posY;
     private float posX;
     private float speedX;
@@ -66,7 +69,11 @@ public class MainCharacter {
         return speedX;
     }
 
-    public void setSpeedX(int speedX) {
+    public  void setinvIncible(){
+        invincible = true;
+    }
+
+    public void setSpeedX(float speedX) {
         this.speedX = speedX;
     }
 
@@ -158,7 +165,7 @@ public class MainCharacter {
     }
 
     public void upScore() {
-        score += 0.1;
+        score += 0.01;
         if(score % 100 == 0) {
             scoreUpSound.play();
         }
