@@ -2,10 +2,12 @@ package Main;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseListener;
 import java.io.*;
 import javax.sound.sampled.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.border.EmptyBorder;
 
 
@@ -26,7 +28,7 @@ public class EnterScreen extends JPanel{
         btnNew.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                mainFrame.changeToMainScreen();
+                mainFrame.stratDrama();
             }
             @Override
             public void mouseEntered(MouseEvent e){
@@ -41,10 +43,8 @@ public class EnterScreen extends JPanel{
                 btnNew.setIcon(new ImageIcon("data/main/開始遊戲.png"));
                 setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
-
         });
         this.add(btnNew);
-
 
         JButton btnLoad = new JButton();
         cleanButtom(btnLoad);
@@ -55,6 +55,20 @@ public class EnterScreen extends JPanel{
             public void mouseClicked(MouseEvent e) {
                 mainFrame.changeToMainScreen();
             }
+            @Override
+            public void mouseEntered(MouseEvent e){
+                buttonSound();
+                btnLoad.setToolTipText("这是按钮");
+                ToolTipManager.sharedInstance().setDismissDelay(5000);// 设置为5秒
+                btnLoad.setIcon(resize(btnLoad.getIcon().getIconWidth()+10,btnLoad.getIcon().getIconHeight()+10,(ImageIcon)btnLoad.getIcon()));
+                setCursor(new Cursor(Cursor.HAND_CURSOR));
+            }
+            @Override
+            public void mouseExited(MouseEvent arg0) {
+                btnLoad.setIcon(new ImageIcon("data/main/載入遊戲小.png"));
+                setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+            }
+
         });
         this.add(btnLoad);
 

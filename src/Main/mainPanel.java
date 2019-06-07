@@ -1,9 +1,12 @@
 package Main;
 
+import javax.sound.sampled.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
 
 public class mainPanel extends JPanel {
 
@@ -12,6 +15,7 @@ public class mainPanel extends JPanel {
 
     private JLabel backLabel;    //放背景的label
     private JLabel name, LV, exp, money;
+    private JLabel mouseToolTip;
     private JPanel frameforBtn;     //放三個btn的Panel
     private JPanel p_for_Label;
     private JPanel p_for_btn;
@@ -20,11 +24,15 @@ public class mainPanel extends JPanel {
     private ImageIcon namePic, LVPic, expPic, moneyPic;
 
     public mainPanel(Main mainFrame) {
-
         this.mainFrame = mainFrame;
         this.setSize(1200, 675);
         this.setBorder(new EmptyBorder(5, 5, 5, 5));
         this.setLayout(null);
+
+        mouseToolTip = new JLabel("", JLabel.CENTER);
+        mouseToolTip.setSize(80, 40);
+        mouseToolTip.setVisible(true);
+        this.add(mouseToolTip);
 
         //商店 背包 股市的按鈕
         shopBtn = new JButton();
@@ -44,6 +52,14 @@ public class mainPanel extends JPanel {
         add(shopBtn);
         add(bagBtn);
         add(stockBtn);
+
+        MouseMotionHandler mouseMotionHandler = new MouseMotionHandler();
+        MouseHandler mouseHandler = new MouseHandler();
+        shopBtn.addMouseListener(mouseHandler);
+        bagBtn.addMouseListener(mouseHandler);
+        stockBtn.addMouseListener(mouseHandler);
+
+
         Handler handler = new Handler();
         shopBtn.addActionListener(handler);
         bagBtn.addActionListener(handler);
@@ -83,7 +99,6 @@ public class mainPanel extends JPanel {
         exp.setIcon(new ImageIcon("data/main/exp.png"));
         money.setIcon(new ImageIcon("data/main/money.png"));
 
-
         btnDi = new JButton();
         cleanButtom(btnDi);
         btnDi.setBounds(358, 516, 660, 130);
@@ -96,6 +111,8 @@ public class mainPanel extends JPanel {
         btnFrog.setBounds(358, 379, 660, 137);
         //btnDi.setIcon(new ImageIcon("data/main/載入遊戲小.png"));
         btnFrog.addActionListener(handler);
+        btnFrog.addMouseListener(mouseHandler);
+        btnFrog.addMouseMotionListener(mouseMotionHandler);
         this.add(btnFrog);
 
         btnMouse = new JButton();
@@ -104,7 +121,6 @@ public class mainPanel extends JPanel {
         btnMouse.addActionListener(handler);
         this.add(btnMouse);
 
-
         ImageIcon img = new ImageIcon("data/main/mainPic.png");
         Image i = img.getImage();
         i = i.getScaledInstance(1200, 675, Image.SCALE_SMOOTH);
@@ -112,8 +128,23 @@ public class mainPanel extends JPanel {
         background.setIcon(new ImageIcon(i));
         background.setSize(1200, 675);
         this.add(background);
+    }
 
+    public void buttonSound() {
+        try {
+            File soundFile = new File("music/buttonClicked.wav");
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            clip.start();
 
+        } catch (UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (LineUnavailableException e) {
+            e.printStackTrace();
+        }
     }
 
     // 按鈕去除背景、去除邊框
@@ -130,6 +161,53 @@ public class mainPanel extends JPanel {
         field.setEditable(false);
         field.setHorizontalAlignment(JTextField.RIGHT);
         field.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
+    }
+
+    private class MouseMotionHandler implements MouseMotionListener{
+        public void mouseDragged(MouseEvent e) {
+        }//用不到
+        @Override
+        public void mouseMoved(MouseEvent e) {
+            if(e.getSource()==btnFrog) {
+                System.out.println((int)(e.getPoint().getX() + 15)+"  "+(int)(e.getPoint().getY() + 15));
+                setCursor(new Cursor(Cursor.HAND_CURSOR));
+                mouseToolTip.setIcon(new ImageIcon("data/main/商店2.png"));
+                mouseToolTip.setLocation((int)(e.getPoint().getX() + 15), (int)(e.getPoint().getY() + 15));
+            }
+        }
+    }
+    private class MouseHandler implements MouseListener {
+        public void mouseReleased(MouseEvent event) {
+        }//用不到
+        public void mousePressed(MouseEvent event){
+        }
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            mainFrame.changeToMainScreen();
+        }
+        @Override
+        public void mouseEntered(MouseEvent arg0){
+            buttonSound();
+            setCursor(new Cursor(Cursor.HAND_CURSOR));
+            if(arg0.getSource()==shopBtn) {
+                shopBtn.setIcon(new ImageIcon("data/main/商店2.png"));
+            }else if(arg0.getSource()==bagBtn) {
+                bagBtn.setIcon(new ImageIcon("data/main/背包2.png"));
+            }else if(arg0.getSource()==stockBtn) {
+                stockBtn.setIcon(new ImageIcon("data/main/股市2.png"));
+            }
+        }
+        @Override
+        public void mouseExited(MouseEvent arg0) {
+            setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+            if(arg0.getSource()==shopBtn) {
+                shopBtn.setIcon(new ImageIcon("data/main/商店.png"));
+            }else if(arg0.getSource()==bagBtn) {
+                bagBtn.setIcon(new ImageIcon("data/main/背包.png"));
+            }else if(arg0.getSource()==stockBtn) {
+                stockBtn.setIcon(new ImageIcon("data/main/股市.png"));
+            }
+        }
     }
 
     // 偵測滑鼠事件，切換至正確的畫面
