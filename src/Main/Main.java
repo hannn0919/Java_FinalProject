@@ -142,6 +142,7 @@ public class Main extends JFrame {
         froggermusic.stop();
         cardmusic.stop();
         StockWindow.nextStock(house);
+        house.updataData();
         JPanel stock  = new StockWindow(this, this.house);
         this.setTitle("股市");
         this.setContentPane(stock);

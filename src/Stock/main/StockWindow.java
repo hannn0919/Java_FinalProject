@@ -295,7 +295,6 @@ public class StockWindow extends JPanel{
             //h.setStockLast(i, h.getStock()[i]);
             h.setStockPrs(i, getNextPercent());
             h.setStock(i, h.getStock()[i] * (1F + h.getStockPrs()[i]));
-            h.updataData();
         }
 
     }
