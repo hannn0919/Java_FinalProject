@@ -3,30 +3,37 @@ package Card;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
-import java.util.*;
+import java.util.Random;
+import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.TimerTask;
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.TitledBorder;
+//import javax.swing.border.Border;
+//import javax.swing.border.TitledBorder;
+import Main.*;
+import House.house.House;
 
 
 
 /**
  * @author jqs 主要實現記憶翻牌功能
  */
-public class RememberCard extends JFrame {
-
+public class RememberCard extends JLayeredPane {
+    private JFrame frame;
     /**
      * 初始化遊戲的行列數，行列數成績必須為偶數
      */
     private static final int ROWS = 6;
     private static final int COLUMNS = 5;
     private static final long serialVersionUID = -8908268719780973221L;
-    private JTextField txt_Time;
+    private JLabel txt_Time;
     private boolean isRunning = false;
+    private long a;
+    private long time=30;
     /**
      * 存放圖片的目錄，簡單起見，存放圖片的目錄中圖片個數為初始化的行列數乘積的一半
      */
-    private String picDir = "cards";
+    private String picDir = "data/cards";
     private String[] picture;//照片索引
     protected boolean isStart;
     private PicPanel preOne = null;
@@ -34,154 +41,190 @@ public class RememberCard extends JFrame {
      * 用於標示已找到的對數
      */
     private int count;
-    private JPanel panel_Pic;
-    private JButton back;//記得寫
-    public RememberCard() {
+    private JPanel panel_Pic;//////////////////////////////////右邊
+    private JButton swing; 
+    private JButton addsec;
+    private JButton openall;
 
-        panel_Pic = new JPanel();//右邊的面板
+    private ImageIcon imageBackGround;//背景圖
+   
+   
+    private ImageIcon backToMainImage;
+    private ImageIcon disCountImage;
+    private ImageIcon expandMoneyImage;
+    private ImageIcon ruleImage;
+    private ImageIcon testCharacterImage;
+
+    private JButton btnStart;//開始按鈕
+    private JButton backToMainButton;
+    
+    private final int SHIFT=300;
+   
+    private JLabel backGroundLabel;
+    private JLabel disCountLabel;
+    private JLabel expandMoneyLabel;
+    private JLabel ruleLabel;
+    private JLabel testCharacterLabel;
+    private Main mainFrame;
+    private House house;
+
+    //private JLayeredPane layeredPane;
+    public RememberCard(Main mainFrame,House house) {
+
+        this.house=house;
+        this.mainFrame=mainFrame;
+       // timer1.start();
+        //timer1.stop();
+
+        backToMainImage = new ImageIcon("data/cards/icon/backhome.png");
+        backToMainButton = new JButton(backToMainImage);
+        backToMainButton.setBounds(0,0,backToMainImage.getIconWidth(),backToMainImage.getIconHeight());
+        add(backToMainButton,JLayeredPane.DEFAULT_LAYER);
+        backToMainButton.setBorderPainted(false);
+        backToMainButton.setBorder(null);
+        backToMainButton.setFocusPainted(false);
+        backToMainButton.setContentAreaFilled(false);
+        backToMainButton.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                 mainFrame.changeToMainScreen();
+             }
+         });
+
+        disCountImage = new ImageIcon("data/cards/icon/discount.png");
+        disCountLabel = new JLabel(disCountImage);
+        txt_Time = new JLabel();
+        txt_Time.setBounds(200, 65, 82, 60);
+        disCountLabel.setBounds(0,backToMainImage.getIconHeight(),disCountImage.getIconWidth(),disCountImage.getIconHeight());
+        add(disCountLabel,JLayeredPane.DEFAULT_LAYER);
+        add(txt_Time,JLayeredPane.MODAL_LAYER);
+
+        ruleImage = new ImageIcon("data/cards/icon/rule.png");
+        ruleLabel = new JLabel(ruleImage);
+        ruleLabel.setBounds(0,backToMainImage.getIconHeight()+disCountImage.getIconHeight(),ruleImage.getIconWidth(),ruleImage.getIconHeight());
+        add(ruleLabel,JLayeredPane.DEFAULT_LAYER);
+
+        expandMoneyImage = new ImageIcon("data/cards/icon/expandMoney.png");
+        expandMoneyLabel = new JLabel(expandMoneyImage);
+        expandMoneyLabel.setBounds(0,backToMainImage.getIconHeight()+disCountImage.getIconHeight()+ruleImage.getIconHeight(),expandMoneyImage.getIconWidth(),expandMoneyImage.getIconHeight());
+        add(expandMoneyLabel,JLayeredPane.DEFAULT_LAYER);
+
+
+        System.out.println(ruleImage.getIconHeight());
+        testCharacterImage = new ImageIcon("data/cards/icon/test_charater.png");
+        testCharacterLabel = new JLabel(testCharacterImage);
+        testCharacterLabel.setBounds(0,397,testCharacterImage.getIconWidth(),testCharacterImage.getIconHeight());
+        add(testCharacterLabel,JLayeredPane.DEFAULT_LAYER);
         
-        //setTitle("相同卡牌");
-        JPanel panel_another = new JPanel();//左邊的面板
-        JPanel panel_another1 = new JPanel();//返回的面板
-        JPanel panel_another2 = new JPanel();//time的面板
-        JPanel panel_another3 = new JPanel();//exp and money的面板
-        JPanel panel_another4 = new JPanel();//rule的面板
-        JPanel panel_another5 = new JPanel();//道具
+        btnStart = new JButton("開始遊戲");
+        add(btnStart,JLayeredPane.DEFAULT_LAYER);
+        btnStart.setBounds(750, 0, 100, 40);
+        //
 
-        //Rule r = new Rule();  //開啟視窗
-        getContentPane().add(panel_another, BorderLayout.WEST);
-        getContentPane().add(panel_Pic, FlowLayout.CENTER);
-        panel_another.setLayout(new FlowLayout(FlowLayout.CENTER));
+        swing = new JButton("翻一對");
+        addsec = new JButton("加時");
+        openall = new JButton("看全部");
+
+        swing.setBounds(200,550,100,30);
+        addsec.setBounds(200,580,100,30);
+        openall.setBounds(200,610,100,30);
+
+        add(swing, JLayeredPane.MODAL_LAYER);
+        add(addsec, JLayeredPane.MODAL_LAYER);
+        add(openall, JLayeredPane.MODAL_LAYER);
+        Rule r = new Rule();
         
-        panel_Pic.setSize(900, 675);//右邊的面板
-        panel_Pic.setBorder(BorderFactory.createEmptyBorder(-5, 0, -5, 0));
-        //panel_Pic.setBackground(Color.blue);
-
-        panel_another.setPreferredSize(new Dimension(300, 675));//左邊的面板
-        panel_another.setBorder(BorderFactory.createEmptyBorder(-5, 0, -5, 0));
-        //panel_another.setBackground(Color.yellow);
-
-		////////////////返回//////////////////////
-        panel_another1.setPreferredSize(new Dimension(300, 56));//backhome
-        //panel_another1.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        ImageIcon backhome = new ImageIcon("icon\\backhome.png");
-        
-        back = new JButton();//記得寫
-		back.setBorderPainted(false);
-		back.setBorder(null);
-		back.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        back.setIcon(backhome);
-        //back.setBorder(BorderFactory.createEmptyBorder(-5, -5, -5, -5));
-        panel_another1.add(back);
-        //panel_another1.setBounds(0, 0, 300, 56);
-        panel_another.add(panel_another1);
-        //panel_another1.setBackground(Color.green);
-        /////////////////返回//////////////////////////////////////////
-        //////////////////////倒數///////////////////////////////////
-        panel_another2.setPreferredSize(new Dimension(300, 56));//discount
-        panel_another2.setBorder(BorderFactory.createEmptyBorder(-5, -5, -5, -5));
-        panel_another2.setBorder(null);
-
-        ImageIcon icon_discount = new ImageIcon("icon\\discount.png");
-        JLabel another_2 = new JLabel();
-
-        //panel_another2.setBorderPainted(false);
-		//icon_discount.setBorder(null);
-		//panel_another2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
-        another_2.setIcon(icon_discount);
-        //another_2.setBounds()
-
-        txt_Time = new JTextField();
-        txt_Time.setEditable(false);    
-        txt_Time.setColumns(5);////放秒的框框
-        //txt_Time.setBounds(50, 80, 5, 100);
-
-        panel_another2.add(txt_Time);
-        //another_2.setBounds(0, 112, 300, 56);
-        panel_another2.add(another_2);
-        //panel_another2.setBounds(0, 112, 300, 56);
-		panel_another.add(panel_another2);
-        //////////////////////倒數///////////////////////////////
-        ///////////////////////經驗和金錢//////////////////
-        panel_another3.setPreferredSize(new Dimension(300, 112));
-        panel_another3.setBorder(BorderFactory.createEmptyBorder(-5, -5, -5, -5));
-        ImageIcon icon_expandmoney = new ImageIcon("icon\\expandmoney.png");
-        JLabel another_3 = new JLabel();
-        another_3.setIcon(icon_expandmoney);
-        panel_another3.add(another_3);
-        //panel_another3.setBackground(Color.gray);
-        panel_another3.setLayout(new FlowLayout(FlowLayout.LEFT));
-        JLabel lbl_exp = new JLabel("exp:");
-        JLabel lbl_money = new JLabel("money:");
-        lbl_exp.setPreferredSize(new Dimension(300, 50));
-        panel_another3.add(lbl_exp);
-        panel_another3.add(lbl_money);
-
-        panel_another.add(panel_another3);
-        ///////////////////////經驗和金錢//////////////////
-        //////////////規則//////////////////////////////
-        panel_another4.setPreferredSize(new Dimension(300, 168));//rule
-        panel_another4.setBorder(BorderFactory.createEmptyBorder(-5, -5, -5,-5));
-        ImageIcon icon_rule = new ImageIcon("icon\\rule.png");
-        JLabel another_4 = new JLabel();
-        another_4.setIcon(icon_rule);
-        panel_another4.add(another_4);
-		panel_another4.setLayout(new FlowLayout(FlowLayout.LEFT));
-        JLabel lbl_rule = new JLabel("規則:");
-        panel_another4.add(lbl_rule);//放在上面 panel time
-        JLabel ruletext = new JLabel("<html>30秒內盡量翻開一對的卡牌,可使用道具翻開全部卡<br>面三秒,採計分制</html>");
-        panel_another4.add(ruletext);
-        
-        panel_another.add(panel_another4);
-        ////////////////////////規則/////////////////
-
-        /////////////////肝//////////////////////////////
-        panel_another5.setPreferredSize(new Dimension(300, 283));//test_charater
-        panel_another5.setBorder(BorderFactory.createEmptyBorder(-5, -5, -5, -5));
-        ImageIcon icon_charater = new ImageIcon("icon\\test_charater.png");
-        JLabel another_5 = new JLabel();
-        another_5.setIcon(icon_charater);
-        panel_another5.add(another_5);
-        JLabel lbl_item = new JLabel("主人翁");
-        panel_another5.add(lbl_item);
-        
-        panel_another.add(panel_another5);
-        //////////////////肝///////////////////////////////////////
-
-        JButton btn_Start = new JButton("開始遊戲");
-        panel_Pic.add(btn_Start);
-
-        getContentPane().add(panel_Pic, BorderLayout.CENTER);///照片的位置
-
-
-        //JOptionPane.showMessageDialog(null, "30秒內盡量翻開一對的卡牌,可使用道具翻開全部卡面三秒,採計分制");//共找出幾對  要記得改
-        btn_Start.addActionListener(new ActionListener() {//開始遊戲的按鈕click
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                panel_Pic.remove(btn_Start);
-                back.setEnabled(false);
+        btnStart.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                remove(btnStart);//移掉開始按鈕
+                panel_Pic = new JPanel();
+                panel_Pic.setBounds(300, 0, 900, 655);
+                add(panel_Pic, JLayeredPane.DEFAULT_LAYER);
+                backToMainButton.setEnabled(false);
                 if (isRunning) {
                     return;
                 }
                 setRunning(true);
                 startGame();
-                //back.setEnabled(true);
             }
+         });
 
+        swing.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                timer3.start();
+            }
+        });
+        addsec.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                timer2.start();
+            }
         });
 
-        ///////////////////////////////////////////////////////
-        /*btn_rule.addActionListener(new ActionListener() {//rule
+        openall.addActionListener(new AbstractAction() {
+            @Override
             public void actionPerformed(ActionEvent e) {
-                
-                //frame_rule.setTitle("規則說明");
-
+                timer4.start();
             }
+        });
 
-        });*/
-        //initPicPanels();//初始化圖片面板
-        //Rule r = new Rule();  //開啟視窗
+    }
+
+
+
+    Timer timer1 = new Timer(1000, new ActionListener() {//倒數30sec
+        public void actionPerformed(ActionEvent e) {
+            txt_Time.setText(time + "");
+            time--;
+            if(time==0){
+                JOptionPane.showMessageDialog(null, "共找出" + count + "對");//共找出幾對  要記得改
+                backToMainButton.setEnabled(true);
+                // 結束後重新初始化一下面板以便於下一次的執行
+                count = 0;
+                panel_Pic.removeAll();
+                txt_Time.setText(null);
+                panel_Pic.validate();
+                isRunning = false;
+                timer1.stop();
+            }
+        }
+    });
+
+    Timer timer2 = new Timer(1, new ActionListener() {//addsec
+        public void actionPerformed(ActionEvent e) {
+            time=time+10;
+            timer2.stop();
+        }
+    });
+
+    Timer timer3 = new Timer(1, new ActionListener() {//swing
+        public void actionPerformed(ActionEvent e) {
+
+        }
+    });
+
+    Timer timer4 = new Timer(1, new ActionListener() {//openall 10sec
+        public void actionPerformed(ActionEvent e) {
+            //openallcard();
+
+            timer4.stop();
+        }
+    });
+
+    /**
+     * 開始遊戲
+     */
+    protected void startGame() {
+        new Thread() {//執行緒  可能要改掉  不然監聽上會變慢
+            ////@Override
+            //Thread.sleep(500);
+            public void run() {
+                initPicPanels();
+                timer1.start();//開始倒數
+            }
+        }.start();
     }
 
     /**
@@ -211,41 +254,6 @@ public class RememberCard extends JFrame {
         }
     }
 
-    /**
-     * 開始遊戲
-     */
-    //static int hi=0;
-    protected void startGame() {
-        new Thread() {//執行緒  可能要改掉  不然監聽上會變慢
-            ////@Override
-            //Thread.sleep(500);
-
-            public void run() {
-                initPicPanels();
-                //改時間的地方
-                long startTime = System.currentTimeMillis();//返回當前時間(毫秒)。返回值的時間單位是1毫秒
-                while ((System.currentTimeMillis() - startTime) / 1000 <= 30) {//30s結束或全部找完
-                    long a=(Math.abs(System.currentTimeMillis() - startTime) / 1000)-30;
-                    txt_Time.setText(  Math.abs(a) + "");//秒數跑的速度
-                    if(count > ROWS * COLUMNS / 2) {
-                        break;
-                    }
-                }
-                //////////
-                JOptionPane.showMessageDialog(null, "共找出" + count + "對");//共找出幾對  要記得改
-                back.setEnabled(true);
-                // 結束後重新初始化一下面板以便於下一次的執行
-
-                count = 0;
-                panel_Pic.removeAll();
-
-                txt_Time.setText(null);
-                panel_Pic.validate();
-                isRunning = false;
-                /////////////////初始化完成
-            }
-        }.start();
-    }
 
     /**
      * 初始化圖片的索引並賦值每個圖片的路徑

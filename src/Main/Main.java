@@ -1,7 +1,9 @@
 package Main;
 
+import Card.RememberCard;
 import Dinosaur.userinterface.DinoJLayer;
 import Dinosaur.userinterface.GameScreen;
+import Frogger.main.FrogJLayer;
 import Frogger.main.FroggerPanel;
 import House.bag.BagLayerPane;
 import House.house.House;
@@ -85,7 +87,7 @@ public class Main extends JFrame {
         hamstermusic.stop();
         froggermusic.loop(Clip.LOOP_CONTINUOUSLY);      // 將音樂切換至遊戲背景音樂，其他音樂暫停撥放
         cardmusic.stop();
-        JPanel frog = new FroggerPanel(this, this.house);
+        FrogJLayer frog = new FrogJLayer(this, this.house);
         this.setTitle("馬路如虎口，抓到罰三百");
         this.setContentPane(frog);
         this.setVisible(true);
@@ -122,7 +124,7 @@ public class Main extends JFrame {
         mouse.requestFocus();
     }
 
-/*
+
     // 切換至對對碰
     public void changeToCard(){
         entermusic.stop();
@@ -131,11 +133,11 @@ public class Main extends JFrame {
         hamstermusic.stop();
         froggermusic.stop();
         cardmusic.loop(Clip.LOOP_CONTINUOUSLY);      // 將音樂切換至遊戲背景音樂，其他音樂暫停撥放
-        JPanel card = new CardGame(this, this.house);
+        RememberCard card = new RememberCard(this, this.house);
         this.setTitle("消滅一對是一對");
         this.setContentPane(card);
     }
-*/
+
     // 切換至股市系統
     public void changeToStock(){
         entermusic.stop();

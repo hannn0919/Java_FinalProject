@@ -5,9 +5,10 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="12" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="jcommon-1.0.23" level="project" />
     <orderEntry type="library" exported="" name="jfreechart-1.0.19" level="project" />
+    <orderEntry type="library" name="jar" level="application" />
   </component>
 </module>

@@ -13,13 +13,12 @@ public class CardGame {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                RememberCard remCard = new RememberCard();
-
-                remCard.setSize(1200, 675);
-                remCard.setLocationRelativeTo(null);
-                remCard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                remCard.setVisible(true);
-                Rule r = new Rule();
+                //JFrame main = new JFrame();
+               // RememberCard remCard = new RememberCard();
+                //main.add(remCard);
+                //main.setSize(1200, 675);
+                //main.setVisible(true);
+                //Rule r = new Rule();
             }
         });
     }
