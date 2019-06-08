@@ -55,7 +55,7 @@ public class StockWindow extends JPanel{
     public StockWindow(Main mainFrame, House house)
     {
         this.house  = house;
-        
+
         this.mainFrame = mainFrame;
         this.setSize(1200, 675);
         this.setLayout(null);

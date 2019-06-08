@@ -3,6 +3,7 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -18,11 +19,11 @@ import House.house.House;
 import Main.*;
 
 
-public class FroggerPanel extends JPanel
+public class FroggerPanel extends JPanel implements KeyListener
 {
 
     private Timer timer;
-    private int time = 6000;
+    public int time = 6000;
     private Image frogImage;
     private ArrayList<Car> cars;
     private Frog frog;
@@ -51,51 +52,60 @@ public class FroggerPanel extends JPanel
 //        timePanel.add(timeLabel);
 //
 //        add(timePanel, BorderLayout.NORTH);
-        timeLabel = new JLabel(String.valueOf(time/100));
-        timeLabel.setBounds(900, 20 , 200, 20);
-        add(timeLabel);
+//        timeLabel = new JLabel(String.valueOf(time/100));
+//        timeLabel.setBounds(900, 20 , 200, 20);
+//        add(timeLabel);
 
         Init();
         repaint();
-        Keylisten listener = new Keylisten();
-        this.addKeyListener(listener);
+//        Keylisten listener = new Keylisten();
+//        this.addKeyListener(listener);
         // handle frame mouse motion event
         //requestFocusInWindow();
         gameStart();
     }
 
-    private class Keylisten extends KeyAdapter // anonymous inner class
+
+
+    @Override
+    public void keyPressed(KeyEvent e)
     {
+        int key1 = e.getKeyCode();
+        char key2 = e.getKeyChar();
 
-        @Override
-        public void keyPressed(KeyEvent e)
-        {
-            int key1 = e.getKeyCode();
-            char key2 = e.getKeyChar();
-
-            switch (key1) {
-                case KeyEvent.VK_UP:
-                    frog.move(0, -80);
-                    break;
-                case KeyEvent.VK_LEFT:
-                    frog.move(-40, 0);
-                    break;
-                case KeyEvent.VK_DOWN:
-                    frog.move(0, 80);
-                    break;
-                case KeyEvent.VK_RIGHT:
-                    frog.move(40, 0);
-                    break;
-                case KeyEvent.VK_P:
-                    timer.cancel();
-                    mainFrame.changeToMainScreen();
-                    end = 0;
-                    break;
-                default:
-                    System.out.println(key2);
-            }
+        switch (key1) {
+            case KeyEvent.VK_UP:
+                frog.move(0, -80);
+                break;
+            case KeyEvent.VK_LEFT:
+                frog.move(-40, 0);
+                break;
+            case KeyEvent.VK_DOWN:
+                frog.move(0, 80);
+                break;
+            case KeyEvent.VK_RIGHT:
+                frog.move(40, 0);
+                break;
+            case KeyEvent.VK_P:
+                timer.cancel();
+                mainFrame.changeToMainScreen();
+                end = 0;
+                break;
+            default:
+                System.out.println(key2);
         }
     }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        // TODO Auto-generated method stub
+
+    }
+
 
 
     private void Init()
@@ -105,14 +115,14 @@ public class FroggerPanel extends JPanel
         cars = new ArrayList<>();
         frog = new Frog(Frog.startX, Frog.startY, 70, 70, "characters50.png");
 
-        police = new Car( 1200, 280, 120 -10, 80-  10, 0, "police170r.png");
+        police = new Car( 900, 280, 120 -10, 80-  10, 0, "police170r.png");
         policeShow = 0;
         for(int i =0;i<5;i++){
             CarsRoadOne[i] = new Car(10 + i * 280, 440, 120-10, 80-10, 1, "orangecarr.png"); // 5
             cars.add(CarsRoadOne[i]);
         }
         for(int i =0;i<3;i++){
-            CarsRoadTwo[i] = new Car( 20 + i * 466, 360, 200-10, 80-10, 4, "truck200r.png"); // 3
+            CarsRoadTwo[i] = new Car( 20 + i * 466 , 360, 200-10, 80-10, 4, "truck200r.png"); // 3
             cars.add(CarsRoadTwo[i]);
         }
         for(int i =0;i<4;i++){
@@ -124,7 +134,7 @@ public class FroggerPanel extends JPanel
             cars.add(CarsRoadFour[i]);
         }
         for(int i = 0; i< 3;i++){
-            underWays[i] = new UnderWay(325, 525 - i * 240, 80, 80, "underWay.png");
+            underWays[i] = new UnderWay(25, 525 - i * 240, 80, 80, "underWay.png");
         }
     }
 
@@ -143,7 +153,7 @@ public class FroggerPanel extends JPanel
                 }
                 time--;
                 //System.out.println("test");
-                timeLabel.setText(String.valueOf(time/100));
+                //timeLabel.setText(String.valueOf(time/100));
                 if(time == 99){
                     int temp = JOptionPane.showConfirmDialog(null, "遊戲結束\n是否要重新(Yes : 重新遊戲 No : 回選單)", "", JOptionPane.YES_NO_OPTION);
                     if(temp == 0){ // 0 yew 1 no

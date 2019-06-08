@@ -3,11 +3,11 @@ public class Frog extends Rectengle
 {
     public static final int upBound = 0;
     public static final int downBound = 600;
-    public static final int leftBound = 300;
-    public static final int rightBound = 1100;
-    public static final int startX = 605;
+    public static final int leftBound = 0;
+    public static final int rightBound = 800;
+    public static final int startX = 305;
     public static final int startY = 525;
-    public static final int endX = 605;
+    public static final int endX = 305;
     public static final int endY = 45;
 
     public Frog(int x, int y, int w, int h, String ImageName){
