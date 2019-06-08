@@ -73,42 +73,38 @@ public class Mouse extends JLayeredPane{
         add(backGroundLabel,JLayeredPane.DEFAULT_LAYER);
 
 
-        backToMainImage = new ImageIcon("data/HitMouse/icon/backhome.png");
-         backToMainButton = new JButton(backToMainImage);
-         backToMainButton.setBounds(0,0,backToMainImage.getIconWidth(),backToMainImage.getIconHeight());
+        backToMainImage = new ImageIcon("data/gamebar/backhome.png");
+        backToMainButton = new JButton(backToMainImage);
+        backToMainButton.setBounds(0,0,backToMainImage.getIconWidth(),backToMainImage.getIconHeight());
         add(backToMainButton,JLayeredPane.DEFAULT_LAYER);
-         backToMainButton.setBorderPainted(false);
-         backToMainButton.setBorder(null);
-         backToMainButton.setFocusPainted(false);
-         backToMainButton.setContentAreaFilled(false);
-         backToMainButton.addActionListener(new ActionListener() {
-             @Override
-             public void actionPerformed(ActionEvent e) {
-                 mainFrame.changeToMainScreen();
-             }
-         });
+        backToMainButton.setBorderPainted(false);
+        backToMainButton.setBorder(null);
+        backToMainButton.setFocusPainted(false);
+        backToMainButton.setContentAreaFilled(false);
+        backToMainButton.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(ActionEvent e) {
+             mainFrame.changeToMainScreen();
+         }
+        });
 
-        disCountImage = new ImageIcon("data/HitMouse/icon/discount.png");
+        disCountImage = new ImageIcon("data/gamebar/discount.png");
         disCountLabel = new JLabel(disCountImage);
         disCountLabel.setBounds(0,backToMainImage.getIconHeight(),disCountImage.getIconWidth(),disCountImage.getIconHeight());
         add(disCountLabel,JLayeredPane.DEFAULT_LAYER);
 
-        ruleImage = new ImageIcon("data/HitMouse/icon/rule.png");
+        ruleImage = new ImageIcon("data/gamebar/rule.png");
         ruleLabel = new JLabel(ruleImage);
         ruleLabel.setBounds(0,backToMainImage.getIconHeight()+disCountImage.getIconHeight(),ruleImage.getIconWidth(),ruleImage.getIconHeight());
         add(ruleLabel,JLayeredPane.DEFAULT_LAYER);
 
-        expandMoneyImage = new ImageIcon("data/HitMouse/icon/expandMoney.png");
+        expandMoneyImage = new ImageIcon("data/gamebar/expandMoney.png");
         expandMoneyLabel = new JLabel(expandMoneyImage);
         expandMoneyLabel.setBounds(0,backToMainImage.getIconHeight()+disCountImage.getIconHeight()+ruleImage.getIconHeight(),expandMoneyImage.getIconWidth(),expandMoneyImage.getIconHeight());
         add(expandMoneyLabel,JLayeredPane.DEFAULT_LAYER);
 
 
-        System.out.println(ruleImage.getIconHeight());
-        testCharacterImage = new ImageIcon("data/HitMouse/icon/test_charater.png");
-        testCharacterLabel = new JLabel(testCharacterImage);
-        testCharacterLabel.setBounds(0,397,testCharacterImage.getIconWidth(),testCharacterImage.getIconHeight());
-        add(testCharacterLabel,JLayeredPane.DEFAULT_LAYER);
+
 
         scoreText = new JTextField();
         scoreText.setEditable(false);

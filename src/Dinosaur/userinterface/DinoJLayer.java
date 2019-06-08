@@ -52,7 +52,7 @@ public class DinoJLayer extends JLayeredPane {
             }
         }, 0, 10);
 
-        backToMainImage = new ImageIcon("data/HitMouse/icon/backhome.png");
+        backToMainImage = new ImageIcon("data/gamebar/backhome.png");
         backToMainButton = new JButton(backToMainImage);
         backToMainButton.setBounds(0,0,backToMainImage.getIconWidth(),backToMainImage.getIconHeight());
         add(backToMainButton,JLayeredPane.DEFAULT_LAYER);
