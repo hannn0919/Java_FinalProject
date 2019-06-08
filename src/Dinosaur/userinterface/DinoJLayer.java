@@ -2,8 +2,11 @@ package Dinosaur.userinterface;
 import House.house.House;
 import Main.Main;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class DinoJLayer extends JLayeredPane {
     private Main frame;
@@ -22,6 +25,10 @@ public class DinoJLayer extends JLayeredPane {
     private JLabel ruleLabel;
     private JLabel testCharacterLabel;
 
+    private Timer timer;
+    private int time = 6000;
+    private JLabel timeLabel;
+
     public DinoJLayer(Main frame, House house){
         this.frame = frame;
         this.house = house;
@@ -29,6 +36,22 @@ public class DinoJLayer extends JLayeredPane {
         game.setBounds(300,0,1200,675);
         add(game,JLayeredPane.DEFAULT_LAYER);
         addKeyListener(game);
+
+        timeLabel = new JLabel(String.valueOf(time/100));
+        timeLabel.setFont(new Font("微軟正黑體", Font.BOLD, 32));
+        //計時60秒
+        timer = new Timer();
+        timer.schedule(new TimerTask(){
+            @Override
+            public void run(){
+                time = game.time;
+                timeLabel.setText(String.valueOf(time/100));
+                timeLabel.setBounds(173,76,300,100);
+                add(timeLabel,JLayeredPane.PALETTE_LAYER);
+                repaint();
+            }
+        }, 0, 10);
+
         backToMainImage = new ImageIcon("data/HitMouse/icon/backhome.png");
         backToMainButton = new JButton(backToMainImage);
         backToMainButton.setBounds(0,0,backToMainImage.getIconWidth(),backToMainImage.getIconHeight());
@@ -44,27 +67,19 @@ public class DinoJLayer extends JLayeredPane {
             }
         });
 
-        disCountImage = new ImageIcon("data/HitMouse/icon/discount.png");
+        disCountImage = new ImageIcon("data/gamebar/discount.png");
         disCountLabel = new JLabel(disCountImage);
         disCountLabel.setBounds(0,backToMainImage.getIconHeight(),disCountImage.getIconWidth(),disCountImage.getIconHeight());
         add(disCountLabel,JLayeredPane.DEFAULT_LAYER);
 
-        ruleImage = new ImageIcon("data/HitMouse/icon/rule.png");
+        ruleImage = new ImageIcon("data/gamebar/rule.png");
         ruleLabel = new JLabel(ruleImage);
         ruleLabel.setBounds(0,backToMainImage.getIconHeight()+disCountImage.getIconHeight(),ruleImage.getIconWidth(),ruleImage.getIconHeight());
         add(ruleLabel,JLayeredPane.DEFAULT_LAYER);
 
-        expandMoneyImage = new ImageIcon("data/HitMouse/icon/expandMoney.png");
+        expandMoneyImage = new ImageIcon("data/gamebar/expandmoney.png");
         expandMoneyLabel = new JLabel(expandMoneyImage);
         expandMoneyLabel.setBounds(0,backToMainImage.getIconHeight()+disCountImage.getIconHeight()+ruleImage.getIconHeight(),expandMoneyImage.getIconWidth(),expandMoneyImage.getIconHeight());
         add(expandMoneyLabel,JLayeredPane.DEFAULT_LAYER);
-
-
-        System.out.println(ruleImage.getIconHeight());
-        testCharacterImage = new ImageIcon("data/HitMouse/icon/test_charater.png");
-        testCharacterLabel = new JLabel(testCharacterImage);
-        testCharacterLabel.setBounds(0,397,testCharacterImage.getIconWidth(),testCharacterImage.getIconHeight());
-        add(testCharacterLabel,JLayeredPane.DEFAULT_LAYER);
-
     }
 }

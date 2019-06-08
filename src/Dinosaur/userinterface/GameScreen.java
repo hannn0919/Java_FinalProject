@@ -26,7 +26,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
     private static final int GAME_OVER_STATE = 2;
 
     private Timer timer;
-    private int time = 6000;
+    public int time = 6000;
 
     private Main frame;
     private House house;
@@ -35,7 +35,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
     private MainCharacter mainCharacter;
     private EnemiesManager enemiesManager;
     private Clouds clouds;
-    private Thread thread;
+    public Thread thread;
     private float speed=5;
     private double max = 0;
     private boolean isKeyPressed;
@@ -78,7 +78,6 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
                 if(time == 0){
                     timer.cancel();
                     thread.stop();
-                    frame.changeToMainScreen();
                 }
                 repaint();
             }

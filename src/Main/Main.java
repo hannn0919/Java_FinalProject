@@ -53,7 +53,7 @@ public class Main extends JFrame {
 
     // 切換至登入頁面
     public void changeToEnterScreen() {
-        entermusic.loop(Clip.LOOP_CONTINUOUSLY);    // 將音樂切換至登入頁面背景音樂，其他音樂暫停撥放
+        //entermusic.loop(Clip.LOOP_CONTINUOUSLY);    // 將音樂切換至登入頁面背景音樂，其他音樂暫停撥放
         mainmusic.stop();
         dinosaurmusic.stop();
         hamstermusic.stop();
@@ -66,7 +66,7 @@ public class Main extends JFrame {
     // 切換至主畫面
     public void changeToMainScreen() {
         entermusic.stop();
-        mainmusic.loop(Clip.LOOP_CONTINUOUSLY);    // 將音樂切換至主畫面背景音樂，其他音樂暫停撥放
+        //mainmusic.loop(Clip.LOOP_CONTINUOUSLY);    // 將音樂切換至主畫面背景音樂，其他音樂暫停撥放
         dinosaurmusic.stop();
         hamstermusic.stop();
         froggermusic.stop();
@@ -94,7 +94,7 @@ public class Main extends JFrame {
     public void changeToDinosaur(){
         entermusic.stop();
         mainmusic.stop();
-        dinosaurmusic.loop(Clip.LOOP_CONTINUOUSLY);      // 將音樂切換至遊戲背景音樂，其他音樂暫停撥放
+        //dinosaurmusic.loop(Clip.LOOP_CONTINUOUSLY);      // 將音樂切換至遊戲背景音樂，其他音樂暫停撥放
         hamstermusic.stop();
         froggermusic.stop();
         cardmusic.stop();
