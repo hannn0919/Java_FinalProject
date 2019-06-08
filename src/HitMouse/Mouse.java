@@ -22,26 +22,25 @@ import House.house.House;
 public class Mouse extends JLayeredPane{
     private JFrame frame;
 
-
-
     private ImageIcon imageBackGround;//背景圖
     private ImageIcon[] teacher=new ImageIcon[6];//老師圖片(好地鼠)
     private ImageIcon[] student = new ImageIcon[5];//學生圖片(壞地鼠)
     private ImageIcon startImage;//開始圖片
-    private ImageIcon backToMainImage;
-    private ImageIcon disCountImage;
-    private ImageIcon expandMoneyImage;
-    private ImageIcon ruleImage;
-    private ImageIcon testCharacterImage;
+    private ImageIcon backToMainImage;//回到主程式的圖片
+    private ImageIcon disCountImage;//到數計時的圖片
+    private ImageIcon expandMoneyImage;//經驗 前 肝的組合圖片
+    private ImageIcon ruleImage;//簡單規則介紹的底圖
+
 
     private JButton btnStart;//開始按鈕
     private JButton  btnItemOnlyTeacher;//使用老師道具的按鈕
-    private JButton btnItemScoreDouble;
+    private JButton btnItemScoreDouble;//使用分數加倍的按鈕
+    private JButton btnEquipment;//使用裝備的按鈕
     private JButton[] win;//放窗戶的圖片
     private JButton[] but;//人物出現的位置
 
-    private Timer itemTeacherTime;//使用道具 生效時間
-    private Timer itemScoreDouble;
+    private Timer itemTeacherTime;//使用老師道具 生效時間
+    private Timer itemScoreDouble;//使用分數加倍道具 生效時間
 
     private int specialCard;//紀錄道具使用與否
     private final int SHIFT=300;
@@ -52,14 +51,17 @@ public class Mouse extends JLayeredPane{
     private JLabel disCountLabel;
     private JLabel expandMoneyLabel;
     private JLabel ruleLabel;
-    private JLabel testCharacterLabel;
-    private JTextField scoreText;
+
+    private JLabel djs;
+    private JLabel expFromMain;
+    private JLabel moneyFromMain;
+
     private Main mainFrame;
     private House house;
-     public Mouse(Main mainFrame,House house){
-    //public Mouse(){
-        this.house=house;
-        this.mainFrame=mainFrame;
+     public Mouse(Main mainFrame,House house) {
+         //public Mouse(){
+         this.house = house;
+         this.mainFrame = mainFrame;
 
        /* frame = new JFrame("打地鼠");
         frame.setSize(900,675);
@@ -67,52 +69,69 @@ public class Mouse extends JLayeredPane{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
 */
-       imageBackGround=new ImageIcon("data/HitMouse/background/background.png");//background
-        backGroundLabel=new JLabel(imageBackGround);
-        backGroundLabel.setBounds(SHIFT,0,imageBackGround.getIconWidth(),imageBackGround.getIconHeight());
-        add(backGroundLabel,JLayeredPane.DEFAULT_LAYER);
+         imageBackGround = new ImageIcon("data/HitMouse/background/background.png");//background
+         backGroundLabel = new JLabel(imageBackGround);
+         backGroundLabel.setBounds(SHIFT, 0, imageBackGround.getIconWidth(), imageBackGround.getIconHeight());
+         add(backGroundLabel, JLayeredPane.DEFAULT_LAYER);
+         {
+             int heightTotal=0;
+             backToMainImage = new ImageIcon("data/gamebar/backhome.png");
+             backToMainButton = new JButton(backToMainImage);
+             backToMainButton.setBounds(0, heightTotal, backToMainImage.getIconWidth(), backToMainImage.getIconHeight());
+             add(backToMainButton, JLayeredPane.DEFAULT_LAYER);
+             backToMainButton.setBorderPainted(false);
+             backToMainButton.setBorder(null);
+             backToMainButton.setFocusPainted(false);
+             backToMainButton.setContentAreaFilled(false);
+             backToMainButton.addActionListener(new ActionListener() {
+                 @Override
+                 public void actionPerformed(ActionEvent e) {
+                     mainFrame.changeToMainScreen();
+                 }
+             });
+             heightTotal+=backToMainImage.getIconHeight();
 
 
-        backToMainImage = new ImageIcon("data/gamebar/backhome.png");
-        backToMainButton = new JButton(backToMainImage);
-        backToMainButton.setBounds(0,0,backToMainImage.getIconWidth(),backToMainImage.getIconHeight());
-        add(backToMainButton,JLayeredPane.DEFAULT_LAYER);
-        backToMainButton.setBorderPainted(false);
-        backToMainButton.setBorder(null);
-        backToMainButton.setFocusPainted(false);
-        backToMainButton.setContentAreaFilled(false);
-        backToMainButton.addActionListener(new ActionListener() {
-         @Override
-         public void actionPerformed(ActionEvent e) {
-             mainFrame.changeToMainScreen();
+
+             disCountImage = new ImageIcon("data/gamebar/discount.png");
+             disCountLabel = new JLabel(disCountImage);
+             disCountLabel.setBounds(0, heightTotal, disCountImage.getIconWidth(), disCountImage.getIconHeight());
+             add(disCountLabel, JLayeredPane.DEFAULT_LAYER);
+             heightTotal+=disCountImage.getIconHeight();
+
+             ruleImage = new ImageIcon("data/gamebar/rule.png");
+             ruleLabel = new JLabel(ruleImage);
+             ruleLabel.setBounds(0, heightTotal, ruleImage.getIconWidth(), ruleImage.getIconHeight());
+             add(ruleLabel, JLayeredPane.DEFAULT_LAYER);
+             heightTotal+=ruleImage.getIconHeight();
+
+             expandMoneyImage = new ImageIcon("data/gamebar/expandMoney.png");
+             expandMoneyLabel = new JLabel(expandMoneyImage);
+             expandMoneyLabel.setBounds(0, heightTotal, expandMoneyImage.getIconWidth(), expandMoneyImage.getIconHeight());
+             add(expandMoneyLabel, JLayeredPane.DEFAULT_LAYER);
+
+             score =new Score();
+             djs =new JLabel(""); //Countdown
+             djs.setFont(new Font("標楷體", Font.BOLD, 25));;
+             djs.setBounds(175,115,30,25);
+             add(djs,JLayeredPane.MODAL_LAYER);
+
+             expFromMain = new JLabel("");
+             expFromMain.setFont(new Font("Hollywood Hills",Font.BOLD,17));
+             expFromMain.setBounds(140,heightTotal+13,150,25);
+             expFromMain.setText(Integer.toString(house.getExp()));
+             add(expFromMain,JLayeredPane.MODAL_LAYER);
+
+             moneyFromMain = new JLabel("");
+             moneyFromMain.setFont(new Font("Hollywood Hills",Font.BOLD,17));
+             moneyFromMain.setBounds(140,heightTotal+50,150,25);
+             moneyFromMain.setText(Integer.toString(house.getHoldMoney()));
+             add(moneyFromMain,JLayeredPane.MODAL_LAYER);
          }
-        });
-
-        disCountImage = new ImageIcon("data/gamebar/discount.png");
-        disCountLabel = new JLabel(disCountImage);
-        disCountLabel.setBounds(0,backToMainImage.getIconHeight(),disCountImage.getIconWidth(),disCountImage.getIconHeight());
-        add(disCountLabel,JLayeredPane.DEFAULT_LAYER);
-
-        ruleImage = new ImageIcon("data/gamebar/rule.png");
-        ruleLabel = new JLabel(ruleImage);
-        ruleLabel.setBounds(0,backToMainImage.getIconHeight()+disCountImage.getIconHeight(),ruleImage.getIconWidth(),ruleImage.getIconHeight());
-        add(ruleLabel,JLayeredPane.DEFAULT_LAYER);
-
-        expandMoneyImage = new ImageIcon("data/gamebar/expandMoney.png");
-        expandMoneyLabel = new JLabel(expandMoneyImage);
-        expandMoneyLabel.setBounds(0,backToMainImage.getIconHeight()+disCountImage.getIconHeight()+ruleImage.getIconHeight(),expandMoneyImage.getIconWidth(),expandMoneyImage.getIconHeight());
-        add(expandMoneyLabel,JLayeredPane.DEFAULT_LAYER);
 
 
 
 
-        scoreText = new JTextField();
-        scoreText.setEditable(false);
-        scoreText.setColumns(5);
-        scoreText.setBounds(175,115,30,20);
-
-
-        //add(scoreText,JLayeredPane.MODAL_LAYER);
 
         for(int i=0;i<6;i++){
             teacher[i]=new ImageIcon(Character.teachers[i]);
@@ -120,6 +139,7 @@ public class Mouse extends JLayeredPane{
         for(int i=0;i<5;i++){
             student[i]=new ImageIcon(Character.students[i]);
         }
+
         startImage=new ImageIcon("data/HitMouse/image/start.jpg");
         btnStart = new JButton();
         btnStart.setIcon(startImage);
@@ -131,7 +151,15 @@ public class Mouse extends JLayeredPane{
         btnItemScoreDouble = new JButton("道具2");
         btnItemScoreDouble.setBounds(200,610,100,30);
         add(btnItemScoreDouble,JLayeredPane.MODAL_LAYER);
-
+        btnEquipment = new JButton("裝備");
+        btnEquipment.setBounds(200,550,100,30);
+        add(btnEquipment,JLayeredPane.MODAL_LAYER);
+        btnEquipment.addActionListener((new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                score.setScore(score.getScore()+20);
+            }
+        }));
         btnItemScoreDouble.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -191,11 +219,7 @@ public class Mouse extends JLayeredPane{
                 k++;
             }
         }
-        score =new Score();
-        JLabel djs =new JLabel(""); //Countdown
-        djs.setFont(new Font("標楷體", Font.BOLD, 25));;
-        djs.setBounds(175,115,30,25);
-        add(djs,JLayeredPane.MODAL_LAYER);
+
 
 
         JLabel jfb =new JLabel("得分：0"); //Scoreboard

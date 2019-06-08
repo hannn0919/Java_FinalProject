@@ -3,11 +3,13 @@ package Main;
 import Dinosaur.userinterface.DinoJLayer;
 import Dinosaur.userinterface.GameScreen;
 import Frogger.main.FroggerPanel;
+import House.bag.BagLayerPane;
 import House.house.House;
 
 import House.bag.BagWindow;
 import House.store.Store;
 import HitMouse.Mouse;
+import House.store.StoreLayerPane;
 import Stock.main.StockWindow;
 
 import javax.sound.sampled.*;
@@ -154,7 +156,8 @@ public class Main extends JFrame {
 
     // 切換至商店
     public void changeToShop(){
-        JPanel store = new Store(this, this.house);
+        StoreLayerPane store = new StoreLayerPane(this,this.house);
+
         this.setTitle("商店");
         this.setContentPane(store);
         this.setVisible(true);
@@ -163,11 +166,11 @@ public class Main extends JFrame {
 
     // 切換至背包
     public void changeToBag(){
-        JPanel bagWindow = new BagWindow(this, this.house);
+        BagLayerPane bagLayerPane = new BagLayerPane(this,this.house);
         this.setTitle("背包");
-        this.setContentPane(bagWindow);
+        this.setContentPane(bagLayerPane);
         this.setVisible(true);
-        bagWindow.requestFocus();
+        bagLayerPane.requestFocus();
     }
 
 
