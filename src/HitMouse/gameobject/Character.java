@@ -8,4 +8,5 @@ public class Character{
     public static String students[] = {
             "data/HitMouse/Student/47.png","data/HitMouse/Student/廖.png","data/HitMouse/Student/欣仔.png","data/HitMouse/Student/涵涵.png","data/HitMouse/Student/王瑋.png"
     };
+    public static String shadow="data/HitMouse/Teacher/shadow.png";
 }
