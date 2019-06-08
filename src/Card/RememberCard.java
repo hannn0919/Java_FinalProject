@@ -23,12 +23,11 @@ public class RememberCard extends JLayeredPane {
     /**
      * 初始化遊戲的行列數，行列數成績必須為偶數
      */
-    private static final int ROWS = 6;
-    private static final int COLUMNS = 5;
+    private static final int ROWS = 4;
+    private static final int COLUMNS = 4;
     private static final long serialVersionUID = -8908268719780973221L;
     private JLabel txt_Time;
     private boolean isRunning = false;
-    private long a;
     private long time=30;
     /**
      * 存放圖片的目錄，簡單起見，存放圖片的目錄中圖片個數為初始化的行列數乘積的一半
@@ -41,13 +40,10 @@ public class RememberCard extends JLayeredPane {
      * 用於標示已找到的對數
      */
     private int count;
-    private JPanel panel_Pic;//////////////////////////////////右邊
+    private JPanel panel_Pic;///////////////////////右邊
     private JButton swing; 
     private JButton addsec;
     private JButton openall;
-
-    private ImageIcon imageBackGround;//背景圖
-   
    
     private ImageIcon backToMainImage;
     private ImageIcon disCountImage;
@@ -60,7 +56,7 @@ public class RememberCard extends JLayeredPane {
     
     private final int SHIFT=300;
    
-    private JLabel backGroundLabel;
+
     private JLabel disCountLabel;
     private JLabel expandMoneyLabel;
     private JLabel ruleLabel;
@@ -73,8 +69,6 @@ public class RememberCard extends JLayeredPane {
 
         this.house=house;
         this.mainFrame=mainFrame;
-       // timer1.start();
-        //timer1.stop();
 
         backToMainImage = new ImageIcon("data/cards/icon/backhome.png");
         backToMainButton = new JButton(backToMainImage);
@@ -94,7 +88,7 @@ public class RememberCard extends JLayeredPane {
         disCountImage = new ImageIcon("data/cards/icon/discount.png");
         disCountLabel = new JLabel(disCountImage);
         txt_Time = new JLabel();
-        txt_Time.setBounds(200, 65, 82, 60);
+        txt_Time.setBounds(200, 95, 82, 60);
         disCountLabel.setBounds(0,backToMainImage.getIconHeight(),disCountImage.getIconWidth(),disCountImage.getIconHeight());
         add(disCountLabel,JLayeredPane.DEFAULT_LAYER);
         add(txt_Time,JLayeredPane.MODAL_LAYER);
@@ -178,6 +172,7 @@ public class RememberCard extends JLayeredPane {
         public void actionPerformed(ActionEvent e) {
             txt_Time.setText(time + "");
             time--;
+
             if(time==0){
                 JOptionPane.showMessageDialog(null, "共找出" + count + "對");//共找出幾對  要記得改
                 backToMainButton.setEnabled(true);
@@ -208,7 +203,6 @@ public class RememberCard extends JLayeredPane {
     Timer timer4 = new Timer(1, new ActionListener() {//openall 10sec
         public void actionPerformed(ActionEvent e) {
             //openallcard();
-
             timer4.stop();
         }
     });
@@ -218,11 +212,9 @@ public class RememberCard extends JLayeredPane {
      */
     protected void startGame() {
         new Thread() {//執行緒  可能要改掉  不然監聽上會變慢
-            ////@Override
-            //Thread.sleep(500);
             public void run() {
                 initPicPanels();
-                timer1.start();//開始倒數
+                //timer1.start();//開始倒數
             }
         }.start();
     }
@@ -237,7 +229,6 @@ public class RememberCard extends JLayeredPane {
         for (int i = 0; i < ROWS * COLUMNS; i++) {
             PicPanel panel_1 = new PicPanel(this, picture[i]);
             panel_Pic.add(panel_1);
-            //ImageIO.read(new File();
         }
         try {
             Thread.sleep(3000);//延遲三秒蓋牌
@@ -352,8 +343,7 @@ public class RememberCard extends JLayeredPane {
 
 class Rule extends JFrame{
     public Rule(){
-        super("rule"); 
-        //JPanel ruleloca = new JPanel();
+        super("rule");
         JLabel ruletext = new JLabel("       30秒內盡量翻開一對的卡牌,可使用道具翻開全部卡面三秒,採計分制");
         this.add(ruletext);
         setSize(450,250); 
