@@ -27,6 +27,8 @@ public class FrogJLayer extends JLayeredPane {
     private JLabel expandMoneyLabel;
     private JLabel ruleLabel;
     private JLabel testCharacterLabel;
+    private JLabel expFromMain;
+    private JLabel moneyFromMain;
 
     private java.util.Timer timer;
     private int time = 6000;
@@ -51,7 +53,11 @@ public class FrogJLayer extends JLayeredPane {
                 timeLabel.setText(String.valueOf(time/100));
                 timeLabel.setBounds(173,76,300,100);
                 add(timeLabel,JLayeredPane.PALETTE_LAYER);
-                repaint();
+                if(time == 0){
+                    timer.cancel();
+                }else {
+                    repaint();
+                }
             }
         }, 0, 10);
 
@@ -66,6 +72,7 @@ public class FrogJLayer extends JLayeredPane {
         backToMainButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                froggerPanel.time = 0;
                 frame.changeToMainScreen();
             }
         });
@@ -84,5 +91,18 @@ public class FrogJLayer extends JLayeredPane {
         expandMoneyLabel = new JLabel(expandMoneyImage);
         expandMoneyLabel.setBounds(0,backToMainImage.getIconHeight()+disCountImage.getIconHeight()+ruleImage.getIconHeight(),expandMoneyImage.getIconWidth(),expandMoneyImage.getIconHeight());
         add(expandMoneyLabel,JLayeredPane.DEFAULT_LAYER);
+
+        int heightTotal=backToMainImage.getIconHeight()+disCountImage.getIconHeight()+ruleImage.getIconHeight();
+        expFromMain = new JLabel("");
+        expFromMain.setFont(new Font("微軟正黑體",Font.BOLD,17));
+        expFromMain.setBounds(140,heightTotal+13,150,25);
+        expFromMain.setText(Integer.toString(house.getExp()));
+        add(expFromMain,JLayeredPane.MODAL_LAYER);
+
+        moneyFromMain = new JLabel("");
+        moneyFromMain.setFont(new Font("微軟正黑體",Font.BOLD,17));
+        moneyFromMain.setBounds(140,heightTotal+50,150,25);
+        moneyFromMain.setText(Integer.toString(house.getHoldMoney()));
+        add(moneyFromMain,JLayeredPane.MODAL_LAYER);
     }
 }

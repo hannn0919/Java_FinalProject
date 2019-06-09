@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.awt.event.ActionListener;
@@ -13,6 +14,7 @@ import java.awt.*;
 import java.io.*;
 import javax.imageio.*;
 import javax.swing.border.EmptyBorder;
+
 
 import Frogger.util.*;
 import House.house.House;
@@ -38,10 +40,15 @@ public class FroggerPanel extends JPanel implements KeyListener
     private Main mainFrame ;
     private House house;
     private JLabel timeLabel;
-
+    private int stepX ;
+    private int stepY ;
+    private final int oneStep = 80;
+    private int policeTime;
+    private Random random;
     // set up GUI and register key event handler
     public FroggerPanel(Main mainFrame, House house)
     {
+        this.random = new Random();
         this.house = house;
         this.mainFrame = mainFrame;
         this.setFocusable(true);
@@ -55,6 +62,13 @@ public class FroggerPanel extends JPanel implements KeyListener
 //        timeLabel = new JLabel(String.valueOf(time/100));
 //        timeLabel.setBounds(900, 20 , 200, 20);
 //        add(timeLabel);
+//        ImageIcon img = new ImageIcon("data/Frogger/image/frogBackground.png");
+//        Image i = img.getImage();
+//        i = i.getScaledInstance(900, 675, Image.SCALE_SMOOTH);
+//        JLabel background = new JLabel();
+//        background.setIcon(new ImageIcon(i));
+//        background.setSize(900, 675);
+//        this.add(background);
 
         Init();
         repaint();
@@ -75,18 +89,31 @@ public class FroggerPanel extends JPanel implements KeyListener
 
         switch (key1) {
             case KeyEvent.VK_UP:
-                frog.move(0, -80);
+                frog.move(0, -stepY);
+                if(stepY == 240){
+                    setStep(1);
+                }
                 break;
             case KeyEvent.VK_LEFT:
-                frog.move(-40, 0);
+                frog.move(-stepX, 0);
+                if(stepY == 240){
+                    setStep(1);
+                }
                 break;
             case KeyEvent.VK_DOWN:
-                frog.move(0, 80);
+                frog.move(0, stepY);
+                if(stepY == 240){
+                    setStep(1);
+                }
                 break;
             case KeyEvent.VK_RIGHT:
-                frog.move(40, 0);
+                frog.move(stepX, 0);
+                if(stepY == 240){
+                    setStep(1);
+                }
                 break;
             case KeyEvent.VK_P:
+                time =0;
                 timer.cancel();
                 mainFrame.changeToMainScreen();
                 end = 0;
@@ -102,40 +129,37 @@ public class FroggerPanel extends JPanel implements KeyListener
 
     @Override
     public void keyTyped(KeyEvent e) {
-        // TODO Auto-generated method stub
-
     }
-
-
 
     private void Init()
     {
-        time = 6000;
+
         this.end = 1;
         cars = new ArrayList<>();
         frog = new Frog(Frog.startX, Frog.startY, 70, 70, "characters50.png");
-
-        police = new Car( 900, 280, 120 -10, 80-  10, 0, "police170r.png");
+        policeTime = random.nextInt(5000) + 200;
+        police = new Car( 900, 300, 120 -10, 80-  10, 0, "police170r.png");
         policeShow = 0;
         for(int i =0;i<5;i++){
-            CarsRoadOne[i] = new Car(10 + i * 280, 440, 120-10, 80-10, 1, "orangecarr.png"); // 5
+            CarsRoadOne[i] = new Car(10 + i * 280, 460, 120-10, 80-10, 1, "orangecarr.png"); // 5
             cars.add(CarsRoadOne[i]);
         }
         for(int i =0;i<3;i++){
-            CarsRoadTwo[i] = new Car( 20 + i * 466 , 360, 200-10, 80-10, 4, "truck200r.png"); // 3
+            CarsRoadTwo[i] = new Car( 20 + i * 466 , 380, 200-10, 80-10, 4, "truck200r.png"); // 3
             cars.add(CarsRoadTwo[i]);
         }
         for(int i =0;i<4;i++){
-            CarsRoadThree[i] = new Car( 40 + i * 350, 200, 170-10, 80-10, -3, "truck170l.png"); // 4
+            CarsRoadThree[i] = new Car( 40 + i * 350, 220, 170-10, 80-10, -3, "truck170l.png"); // 4
             cars.add(CarsRoadThree[i]);
         }
         for(int i =0;i<6;i++){
-            CarsRoadFour[i] = new Car( 15 + i * 240 , 120, 120-10 , 80-10, -2, "bluecarl.png"); // 6
+            CarsRoadFour[i] = new Car( 15 + i * 240 , 140, 120-10 , 80-10, -2, "bluecarl.png"); // 6
             cars.add(CarsRoadFour[i]);
         }
         for(int i = 0; i< 3;i++){
-            underWays[i] = new UnderWay(25, 525 - i * 240, 80, 80, "underWay.png");
+            underWays[i] = new UnderWay(225, 545 - i * 240, 80, 80, "underWay.png");
         }
+        setStep(1);
     }
 
     private void gameStart()
@@ -144,9 +168,18 @@ public class FroggerPanel extends JPanel implements KeyListener
         timer.schedule(new TimerTask(){
             @Override
             public void run(){
+                if(frog.getX() == 225 && frog.getY() == underWays[0].getY()){
+                    setStep(3);
+                }else if(frog.getX() == 225 && frog.getY() == underWays[1].getY()){
+                    setStep(3);
+                }
+                if(time == 0){
+                    timer.cancel();
+                }
                 if(time == 6000){
                     int temp = JOptionPane.showConfirmDialog(null, "小心肝過馬路\n馬路如虎口，小心罰三百\n(Yes : 開始遊戲 No : 回選單)", "", JOptionPane.YES_NO_OPTION);
                     if(temp == 1){
+                        time = 0;
                         timer.cancel();
                         mainFrame.changeToMainScreen();
                     }
@@ -156,26 +189,25 @@ public class FroggerPanel extends JPanel implements KeyListener
                 //timeLabel.setText(String.valueOf(time/100));
                 if(time == 99){
                     int temp = JOptionPane.showConfirmDialog(null, "遊戲結束\n是否要重新(Yes : 重新遊戲 No : 回選單)", "", JOptionPane.YES_NO_OPTION);
+                    house.setHoldMoney(house.getHoldMoney() + 1000);
+                    house.setExp(house.getExp() + 200);
                     if(temp == 0){ // 0 yew 1 no
                         Init();
+                        time = 5999;
                     }else if(temp == 1){
+                        time = 0;
                         timer.cancel();
                         mainFrame.changeToMainScreen();
                     }
                 }
-                if(time == 5000){
-                    police.setSpeed(-1);
+                if(time == policeTime){
+                    police.setSpeed(-20);
                     policeShow = 1;
                 }
-                if(time == 4600){
+                if(police.getX() < 0){
                     police.setSpeed(0);
-                }
-                if(time == 4000){
-                    police.setSpeed(1);
-                }
-                if(time == 3600){
-                    policeShow =0;
-                    police.setSpeed(0);
+                    policeShow = 0;
+                    policeTime = random.nextInt(policeTime) + 200;
                 }
                 if(end == 0){
                     timer.cancel();
@@ -188,18 +220,33 @@ public class FroggerPanel extends JPanel implements KeyListener
                     c.update();
                 }
                 if(police.getSpeed() != 0){
+                    if(police.intersect(frog)){
+                        frog.setX(Frog.startX);
+                        frog.setY(Frog.startY);
+                        house.setHoldMoney(house.getHoldMoney() - 300); // 抓到罰三百
+                    }
                     police.update();
                 }
                 if(frog.win()){
                     int temp = JOptionPane.showConfirmDialog(null, "遊戲勝利\n你增加了"+time+"經驗值\n是否要重新(Yes : 重新遊戲 No : 回選單)", "", JOptionPane.YES_NO_OPTION);
+                    house.setExp( house.getExp() + time / 6 * house.getLevel());
+                    if(time > 3000){
+                        house.setHoldMoney(house.getHoldMoney() + 3000);
+                    }else if(time > 1000){
+                        house.setHoldMoney(house.getHoldMoney() + 2500);
+                    }else if(time > 0){
+                        house.setHoldMoney(house.getHoldMoney() + 2000);
+                    }
                     if(temp == 0){ // 0 yew 1 no
                         Init();
                         time = 5999;
                     }else if(temp == 1) {
+                        time = 0;
                         timer.cancel();
                         mainFrame.changeToMainScreen();
                     }
                 }
+
                 repaint();
             }
         }, 0, 10);
@@ -213,19 +260,16 @@ public class FroggerPanel extends JPanel implements KeyListener
         //g.fillRect( 610, 550, frog.getW(), frog.getH());
         //g.fillRect(frog.getX()+20, frog.getY()+20,frog.getW(), frog.getH());
 
-        for(int i =0;i<3;i++){
-            g.fillRect(underWays[i].getX(), underWays[i].getY(), underWays[i].getW(), underWays[i].getH());
 
-        }
-        g.fillRect(Frog.endX, Frog.endY, frog.getW(),frog.getH());
         try {
+            Image backGroundImage = ImageIO.read(new File("data/Frogger/image/frogBackground.png"));
+            g.drawImage(backGroundImage, 0, 0, null);
             frogImage = ImageIO.read(new File("data/Frogger/image/" + frog.getImageName()));
             g.drawImage(frogImage, frog.getX(), frog.getY(), null);
             for (Car c : cars) {
                 Image tempImage = ImageIO.read(new File("data/Frogger/image/" + c.getImageName()));
                 g.drawImage(tempImage, c.getX() - 5, c.getY() - 5, null);
             }
-
             if(policeShow == 1){
                 Image tempImage = ImageIO.read(new File("data/Frogger/image/" + police.getImageName()));
                 g.drawImage(tempImage, police.getX()-5, police.getY()-5, null);
@@ -234,5 +278,21 @@ public class FroggerPanel extends JPanel implements KeyListener
         catch (Exception ex) {
                 System.out.println("No example.jpg!!");
         }
+
+//        for(int i =0;i<3;i++){
+//            g.fillRect(underWays[i].getX(), underWays[i].getY(), underWays[i].getW(), underWays[i].getH());
+//        }
+//        g.fillRect(Frog.endX, Frog.endY, frog.getW(),frog.getH());
     }
+
+
+    private void setStep(int k) {
+        stepY = k * oneStep;
+        stepX = oneStep / 2;
+    }
+
+
+
+
+
 } // end class PaintPanel
