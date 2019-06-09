@@ -9,4 +9,6 @@ public class Character{
             "data/HitMouse/Student/47.png","data/HitMouse/Student/廖.png","data/HitMouse/Student/欣仔.png","data/HitMouse/Student/涵涵.png","data/HitMouse/Student/王瑋.png"
     };
     public static String shadow="data/HitMouse/Teacher/shadow.png";
+    public static String fist = "data/HitMouse/image/fist.png";
+    public static String heart = "data/HitMouse/image/heart.png";
 }

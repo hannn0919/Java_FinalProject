@@ -28,10 +28,12 @@ public class Mouse extends JLayeredPane{
     private ImageIcon[] student = new ImageIcon[5];//學生圖片(壞地鼠)
     private ImageIcon shadow;
     private ImageIcon startImage;//開始圖片
-    private ImageIcon backToMainImage;//回到主程式的圖片
-    private ImageIcon disCountImage;//到數計時的圖片
-    private ImageIcon expandMoneyImage;//經驗 前 肝的組合圖片
+    private ImageIcon backToMainImage; //回到主程式的圖片
+    private ImageIcon disCountImage; //到數計時的圖片
+    private ImageIcon expandMoneyImage; //經驗 前 肝的組合圖片
     private ImageIcon ruleImage;//簡單規則介紹的底圖
+    private ImageIcon fist; //拳頭的圖片
+    private ImageIcon heart;//愛心的圖片
 
 
     private JButton btnStart;//開始按鈕
@@ -40,6 +42,7 @@ public class Mouse extends JLayeredPane{
     private JButton btnEquipment;//使用裝備的按鈕
     private JButton[] win;//放窗戶的圖片
     private JButton[] but;//人物出現的位置
+    private JLabel[] obBut;
 
     private Timer itemTeacherTime;//使用老師道具 生效時間
     private Timer itemScoreDouble;//使用分數加倍道具 生效時間
@@ -192,6 +195,7 @@ public class Mouse extends JLayeredPane{
         });
         win=new JButton[16];
         but=new JButton[16];
+        obBut = new JLabel[16];
         int k=0;
         for(int i=65;i<=695;i+=210){
             for(int j=155;j<=505;j+=170){
@@ -216,10 +220,17 @@ public class Mouse extends JLayeredPane{
                 win[k].setFocusPainted(false);
                 win[k].setContentAreaFilled(false);
                 add(win[k],JLayeredPane.PALETTE_LAYER);
+
+                obBut[k] = new JLabel();
+                obBut[k].setIcon(new ImageIcon(""));
+                obBut[k].setBounds(i+SHIFT+30,j,153,134);
+                obBut[k].setBorder(null);
+                add(obBut[k],JLayeredPane.POPUP_LAYER);
                 k++;
             }
         }
-
+        fist = new ImageIcon(Character.fist);
+        heart = new ImageIcon(Character.heart);
 
 
         JLabel jfb =new JLabel("得分：0"); //Scoreboard
@@ -231,7 +242,9 @@ public class Mouse extends JLayeredPane{
              @Override
              public void actionPerformed(ActionEvent e) {
                  int windowpos=secureRandom.nextInt(12);
+                 but[score.getLast()].setEnabled(true);
                  but[score.getLast()].setIcon(null);
+                 obBut[score.getLast()].setIcon(null);
                  score.setLast(windowpos);
                  but[score.getLast()].setIcon(shadow);
                  int fakepos=secureRandom.nextInt(12);
@@ -241,7 +254,9 @@ public class Mouse extends JLayeredPane{
 
                  but[score2.getLast()].setIcon(null);
                  score2.setLast(fakepos);
+
                  but[score2.getLast()].setIcon(shadow);
+
              }
          });
          //開始按鈕並設定第一支地鼠出現的時間延遲
@@ -268,6 +283,7 @@ public class Mouse extends JLayeredPane{
                     timer.stop();
                     shadowTimer.stop();
                     but[score.getLast()].setIcon(null);
+                    obBut[score.getLast()].setIcon(null);
                     JOptionPane.showMessageDialog(frame, "Game Over\n 您的得分為："+score.getScore(),"得分信息",JOptionPane.PLAIN_MESSAGE);
                     score.setScore(0);
                     jfb.setText("得分：0");
@@ -303,6 +319,7 @@ public class Mouse extends JLayeredPane{
                 public void mouseClicked(MouseEvent e) {
                     if(but[ii].getIcon() != null && !Character.shadow.equals(but[ii].getIcon().toString())){//按下去不適Shadow
                         int c = e.getButton();// 得到按下的滑鼠鍵
+                        String temp=but[ii].getIcon().toString();
                         if (c == MouseEvent.BUTTON1){ // 判斷是滑鼠左鍵按下
 
                             Sound.KissSound();
@@ -310,10 +327,14 @@ public class Mouse extends JLayeredPane{
                             for(int j=0;j<6;j++){//圖片是老師
                                 if(Character.teachers[j].equals(but[ii].getIcon().toString())) judge=true;
                             }
-                            if(judge==true) score.setScore(score.getScore() + score.getAddScore());
-                            else score.setScore(score.getScore() - score.getMinusScore());
+                            if(but[score.getLast()].isEnabled()==true){
+                                if(judge==true) score.setScore(score.getScore() + score.getAddScore());
+                                else score.setScore(score.getScore() - score.getMinusScore());
+                            }
 
 
+                            obBut[score.getLast()].setIcon(heart);
+                            //but[score.getLast()].setEnabled(false);
                             //Sound.KissSound();
 
                         }
@@ -324,14 +345,20 @@ public class Mouse extends JLayeredPane{
                             for(int j=0;j<5;j++){
                                 if(Character.students[j].equals(but[ii].getIcon().toString())) judge=true;
                             }
-                            if(judge==true) score.setScore(score.getScore() + score.getAddScore());
-                            else score.setScore(score.getScore() - score.getMinusScore());
+                            if(but[score.getLast()].isEnabled()==true){
+                                if(judge==true) score.setScore(score.getScore() + score.getAddScore());
+                                else score.setScore(score.getScore() - score.getMinusScore());
+                            }
 
-
-
-
+                            obBut[score.getLast()].setIcon(fist);
+                            //but[score.getLast()].setEnabled(false);
                         }
-                        if(!Character.shadow.equals(but[ii].getIcon().toString())) but[score.getLast()].setIcon(null);
+
+                        if(!Character.shadow.equals(but[ii].getIcon().toString())) {
+                           but[score.getLast()].setEnabled(false);
+                           but[score.getLast()].setDisabledIcon(new ImageIcon(temp));
+                           //but[score.getLast()].setIcon(null);
+                        }
                     }
 
                 }
