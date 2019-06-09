@@ -33,8 +33,8 @@ public class Main extends JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setTitle("大學肝什麼");
-        this.mainScreen = new mainPanel(this);
         house = new House();
+        this.mainScreen = new mainPanel(this, this.house);
         // 所有遊戲畫面背景音樂初始化
         ///////////////
         //this.stratDrama();  //開場動畫

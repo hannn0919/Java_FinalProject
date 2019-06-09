@@ -7,10 +7,12 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
+import House.house.House;
 
 public class mainPanel extends JPanel {
 
     private Main mainFrame;
+    private House house;
     private JLabel name, LV, exp, money;
     private JLabel mouseToolTip;
     private Polygon card;
@@ -24,8 +26,9 @@ public class mainPanel extends JPanel {
     private boolean froggerIn= false;
     private boolean dinosaurIn= false;
 
-    public mainPanel(Main mainFrame) {
+    public mainPanel(Main mainFrame, House house) {
         this.mainFrame = mainFrame;
+        this.house = house;
         this.setSize(1200, 675);
         this.setBorder(new EmptyBorder(5, 5, 5, 5));
         this.setLayout(null);
@@ -34,6 +37,11 @@ public class mainPanel extends JPanel {
         mouseToolTip.setSize(80, 40);
         mouseToolTip.setVisible(true);
         this.add(mouseToolTip);
+
+        //肝
+        JLabel liver = new JLabel();
+        liver.setBounds(18, 380, 400, 250);
+        add(liver);
 
         //商店 背包 股市的按鈕
         shopBtn = new JButton();
@@ -54,6 +62,7 @@ public class mainPanel extends JPanel {
         add(bagBtn);
         add(stockBtn);
 
+
       //  MouseMotionHandler mouseMotionHandler = new MouseMotionHandler();
         MouseHandler mouseHandler = new MouseHandler();
         //this.addMouseMotionListener(mouseMotionHandler);
@@ -68,17 +77,20 @@ public class mainPanel extends JPanel {
 
         //肝的名稱
         JLabel name = new JLabel();
+        name.setIcon(new ImageIcon("data/main/" + house.getRole() + ".png"));
         name.setBounds(208, 42, 166, 52);
         add(name);
 
         //等級
         JLabel LV = new JLabel();
+        LV.setIcon(new ImageIcon("data/main/LV" + house.getLevel() + ".png"));
         LV.setBounds(68, 52, 78, 40);
         add(LV);
 
         //經驗
         JLabel exp = new JLabel();
-        JTextField exptxt = new JTextField("9487/66666");
+        JTextField exptxt = new JTextField();
+        exptxt.setText(Integer.toString(house.getExp()));
         exp.setBounds(620, 44, 229, 52);
         exptxt.setBounds(670, 44, 167, 52);
         TextFieldFix(exptxt);
@@ -87,17 +99,18 @@ public class mainPanel extends JPanel {
 
         //錢錢
         JLabel money = new JLabel();
-        JTextField moneytxt = new JTextField("9487");
+        JTextField moneytxt = new JTextField();
+        moneytxt.setText(Integer.toString(house.getHoldMoney()));
         money.setBounds(900, 40, 222, 54);
         moneytxt.setBounds(950, 40, 160, 54);
         TextFieldFix(moneytxt);
         add(moneytxt);
         add(money);
 
-        name.setIcon(new ImageIcon("data/main/尚未硬化的肝.png"));
-        LV.setIcon(new ImageIcon("data/main/LV2.png"));
         exp.setIcon(new ImageIcon("data/main/exp.png"));
         money.setIcon(new ImageIcon("data/main/money.png"));
+        //借放1下這張^.<
+        liver.setIcon(new ImageIcon("data/cards/icon/test_charater.png"));
 
         card = new Polygon();
         card.addPoint(471,171);
