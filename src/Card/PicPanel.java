@@ -129,7 +129,6 @@ public class PicPanel extends JPanel {
                 //int lblHeight = this.getHeight();
                 int lblWidth = 170;//圖片的長寬
                 int lblHeight = 135;
-                //System.out.println("PicPanel initLabelImage " + lblWidth + " " + lblHeight);
                 bgIcon = new ImageIcon(image.getScaledInstance(lblWidth, lblHeight, Image.SCALE_DEFAULT));
                 lbl_Pic.setIcon(bgIcon);
             }

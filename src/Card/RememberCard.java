@@ -5,6 +5,15 @@ import java.awt.event.*;
 import java.io.*;
 import java.util.Random;
 import java.util.LinkedList;
+import javax.imageio.*;
+import java.io.File;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import java.util.ArrayList;
 import java.util.TimerTask;
 import javax.swing.*;
@@ -20,11 +29,12 @@ import House.house.House;
  */
 public class RememberCard extends JLayeredPane {
     private JFrame frame;
+    private  JFrame tips;
     /**
      * 初始化遊戲的行列數，行列數成績必須為偶數
      */
-    private static final int ROWS = 4;
-    private static final int COLUMNS = 4;
+    private static final int ROWS = 6;
+    private static final int COLUMNS = 5;
     private static final long serialVersionUID = -8908268719780973221L;
     private JLabel txt_Time;
     private boolean isRunning = false;
@@ -32,15 +42,18 @@ public class RememberCard extends JLayeredPane {
     /**
      * 存放圖片的目錄，簡單起見，存放圖片的目錄中圖片個數為初始化的行列數乘積的一半
      */
-    private String picDir = "data/cards";
+    private String picDir = "data/cards/c";
     private String[] picture;//照片索引
     protected boolean isStart;
     private PicPanel preOne = null;
+    private File file = new File(picDir);
+    private File[] pics = file.listFiles();
     /**
      * 用於標示已找到的對數
      */
     private int count;
     private JPanel panel_Pic;///////////////////////右邊
+    private JPanel panel_ans;
     private JButton swing; 
     private JButton addsec;
     private JButton openall;
@@ -50,6 +63,10 @@ public class RememberCard extends JLayeredPane {
     private ImageIcon expandMoneyImage;
     private ImageIcon ruleImage;
     private ImageIcon testCharacterImage;
+    private JLabel lbl_Pic = new JLabel();
+    private ImageIcon bgIcon = null;
+    private PicPanel panel_1;
+    private PicPanel panel_2;
 
     private JButton btnStart;//開始按鈕
     private JButton backToMainButton;
@@ -104,7 +121,7 @@ public class RememberCard extends JLayeredPane {
         add(expandMoneyLabel,JLayeredPane.DEFAULT_LAYER);
 
 
-        System.out.println(ruleImage.getIconHeight());
+        //System.out.println(ruleImage.getIconHeight());
         testCharacterImage = new ImageIcon("data/cards/icon/test_charater.png");
         testCharacterLabel = new JLabel(testCharacterImage);
         testCharacterLabel.setBounds(0,397,testCharacterImage.getIconWidth(),testCharacterImage.getIconHeight());
@@ -132,9 +149,15 @@ public class RememberCard extends JLayeredPane {
              @Override
              public void actionPerformed(ActionEvent e) {
                 remove(btnStart);//移掉開始按鈕
+                 repaint();
                 panel_Pic = new JPanel();
+                panel_ans = new JPanel();
                 panel_Pic.setBounds(300, 0, 900, 655);
-                add(panel_Pic, JLayeredPane.DEFAULT_LAYER);
+                add(panel_Pic, JLayeredPane.MODAL_LAYER);//100
+                panel_ans.setBounds(300, 0, 900, 655);
+                add(panel_ans, JLayeredPane.DEFAULT_LAYER);//0
+                //panel_Pic.setVisible(false);
+                panel_ans.setVisible(true);
                 backToMainButton.setEnabled(false);
                 if (isRunning) {
                     return;
@@ -156,17 +179,15 @@ public class RememberCard extends JLayeredPane {
                 timer2.start();
             }
         });
-
         openall.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                timer4.start();
+                openallcard();
+                //timer4.start();
             }
         });
 
     }
-
-
 
     Timer timer1 = new Timer(1000, new ActionListener() {//倒數30sec
         public void actionPerformed(ActionEvent e) {
@@ -200,9 +221,9 @@ public class RememberCard extends JLayeredPane {
         }
     });
 
-    Timer timer4 = new Timer(1, new ActionListener() {//openall 10sec
+    Timer timer4 = new Timer(3000, new ActionListener() {//openall 10sec
         public void actionPerformed(ActionEvent e) {
-            //openallcard();
+            remove(panel_ans);
             timer4.stop();
         }
     });
@@ -214,24 +235,47 @@ public class RememberCard extends JLayeredPane {
         new Thread() {//執行緒  可能要改掉  不然監聽上會變慢
             public void run() {
                 initPicPanels();
-                //timer1.start();//開始倒數
+                timer1.start();//開始倒數
             }
         }.start();
     }
 
+    private void openallcard(){//翻開全部十秒
+        //repaint();
+        add(panel_ans ,JLayeredPane.DRAG_LAYER);//400
+        panel_ans.setVisible(true);
+    }
+    //Image image = ImageIO.read(new File(pics[3]));//顯示圖片
     /**
      * 初始化圖片面板
      */
     private void initPicPanels() {
         panel_Pic.setLayout(new GridLayout(ROWS, COLUMNS, 10, 10));//10是間隙
-        initPictureIndex();//初始化圖片的索引並賦值每個圖片的路徑
+        panel_ans.setLayout(new GridLayout(ROWS, COLUMNS, 10, 10));//10是間隙
 
+        initPictureIndex();//初始化圖片的索引並賦值每個圖片的路徑
+        //System.out.println(ROWS * COLUMNS);
         for (int i = 0; i < ROWS * COLUMNS; i++) {
-            PicPanel panel_1 = new PicPanel(this, picture[i]);
+
+            panel_1 = new PicPanel(this, picture[i]);
             panel_Pic.add(panel_1);
+            //panel_ans.add(panel_1);
+
+            repaint();
         }
+        for (int i = 0; i < ROWS * COLUMNS; i++) {
+
+            panel_2 = new PicPanel(this, picture[i]);
+            //panel_Pic.add(panel_1);
+            panel_ans.add(panel_2);
+
+            repaint();
+        }
+
         try {
             Thread.sleep(3000);//延遲三秒蓋牌
+            //panel_Pic.setVisible(true);
+            //panel_ans.setVisible(false);
         }
         catch (InterruptedException e) {
             e.printStackTrace();
@@ -239,7 +283,8 @@ public class RememberCard extends JLayeredPane {
         for (int i = 0; i < panel_Pic.getComponentCount(); i++) {
             Component comp = panel_Pic.getComponent(i);
             if(comp instanceof PicPanel){
-                PicPanel panel_1 = (PicPanel)comp;
+                panel_1 = (PicPanel)comp;
+                panel_2=(PicPanel)comp;
                 panel_1.setLabelPicNull();
             }
         }
@@ -253,8 +298,8 @@ public class RememberCard extends JLayeredPane {
         picture = new String[ROWS * COLUMNS];////裡面放圖片的路徑
 
         // 這裡沒有檢測圖片目錄中檔案的有效性，需要保證都是圖片型別。
-        File file = new File(picDir);
-        File[] pics = file.listFiles();
+        file = new File(picDir);
+        pics = file.listFiles();
 
         // 初始化一個ROWS*COLUMNS的int陣列，裡面存放每個圖片的索引
         int[] indexs = getIndexs(picture.length, pics.length);
@@ -262,6 +307,7 @@ public class RememberCard extends JLayeredPane {
             picture[i] = pics[indexs[i]].getAbsolutePath();
             //Image image = ImageIO.read(new File(picPath));
         }
+        System.out.println(indexs.length);
     }
 
     /**
@@ -274,12 +320,16 @@ public class RememberCard extends JLayeredPane {
      * @return
      */
     private int[] getIndexs(int sum, int picNums) {
+        //picNums=15;
+        System.out.println(sum);
+        System.out.println(picNums);
         int half = sum / 2;
 
         int[] tmpResult = new int[sum];
         Random random = new Random(System.currentTimeMillis());
         int temp = 0;
         LinkedList<Integer> list = new LinkedList<Integer>();
+
         while (list.size() != half) {
             temp = random.nextInt(picNums);
             if (!list.contains(temp)) {
@@ -295,6 +345,7 @@ public class RememberCard extends JLayeredPane {
         }
         // 將順序打亂，否則會出現前半部分和後半部分是完全分開的情況
         LinkedList<Integer> _result = new LinkedList<Integer>();
+
         while (_result.size() != sum) {
             temp = random.nextInt(sum);
             if (!_result.contains(temp)) {
@@ -308,16 +359,6 @@ public class RememberCard extends JLayeredPane {
         return result;
     }
 
-    private void openCard() {//一開始跟item
-        long startTime = System.currentTimeMillis();//返回當前時間(毫秒)。返回值的時間單位是1毫秒
-        while ((System.currentTimeMillis() - startTime) / 1000 <= 3) {//3s
-            //setTitle("測試");
-            for (int i = 0; i < ROWS * COLUMNS; i++) {
-                //picture[i] = pics[indexs[i]].getAbsolutePath();
-            }
-
-        }
-    }
 
     public PicPanel getPreOne() {
         return preOne;
@@ -344,12 +385,15 @@ public class RememberCard extends JLayeredPane {
 class Rule extends JFrame{
     public Rule(){
         super("rule");
-        JLabel ruletext = new JLabel("       30秒內盡量翻開一對的卡牌,可使用道具翻開全部卡面三秒,採計分制");
+        JLabel ruletext = new JLabel("                30秒內盡量翻開成對的卡牌,可使用道具和裝備,採計分制");
         this.add(ruletext);
-        setSize(450,250); 
+        setSize(450,250);
         setLocationRelativeTo(null);
         //setText("")
-        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE); 
-        setVisible(true); 
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        setVisible(true);
     }
 }
+
+
+

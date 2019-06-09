@@ -136,6 +136,8 @@ public class Main extends JFrame {
         RememberCard card = new RememberCard(this, this.house);
         this.setTitle("消滅一對是一對");
         this.setContentPane(card);
+        this.setVisible(true);
+        card.requestFocus();
     }
 
     // 切換至股市系統
