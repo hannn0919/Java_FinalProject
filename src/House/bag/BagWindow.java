@@ -1,4 +1,5 @@
 package House.bag;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -96,8 +97,8 @@ public class BagWindow extends JPanel {
         b8.setBounds(314,387,200,174);
         b9.setBounds(514,387,172,174);
         e1.setBounds(144, 31, 275, 271);
-        e2.setBounds(144, 302, 275, 271);
-        e3.setBounds(419, 31, 275, 271);
+        e2.setBounds(419, 31, 275, 271);
+        e3.setBounds(144, 302, 275, 271);
         e4.setBounds(419, 302, 275, 271);
 
         add(e1);
@@ -135,7 +136,7 @@ public class BagWindow extends JPanel {
         }//用不到
 
         public void mouseEntered(MouseEvent event) {
-            if(event.getSource()==b1){
+                if(event.getSource()==b1){
                     b1.setText("擁有數量"+house.getEquipment("經驗加倍券"));
                 } else if (event.getSource() == b2) {
                     b2.setText("擁有數量"+house.getEquipment("金錢加倍券"));
@@ -155,26 +156,26 @@ public class BagWindow extends JPanel {
                     b9.setText("擁有數量"+house.getEquipment("再看一次"));
                 } else if (event.getSource() == e1) {
                     if(house.getEquipment("竹蜻蜓") == 1)
-                    e1.setText("已裝備");
-                else
-                    e1.setText("未裝備");
-            } else if (event.getSource() == e2) {
-                if(house.getEquipment("透視眼鏡") == 1)
-                    e2.setText("已裝備");
-                else
-                    e2.setText("未裝備");
-            } else if (event.getSource() == e3) {
-                if(house.getEquipment("彈簧鞋") == 1)
-                    e3.setText("已裝備");
-                else
-                    e3.setText("未裝備");
-            } else if (event.getSource() == e4) {
-                if(house.getEquipment("翅膀") == 1)
-                    e4.setText("已裝備");
-                else
-                    e4.setText("未裝備");
-            }
-        }//用不到
+                        e1.setText("已裝備");
+                    else
+                        e1.setText("未裝備");
+                } else if (event.getSource() == e2) {
+                    if(house.getEquipment("透視眼鏡") == 1)
+                        e2.setText("已裝備");
+                    else
+                        e2.setText("未裝備");
+                } else if (event.getSource() == e3) {
+                    if(house.getEquipment("彈簧鞋") == 1)
+                        e3.setText("已裝備");
+                    else
+                        e3.setText("未裝備");
+                } else if (event.getSource() == e4) {
+                    if(house.getEquipment("翅膀") == 1)
+                        e4.setText("已裝備");
+                    else
+                        e4.setText("未裝備");
+                }
+        }
 
         public void mouseExited(MouseEvent event) {
             if(event.getSource()==b1){
@@ -198,9 +199,9 @@ public class BagWindow extends JPanel {
             } else if (event.getSource() == e1) {
                 e1.setText("竹蜻蜓");
             } else if (event.getSource() == e2) {
-                e2.setText("彈簧鞋");
+                e2.setText("透視眼鏡");
             } else if (event.getSource() == e3) {
-                e3.setText("透視眼鏡");
+                e3.setText("彈簧鞋");
             } else if (event.getSource() == e4) {
                 e4.setText("翅膀");
             }
@@ -237,38 +238,54 @@ public class BagWindow extends JPanel {
                 }  else if (event.getSource() == e1) {
                     int opt = JOptionPane.showConfirmDialog(null, "起點向前移動100公尺\n--------確定要裝備嗎?--------", "", JOptionPane.YES_NO_OPTION);
                     if(opt == 0){
-                        house.getEquipment("竹蜻蜓");
+                        if(house.getEquipment("竹蜻蜓") == 0)
+                            JOptionPane.showConfirmDialog(null, "無此道具!!!", "", JOptionPane.DEFAULT_OPTION);
+                        else
+                            house.useEquipment("竹蜻蜓");
                     }
                     else if (opt==1){
-                        house.dontUseEquipment("竹蜻蜓");
+                        if(house.getEquipment("竹蜻蜓") == 1)
+                            house.setEquipment("竹蜻蜓");
                     }
                     // 0=yes, 1=no
-                } else if (event.getSource() == e2) {
+                }  else if (event.getSource() == e2) {
+                    int opt= JOptionPane.showConfirmDialog(null, "可看到影子下的真實面貌\n--------確定要裝備嗎?--------", "", JOptionPane.YES_NO_OPTION);
+                    // 0=yes, 1=no
+                    if(opt==0){
+                        if(house.getEquipment("透視眼鏡") == 1)
+                            JOptionPane.showConfirmDialog(null, "無此道具!!!", "", JOptionPane.DEFAULT_OPTION);
+                        else
+                            house.useEquipment("透視眼鏡");
+                    }
+                    else if (opt==1){
+                        if(house.getEquipment("透視眼鏡") == 1)
+                            house.setEquipment("透視眼鏡");
+                    }
+                }else if (event.getSource() == e3) {
                     int opt=  JOptionPane.showConfirmDialog(null, "可以一次前進兩格\n--------確定要裝備嗎?--------", "", JOptionPane.YES_NO_OPTION);
                     // 0=yes, 1=no
                     if(opt==0){
-                        house.getEquipment("彈簧鞋");
+                        if(house.getEquipment("彈簧鞋") == 0)
+                            JOptionPane.showConfirmDialog(null, "無此道具!!!", "", JOptionPane.DEFAULT_OPTION);
+                        else
+                            house.useEquipment("彈簧鞋");
                     }
                     else if (opt==1){
-                        house.dontUseEquipment("彈簧鞋");
-                    }
-                } else if (event.getSource() == e3) {
-                    int opt= JOptionPane.showConfirmDialog(null, "可看到影子下的真實面貌\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
-                    // 0=yes, 1=no
-                    if(opt==0){
-                        house.getEquipment("透視眼鏡");
-                    }
-                    else if (opt==1){
-                        house.dontUseEquipment("透視眼鏡");
+                        if(house.getEquipment("彈簧鞋") == 1)
+                            house.setEquipment("彈簧鞋");
                     }
                 } else if (event.getSource() == e4) {
-                    int opt= JOptionPane.showConfirmDialog(null, "系統自動翻出一對配對組合\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
+                    int opt= JOptionPane.showConfirmDialog(null, "系統自動翻出一對配對組合\n--------確定要裝備嗎?--------", "", JOptionPane.YES_NO_OPTION);
                     // 0=yes, 1=no
                     if(opt==0){
-                        house.getEquipment("翅膀");
+                        if(house.getEquipment("翅膀") == 0)
+                            JOptionPane.showConfirmDialog(null, "無此道具!!!", "", JOptionPane.DEFAULT_OPTION);
+                        else
+                            house.useEquipment("翅膀");
                     }
                     else if (opt==1){
-                        house.dontUseEquipment("翅膀");
+                        if(house.getEquipment("翅膀") == 1)
+                            house.setEquipment("翅膀");
                     }
                 }
         }
@@ -325,8 +342,8 @@ public class BagWindow extends JPanel {
             if(IsBackGround) {
                 backGround = ImageIO.read(new File("data//Bag&Store/背包-裝備.png"));
                 iconE1 = new ImageIcon("data//Bag&Store/竹蜻蜓.png");
-                iconE2 = new ImageIcon("data//Bag&Store/彈簧鞋.png");
-                iconE3 = new ImageIcon("data//Bag&Store/透視眼鏡.png");
+                iconE2 = new ImageIcon("data//Bag&Store/透視眼鏡.png");
+                iconE3 = new ImageIcon("data//Bag&Store/彈簧鞋.png");
                 iconE4 = new ImageIcon("data//Bag&Store/翅膀.png");
                 e1.setIcon(iconE1);
                 e2.setIcon(iconE2);

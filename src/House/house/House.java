@@ -1,14 +1,10 @@
 package House.house;
-//import Stock.main.StockWindow;
 
 import Stock.main.StockWindow;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class House {
-    //private ArrayList<Items> itemsList = new ArrayList<Items>();
-    //private ArrayList<Equipment> equipmentList = new ArrayList<Equipment>();
     private String role;
     private static int level;
     private static int exp;
@@ -21,8 +17,8 @@ public class House {
 
     public House()
     {
-        this.holdMoney = 479487;
-        this.level = 4;
+        this.holdMoney = 1000;
+        this.level = 1;
         this.role = "鮮嫩小心肝";
         this.exp = 0;
         this.stock = new float[4];
@@ -40,21 +36,8 @@ public class House {
             data[i][0][9] = data[i][0][8] * ( 1F + stockPrs[i]);
             stock[i] = (float) data[i][0][9];
         }
-
-
     }
 
-    public House(Map<String,Integer> map)
-    {
-        //角色名稱
-        setRole(level);
-        //等級
-        setLevel(level);
-        //經驗值
-        setExp(exp);
-        //擁有金額
-        setHoldMoney(holdMoney);
-    }
     //set the role
     public void setRole(int num){
         if (num == 1) role = "鮮嫩小心肝";
@@ -62,11 +45,13 @@ public class House {
         else if(num == 3) role="已經快不行了的肝";
         else if(num == 4) role="小心肝硬化";
     }
+
     //set the number of the level
     public void setLevel(int num)
     {
         level = num;
     }
+
     //set the number of the exp
     public void setExp(int num)
     {
@@ -83,6 +68,7 @@ public class House {
         setLevel(level);
         setRole(level);
     }
+
     //set the number of the money
     public void setHoldMoney(int num)
     {
@@ -104,7 +90,7 @@ public class House {
     //set the Equipment
     public void setEquipment(String element)
     {
-        map.put(element, 1);
+        map.put(element, 2);
     }
 
     //get the holding money
@@ -124,6 +110,7 @@ public class House {
     {
         return exp;
     }
+
     //get the role
     public String getRole(){
         return role;
@@ -148,10 +135,8 @@ public class House {
     }
 
     //use the Equipment
-    public void dontUseEquipment(String element){
-        if(map.containsKey(element)) {
-            map.put(element,2);
-        }
+    public void useEquipment(String element){
+            map.put(element,1);
     }
 
     //get stock
