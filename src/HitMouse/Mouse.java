@@ -1,11 +1,8 @@
 package HitMouse;
 
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import javax.swing.*;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 import javax.sound.sampled.*;
 import java.io.File;
@@ -36,7 +33,7 @@ public class Mouse extends JLayeredPane{
     private ImageIcon heart;//愛心的圖片
 
 
-    private JButton btnStart;//開始按鈕
+   // private JButton btnStart;//開始按鈕
     private JButton  btnItemOnlyTeacher;//使用老師道具的按鈕
     private JButton btnItemScoreDouble;//使用分數加倍的按鈕
     private JButton btnEquipment;//使用裝備的按鈕
@@ -64,17 +61,24 @@ public class Mouse extends JLayeredPane{
 
     private Main mainFrame;
     private House house;
+
+
+    private JCheckBox moneycard;
+    private ImageIcon startImg;
+    private JButton startBtn;
+    private ImageIcon introduceImg;
+    private JLabel introduce;
+    private boolean equipIsUsed=false;
+    private Timer timer;
+    private Timer time2;
+    private Timer time3;
+    private Timer shadowTimer;
      public Mouse(Main mainFrame,House house) {
          //public Mouse(){
          this.house = house;
          this.mainFrame = mainFrame;
 
-       /* frame = new JFrame("打地鼠");
-        frame.setSize(900,675);
-        //frame.setBounds(0,0,900,675);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
-*/
+
          imageBackGround = new ImageIcon("data/HitMouse/background/background.png");//background
          backGroundLabel = new JLabel(imageBackGround);
          backGroundLabel.setBounds(SHIFT, 0, imageBackGround.getIconWidth(), imageBackGround.getIconHeight());
@@ -100,7 +104,7 @@ public class Mouse extends JLayeredPane{
              add(disCountLabel, JLayeredPane.DEFAULT_LAYER);
              heightTotal+=disCountImage.getIconHeight();
 
-             ruleImage = new ImageIcon("data/gamebar/rule.png");
+             ruleImage = new ImageIcon("data/gamebar/hitMouseRule.png");
              ruleLabel = new JLabel(ruleImage);
              ruleLabel.setBounds(0, heightTotal, ruleImage.getIconWidth(), ruleImage.getIconHeight());
              add(ruleLabel, JLayeredPane.DEFAULT_LAYER);
@@ -131,6 +135,65 @@ public class Mouse extends JLayeredPane{
              add(moneyFromMain,JLayeredPane.MODAL_LAYER);
          }
 
+         {
+             introduceImg = new ImageIcon("data/HitMouse/introduce.png");
+             introduce = new JLabel(introduceImg);
+             introduce.setBounds(400, 99,676, 476);
+             add(introduce, JLayeredPane.POPUP_LAYER);
+
+
+             moneycard = new JCheckBox("透視眼鏡");
+             moneycard.setFont(new Font("微軟正黑體", Font.PLAIN, 23));
+             moneycard.addItemListener(new ItemListener() {
+                 @Override
+                 public void itemStateChanged(ItemEvent e) {
+                     if(equipIsUsed==false){
+                         score.setScore(score.getScore()+20);
+                         equipIsUsed=true;
+                     }
+
+                 }
+             });
+
+
+             startImg = new ImageIcon("data/HitMouse/開始遊戲按鈕.png");
+             startBtn = new JButton(startImg);
+             startBtn.setBounds(660, 510,140, 50);
+             startBtn.setBorderPainted(false);
+             startBtn.setBorder(null);
+             startBtn.setFocusPainted(false);
+             startBtn.setContentAreaFilled(false);
+             startBtn.addActionListener(new ActionListener() {
+                 @Override
+                 public void actionPerformed(ActionEvent e) {
+
+                     remove(moneycard);
+
+                     remove(startBtn);
+                     remove(introduce);
+                     repaint();
+                     equipIsUsed=false;
+                     score.setStarttime(System.currentTimeMillis());
+                     timer.start();
+                     time2.start();
+                     time3.start();
+                     shadowTimer.start();
+                 }
+             });
+             add(startBtn, JLayeredPane.DRAG_LAYER);
+
+
+             moneycard.setBounds(680, 460,150, 30);
+             moneycard.setBorderPainted(false);
+             moneycard.setFocusPainted(false);
+             moneycard.setContentAreaFilled(false);
+             add(moneycard, JLayeredPane.DRAG_LAYER);
+
+
+
+
+             //introduce.setVisible(false);
+         }
 
 
 
@@ -144,16 +207,18 @@ public class Mouse extends JLayeredPane{
         shadow = new ImageIcon((Character.shadow));
 
         startImage=new ImageIcon("data/HitMouse/image/start.jpg");
-        btnStart = new JButton();
-        btnStart.setIcon(startImage);
-        btnStart.setBounds(736+SHIFT, 35, 125, 59);
-        add(btnStart,JLayeredPane.MODAL_LAYER);
+        //btnStart = new JButton();
+        //btnStart.setIcon(startImage);
+      //  btnStart.setBounds(736+SHIFT, 35, 125, 59);
+       // add(btnStart,JLayeredPane.MODAL_LAYER);
+
         btnItemOnlyTeacher = new JButton("道具");
         btnItemOnlyTeacher.setBounds(200,580,100,30);
         add(btnItemOnlyTeacher,JLayeredPane.MODAL_LAYER);
         btnItemScoreDouble = new JButton("道具2");
         btnItemScoreDouble.setBounds(200,610,100,30);
         add(btnItemScoreDouble,JLayeredPane.MODAL_LAYER);
+        /*
         btnEquipment = new JButton("裝備");
         btnEquipment.setBounds(200,550,100,30);
         add(btnEquipment,JLayeredPane.MODAL_LAYER);
@@ -162,7 +227,7 @@ public class Mouse extends JLayeredPane{
             public void actionPerformed(ActionEvent e) {
                 score.setScore(score.getScore()+20);
             }
-        }));
+        }));*/
         btnItemScoreDouble.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -238,7 +303,7 @@ public class Mouse extends JLayeredPane{
         add(jfb,JLayeredPane.MODAL_LAYER);
 
         SecureRandom secureRandom = new SecureRandom();
-         Timer shadowTimer = new Timer(score.getSd(), new ActionListener() {
+         shadowTimer = new Timer(score.getSd(), new ActionListener() {
              @Override
              public void actionPerformed(ActionEvent e) {
                  int windowpos=secureRandom.nextInt(12);
@@ -260,7 +325,7 @@ public class Mouse extends JLayeredPane{
              }
          });
          //開始按鈕並設定第一支地鼠出現的時間延遲
-         Timer timer=new Timer(score.getSd()+750,new ActionListener() {//主要圖片出現
+         timer=new Timer(score.getSd()+750,new ActionListener() {//主要圖片出現
 
             public void actionPerformed(ActionEvent e) {
                 int choose=(int) (2 * Math.random());
@@ -272,7 +337,7 @@ public class Mouse extends JLayeredPane{
          });
 
         //timer2 生成最後的得分訊息
-        Timer time2=new Timer(2,new ActionListener() {
+        time2=new Timer(2,new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 timer.setDelay(score.getSd());//設定地鼠出現速度
                 shadowTimer.setDelay(score.getSd());
@@ -285,6 +350,8 @@ public class Mouse extends JLayeredPane{
                     but[score.getLast()].setIcon(null);
                     obBut[score.getLast()].setIcon(null);
                     JOptionPane.showMessageDialog(frame, "Game Over\n 您的得分為："+score.getScore(),"得分信息",JOptionPane.PLAIN_MESSAGE);
+                    but[score.getLast()].setIcon(null);
+                    System.out.println(score.getLast());
                     score.setScore(0);
                     jfb.setText("得分：0");
                 }
@@ -292,18 +359,18 @@ public class Mouse extends JLayeredPane{
         });
 
 
-        Timer time3=new Timer(2,new ActionListener() {
+        time3=new Timer(2,new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if((score.getStarttime()/1000+score.getDjs()-System.currentTimeMillis()/1000)==-1)
                 {
                     time2.stop();
-                    //shadowTimer.stop();
+                    shadowTimer.stop();
                     itemTeacherTime.stop();
                     djs.setText("");
                 }
             }
         });
-        btnStart.addActionListener(new ActionListener() {
+        /*btnStart.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 score.setStarttime(System.currentTimeMillis());
                 timer.start();
@@ -311,7 +378,7 @@ public class Mouse extends JLayeredPane{
                 time3.start();
                 shadowTimer.start();
             }
-        });
+        });*/
         for(int i=0;i<12;i++){
             final int ii=i;
             but[i].addMouseListener(new MouseListener() {
@@ -388,6 +455,9 @@ public class Mouse extends JLayeredPane{
              @Override
              public void actionPerformed(ActionEvent e) {
                  mainFrame.changeToMainScreen();
+
+               //  house.debugString="Back to main from HitMouse";
+               //  mainPanel.debugText.setText( house.debugString );
                  timer.stop();
                  time2.stop();
                  time3.stop();
