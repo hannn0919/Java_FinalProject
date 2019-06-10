@@ -37,6 +37,10 @@ public class RememberCard extends JLayeredPane {
     private static final int COLUMNS = 5;
     private static final long serialVersionUID = -8908268719780973221L;
     private JLabel txt_Time;
+    private JLabel expFromMain;
+    private JLabel moneyFromMain;
+    private JLabel exp;
+    private JLabel score;
     private boolean isRunning = false;
     private long time=30;
     /**
@@ -52,17 +56,23 @@ public class RememberCard extends JLayeredPane {
      * 用於標示已找到的對數
      */
     private int count;
-    private JPanel panel_Pic;///////////////////////右邊
+    private JPanel panel_Pic;/////////////右邊
     private JPanel panel_ans;
     private JButton swing; 
     private JButton addsec;
     private JButton openall;
+    private JCheckBox check_swing;
+    private JCheckBox check_addsec;
+    private JCheckBox check_openall;
    
     private ImageIcon backToMainImage;
     private ImageIcon disCountImage;
     private ImageIcon expandMoneyImage;
     private ImageIcon ruleImage;
     private ImageIcon testCharacterImage;
+    private ImageIcon introduceImg;
+    private ImageIcon btnStartImage;
+    private JLabel introduce;
     private JLabel lbl_Pic = new JLabel();
     private ImageIcon bgIcon = null;
     private PicPanel panel_1;
@@ -87,6 +97,49 @@ public class RememberCard extends JLayeredPane {
         this.house=house;
         this.mainFrame=mainFrame;
 
+
+        introduceImg = new ImageIcon("data/cards/introduce_test.png");
+        introduce = new JLabel(introduceImg);
+        introduce.setBounds(400, 99, 676, 476);
+        add(introduce, JLayeredPane.POPUP_LAYER);
+
+
+        check_swing = new JCheckBox("翻開一對");
+        check_swing.setFont(new Font("微軟正黑體", Font.PLAIN, 23));
+        check_swing.setBorderPainted(false);
+        check_swing.setFocusPainted(false);
+        check_swing.setContentAreaFilled(false);
+        check_swing.setBounds(500, 460, 150, 30);
+        add(check_swing, JLayeredPane.DRAG_LAYER);
+
+        check_addsec = new JCheckBox("加時卡");
+        check_addsec.setFont(new Font("微軟正黑體", Font.PLAIN, 23));
+        check_addsec.setBounds(680, 460, 150, 30);
+        check_addsec.setBorderPainted(false);
+        check_addsec.setFocusPainted(false);
+        check_addsec.setContentAreaFilled(false);
+        add(check_addsec, JLayeredPane.DRAG_LAYER);
+
+        check_openall = new JCheckBox("翻開全部");
+        check_openall.setFont(new Font("微軟正黑體", Font.PLAIN, 23));
+        check_openall.setBorderPainted(false);
+        check_openall.setFocusPainted(false);
+        check_openall.setContentAreaFilled(false);
+        check_openall.setBounds(860, 460, 150, 30);
+        add(check_openall, JLayeredPane.DRAG_LAYER);
+
+        expFromMain = new JLabel("");
+        expFromMain.setFont(new Font("Hollywood Hills",Font.BOLD,17));
+        expFromMain.setBounds(140,405,150,25);
+        expFromMain.setText(Integer.toString(house.getExp()));
+        add(expFromMain,JLayeredPane.MODAL_LAYER);
+
+        moneyFromMain = new JLabel("");
+        moneyFromMain.setFont(new Font("Hollywood Hills",Font.BOLD,17));
+        moneyFromMain.setBounds(140,440,150,25);
+        moneyFromMain.setText(Integer.toString(house.getHoldMoney()));
+        add(moneyFromMain,JLayeredPane.MODAL_LAYER);
+
         backToMainImage = new ImageIcon("data/cards/icon/backhome.png");
         backToMainButton = new JButton(backToMainImage);
         backToMainButton.setBounds(0,0,backToMainImage.getIconWidth(),backToMainImage.getIconHeight());
@@ -105,7 +158,7 @@ public class RememberCard extends JLayeredPane {
         disCountImage = new ImageIcon("data/cards/icon/discount.png");
         disCountLabel = new JLabel(disCountImage);
         txt_Time = new JLabel();
-        txt_Time.setBounds(200, 95, 82, 60);
+        txt_Time.setBounds(190, 95, 82, 60);
         disCountLabel.setBounds(0,backToMainImage.getIconHeight(),disCountImage.getIconWidth(),disCountImage.getIconHeight());
         add(disCountLabel,JLayeredPane.DEFAULT_LAYER);
         add(txt_Time,JLayeredPane.MODAL_LAYER);
@@ -127,9 +180,16 @@ public class RememberCard extends JLayeredPane {
         testCharacterLabel.setBounds(0,397,testCharacterImage.getIconWidth(),testCharacterImage.getIconHeight());
         add(testCharacterLabel,JLayeredPane.DEFAULT_LAYER);
         
-        btnStart = new JButton("開始遊戲");
-        add(btnStart,JLayeredPane.DEFAULT_LAYER);
-        btnStart.setBounds(750, 0, 100, 40);
+        //btnStart = new JButton("開始遊戲");
+        btnStartImage = new ImageIcon("data/cards/開始遊戲按鈕.png");
+        btnStart = new JButton(btnStartImage);
+        btnStart.setBounds(660,520,btnStartImage.getIconWidth(),btnStartImage.getIconHeight());
+        add(btnStart,JLayeredPane.DRAG_LAYER);
+        //btnStart.setBounds(750, 0, 100, 40);
+        btnStart.setBorderPainted(false);
+        btnStart.setBorder(null);
+        btnStart.setFocusPainted(false);
+        btnStart.setContentAreaFilled(false);
         //
 
         swing = new JButton("翻一對");
@@ -143,16 +203,21 @@ public class RememberCard extends JLayeredPane {
         add(swing, JLayeredPane.MODAL_LAYER);
         add(addsec, JLayeredPane.MODAL_LAYER);
         add(openall, JLayeredPane.MODAL_LAYER);
-        Rule r = new Rule();
+        //Rule r = new Rule();
         
         btnStart.addActionListener(new ActionListener() {
              @Override
              public void actionPerformed(ActionEvent e) {
                 remove(btnStart);//移掉開始按鈕
+                 remove(introduce);
+                 remove(check_swing);
+                 remove(check_addsec);
+                 remove(check_openall);
                  repaint();
                 panel_Pic = new JPanel();
                 panel_ans = new JPanel();
                 panel_Pic.setBounds(300, 0, 900, 655);
+                //panel_Pic.setBackground("");
                 add(panel_Pic, JLayeredPane.MODAL_LAYER);//100
                 panel_ans.setBounds(300, 0, 900, 655);
                 add(panel_ans, JLayeredPane.DEFAULT_LAYER);//0
@@ -183,7 +248,7 @@ public class RememberCard extends JLayeredPane {
             @Override
             public void actionPerformed(ActionEvent e) {
                 openallcard();
-                //timer4.start();
+                timer4.start();
             }
         });
 
@@ -191,6 +256,7 @@ public class RememberCard extends JLayeredPane {
 
     Timer timer1 = new Timer(1000, new ActionListener() {//倒數30sec
         public void actionPerformed(ActionEvent e) {
+            txt_Time.setFont(new Font("微軟正黑體", Font.PLAIN, 23));
             txt_Time.setText(time + "");
             time--;
 
@@ -221,9 +287,10 @@ public class RememberCard extends JLayeredPane {
         }
     });
 
-    Timer timer4 = new Timer(3000, new ActionListener() {//openall 10sec
+    Timer timer4 = new Timer(10000, new ActionListener() {//openall 10sec
         public void actionPerformed(ActionEvent e) {
-            remove(panel_ans);
+            mainFrame.remove(panel_ans);
+            repaint();
             timer4.stop();
         }
     });
@@ -370,6 +437,8 @@ public class RememberCard extends JLayeredPane {
 
     public void addCount() {
         count++;
+
+
     }
 
     public boolean isRunning() {
@@ -382,18 +451,6 @@ public class RememberCard extends JLayeredPane {
 
 }
 
-class Rule extends JFrame{
-    public Rule(){
-        super("rule");
-        JLabel ruletext = new JLabel("                30秒內盡量翻開成對的卡牌,可使用道具和裝備,採計分制");
-        this.add(ruletext);
-        setSize(450,250);
-        setLocationRelativeTo(null);
-        //setText("")
-        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        setVisible(true);
-    }
-}
 
 
 
