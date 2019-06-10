@@ -11,6 +11,7 @@ import java.net.URL;
 
 import Dinosaur.util.Animation;
 import Dinosaur.util.Resource;
+import House.house.House;
 
 public class MainCharacter {
     public static final int LAND_POSY = 380;
@@ -43,18 +44,23 @@ public class MainCharacter {
     private AudioClip deadSound;
     private AudioClip scoreUpSound;
 
-    public MainCharacter(int lv) {
+    private  String character, character_close;
+
+    public MainCharacter(House house) {
         posX = 150;
         posY = LAND_POSY;
         rectBound = new Rectangle();
         normalRunAnim = new Animation(90);
-        normalRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/LV"+lv+"肝.png"));
-        normalRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/LV"+lv+"肝憋腳.png"));
-        jumping = Resource.getResouceImage("data/dinosaur/LV"+lv+"肝.png");
+        character = "data/dinosaur/character/LV"+house.getLevel()+"肝.png";
+        character_close = "data/dinosaur/character/LV"+house.getLevel()+"肝憋腳.png";
+        
+        normalRunAnim.addFrame(Resource.getResouceImage(character));
+        normalRunAnim.addFrame(Resource.getResouceImage(character_close));
+        jumping = Resource.getResouceImage(character);
         downRunAnim = new Animation(90);
-        downRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/LV"+lv+"肝.png"));
-        downRunAnim.addFrame(Resource.getResouceImage("data/dinosaur/LV"+lv+"肝.png"));
-        deathImage = Resource.getResouceImage("data/dinosaur/LV"+lv+"肝.png");
+        downRunAnim.addFrame(Resource.getResouceImage(character));
+        downRunAnim.addFrame(Resource.getResouceImage(character));
+        deathImage = Resource.getResouceImage(character);
 
         try {
             jumpSound =  Applet.newAudioClip(new URL("file","","data/dinosaur/jump.wav"));

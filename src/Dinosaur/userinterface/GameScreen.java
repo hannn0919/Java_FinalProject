@@ -19,7 +19,7 @@ import Dinosaur.util.Resource;
 import House.house.House;
 import Main.Main;
 
-public class GameScreen extends JPanel implements Runnable, KeyListener {
+public class GameScreen extends JPanel implements Runnable {
 
     private static final int START_GAME_STATE = 0;
     private static final int GAME_PLAYING_STATE = 1;
@@ -49,7 +49,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
         this.setFocusable(true);
         this.frame = frame;
         this.house = house;
-        mainCharacter = new MainCharacter(house.getLevel());
+        mainCharacter = new MainCharacter(house);
         land = new Land(1200, mainCharacter);
         mainCharacter.setSpeedX(5);
         replayButtonImage = Resource.getResouceImage("data/dinosaur/replay_button.png");
@@ -59,16 +59,16 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
         /*if(house.useItem("竹蜻蜓")!=0){
             mainCharacter.score += 100;
         }*/
-        //Keylisten listener = new Keylisten();
-        //this.addKeyListener(listener);
-        startGame();
+        Keylisten listener = new Keylisten();
+        this.addKeyListener(listener);
+        //startGame();
     }
 
     // 遊戲開始，啟動thread
     public void startGame() {
         thread = new Thread(this);
         thread.start();
-
+        gameState = GAME_PLAYING_STATE;
         //計時60秒
         timer = new Timer();
         timer.schedule(new TimerTask(){
@@ -122,8 +122,8 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
                 enemiesManager.draw(g);
                 mainCharacter.draw(g);
                 g.setColor(Color.BLACK);
-                g.drawString("Max " + (int) max, 400, 20);
-                g.drawString("Score " + (int) mainCharacter.score, 550, 20);
+                g.drawString("Best Score : " + (int) max, 580, 20);
+                g.drawString("Score : " + (int) mainCharacter.score, 750, 20);
                 if (gameState == GAME_OVER_STATE) {
                     g.drawImage(gameOverButtonImage, 305, 280, null);
                     g.drawImage(replayButtonImage, 388, 300, null);
@@ -169,50 +169,52 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
     }
 
     // 偵測鍵盤輸入
-    @Override
-    public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_P)
-            frame.changeToMainScreen();
-        if (!isKeyPressed) {
-            isKeyPressed = true;
-            switch (gameState) {
-                case START_GAME_STATE:
-                    if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-                        gameState = GAME_PLAYING_STATE;
-                    }
-                    break;
-                case GAME_PLAYING_STATE:
-                    if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-                        mainCharacter.jump();
-                    } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                        mainCharacter.down(true);
-                    }
-                    break;
-                case GAME_OVER_STATE:
-                    if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-                        gameState = GAME_PLAYING_STATE;
-                        resetGame();
-                    }
-                    break;
+    private class Keylisten extends KeyAdapter {
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if (e.getKeyCode() == KeyEvent.VK_P)
+                frame.changeToMainScreen();
+            if (!isKeyPressed) {
+                isKeyPressed = true;
+                switch (gameState) {
+                    case START_GAME_STATE:
+                        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                            gameState = GAME_PLAYING_STATE;
+                        }
+                        break;
+                    case GAME_PLAYING_STATE:
+                        if (e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_UP) {
+                            mainCharacter.jump();
+                        } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                            mainCharacter.down(true);
+                        }
+                        break;
+                    case GAME_OVER_STATE:
+                        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                            gameState = GAME_PLAYING_STATE;
+                            resetGame();
+                        }
+                        break;
 
+                }
             }
         }
-    }
 
-    @Override
-    public void keyReleased(KeyEvent e) {
-        isKeyPressed = false;
-        if (gameState == GAME_PLAYING_STATE) {
-            if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                mainCharacter.down(false);
+        @Override
+        public void keyReleased(KeyEvent e) {
+            isKeyPressed = false;
+            if (gameState == GAME_PLAYING_STATE) {
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    mainCharacter.down(false);
+                }
             }
         }
-    }
 
-    @Override
-    public void keyTyped(KeyEvent e) {
-        // TODO Auto-generated method stub
+        @Override
+        public void keyTyped(KeyEvent e) {
+            // TODO Auto-generated method stub
 
+        }
     }
 
     // 若角色死亡，重置遊戲
