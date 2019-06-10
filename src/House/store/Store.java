@@ -200,7 +200,7 @@ public class Store extends JPanel {
                 if(house.getHoldMoney()-1500>=0) {
                     if (opt == 0) {
                         house.setHoldMoney(house.getHoldMoney()-1500);
-                        house.setItem("經驗加倍券");
+                        house.setItem("經驗加倍券",house.getItem("經驗加倍券")+1);
                     }
                 }
                 else
@@ -211,7 +211,7 @@ public class Store extends JPanel {
                 if(house.getHoldMoney()-1500>=0) {
                     if (opt == 0) {
                         house.setHoldMoney(house.getHoldMoney() - 1500);
-                        house.setItem("金錢加倍券");
+                        house.setItem("金錢加倍券",house.getItem("金錢加倍券")+1);
                     }
                 }
                 else
@@ -222,7 +222,7 @@ public class Store extends JPanel {
                 if(house.getHoldMoney()-1000>=0) {
                     if (opt == 0) {
                         house.setHoldMoney(house.getHoldMoney()-1000);
-                        house.setItem("電蚊拍");
+                        house.setItem("電蚊拍",house.getItem("電蚊拍")+1);
                     }
                 }
                 else
@@ -233,7 +233,7 @@ public class Store extends JPanel {
                 if(house.getHoldMoney()-1000>=0) {
                     if (opt == 0) {
                         house.setHoldMoney(house.getHoldMoney()-1000);
-                        house.setItem("增時卡");
+                        house.setItem("增時卡",house.getItem("增時卡")+1);
                     }
                 }
                 else
@@ -244,7 +244,7 @@ public class Store extends JPanel {
                 if(house.getHoldMoney()-1000>=0) {
                     if (opt == 0) {
                         house.setHoldMoney(house.getHoldMoney()-1000);
-                        house.setItem("地下道鑰匙");
+                        house.setItem("地下道鑰匙",house.getItem("地下道鑰匙")+1);
                     }
                 }
                 else
@@ -255,7 +255,7 @@ public class Store extends JPanel {
                 if(house.getHoldMoney()-1000>=0) {
                     if (opt == 0) {
                         house.setHoldMoney(house.getHoldMoney()-1000);
-                        house.setItem("警察卡");
+                        house.setItem("警察卡",house.getItem("警察卡")+1);
                     }
                 }
                 else
@@ -266,7 +266,7 @@ public class Store extends JPanel {
                 if(house.getHoldMoney()-1000>=0) {
                     if (opt == 0) {
                         house.setHoldMoney(house.getHoldMoney()-1000);
-                        house.setItem("老師卡");
+                        house.setItem("老師卡",house.getItem("老師卡")+1);
                     }
                 }
                 else
@@ -277,7 +277,7 @@ public class Store extends JPanel {
                 if(house.getHoldMoney()-1000>=0) {
                     if (opt == 0) {
                         house.setHoldMoney(house.getHoldMoney()-1000);
-                        house.setItem("加倍卡");
+                        house.setItem("加倍卡",house.getItem("加倍卡")+1);
                     }
                 }
                 else
@@ -288,7 +288,7 @@ public class Store extends JPanel {
                 if(house.getHoldMoney()-1000>=0) {
                     if (opt == 0) {
                         house.setHoldMoney(house.getHoldMoney()-1000);
-                        house.setItem("再看一次");
+                        house.setItem("再看一次",house.getItem("再看一次")+1);
                     }
                 }
                 else

@@ -3,10 +3,8 @@ import House.house.House;
 import Main.Main;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -15,48 +13,38 @@ public class DinoJLayer extends JLayeredPane {
     private House house;
     private GameScreen game;
 
-    private ImageIcon backToMainImage;
-    private ImageIcon disCountImage;
-    private ImageIcon expandMoneyImage;
-    private ImageIcon ruleImage;
-    private ImageIcon introduceImg;
+    private ImageIcon backToMainImage, disCountImage, expandMoneyImage, ruleImage;
+    private ImageIcon introduceImg, startImg, staticsImg, checkImg;
 
-    private ImageIcon startImg;
-    private ImageIcon staticsImg;
-    private ImageIcon checkImg;
-    private JButton checkBtn;
-    private JButton startBtn;
-    private JLabel introduce;
-    private JLabel backGroundLabel;
-    private JButton backToMainButton;
-    private JLabel disCountLabel;
-    private JLabel expandMoneyLabel;
-    private JLabel ruleLabel;
-    private JLabel endlabel;
-    private JLabel expFromMain, moneyFromMain;
-    private JLabel statics;
+    private JButton checkBtn, startBtn, backToMainButton;
+    private JLabel introduce, disCountLabel, expandMoneyLabel, ruleLabel;
+    private JLabel expFromMain, moneyFromMain, statics, timeLabel;
     private JLabel static_pxp, static_money;
 
     private JCheckBox expcard, moneycard, prop;
 
     private Timer timer;
     private int time = 6000;
-    private JLabel timeLabel;
 
     public DinoJLayer(Main frame, House house) {
         this.frame = frame;
         this.house = house;
 
         Handler handle = new Handler();
+        UseItem useItem = new UseItem();
 
         expcard = new JCheckBox("經驗加倍卡");
-        expcard.setFont(new Font("微軟正黑體", Font.PLAIN, 23));
+        Itemset(expcard);
+        if(house.getItem("經驗加倍卡")<=0) expcard.setEnabled(false);
+
 
         moneycard = new JCheckBox("金錢加倍卡");
-        moneycard.setFont(new Font("微軟正黑體", Font.PLAIN, 23));
+        Itemset(moneycard);
+        if(house.getItem("金錢加倍卡")<=0) moneycard.setEnabled(false);
 
         prop = new JCheckBox("電蚊拍");
-        prop.setFont(new Font("微軟正黑體", Font.PLAIN, 23));
+        Itemset(prop);
+        if(house.getItem("電蚊拍")<=0) prop.setEnabled(false);
 
         startImg = new ImageIcon("data/dinosaur/開始遊戲按鈕.png");
         startBtn = new JButton(startImg);
@@ -64,14 +52,18 @@ public class DinoJLayer extends JLayeredPane {
         startBtn.addActionListener(handle);
         add(startBtn, JLayeredPane.DEFAULT_LAYER);
 
-        expcard.setBounds(500, 460, 150, 30);
+        expcard.setBounds(500, 445, 150, 30);
         add(expcard, JLayeredPane.DEFAULT_LAYER);
+        expcard.addItemListener(useItem);
 
-        moneycard.setBounds(680, 460, 150, 30);
+        moneycard.setBounds(680, 445, 150, 30);
         add(moneycard, JLayeredPane.DEFAULT_LAYER);
+        moneycard.addItemListener(useItem);
 
-        prop.setBounds(860, 460, 150, 30);
+        prop.setBounds(860, 445, 150, 30);
         add(prop, JLayeredPane.DEFAULT_LAYER);
+        prop.addItemListener(useItem);
+
 
         introduceImg = new ImageIcon("data/dinosaur/introduce.png");
         introduce = new JLabel(introduceImg);
@@ -85,15 +77,15 @@ public class DinoJLayer extends JLayeredPane {
         add(checkBtn, JLayeredPane.DEFAULT_LAYER);
         checkBtn.setVisible(false);
 
-        static_pxp = new JLabel("1242346");
-        static_pxp.setFont(new Font("Hollywood Hills",Font.BOLD,20));
-        static_pxp.setBounds(617, 238, 150,40);
+        static_pxp = new JLabel();
+        static_pxp.setFont(new Font("Hollywood Hills",Font.BOLD,25));
+        static_pxp.setBounds(625, 238, 150,40);
         add(static_pxp, JLayeredPane.DEFAULT_LAYER);
         static_pxp.setVisible(false);
 
-        static_money = new JLabel("1243");
-        static_money.setFont(new Font("Hollywood Hills",Font.BOLD,20));
-        static_money.setBounds(617, 389, 150,40);
+        static_money = new JLabel();
+        static_money.setFont(new Font("Hollywood Hills",Font.BOLD,25));
+        static_money.setBounds(625, 389, 150,40);
         add(static_money, JLayeredPane.DEFAULT_LAYER);
         static_money.setVisible(false);
 
@@ -122,6 +114,17 @@ public class DinoJLayer extends JLayeredPane {
                 repaint();
                 if(time ==0){
                     timer.cancel();
+                    Random ran = new Random();
+                    int m = ran.nextInt(36)+74;
+                    int e = (int)(ran.nextDouble()+38);
+                    int gainexp = (int)game.max * e;
+                    int gainmoney = (int)game.max * m;
+                    if(game.expcard == true) gainexp *= 2;
+                    if(game.moneycard == true) gainmoney *= 2;
+                    static_pxp.setText(String.valueOf(gainexp));
+                    static_money.setText(String.valueOf(gainmoney));
+                    house.setExp(house.getExp()+gainexp);
+                    house.setHoldMoney(house.getHoldMoney()+gainmoney);
                     checkBtn.setVisible(true);
                     statics.setVisible(true);
                     static_pxp.setVisible(true);
@@ -195,5 +198,30 @@ public class DinoJLayer extends JLayeredPane {
         }
     }
 
+    private class UseItem implements ItemListener{
+        @Override
+        public void itemStateChanged(ItemEvent event) {
+            int chkbox = event.getStateChange();
+            if (chkbox == ItemEvent.SELECTED) {
+                if (event.getItem() == expcard) {
+                    game.expcard = true;
+                }
+                if (event.getItem() == moneycard) {
+                    game.moneycard = true;
+                }
+                if (event.getItem() == prop) {
+                    game.mainCharacter.setinvIncible();
+                }
+            }
+        }
+    }
+
+    public void Itemset(JCheckBox box) {
+        box.setFont(new Font("微軟正黑體", Font.PLAIN, 23));
+        box.setOpaque(false);
+        box.setContentAreaFilled(false);
+        box.setFocusPainted(false);
+        box.setBorder(null);
+    }
 
 }

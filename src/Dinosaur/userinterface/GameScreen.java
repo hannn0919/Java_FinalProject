@@ -32,18 +32,19 @@ public class GameScreen extends JPanel implements Runnable {
     private House house;
 
     private Land land;
-    private MainCharacter mainCharacter;
+    public MainCharacter mainCharacter;
     private EnemiesManager enemiesManager;
     private Clouds clouds;
     public Thread thread;
     private float speed=5;
-    private double max = 0;
+    public double max = 0;
     private boolean isKeyPressed;
+    public boolean expcard = false;
+    public boolean moneycard = false;
 
     private int gameState = START_GAME_STATE;
 
-    private BufferedImage replayButtonImage;
-    private BufferedImage gameOverButtonImage;
+    private BufferedImage replayButtonImage, gameOverButtonImage;
 
     public GameScreen(Main frame, House house) {
         this.setFocusable(true);
@@ -56,12 +57,8 @@ public class GameScreen extends JPanel implements Runnable {
         gameOverButtonImage = Resource.getResouceImage("data/dinosaur/gameover_text.png");
         enemiesManager = new EnemiesManager(mainCharacter);
         clouds = new Clouds(1200, mainCharacter);
-        /*if(house.useItem("竹蜻蜓")!=0){
-            mainCharacter.score += 100;
-        }*/
         Keylisten listener = new Keylisten();
         this.addKeyListener(listener);
-        //startGame();
     }
 
     // 遊戲開始，啟動thread
@@ -75,6 +72,9 @@ public class GameScreen extends JPanel implements Runnable {
             @Override
             public void run(){
                 time--;
+                if(time == 5000){
+                    mainCharacter.invincible = false;
+                }
                 if(time == 0){
                     timer.cancel();
                     thread.stop();
@@ -150,17 +150,15 @@ public class GameScreen extends JPanel implements Runnable {
         while (true) {
             gameUpdate();
             repaint();
-            endProcessGame = System.nanoTime();
             elapsed = (lastTime + msPerFrame - System.nanoTime());
             msSleep = (int) (elapsed / 1000000);
-            nanoSleep = (int) (elapsed % 1000000);
             if (msSleep <= 0) {
                 lastTime = System.nanoTime();
                 continue;
             }
 
             try {
-                Thread.sleep(msSleep, nanoSleep);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

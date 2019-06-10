@@ -36,6 +36,16 @@ public class House {
             data[i][0][9] = data[i][0][8] * ( 1F + stockPrs[i]);
             stock[i] = (float) data[i][0][9];
         }
+        map.put("時間加倍券",0);
+        map.put("經驗加倍券",0);
+        map.put("電蚊拍",0);
+        map.put("增時卡",0);
+        map.put("地下道鑰匙",0);
+        map.put("警察卡",0);
+        map.put("老師卡",0);
+        map.put("加倍卡",0);
+        map.put("再看一次",0);
+
     }
 
     //set the role
@@ -76,15 +86,9 @@ public class House {
     }
 
     //set the Items
-    public void setItem(String element)
+    public void setItem(String element,int x)
     {
-        if(map.containsKey(element)) {
-            int numElem = map.get(element);
-            map.put(element, (numElem+1));
-        }
-        else {
-            map.put(element, 1);
-        }
+        map.put(element, x);
     }
 
     //set the Equipment

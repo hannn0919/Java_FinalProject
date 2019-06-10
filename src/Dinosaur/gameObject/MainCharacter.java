@@ -51,16 +51,36 @@ public class MainCharacter {
         posY = LAND_POSY;
         rectBound = new Rectangle();
         normalRunAnim = new Animation(90);
-        character = "data/dinosaur/character/LV"+house.getLevel()+"肝.png";
-        character_close = "data/dinosaur/character/LV"+house.getLevel()+"肝憋腳.png";
-        
-        normalRunAnim.addFrame(Resource.getResouceImage(character));
-        normalRunAnim.addFrame(Resource.getResouceImage(character_close));
-        jumping = Resource.getResouceImage(character);
+        character = "data/dinosaur/character/"+house.getLevel()+"/肝";
+        character_close = "data/dinosaur/character/"+house.getLevel()+"/close/肝憋腳";
+
+        if(house.getEquipment("透視眼鏡")==1){
+            character += "+眼鏡";
+            character_close += "+眼鏡";
+        }
+
+        if(house.getEquipment("竹蜻蜓")==1){
+            character += "+竹蜻蜓";
+            character_close += "+竹蜻蜓";
+            score += 100;
+        }
+
+        if(house.getEquipment("翅膀")==1){
+            character += "+翅膀";
+            character_close += "+翅膀";
+        }
+
+        if(house.getEquipment("彈簧鞋")==1){
+            character += "+彈簧鞋";
+            character_close += "+彈簧鞋";
+        }
+        normalRunAnim.addFrame(Resource.getResouceImage(character + ".png"));
+        normalRunAnim.addFrame(Resource.getResouceImage(character_close + ".png"));
+        jumping = Resource.getResouceImage(character + ".png");
         downRunAnim = new Animation(90);
-        downRunAnim.addFrame(Resource.getResouceImage(character));
-        downRunAnim.addFrame(Resource.getResouceImage(character));
-        deathImage = Resource.getResouceImage(character);
+        downRunAnim.addFrame(Resource.getResouceImage(character + ".png"));
+        downRunAnim.addFrame(Resource.getResouceImage(character + ".png"));
+        deathImage = Resource.getResouceImage(character + ".png");
 
         try {
             jumpSound =  Applet.newAudioClip(new URL("file","","data/dinosaur/jump.wav"));
