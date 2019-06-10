@@ -21,7 +21,7 @@ import House.house.House;
 import Main.*;
 
 
-public class FroggerPanel extends JPanel implements KeyListener
+public class FroggerPanel extends JPanel
 {
 
     private Timer timer;
@@ -39,7 +39,6 @@ public class FroggerPanel extends JPanel implements KeyListener
     private int end;
     private Main mainFrame ;
     private House house;
-    private JLabel timeLabel;
     private int stepX ;
     private int stepY ;
     private final int oneStep = 80;
@@ -52,83 +51,62 @@ public class FroggerPanel extends JPanel implements KeyListener
         this.house = house;
         this.mainFrame = mainFrame;
         this.setFocusable(true);
-//        this.setLayout(new BorderLayout());
-//        timePanel = new JPanel();
         this.setBorder(new EmptyBorder(5, 5, 5, 5));
         this.setLayout(null);
-//        timePanel.add(timeLabel);
-//
-//        add(timePanel, BorderLayout.NORTH);
-//        timeLabel = new JLabel(String.valueOf(time/100));
-//        timeLabel.setBounds(900, 20 , 200, 20);
-//        add(timeLabel);
-//        ImageIcon img = new ImageIcon("data/Frogger/image/frogBackground.png");
-//        Image i = img.getImage();
-//        i = i.getScaledInstance(900, 675, Image.SCALE_SMOOTH);
-//        JLabel background = new JLabel();
-//        background.setIcon(new ImageIcon(i));
-//        background.setSize(900, 675);
-//        this.add(background);
 
         Init();
         repaint();
-//        Keylisten listener = new Keylisten();
-//        this.addKeyListener(listener);
+        Keylisten listener = new Keylisten();
+        this.addKeyListener(listener);
         // handle frame mouse motion event
         //requestFocusInWindow();
-        gameStart();
+        //gameStart();
     }
 
 
-
-    @Override
-    public void keyPressed(KeyEvent e)
+    public class Keylisten extends KeyAdapter
     {
-        int key1 = e.getKeyCode();
-        char key2 = e.getKeyChar();
+        @Override
+        public void keyPressed(KeyEvent e)
+        {
+            int key1 = e.getKeyCode();
+            char key2 = e.getKeyChar();
 
-        switch (key1) {
-            case KeyEvent.VK_UP:
-                frog.move(0, -stepY);
-                if(stepY == 240){
-                    setStep(1);
-                }
-                break;
-            case KeyEvent.VK_LEFT:
-                frog.move(-stepX, 0);
-                if(stepY == 240){
-                    setStep(1);
-                }
-                break;
-            case KeyEvent.VK_DOWN:
-                frog.move(0, stepY);
-                if(stepY == 240){
-                    setStep(1);
-                }
-                break;
-            case KeyEvent.VK_RIGHT:
-                frog.move(stepX, 0);
-                if(stepY == 240){
-                    setStep(1);
-                }
-                break;
-            case KeyEvent.VK_P:
-                time =0;
-                timer.cancel();
-                mainFrame.changeToMainScreen();
-                end = 0;
-                break;
-            default:
-                System.out.println(key2);
+            switch (key1) {
+                case KeyEvent.VK_UP:
+                    frog.move(0, -stepY);
+                    if(stepY == 240){
+                        setStep(1);
+                    }
+                    break;
+                case KeyEvent.VK_LEFT:
+                    frog.move(-stepX, 0);
+                    if(stepY == 240){
+                        setStep(1);
+                    }
+                    break;
+                case KeyEvent.VK_DOWN:
+                    frog.move(0, stepY);
+                    if(stepY == 240){
+                        setStep(1);
+                    }
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    frog.move(stepX, 0);
+                    if(stepY == 240){
+                        setStep(1);
+                    }
+                    break;
+                case KeyEvent.VK_P:
+                    time =0;
+                    timer.cancel();
+                    mainFrame.changeToMainScreen();
+                    end = 0;
+                    break;
+                default:
+                    System.out.println(key2);
+            }
         }
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
     }
 
     private void Init()
@@ -162,7 +140,7 @@ public class FroggerPanel extends JPanel implements KeyListener
         setStep(1);
     }
 
-    private void gameStart()
+    public void gameStart()
     {
         timer = new Timer();
         timer.schedule(new TimerTask(){
@@ -176,29 +154,14 @@ public class FroggerPanel extends JPanel implements KeyListener
                 if(time == 0){
                     timer.cancel();
                 }
-                if(time == 6000){
-                    int temp = JOptionPane.showConfirmDialog(null, "小心肝過馬路\n馬路如虎口，小心罰三百\n(Yes : 開始遊戲 No : 回選單)", "", JOptionPane.YES_NO_OPTION);
-                    if(temp == 1){
-                        time = 0;
-                        timer.cancel();
-                        mainFrame.changeToMainScreen();
-                    }
-                }
                 time--;
-                //System.out.println("test");
-                //timeLabel.setText(String.valueOf(time/100));
                 if(time == 99){
-                    int temp = JOptionPane.showConfirmDialog(null, "遊戲結束\n是否要重新(Yes : 重新遊戲 No : 回選單)", "", JOptionPane.YES_NO_OPTION);
+                    //int temp = JOptionPane.showConfirmDialog(null, "遊戲結束\n是否要重新(Yes : 重新遊戲 No : 回選單)", "", JOptionPane.YES_NO_OPTION);
                     house.setHoldMoney(house.getHoldMoney() + 1000);
                     house.setExp(house.getExp() + 200);
-                    if(temp == 0){ // 0 yew 1 no
-                        Init();
-                        time = 5999;
-                    }else if(temp == 1){
-                        time = 0;
-                        timer.cancel();
-                        mainFrame.changeToMainScreen();
-                    }
+                    time = 0;
+                    timer.cancel();
+                    //mainFrame.changeToMainScreen();
                 }
                 if(time == policeTime){
                     police.setSpeed(-20);
@@ -228,7 +191,6 @@ public class FroggerPanel extends JPanel implements KeyListener
                     police.update();
                 }
                 if(frog.win()){
-                    int temp = JOptionPane.showConfirmDialog(null, "遊戲勝利\n你增加了"+time+"經驗值\n是否要重新(Yes : 重新遊戲 No : 回選單)", "", JOptionPane.YES_NO_OPTION);
                     house.setExp( house.getExp() + time / 6 * house.getLevel());
                     if(time > 3000){
                         house.setHoldMoney(house.getHoldMoney() + 3000);
@@ -237,16 +199,9 @@ public class FroggerPanel extends JPanel implements KeyListener
                     }else if(time > 0){
                         house.setHoldMoney(house.getHoldMoney() + 2000);
                     }
-                    if(temp == 0){ // 0 yew 1 no
-                        Init();
-                        time = 5999;
-                    }else if(temp == 1) {
-                        time = 0;
-                        timer.cancel();
-                        mainFrame.changeToMainScreen();
-                    }
+                    time = 0;
+                    timer.cancel();
                 }
-
                 repaint();
             }
         }, 0, 10);
@@ -285,14 +240,9 @@ public class FroggerPanel extends JPanel implements KeyListener
 //        g.fillRect(Frog.endX, Frog.endY, frog.getW(),frog.getH());
     }
 
-
     private void setStep(int k) {
         stepY = k * oneStep;
         stepX = oneStep / 2;
     }
-
-
-
-
 
 } // end class PaintPanel
