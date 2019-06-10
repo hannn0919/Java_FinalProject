@@ -5,15 +5,14 @@ import java.awt.*;
 import java.awt.event.MouseListener;
 import java.io.*;
 import javax.sound.sampled.*;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import javax.swing.border.EmptyBorder;
 
 
 public class EnterScreen extends JPanel{
 
     private Main mainFrame;
+    private JButton btnNew,btnLoad;
 
     public EnterScreen(Main mainFrame){
         this.mainFrame = mainFrame;
@@ -21,56 +20,21 @@ public class EnterScreen extends JPanel{
         this.setBorder(new EmptyBorder(5, 5, 5, 5));
         this.setLayout(null);
 
-        JButton btnNew = new JButton();
+        btnNew = new JButton();
         cleanButtom(btnNew);
         btnNew.setBounds(600, 300, 290, 100);
         btnNew.setIcon(new ImageIcon("data/main/開始遊戲.png"));
-        btnNew.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                mainFrame.stratDrama();
-            }
-            @Override
-            public void mouseEntered(MouseEvent e){
-                buttonSound();
-                btnNew.setToolTipText("这是按钮");
-                ToolTipManager.sharedInstance().setDismissDelay(5000);// 设置为5秒
-                btnNew.setIcon(resize(btnNew.getIcon().getIconWidth()+10,btnNew.getIcon().getIconHeight()+10,(ImageIcon)btnNew.getIcon()));
-                setCursor(new Cursor(Cursor.HAND_CURSOR));
-            }
-            @Override
-            public void mouseExited(MouseEvent arg0) {
-                btnNew.setIcon(new ImageIcon("data/main/開始遊戲.png"));
-                setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-            }
-        });
         this.add(btnNew);
 
-        JButton btnLoad = new JButton();
+        btnLoad = new JButton();
         cleanButtom(btnLoad);
         btnLoad.setBounds(600, 450, 255, 100);
         btnLoad.setIcon(new ImageIcon("data/main/載入遊戲小.png"));
-        btnLoad.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                mainFrame.changeToMainScreen();
-            }
-            @Override
-            public void mouseEntered(MouseEvent e){
-                buttonSound();
-                btnLoad.setToolTipText("这是按钮");
-                ToolTipManager.sharedInstance().setDismissDelay(5000);// 设置为5秒
-                btnLoad.setIcon(resize(btnLoad.getIcon().getIconWidth()+10,btnLoad.getIcon().getIconHeight()+10,(ImageIcon)btnLoad.getIcon()));
-                setCursor(new Cursor(Cursor.HAND_CURSOR));
-            }
-            @Override
-            public void mouseExited(MouseEvent arg0) {
-                btnLoad.setIcon(new ImageIcon("data/main/載入遊戲小.png"));
-                setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-            }
-
-        });
         this.add(btnLoad);
+
+        MouseHandler mouseHandler = new MouseHandler();
+        btnNew.addMouseListener(mouseHandler);
+        btnLoad.addMouseListener(mouseHandler);
 
         ImageIcon img = new ImageIcon("data/main/主畫面.png");
         Image i = img.getImage();
@@ -79,6 +43,40 @@ public class EnterScreen extends JPanel{
         background.setIcon(new ImageIcon(i));
         background.setSize(1200, 675);
         this.add(background);
+    }
+    private class MouseHandler implements  MouseListener{
+        @Override public void mousePressed(MouseEvent e){}
+        @Override public void mouseReleased(MouseEvent e){}
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if(e.getSource()==btnNew)
+                mainFrame.stratDrama();
+            else if(e.getSource()==btnLoad)
+                mainFrame.changeToMainScreen();
+        }
+        @Override
+        public void mouseEntered(MouseEvent e){
+            if(e.getSource()==btnNew) {
+                buttonSound();
+                btnNew.setIcon(resize(btnNew.getIcon().getIconWidth()+10,btnNew.getIcon().getIconHeight()+10,(ImageIcon)btnNew.getIcon()));
+                setCursor(new Cursor(Cursor.HAND_CURSOR));
+            }else if(e.getSource()==btnLoad){
+                buttonSound();
+                btnLoad.setIcon(resize(btnLoad.getIcon().getIconWidth()+10,btnLoad.getIcon().getIconHeight()+10,(ImageIcon)btnLoad.getIcon()));
+                setCursor(new Cursor(Cursor.HAND_CURSOR));
+            }
+        }
+        @Override
+        public void mouseExited(MouseEvent arg0) {
+            if(arg0.getSource()==btnNew){
+                btnNew.setIcon(new ImageIcon("data/main/開始遊戲.png"));
+                setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+            }
+            else if(arg0.getSource()==btnLoad) {
+                btnLoad.setIcon(new ImageIcon("data/main/載入遊戲小.png"));
+                setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+            }
+        }
     }
 
     public ImageIcon resize(int width, int height, ImageIcon img) {
