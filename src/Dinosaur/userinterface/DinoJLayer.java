@@ -146,7 +146,7 @@ public class DinoJLayer extends JLayeredPane {
         disCountLabel.setBounds(0, backToMainImage.getIconHeight(), disCountImage.getIconWidth(), disCountImage.getIconHeight());
         add(disCountLabel, JLayeredPane.DEFAULT_LAYER);
 
-        ruleImage = new ImageIcon("data/gamebar/rule.png");
+        ruleImage = new ImageIcon("data/dinosaur/rule.png");
         ruleLabel = new JLabel(ruleImage);
         ruleLabel.setBounds(0, backToMainImage.getIconHeight() + disCountImage.getIconHeight(), ruleImage.getIconWidth(), ruleImage.getIconHeight());
         add(ruleLabel, JLayeredPane.DEFAULT_LAYER);
