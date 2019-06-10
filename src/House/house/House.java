@@ -36,8 +36,8 @@ public class House {
             data[i][0][9] = data[i][0][8] * ( 1F + stockPrs[i]);
             stock[i] = (float) data[i][0][9];
         }
-        map.put("時間加倍券",0);
         map.put("經驗加倍券",0);
+        map.put("金錢加倍券",0);
         map.put("電蚊拍",0);
         map.put("增時卡",0);
         map.put("地下道鑰匙",0);

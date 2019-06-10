@@ -1,9 +1,13 @@
 package Dinosaur.userinterface;
 import House.house.House;
 import Main.Main;
+
+import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -33,14 +37,14 @@ public class DinoJLayer extends JLayeredPane {
         Handler handle = new Handler();
         UseItem useItem = new UseItem();
 
-        expcard = new JCheckBox("經驗加倍卡");
+        expcard = new JCheckBox("經驗加倍券");
         Itemset(expcard);
-        if(house.getItem("經驗加倍卡")<=0) expcard.setEnabled(false);
+        if(house.getItem("經驗加倍券")<=0) expcard.setEnabled(false);
 
 
-        moneycard = new JCheckBox("金錢加倍卡");
+        moneycard = new JCheckBox("金錢加倍券");
         Itemset(moneycard);
-        if(house.getItem("金錢加倍卡")<=0) moneycard.setEnabled(false);
+        if(house.getItem("金錢加倍券")<=0) moneycard.setEnabled(false);
 
         prop = new JCheckBox("電蚊拍");
         Itemset(prop);
@@ -48,7 +52,11 @@ public class DinoJLayer extends JLayeredPane {
 
         startImg = new ImageIcon("data/dinosaur/開始遊戲按鈕.png");
         startBtn = new JButton(startImg);
-        startBtn.setBounds(660, 510, 140, 50);
+        startBtn.setBounds(660, 510, 150, 60);
+        startBtn.setBorderPainted(false);
+        startBtn.setBorder(null);
+        startBtn.setFocusPainted(false);
+        startBtn.setContentAreaFilled(false);
         startBtn.addActionListener(handle);
         add(startBtn, JLayeredPane.DEFAULT_LAYER);
 
@@ -72,7 +80,11 @@ public class DinoJLayer extends JLayeredPane {
 
         checkImg = new ImageIcon("data/dinosaur/OK鍵.png");
         checkBtn = new JButton(checkImg);
-        checkBtn.setBounds(630, 490, 52, 50);
+        checkBtn.setBounds(630, 490, 62, 60);
+        checkBtn.setBorderPainted(false);
+        checkBtn.setBorder(null);
+        checkBtn.setFocusPainted(false);
+        checkBtn.setContentAreaFilled(false);
         checkBtn.addActionListener(handle);
         add(checkBtn, JLayeredPane.DEFAULT_LAYER);
         checkBtn.setVisible(false);
@@ -95,6 +107,9 @@ public class DinoJLayer extends JLayeredPane {
         add(statics, JLayeredPane.DEFAULT_LAYER);
         statics.setVisible(false);
 
+        MouseHandler mouseHandler = new MouseHandler();
+        checkBtn.addMouseListener(mouseHandler);
+        startBtn.addMouseListener(mouseHandler);
 
         game = new GameScreen(frame, house);
         game.setBounds(300, 0, 1200, 675);
@@ -115,12 +130,15 @@ public class DinoJLayer extends JLayeredPane {
                 if(time ==0){
                     timer.cancel();
                     Random ran = new Random();
-                    int m = ran.nextInt(36)+74;
-                    int e = (int)(ran.nextDouble()+38);
-                    int gainexp = (int)game.max * e;
-                    int gainmoney = (int)game.max * m;
+                    int m = ran.nextInt(800);
+                    int e = ran.nextInt(400);
+                    int meg = 10;
+                    if(house.getEquipment("竹蜻蜓")==1) meg = 7;
+                    int gainexp = (int)game.max * meg + e;
+                    int gainmoney = (int)game.max * meg + m;
                     if(game.expcard == true) gainexp *= 2;
                     if(game.moneycard == true) gainmoney *= 2;
+
                     static_pxp.setText(String.valueOf(gainexp));
                     static_money.setText(String.valueOf(gainmoney));
                     house.setExp(house.getExp()+gainexp);
@@ -143,6 +161,7 @@ public class DinoJLayer extends JLayeredPane {
         backToMainButton.setFocusPainted(false);
         backToMainButton.setContentAreaFilled(false);
         backToMainButton.addActionListener(handle);
+        backToMainButton.addMouseListener(mouseHandler);
 
         disCountImage = new ImageIcon("data/gamebar/discount.png");
         disCountLabel = new JLabel(disCountImage);
@@ -205,12 +224,15 @@ public class DinoJLayer extends JLayeredPane {
             if (chkbox == ItemEvent.SELECTED) {
                 if (event.getItem() == expcard) {
                     game.expcard = true;
+                    house.setItem("經驗加倍券", house.getItem("經驗加倍券")-1);
                 }
                 if (event.getItem() == moneycard) {
                     game.moneycard = true;
+                    house.setItem("金錢加倍券", house.getItem("金錢加倍券")-1);
                 }
                 if (event.getItem() == prop) {
                     game.mainCharacter.setinvIncible();
+                    house.setItem("電蚊拍", house.getItem("電蚊拍")-1);
                 }
             }
         }
@@ -222,6 +244,69 @@ public class DinoJLayer extends JLayeredPane {
         box.setContentAreaFilled(false);
         box.setFocusPainted(false);
         box.setBorder(null);
+    }
+
+    private class MouseHandler implements  MouseListener{
+        @Override public void mousePressed(MouseEvent e){
+            setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        }
+        @Override public void mouseReleased(MouseEvent e){}
+        @Override
+        public void mouseClicked(MouseEvent e) {}
+        @Override
+        public void mouseEntered(MouseEvent e){
+            if(e.getSource()==checkBtn) {
+                buttonSound();
+                checkBtn.setIcon(resize(checkBtn.getIcon().getIconWidth()+10,checkBtn.getIcon().getIconHeight()+10,(ImageIcon)checkBtn.getIcon()));
+                setCursor(new Cursor(Cursor.HAND_CURSOR));
+            }else if(e.getSource()==startBtn){
+                buttonSound();
+                startBtn.setIcon(resize(startBtn.getIcon().getIconWidth()+10,startBtn.getIcon().getIconHeight()+10,(ImageIcon)startBtn.getIcon()));
+                setCursor(new Cursor(Cursor.HAND_CURSOR));
+            }else if(e.getSource()==backToMainButton){
+                buttonSound();
+                backToMainButton.setIcon(resize(backToMainButton.getIcon().getIconWidth()+10,backToMainButton.getIcon().getIconHeight()+10,(ImageIcon)backToMainButton.getIcon()));
+                setCursor(new Cursor(Cursor.HAND_CURSOR));
+            }
+        }
+        @Override
+        public void mouseExited(MouseEvent arg0) {
+            if(arg0.getSource()==checkBtn){
+                checkBtn.setIcon(new ImageIcon("data/dinosaur/OK鍵.png"));
+                setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+            }
+            else if(arg0.getSource()==startBtn) {
+                startBtn.setIcon(new ImageIcon("data/dinosaur/開始遊戲按鈕.png"));
+                setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+            }
+            else if(arg0.getSource()==backToMainButton) {
+                backToMainButton.setIcon(new ImageIcon("data/gamebar/backhome.png"));
+                setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+            }
+        }
+    }
+
+    public ImageIcon resize(int width, int height, ImageIcon img) {
+        Image i = img.getImage();
+        Image new_img = i.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        return  new ImageIcon(new_img);
+    }
+
+    public void buttonSound() {
+        try {
+            File soundFile = new File("music/buttonClicked.wav");
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            clip.start();
+
+        } catch (UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (LineUnavailableException e) {
+            e.printStackTrace();
+        }
     }
 
 }
