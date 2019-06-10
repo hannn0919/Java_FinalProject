@@ -34,13 +34,62 @@ public class mainPanel extends JPanel {
         this.setLayout(null);
 
         mouseToolTip = new JLabel("", JLabel.CENTER);
-        mouseToolTip.setSize(80, 40);
+        mouseToolTip.setSize(97, 42);
         mouseToolTip.setVisible(true);
         this.add(mouseToolTip);
 
         //肝
+
         JLabel liver = new JLabel();
-        liver.setBounds(18, 380, 400, 250);
+        liver.setBounds(18, 330, 350, 350);
+            //眼鏡+竹蜻蜓+翅膀+彈簧鞋
+            if(house.getEquipment("透視眼鏡")==1&&house.getEquipment("竹蜻蜓")==1&&house.getEquipment("翅膀")==1&&house.getEquipment("彈簧鞋")==1)
+                liver.setIcon(new ImageIcon("data/role/LV" + house.getLevel() +"/肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png"));
+            //肝
+            else if(house.getEquipment("透視眼鏡")!=1&&house.getEquipment("竹蜻蜓")!=1&&house.getEquipment("翅膀")!=1&&house.getEquipment("彈簧鞋")!=1)
+                liver.setIcon(new ImageIcon("data/role/LV" + house.getLevel() +"/肝.png"));
+            //肝+竹蜻蜓
+            else if(house.getEquipment("透視眼鏡")!=1&&house.getEquipment("竹蜻蜓")==1&&house.getEquipment("翅膀")!=1&&house.getEquipment("彈簧鞋")!=1)
+                liver.setIcon(new ImageIcon("data/role/LV" + house.getLevel() +"/肝+竹蜻蜓.png"));
+            //肝+竹蜻蜓+翅膀
+            else if(house.getEquipment("透視眼鏡")!=1&&house.getEquipment("竹蜻蜓")==1&&house.getEquipment("翅膀")==1&&house.getEquipment("彈簧鞋")!=1)
+                liver.setIcon(new ImageIcon("data/role/LV" + house.getLevel() +"/肝+竹蜻蜓+翅膀.png"));
+            //肝+竹蜻蜓+翅膀+彈簧鞋
+            else if(house.getEquipment("透視眼鏡")!=1&&house.getEquipment("竹蜻蜓")==1&&house.getEquipment("翅膀")==1&&house.getEquipment("彈簧鞋")==1)
+                liver.setIcon(new ImageIcon("data/role/LV" + house.getLevel() +"/肝+竹蜻蜓+翅膀+彈簧鞋.png"));
+            //肝+竹蜻蜓+彈簧鞋
+            else if(house.getEquipment("透視眼鏡")!=1&&house.getEquipment("竹蜻蜓")==1&&house.getEquipment("翅膀")!=1&&house.getEquipment("彈簧鞋")==1)
+                liver.setIcon(new ImageIcon("data/role/LV" + house.getLevel() +"/肝+竹蜻蜓+彈簧鞋.png"));
+            //肝+翅膀
+            else if(house.getEquipment("透視眼鏡")!=1&&house.getEquipment("竹蜻蜓")!=1&&house.getEquipment("翅膀")==1&&house.getEquipment("彈簧鞋")!=1)
+                liver.setIcon(new ImageIcon("data/role/LV" + house.getLevel() +"/肝+翅膀.png"));
+            //肝+翅膀+彈簧鞋
+            else if(house.getEquipment("透視眼鏡")!=1&&house.getEquipment("竹蜻蜓")!=1&&house.getEquipment("翅膀")==1&&house.getEquipment("彈簧鞋")==1)
+                liver.setIcon(new ImageIcon("data/role/LV" + house.getLevel() +"/肝+翅膀+彈簧鞋.png"));
+            //肝+眼鏡
+            else if(house.getEquipment("透視眼鏡")==1&&house.getEquipment("竹蜻蜓")!=1&&house.getEquipment("翅膀")!=1&&house.getEquipment("彈簧鞋")!=1)
+                liver.setIcon(new ImageIcon("data/role/LV" + house.getLevel() +"/肝+眼鏡.png"));
+            //肝+眼鏡+竹蜻蜓
+            else if(house.getEquipment("透視眼鏡")==1&&house.getEquipment("竹蜻蜓")==1&&house.getEquipment("翅膀")!=1&&house.getEquipment("彈簧鞋")!=1)
+                liver.setIcon(new ImageIcon("data/role/LV" + house.getLevel() +"/肝+眼鏡+竹蜻蜓.png"));
+            //肝+眼鏡+竹蜻蜓+翅膀
+            else if(house.getEquipment("透視眼鏡")==1&&house.getEquipment("竹蜻蜓")==1&&house.getEquipment("翅膀")==1&&house.getEquipment("彈簧鞋")!=1)
+                liver.setIcon(new ImageIcon("data/role/LV" + house.getLevel() +"/肝+眼鏡+竹蜻蜓+翅膀.png"));
+            //肝+眼鏡+竹蜻蜓+彈簧鞋
+            else if(house.getEquipment("透視眼鏡")==1&&house.getEquipment("竹蜻蜓")==1&&house.getEquipment("翅膀")!=1&&house.getEquipment("彈簧鞋")==1)
+                liver.setIcon(new ImageIcon("data/role/LV" + house.getLevel() +"/肝+眼鏡+竹蜻蜓+彈簧鞋.png"));
+            //肝+眼鏡+翅膀
+            else if(house.getEquipment("透視眼鏡")==1&&house.getEquipment("竹蜻蜓")!=1&&house.getEquipment("翅膀")==1&&house.getEquipment("彈簧鞋")!=1)
+                liver.setIcon(new ImageIcon("data/role/LV" + house.getLevel() +"/肝+眼鏡+翅膀.png"));
+            //肝+眼鏡+翅膀+彈簧鞋
+            else if(house.getEquipment("透視眼鏡")==1&&house.getEquipment("竹蜻蜓")!=1&&house.getEquipment("翅膀")==1&&house.getEquipment("彈簧鞋")==1)
+                liver.setIcon(new ImageIcon("data/role/LV" + house.getLevel() +"/肝+眼鏡+翅膀+彈簧鞋.png"));
+            //肝+眼鏡+彈簧鞋
+            else if(house.getEquipment("透視眼鏡")==1&&house.getEquipment("竹蜻蜓")!=1&&house.getEquipment("翅膀")!=1&&house.getEquipment("彈簧鞋")==1)
+                liver.setIcon(new ImageIcon("data/role/LV" + house.getLevel() +"/肝+眼鏡+彈簧鞋.png"));
+            //肝+彈簧鞋
+            else
+                liver.setIcon(new ImageIcon("data/role/LV" + house.getLevel() +"/肝+彈簧鞋.png"));
         add(liver);
 
         //商店 背包 股市的按鈕
@@ -84,7 +133,7 @@ public class mainPanel extends JPanel {
         //等級
         JLabel LV = new JLabel();
         LV.setIcon(new ImageIcon("data/main/LV" + house.getLevel() + ".png"));
-        LV.setBounds(68, 52, 78, 40);
+        LV.setBounds(62, 50, 78, 45);
         add(LV);
 
         //經驗
@@ -109,8 +158,6 @@ public class mainPanel extends JPanel {
 
         exp.setIcon(new ImageIcon("data/main/exp.png"));
         money.setIcon(new ImageIcon("data/main/money.png"));
-        //借放1下這張^.<
-        liver.setIcon(new ImageIcon("data/cards/icon/test_charater.png"));
 
         card = new Polygon();
         card.addPoint(471,171);
@@ -168,7 +215,7 @@ public class mainPanel extends JPanel {
                         buttonSound();
                     }
                     hover = true;
-                    mouseToolTip.setIcon(new ImageIcon("data/Bag&Store/警察卡.png"));
+                    mouseToolTip.setIcon(new ImageIcon("data/main/進入遊戲2.png"));
                     mouseToolTip.setLocation((int)(e.getPoint().getX() + 15), (int)(e.getPoint().getY() + 15));
                 }
                 else {
@@ -181,7 +228,7 @@ public class mainPanel extends JPanel {
                         hamsterIn=true;
                         buttonSound();
                     }
-                    mouseToolTip.setIcon(new ImageIcon("data/Bag&Store/警察卡.png"));
+                    mouseToolTip.setIcon(new ImageIcon("data/main/進入遊戲3.png"));
                     mouseToolTip.setLocation((int)(e.getPoint().getX() + 15), (int)(e.getPoint().getY() + 15));
                 }
                 else {
@@ -194,7 +241,7 @@ public class mainPanel extends JPanel {
                         froggerIn=true;
                         buttonSound();
                     }
-                    mouseToolTip.setIcon(new ImageIcon("data/Bag&Store/加倍卡.png"));
+                    mouseToolTip.setIcon(new ImageIcon("data/main/進入遊戲4.png"));
                     mouseToolTip.setLocation((int)(e.getPoint().getX() + 15), (int)(e.getPoint().getY() + 15));
                 }
                 else {
@@ -207,7 +254,7 @@ public class mainPanel extends JPanel {
                         dinosaurIn = true;
                         buttonSound();
                     }
-                    mouseToolTip.setIcon(new ImageIcon("data/Bag&Store/老師卡.png"));
+                    mouseToolTip.setIcon(new ImageIcon("data/main/進入遊戲1.png"));
                     mouseToolTip.setLocation((int)(e.getPoint().getX() + 15), (int)(e.getPoint().getY() + 15));
                 }
                 else {
