@@ -18,12 +18,14 @@ public class StoreLayerPane extends JLayeredPane {
     //  private ImageIcon disCountImage;//到數計時的圖片
     private ImageIcon expandMoneyImage;//經驗 前 肝的組合圖片
     private ImageIcon ruleImage;//簡單規則介紹的底圖
+    private ImageIcon gameBarImage;
 
 
     private JButton backToMainButton;
     //  private JLabel disCountLabel;
     private JLabel expandMoneyLabel;
     private JLabel ruleLabel;
+    private JLabel gameBarLabel;
 
     public StoreLayerPane(Main frame, House house){
         this.frame = frame;
@@ -32,10 +34,14 @@ public class StoreLayerPane extends JLayeredPane {
         store.setBounds(300,0,900,675);
         add(store,JLayeredPane.DEFAULT_LAYER);
         int heightTotal=0;
+        gameBarImage = new ImageIcon("data/Bag&Store/storebar.png");
+        gameBarLabel = new JLabel(gameBarImage);
+        gameBarLabel.setBounds(0,0,gameBarImage.getIconWidth(),gameBarImage.getIconHeight());
+        add(gameBarLabel,JLayeredPane.DEFAULT_LAYER);
         backToMainImage = new ImageIcon("data/Bag&Store/backhome.png");
         backToMainButton = new JButton(backToMainImage);
         backToMainButton.setBounds(0, heightTotal, backToMainImage.getIconWidth(), backToMainImage.getIconHeight());
-        add(backToMainButton, JLayeredPane.DEFAULT_LAYER);
+        add(backToMainButton, JLayeredPane.POPUP_LAYER);
         backToMainButton.setBorderPainted(false);
         backToMainButton.setBorder(null);
         backToMainButton.setFocusPainted(false);
@@ -52,14 +58,13 @@ public class StoreLayerPane extends JLayeredPane {
 
 
         ruleImage = new ImageIcon("data/Bag&Store/rule.png");
-        ruleLabel = new JLabel(ruleImage);
-        ruleLabel.setBounds(0, heightTotal, ruleImage.getIconWidth(), ruleImage.getIconHeight());
-        add(ruleLabel, JLayeredPane.DEFAULT_LAYER);
+
+        //add(ruleLabel, JLayeredPane.DEFAULT_LAYER);
         heightTotal+=ruleImage.getIconHeight();
 
         expandMoneyImage = new ImageIcon("data/gamebar/expandMoney.png");
         expandMoneyLabel = new JLabel(expandMoneyImage);
         expandMoneyLabel.setBounds(0, heightTotal, expandMoneyImage.getIconWidth(), expandMoneyImage.getIconHeight());
-        add(expandMoneyLabel, JLayeredPane.DEFAULT_LAYER);
+        add(expandMoneyLabel, JLayeredPane.POPUP_LAYER);
     }
 }

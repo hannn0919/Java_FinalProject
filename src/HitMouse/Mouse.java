@@ -31,6 +31,8 @@ public class Mouse extends JLayeredPane{
     private ImageIcon ruleImage;//簡單規則介紹的底圖
     private ImageIcon fist; //拳頭的圖片
     private ImageIcon heart;//愛心的圖片
+    private ImageIcon staticsImg;
+    private ImageIcon checkImg;
 
 
    // private JButton btnStart;//開始按鈕
@@ -51,6 +53,7 @@ public class Mouse extends JLayeredPane{
 
     private JLabel backGroundLabel;
     private JButton backToMainButton;
+    private JButton checkBtn;
     private JLabel disCountLabel;
     private JLabel expandMoneyLabel;
     private JLabel ruleLabel;
@@ -64,11 +67,16 @@ public class Mouse extends JLayeredPane{
 
 
     private JCheckBox moneycard;
+    private JCheckBox expcard;
     private ImageIcon startImg;
     private JButton startBtn;
     private ImageIcon introduceImg;
     private JLabel introduce;
+    private JLabel statics;
+    private JLabel static_pxp;
+    private JLabel static_money;
     private boolean equipIsUsed=false;
+
     private Timer timer;
     private Timer time2;
     private Timer time3;
@@ -113,6 +121,7 @@ public class Mouse extends JLayeredPane{
              expandMoneyImage = new ImageIcon("data/gamebar/expandMoney.png");
              expandMoneyLabel = new JLabel(expandMoneyImage);
              expandMoneyLabel.setBounds(0, heightTotal, expandMoneyImage.getIconWidth(), expandMoneyImage.getIconHeight());
+
              add(expandMoneyLabel, JLayeredPane.DEFAULT_LAYER);
 
              score =new Score();
@@ -138,27 +147,30 @@ public class Mouse extends JLayeredPane{
          {
              introduceImg = new ImageIcon("data/HitMouse/introduce.png");
              introduce = new JLabel(introduceImg);
-             introduce.setBounds(400, 99,676, 476);
+             introduce.setBounds(400, 99, 676, 476);
              add(introduce, JLayeredPane.POPUP_LAYER);
 
 
-             moneycard = new JCheckBox("透視眼鏡");
-             moneycard.setFont(new Font("微軟正黑體", Font.PLAIN, 23));
-             moneycard.addItemListener(new ItemListener() {
-                 @Override
-                 public void itemStateChanged(ItemEvent e) {
-                     if(equipIsUsed==false){
-                         score.setScore(score.getScore()+20);
-                         equipIsUsed=true;
-                     }
+             expcard = new JCheckBox("經驗加倍卡");
+             expcard.setFont(new Font("微軟正黑體", Font.PLAIN, 23));
+             expcard.setBorderPainted(false);
+             expcard.setFocusPainted(false);
+             expcard.setContentAreaFilled(false);
+             expcard.setBounds(500, 460, 150, 30);
+             add(expcard, JLayeredPane.DRAG_LAYER);
 
-                 }
-             });
+             moneycard = new JCheckBox("金錢加倍卡");
+             moneycard.setFont(new Font("微軟正黑體", Font.PLAIN, 23));
+             moneycard.setBounds(680, 460, 150, 30);
+             moneycard.setBorderPainted(false);
+             moneycard.setFocusPainted(false);
+             moneycard.setContentAreaFilled(false);
+             add(moneycard, JLayeredPane.DRAG_LAYER);
 
 
              startImg = new ImageIcon("data/HitMouse/開始遊戲按鈕.png");
              startBtn = new JButton(startImg);
-             startBtn.setBounds(660, 510,140, 50);
+             startBtn.setBounds(660, 510, 140, 50);
              startBtn.setBorderPainted(false);
              startBtn.setBorder(null);
              startBtn.setFocusPainted(false);
@@ -166,13 +178,13 @@ public class Mouse extends JLayeredPane{
              startBtn.addActionListener(new ActionListener() {
                  @Override
                  public void actionPerformed(ActionEvent e) {
-
                      remove(moneycard);
 
                      remove(startBtn);
                      remove(introduce);
+                     remove(expcard);
                      repaint();
-                     equipIsUsed=false;
+                     equipIsUsed = false;
                      score.setStarttime(System.currentTimeMillis());
                      timer.start();
                      time2.start();
@@ -182,18 +194,21 @@ public class Mouse extends JLayeredPane{
              });
              add(startBtn, JLayeredPane.DRAG_LAYER);
 
+             staticsImg = new ImageIcon("data/Hitmouse/遊戲結算.png");
+             statics = new JLabel(staticsImg);
+             statics.setBounds(400, 99, 504,476);
+             //add(statics, JLayeredPane.DEFAULT_LAYER);
+             //statics.setVisible(false);
 
-             moneycard.setBounds(680, 460,150, 30);
-             moneycard.setBorderPainted(false);
-             moneycard.setFocusPainted(false);
-             moneycard.setContentAreaFilled(false);
-             add(moneycard, JLayeredPane.DRAG_LAYER);
+         }
+
+
 
 
 
 
              //introduce.setVisible(false);
-         }
+
 
 
 
@@ -349,7 +364,32 @@ public class Mouse extends JLayeredPane{
                     shadowTimer.stop();
                     but[score.getLast()].setIcon(null);
                     obBut[score.getLast()].setIcon(null);
-                    JOptionPane.showMessageDialog(frame, "Game Over\n 您的得分為："+score.getScore(),"得分信息",JOptionPane.PLAIN_MESSAGE);
+                    add(statics,JLayeredPane.DRAG_LAYER);
+                    //JOptionPane.showMessageDialog(frame, "Game Over\n 您的得分為："+score.getScore(),"得分信息",JOptionPane.PLAIN_MESSAGE);
+                    static_pxp = new JLabel("1242346");
+                    static_pxp.setFont(new Font("Hollywood Hills",Font.BOLD,20));
+                    static_pxp.setBounds(617, 238, 150,40);
+                    add(static_pxp, JLayeredPane.DRAG_LAYER);
+                    //static_pxp.setVisible(false);
+
+                    static_money = new JLabel("1243");
+                    static_money.setFont(new Font("Hollywood Hills",Font.BOLD,20));
+                    static_money.setBounds(617, 389, 150,40);
+                    add(static_money, JLayeredPane.DRAG_LAYER);
+                    //static_money.setVisible(false);
+                    //add(statics,JLayeredPane.DRAG_LAYER);
+
+                    checkImg = new ImageIcon("data/dinosaur/OK鍵.png");
+                    checkBtn = new JButton(checkImg);
+                    checkBtn.setBounds(630, 490, 52, 50);
+                    checkBtn.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            mainFrame.changeToMainScreen();
+                        }
+                    });
+                    add(checkBtn, JLayeredPane.DRAG_LAYER);
+
                     but[score.getLast()].setIcon(null);
                     System.out.println(score.getLast());
                     score.setScore(0);
