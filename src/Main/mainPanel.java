@@ -41,7 +41,7 @@ public class mainPanel extends JPanel {
         //肝
 
         JLabel liver = new JLabel();
-        liver.setBounds(18, 330, 350, 350);
+        liver.setBounds(35, 350, 300, 300);
             //眼鏡+竹蜻蜓+翅膀+彈簧鞋
             if(house.getEquipment("透視眼鏡")==1&&house.getEquipment("竹蜻蜓")==1&&house.getEquipment("翅膀")==1&&house.getEquipment("彈簧鞋")==1)
                 liver.setIcon(new ImageIcon("data/role/LV" + house.getLevel() +"/肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png"));
