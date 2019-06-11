@@ -345,18 +345,20 @@ public class RememberCard extends JLayeredPane {
 
         try {
             Thread.sleep(3000);//延遲三秒蓋牌
+
             //panel_Pic.setVisible(true);
             //panel_ans.setVisible(false);
         }
         catch (InterruptedException e) {
             e.printStackTrace();
         }
-        for (int i = 0; i < panel_Pic.getComponentCount(); i++) {
+        for (int i = 0; i < panel_Pic.getComponentCount(); i++) {//一個一個放進去
             Component comp = panel_Pic.getComponent(i);
             if(comp instanceof PicPanel){
                 panel_1 = (PicPanel)comp;
                 panel_2=(PicPanel)comp;
-                panel_1.setLabelPicNull();
+                panel_1.setCardback();
+
                 //panel_1.setPicPath("data/cards/icon/backhome.png");
             }
         }

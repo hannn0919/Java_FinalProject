@@ -9,9 +9,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
 
@@ -24,11 +22,12 @@ public class PicPanel extends JPanel {
     private static final long serialVersionUID = 2172162568449349737L;
     private String picPath;
     private JLabel lbl_Pic = new JLabel();
-    private ImageIcon bgIcon = null;
+    private ImageIcon bgIcon = new ImageIcon("data/cards/icon/backhome.png");
     private ImageIcon cardback = new ImageIcon("data/cards/icon/backhome.png");
     private boolean isShow = false;
     private RememberCard parent;
     private boolean finished = false;
+    private Timer backtimer;
 
     public PicPanel(RememberCard rememberCard, String picPath) {
         this.picPath = picPath;
@@ -36,9 +35,9 @@ public class PicPanel extends JPanel {
         this.setBorder(new CompoundBorder(null, new LineBorder(new Color(0, 0, 0), 1)));
         this.setLayout(new BorderLayout());
         this.add(lbl_Pic, BorderLayout.CENTER);
-
         this.addMouseListener(mouseAdapter);
         initLabelImage();
+
     }
 
     public String getPicPath() {
@@ -122,7 +121,7 @@ public class PicPanel extends JPanel {
     /**
      * 初始化Label物件的image
      */
-    private void initLabelImage() {
+    private void initLabelImage() {//設成圖片
         try {
             Image image = ImageIO.read(new File(picPath));//顯示圖片
             if (image != null) {
@@ -137,6 +136,9 @@ public class PicPanel extends JPanel {
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    protected void setCardback(){
+        lbl_Pic.setIcon(cardback);
     }
 
     /**
