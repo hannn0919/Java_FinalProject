@@ -1,6 +1,6 @@
 package HitMouse.gameobject;
 public class Score {
-    private int score=0,last=0,djs=10,sd=1500;//sd->地鼠出現速度，last->上一隻地鼠出現位置，djs倒數計時
+    private int score=0,last=0,djs=60,sd=1500;//sd->地鼠出現速度，last->上一隻地鼠出現位置，djs倒數計時
     private int addScore=1,minusScore=1;
     public int getAddScore(){
         return addScore;
