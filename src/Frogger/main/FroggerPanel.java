@@ -80,28 +80,35 @@ public class FroggerPanel extends JPanel
 
             switch (key1) {
                 case KeyEvent.VK_UP:
-                    frog.move(0, -stepY);
-                    if(stepY == 240){
-                        setStep(1);
+                    if(frog.getX() == 225 && frog.getY() == underWays[0].getY() && underKey){
+                        underKey = false;
+                        setStep(3);
+                    }else if(frog.getX() == 225 && frog.getY() == underWays[1].getY() && underKey){
+                        underKey = false;
+                        setStep(3);
                     }
+                    frog.move(0, -stepY);
+                    if(house.getEquipment("彈簧鞋")==1){
+                        setStep(2);
+                    }else setStep(1);
                     break;
                 case KeyEvent.VK_LEFT:
                     frog.move(-stepX, 0);
-                    if(stepY == 240){
-                        setStep(1);
-                    }
+                    if(house.getEquipment("彈簧鞋")==1){
+                        setStep(2);
+                    }else setStep(1);
                     break;
                 case KeyEvent.VK_DOWN:
                     frog.move(0, stepY);
-                    if(stepY == 240){
-                        setStep(1);
-                    }
+                    if(house.getEquipment("彈簧鞋")==1){
+                        setStep(2);
+                    }else setStep(1);
                     break;
                 case KeyEvent.VK_RIGHT:
                     frog.move(stepX, 0);
-                    if(stepY == 240){
-                        setStep(1);
-                    }
+                    if(house.getEquipment("彈簧鞋")==1){
+                        setStep(2);
+                    }else setStep(1);
                     break;
                 case KeyEvent.VK_P:
                     time =0;
@@ -117,11 +124,30 @@ public class FroggerPanel extends JPanel
 
     private void Init()
     {
+        String character = "data/role/"+"LV"+house.getLevel()+"/肝";
+
+
+        if(house.getEquipment("透視眼鏡")==1){
+            character += "+眼鏡";
+        }
+
+        if(house.getEquipment("竹蜻蜓")==1){
+            character += "+竹蜻蜓";
+        }
+
+        if(house.getEquipment("翅膀")==1){
+            character += "+翅膀";
+        }
+
+        if(house.getEquipment("彈簧鞋")==1){
+            character += "+彈簧鞋";
+            setStep(2);
+        }else setStep(1);
 
         this.end = 1;
         cars = new ArrayList<>();
-        frog = new Frog(Frog.startX, Frog.startY, 70, 70, "characters50.png");
-        policeTime = random.nextInt(2000);
+        frog = new Frog(Frog.startX, Frog.startY, 70, 70, character + ".png");
+        policeTime = 6000 - random.nextInt(2000);
         police = new Car( 900, 300, 120 -10, 80-  10, 0, "police170r.png");
         policeShow = 0;
         for(int i =0;i<5;i++){
@@ -143,7 +169,8 @@ public class FroggerPanel extends JPanel
         for(int i = 0; i< 3;i++){
             underWays[i] = new UnderWay(225, 545 - i * 240, 80, 80, "underWay.png");
         }
-        setStep(1);
+
+
     }
 
     public void gameStart()
@@ -152,25 +179,14 @@ public class FroggerPanel extends JPanel
         timer.schedule(new TimerTask(){
             @Override
             public void run(){
-                if(frog.getX() == 225 && frog.getY() == underWays[0].getY() && underKey){
-                    underKey = false;
-                    setStep(3);
-                }else if(frog.getX() == 225 && frog.getY() == underWays[1].getY() && underKey){
-                    underKey = false;
-                    setStep(3);
-                }
                 if(time == 0){
                     timer.cancel();
                 }
                 time--;
-
                 if(time == 99){
-                    //int temp = JOptionPane.showConfirmDialog(null, "遊戲結束\n是否要重新(Yes : 重新遊戲 No : 回選單)", "", JOptionPane.YES_NO_OPTION);
-
                     endTime = time;
                     time = 0;
                     timer.cancel();
-                    //mainFrame.changeToMainScreen();
                 }
                 if(time == policeTime){
                     police.setSpeed(-20);
@@ -181,8 +197,10 @@ public class FroggerPanel extends JPanel
                     policeShow = 0;
                     policeTime = random.nextInt(policeTime) + 200;
                 }
-                if(time /2000 == 0){
+                if( time % 2000 == 0){
                     policeTime = time - random.nextInt(2000) ;
+                    police.setX(900);
+                    System.out.println("policeTime = " + policeTime);
                 }
                 if(end == 0){
                     timer.cancel();
@@ -204,14 +222,6 @@ public class FroggerPanel extends JPanel
                     police.update();
                 }
                 if(frog.win()){
-                    house.setExp( house.getExp() + time / 6 / house.getLevel());
-                    if(time > 3000){
-                        house.setHoldMoney(house.getHoldMoney() + 3000);
-                    }else if(time > 1000){
-                        house.setHoldMoney(house.getHoldMoney() + 2500);
-                    }else if(time > 0){
-                        house.setHoldMoney(house.getHoldMoney() + 2000);
-                    }
                     endTime = time;
                     time = 0;
                     timer.cancel();
@@ -233,7 +243,9 @@ public class FroggerPanel extends JPanel
         try {
             Image backGroundImage = ImageIO.read(new File("data/Frogger/image/froggerBackGround2.png"));
             g.drawImage(backGroundImage, 0, 0, null);
-            frogImage = ImageIO.read(new File("data/Frogger/image/" + frog.getImageName()));
+            Image t= ImageIO.read(new File(frog.getImageName()));
+            Image frogImage = t.getScaledInstance(frog.getW(), frog.getW(), Image.SCALE_SMOOTH);
+
             g.drawImage(frogImage, frog.getX(), frog.getY(), null);
             for (Car c : cars) {
                 Image tempImage = ImageIO.read(new File("data/Frogger/image/" + c.getImageName()));

@@ -38,7 +38,6 @@ public class mainPanel extends JPanel {
         mouseToolTip.setVisible(true);
         this.add(mouseToolTip);
 
-
         //肝
         JLabel liver = new JLabel();
         liver.setBounds(35, 350, 300, 300);

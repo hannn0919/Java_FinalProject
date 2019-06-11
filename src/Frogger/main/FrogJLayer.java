@@ -107,7 +107,7 @@ public class FrogJLayer extends JLayeredPane {
 
         checkImg = new ImageIcon("data/dinosaur/OK鍵.png");
         checkBtn = new JButton(checkImg);
-        checkBtn.setBounds(630, 490, 52, 50);
+        checkBtn.setBounds(630, 490, 62, 60);
         checkBtn.addActionListener(handle);
         add(checkBtn, JLayeredPane.DEFAULT_LAYER);
         checkBtn.setVisible(false);
@@ -196,7 +196,8 @@ public class FrogJLayer extends JLayeredPane {
                 add(timeLabel,JLayeredPane.PALETTE_LAYER);
                 if(time == 0){
                     int gainExp , gainMoney;
-                    gainExp = house.getExp() + time / 6 / house.getLevel();
+                    time = froggerPanel.endTime;
+                    gainExp = time / 6 / house.getLevel();
                     if(froggerPanel.endTime > 3000){
                         gainMoney = 3000;
                     }else if(froggerPanel.endTime > 1000){
@@ -207,6 +208,8 @@ public class FrogJLayer extends JLayeredPane {
                         gainExp = 200;
                         gainMoney = 1000;
                     }
+                    if(froggerPanel.expCard == true) gainExp *= 2;
+                    if(froggerPanel.moneyCard == true) gainMoney *= 2;
                     static_pxp.setText(String.valueOf(gainExp));
                     static_money.setText(String.valueOf(gainMoney));
                     house.setExp(house.getExp()+gainExp);

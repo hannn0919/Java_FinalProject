@@ -2,12 +2,9 @@ package Main;
 
 import Card.RememberCard;
 import Dinosaur.userinterface.DinoJLayer;
-import Dinosaur.userinterface.GameScreen;
 import Frogger.main.FrogJLayer;
-import Frogger.main.FroggerPanel;
 import House.bag.BagLayerPane;
 import House.house.House;
-import Main.mainPanel;
 import HitMouse.Mouse;
 import House.store.StoreLayerPane;
 import Stock.main.StockWindow;
@@ -73,11 +70,16 @@ public class Main extends JFrame {
         hamstermusic.stop();
         froggermusic.stop();
         cardmusic.stop();
-        mainPanel mainScreen = new mainPanel(this, this.house);
-        this.setTitle("大學肝什麼");
-        this.setContentPane(mainScreen);
-        this.setVisible(true);
-        mainScreen.requestFocus();
+        if(house.getExp()>=10000){
+            this.changeToGraduation();
+        }
+        else{
+            mainPanel mainScreen = new mainPanel(this, this.house);
+            this.setTitle("大學肝什麼");
+            this.setContentPane(mainScreen);
+            this.setVisible(true);
+            mainScreen.requestFocus();
+        }
     }
 
     // 切換至過馬路
@@ -179,6 +181,20 @@ public class Main extends JFrame {
         bagLayerPane.requestFocus();
     }
 
+    //切換至畢業畫面
+    public void changeToGraduation(){
+        entermusic.stop();
+        mainmusic.stop();
+        dinosaurmusic.stop();
+        hamstermusic.stop();
+        froggermusic.stop();
+        cardmusic.stop();
+        graduation byebye = new graduation(this, this.house);
+        this.setTitle("畢業囉");
+        this.setContentPane(byebye);
+        this.setVisible(true);
+        byebye.requestFocus();
+    }
 
     // 設定登入頁面背景音樂
     private void Entermusic() {

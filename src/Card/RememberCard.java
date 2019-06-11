@@ -1,4 +1,4 @@
-package Card;
+package Card;///////game=1
 
 import java.awt.*;
 import java.awt.event.*;
@@ -27,9 +27,9 @@ import House.house.House;
 /**
  * @author jqs 主要實現記憶翻牌功能
  */
-public class RememberCard extends JLayeredPane {
+public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
     private JFrame frame;
-    private  JFrame tips;
+    //private  JFrame tips;
     /**
      * 初始化遊戲的行列數，行列數成績必須為偶數
      */
@@ -42,12 +42,13 @@ public class RememberCard extends JLayeredPane {
     private JLabel exp;
     private JLabel score;
     private boolean isRunning = false;
-    private long time=60;
+    private long time=60;///////全部時間
     /**
      * 存放圖片的目錄，簡單起見，存放圖片的目錄中圖片個數為初始化的行列數乘積的一半
      */
     private String picDir = "data/cards/c";
     private String[] picture;//照片索引
+
     protected boolean isStart;
     private PicPanel preOne = null;
     private File file = new File(picDir);
@@ -72,6 +73,7 @@ public class RememberCard extends JLayeredPane {
     private ImageIcon testCharacterImage;
     private ImageIcon introduceImg;
     private ImageIcon btnStartImage;
+    private ImageIcon swing_card;
     private JLabel introduce;
     private JLabel lbl_Pic = new JLabel();
     private ImageIcon bgIcon = null;
@@ -159,6 +161,7 @@ public class RememberCard extends JLayeredPane {
         disCountLabel = new JLabel(disCountImage);
         txt_Time = new JLabel();
         txt_Time.setBounds(190, 95, 82, 60);
+
         disCountLabel.setBounds(0,backToMainImage.getIconHeight(),disCountImage.getIconWidth(),disCountImage.getIconHeight());
         add(disCountLabel,JLayeredPane.DEFAULT_LAYER);
         add(txt_Time,JLayeredPane.MODAL_LAYER);
@@ -253,11 +256,18 @@ public class RememberCard extends JLayeredPane {
             }
         });
 
+        check_swing.addActionListener(new AbstractAction() {///////測試用裝備  翅膀
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
     }
 
     Timer timer1 = new Timer(1000, new ActionListener() {//倒數30sec
         public void actionPerformed(ActionEvent e) {
-            txt_Time.setFont(new Font("微軟正黑體", Font.PLAIN, 23));
+            txt_Time.setFont(new Font("微軟正黑體", Font.BOLD, 32));;
             txt_Time.setText(time + "");
             time--;
 
@@ -284,7 +294,6 @@ public class RememberCard extends JLayeredPane {
 
     Timer timer3 = new Timer(1, new ActionListener() {//swing
         public void actionPerformed(ActionEvent e) {
-
         }
     });
 
@@ -345,22 +354,31 @@ public class RememberCard extends JLayeredPane {
 
         try {
             Thread.sleep(3000);//延遲三秒蓋牌
-
             //panel_Pic.setVisible(true);
             //panel_ans.setVisible(false);
         }
         catch (InterruptedException e) {
             e.printStackTrace();
         }
+        PicPanel panel_swing = new PicPanel(this, picture[5]);//
         for (int i = 0; i < panel_Pic.getComponentCount(); i++) {//一個一個放進去
             Component comp = panel_Pic.getComponent(i);
             if(comp instanceof PicPanel){
                 panel_1 = (PicPanel)comp;
                 panel_2=(PicPanel)comp;
-                panel_1.setCardback();
-
+                panel_1.setCardback();//放到背面
+                //panel_1.lbl_Pic
                 //panel_1.setPicPath("data/cards/icon/backhome.png");
             }
+
+            ////////////////////////////////////////////////////////swing
+            if(panel_swing.picPath.compareTo(panel_1.picPath)==0){//相同
+                swing_card = new ImageIcon(picture[5]);
+                panel_swing.lbl_Pic.setIcon(swing_card);
+                panel_1.lbl_Pic.setIcon(swing_card);
+            }
+
+            ///////////////////////////////////////////////////////////////
         }
     }
 
@@ -380,9 +398,8 @@ public class RememberCard extends JLayeredPane {
         int[] indexs = getIndexs(picture.length, pics.length);
         for (int i = 0; i < indexs.length; i++) {
             picture[i] = pics[indexs[i]].getAbsolutePath();
-            //Image image = ImageIO.read(new File(picPath));
         }
-        System.out.println(indexs.length);
+        //System.out.println(indexs.length);
     }
 
     /**
@@ -395,11 +412,8 @@ public class RememberCard extends JLayeredPane {
      * @return
      */
     private int[] getIndexs(int sum, int picNums) {
-        //picNums=15;
-        System.out.println(sum);
-        System.out.println(picNums);
-        int half = sum / 2;
 
+        int half = sum / 2;
         int[] tmpResult = new int[sum];
         Random random = new Random(System.currentTimeMillis());
         int temp = 0;
@@ -445,8 +459,8 @@ public class RememberCard extends JLayeredPane {
 
     public void addCount() {
         count++;
-
-
+        expFromMain.setText(Integer.toString(house.getExp()+count*100));//exp 每翻一對+100
+        moneyFromMain.setText(Integer.toString(house.getHoldMoney()+count*250));//money 每翻一對+250
     }
 
     public boolean isRunning() {
