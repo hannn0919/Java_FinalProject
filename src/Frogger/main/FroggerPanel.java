@@ -44,6 +44,12 @@ public class FroggerPanel extends JPanel
     private final int oneStep = 80;
     private int policeTime;
     private Random random;
+    public boolean expCard = false;
+    public boolean moneyCard = false;
+    public boolean noPolice = false;
+    public boolean underKey = false;
+    public int endTime = 0;
+
     // set up GUI and register key event handler
     public FroggerPanel(Main mainFrame, House house)
     {
@@ -115,7 +121,7 @@ public class FroggerPanel extends JPanel
         this.end = 1;
         cars = new ArrayList<>();
         frog = new Frog(Frog.startX, Frog.startY, 70, 70, "characters50.png");
-        policeTime = random.nextInt(5000) + 200;
+        policeTime = random.nextInt(2000);
         police = new Car( 900, 300, 120 -10, 80-  10, 0, "police170r.png");
         policeShow = 0;
         for(int i =0;i<5;i++){
@@ -146,19 +152,22 @@ public class FroggerPanel extends JPanel
         timer.schedule(new TimerTask(){
             @Override
             public void run(){
-                if(frog.getX() == 225 && frog.getY() == underWays[0].getY()){
+                if(frog.getX() == 225 && frog.getY() == underWays[0].getY() && underKey){
+                    underKey = false;
                     setStep(3);
-                }else if(frog.getX() == 225 && frog.getY() == underWays[1].getY()){
+                }else if(frog.getX() == 225 && frog.getY() == underWays[1].getY() && underKey){
+                    underKey = false;
                     setStep(3);
                 }
                 if(time == 0){
                     timer.cancel();
                 }
                 time--;
+
                 if(time == 99){
                     //int temp = JOptionPane.showConfirmDialog(null, "遊戲結束\n是否要重新(Yes : 重新遊戲 No : 回選單)", "", JOptionPane.YES_NO_OPTION);
-                    house.setHoldMoney(house.getHoldMoney() + 1000);
-                    house.setExp(house.getExp() + 200);
+
+                    endTime = time;
                     time = 0;
                     timer.cancel();
                     //mainFrame.changeToMainScreen();
@@ -172,6 +181,9 @@ public class FroggerPanel extends JPanel
                     policeShow = 0;
                     policeTime = random.nextInt(policeTime) + 200;
                 }
+                if(time /2000 == 0){
+                    policeTime = time - random.nextInt(2000) ;
+                }
                 if(end == 0){
                     timer.cancel();
                 }
@@ -183,15 +195,16 @@ public class FroggerPanel extends JPanel
                     c.update();
                 }
                 if(police.getSpeed() != 0){
-                    if(police.intersect(frog)){
+                    if(police.intersect(frog) ){
                         frog.setX(Frog.startX);
                         frog.setY(Frog.startY);
-                        house.setHoldMoney(house.getHoldMoney() - 300); // 抓到罰三百
+                        if(!noPolice)
+                            house.setHoldMoney(house.getHoldMoney() - 300); // 抓到罰三百
                     }
                     police.update();
                 }
                 if(frog.win()){
-                    house.setExp( house.getExp() + time / 6 * house.getLevel());
+                    house.setExp( house.getExp() + time / 6 / house.getLevel());
                     if(time > 3000){
                         house.setHoldMoney(house.getHoldMoney() + 3000);
                     }else if(time > 1000){
@@ -199,6 +212,7 @@ public class FroggerPanel extends JPanel
                     }else if(time > 0){
                         house.setHoldMoney(house.getHoldMoney() + 2000);
                     }
+                    endTime = time;
                     time = 0;
                     timer.cancel();
                 }
@@ -217,7 +231,7 @@ public class FroggerPanel extends JPanel
 
 
         try {
-            Image backGroundImage = ImageIO.read(new File("data/Frogger/image/frogBackground.png"));
+            Image backGroundImage = ImageIO.read(new File("data/Frogger/image/froggerBackGround2.png"));
             g.drawImage(backGroundImage, 0, 0, null);
             frogImage = ImageIO.read(new File("data/Frogger/image/" + frog.getImageName()));
             g.drawImage(frogImage, frog.getX(), frog.getY(), null);
@@ -240,9 +254,14 @@ public class FroggerPanel extends JPanel
 //        g.fillRect(Frog.endX, Frog.endY, frog.getW(),frog.getH());
     }
 
-    private void setStep(int k) {
+    public void setStep(int k) {
         stepY = k * oneStep;
         stepX = oneStep / 2;
     }
 
+    public ImageIcon resize(int width, int height, ImageIcon img) {
+        Image i = img.getImage();
+        Image new_img = i.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        return  new ImageIcon(new_img);
+    }
 } // end class PaintPanel
