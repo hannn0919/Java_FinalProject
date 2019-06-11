@@ -20,6 +20,22 @@ public class Sound {
         }
         hitSound.start();
     }
+    public static void buttonSound() {
+        try {
+            File soundFile = new File("music/buttonClicked.wav");
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            clip.start();
+
+        } catch (UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (LineUnavailableException e) {
+            e.printStackTrace();
+        }
+    }
     public static void KissSound(){
         try {
             File soundFile = new File("data/music/kiss.wav");

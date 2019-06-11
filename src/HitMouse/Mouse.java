@@ -107,22 +107,7 @@ public class Mouse extends JLayeredPane{
         Image new_img = i.getScaledInstance(width, height, Image.SCALE_SMOOTH);
         return  new ImageIcon(new_img);
     }
-    public void buttonSound() {
-        try {
-            File soundFile = new File("music/buttonClicked.wav");
-            AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioIn);
-            clip.start();
 
-        } catch (UnsupportedAudioFileException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (LineUnavailableException e) {
-            e.printStackTrace();
-        }
-    }
     private class MouseHandler implements  MouseListener{
         @Override public void mousePressed(MouseEvent e){
             setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
@@ -133,15 +118,15 @@ public class Mouse extends JLayeredPane{
         @Override
         public void mouseEntered(MouseEvent e){
             if(e.getSource()==checkBtn) {
-                buttonSound();
+                Sound.buttonSound();
                 checkBtn.setIcon(resize(checkBtn.getIcon().getIconWidth()+10,checkBtn.getIcon().getIconHeight()+10,(ImageIcon)checkBtn.getIcon()));
                 setCursor(new Cursor(Cursor.HAND_CURSOR));
             }else if(e.getSource()==startBtn){
-                buttonSound();
+                Sound.buttonSound();
                 startBtn.setIcon(resize(startBtn.getIcon().getIconWidth()+10,startBtn.getIcon().getIconHeight()+10,(ImageIcon)startBtn.getIcon()));
                 setCursor(new Cursor(Cursor.HAND_CURSOR));
             }else if(e.getSource()==backToMainButton){
-                buttonSound();
+                Sound.buttonSound();
                 backToMainButton.setIcon(resize(backToMainButton.getIcon().getIconWidth()+10,backToMainButton.getIcon().getIconHeight()+10,(ImageIcon)backToMainButton.getIcon()));
                 setCursor(new Cursor(Cursor.HAND_CURSOR));
             }
@@ -318,9 +303,14 @@ public class Mouse extends JLayeredPane{
         btnItemOnlyTeacher = new JButton("Teacher");
         btnItemOnlyTeacher.setBounds(200,580,100,30);
         add(btnItemOnlyTeacher,JLayeredPane.MODAL_LAYER);
+        if(house.getItem("老師卡")<=0) btnItemOnlyTeacher.setEnabled(false);
+        else btnItemOnlyTeacher.setEnabled(true);
+
         btnItemScoreDouble = new JButton("分數加倍");
         btnItemScoreDouble.setBounds(200,610,100,30);
         add(btnItemScoreDouble,JLayeredPane.MODAL_LAYER);
+        if(house.getItem("加倍卡")<=0) btnItemScoreDouble.setEnabled(false);
+        else btnItemScoreDouble.setEnabled(true);
         /*
         btnEquipment = new JButton("裝備");
         btnEquipment.setBounds(200,550,100,30);
@@ -331,14 +321,7 @@ public class Mouse extends JLayeredPane{
                 score.setScore(score.getScore()+20);
             }
         }));*/
-        btnItemScoreDouble.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                score.setAddScore(score.getAddScore()*2);
-                score.setMinusScore(0);
-                itemScoreDouble.start();
-            }
-        });
+
         itemScoreDouble = new Timer(10000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -352,13 +335,28 @@ public class Mouse extends JLayeredPane{
                 specialCard=0;
             }
         });
+        btnItemScoreDouble.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                 System.out.println("分數加倍卡"+ house.getItem("加倍卡"));
+                 if(house.getItem("加倍卡")>=1){
+                     house.setItem("加倍卡",house.getItem("加倍卡")-1);
+                     score.setAddScore(score.getAddScore()*2);
+
+                     score.setMinusScore(0);
+                     itemScoreDouble.start();
+                 }
+
+             }
+         });
         btnItemOnlyTeacher.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 specialCard=1;
-                itemTeacherTime.start();
-
-
+                if(house.getItem("老師卡")>=1){
+                    house.setItem("老師卡",house.getItem("老師卡")-1);
+                    itemTeacherTime.start();
+                }
             }
         });
         win=new JButton[16];
@@ -455,9 +453,10 @@ public class Mouse extends JLayeredPane{
                     obBut[score.getLast()].setIcon(null);
 //                    add(statics,JLayeredPane.DRAG_LAYER);
                     //JOptionPane.showMessageDialog(frame, "Game Over\n 您的得分為："+score.getScore(),"得分信息",JOptionPane.PLAIN_MESSAGE);
-                    int gainexp = score.getScore()*7+20;
-                    int gainmoney = score.getScore()*7;
-
+                    int gainexp = score.getScore()*24+500;
+                    int gainmoney = score.getScore()*47+800;
+                    if(expDoubleUsed) gainexp*=2;
+                    if(moneyDoubleUsed) gainmoney*=2;
                     static_pxp = new JLabel();
                     static_pxp.setFont(new Font("微軟正黑體",Font.BOLD,25));
                     static_pxp.setBounds(625, 238, 150,40);
