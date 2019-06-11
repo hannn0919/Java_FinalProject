@@ -207,6 +207,8 @@ public class FrogJLayer extends JLayeredPane {
                         gainExp = 200;
                         gainMoney = 1000;
                     }
+                    if(froggerPanel.expCard == true) gainExp *= 2;
+                    if(froggerPanel.moneyCard == true) gainMoney *= 2;
                     static_pxp.setText(String.valueOf(gainExp));
                     static_money.setText(String.valueOf(gainMoney));
                     house.setExp(house.getExp()+gainExp);
