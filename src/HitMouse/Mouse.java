@@ -478,7 +478,7 @@ public class Mouse extends JLayeredPane{
                     house.setHoldMoney(house.getHoldMoney()+gainmoney);
 
 
-                    checkImg = new ImageIcon("data/Mouse/OK鍵.png");
+                    checkImg = new ImageIcon("data/HitMouse/OK鍵.png");
                     checkBtn = new JButton(checkImg);
                     checkBtn.setBorderPainted(false);
                     checkBtn.setBorder(null);
