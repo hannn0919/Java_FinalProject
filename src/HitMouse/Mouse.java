@@ -41,7 +41,7 @@ public class Mouse extends JLayeredPane{
     private JButton btnEquipment;//使用裝備的按鈕
     private JButton[] win;//放窗戶的圖片
     private JButton[] but;//人物出現的位置
-    private JLabel[] obBut;
+    private JLabel[] obBut;//shadow出現的位置
 
     private Timer itemTeacherTime;//使用老師道具 生效時間
     private Timer itemScoreDouble;//使用分數加倍道具 生效時間
@@ -127,8 +127,8 @@ public class Mouse extends JLayeredPane{
              score =new Score();
              score2 = new Score();
              djs =new JLabel(""); //Countdown
-             djs.setFont(new Font("標楷體", Font.BOLD, 25));;
-             djs.setBounds(175,115,30,25);
+             djs.setFont(new Font("微軟正黑體", Font.BOLD, 32));;
+             djs.setBounds(176,76,300,100);
              add(djs,JLayeredPane.MODAL_LAYER);
 
              expFromMain = new JLabel("");
@@ -156,12 +156,12 @@ public class Mouse extends JLayeredPane{
              expcard.setBorderPainted(false);
              expcard.setFocusPainted(false);
              expcard.setContentAreaFilled(false);
-             expcard.setBounds(500, 460, 150, 30);
+             expcard.setBounds(580, 460, 150, 30);
              add(expcard, JLayeredPane.DRAG_LAYER);
 
              moneycard = new JCheckBox("金錢加倍卡");
              moneycard.setFont(new Font("微軟正黑體", Font.PLAIN, 23));
-             moneycard.setBounds(680, 460, 150, 30);
+             moneycard.setBounds(730, 460, 150, 30);
              moneycard.setBorderPainted(false);
              moneycard.setFocusPainted(false);
              moneycard.setContentAreaFilled(false);
@@ -313,8 +313,9 @@ public class Mouse extends JLayeredPane{
         heart = new ImageIcon(Character.heart);
 
 
-        JLabel jfb =new JLabel("得分：0"); //Scoreboard
-        jfb.setBounds(8+SHIFT, 40, 200, 59);
+        JLabel jfb =new JLabel("得分 : 0"); //Scoreboard
+        jfb.setBounds(1030, 40, 200, 59);
+        jfb.setFont(new Font("微軟正黑體",Font.BOLD,30));
         add(jfb,JLayeredPane.MODAL_LAYER);
 
         SecureRandom secureRandom = new SecureRandom();
@@ -356,7 +357,7 @@ public class Mouse extends JLayeredPane{
             public void actionPerformed(ActionEvent e) {
                 timer.setDelay(score.getSd());//設定地鼠出現速度
                 shadowTimer.setDelay(score.getSd());
-                jfb.setText("得分："+score.getScore());
+                jfb.setText("得分 : "+score.getScore());
                 djs.setText((score.getStarttime()/1000+score.getDjs()-System.currentTimeMillis()/1000)+"");
                 if((score.getStarttime()/1000+score.getDjs()-System.currentTimeMillis()/1000)==0)
                 {
@@ -364,20 +365,31 @@ public class Mouse extends JLayeredPane{
                     shadowTimer.stop();
                     but[score.getLast()].setIcon(null);
                     obBut[score.getLast()].setIcon(null);
-                    add(statics,JLayeredPane.DRAG_LAYER);
+//                    add(statics,JLayeredPane.DRAG_LAYER);
                     //JOptionPane.showMessageDialog(frame, "Game Over\n 您的得分為："+score.getScore(),"得分信息",JOptionPane.PLAIN_MESSAGE);
-                    static_pxp = new JLabel("1242346");
-                    static_pxp.setFont(new Font("Hollywood Hills",Font.BOLD,20));
-                    static_pxp.setBounds(617, 238, 150,40);
+                    int gainexp = score.getScore()*7+20;
+                    int gainmoney = score.getScore()*7;
+
+                    static_pxp = new JLabel();
+                    static_pxp.setFont(new Font("微軟正黑體",Font.BOLD,25));
+                    static_pxp.setBounds(625, 238, 150,40);
+                    static_pxp.setText(String.valueOf(gainexp));
                     add(static_pxp, JLayeredPane.DRAG_LAYER);
                     //static_pxp.setVisible(false);
 
-                    static_money = new JLabel("1243");
-                    static_money.setFont(new Font("Hollywood Hills",Font.BOLD,20));
-                    static_money.setBounds(617, 389, 150,40);
+                    static_money = new JLabel();
+                    static_money.setFont(new Font("微軟正黑體",Font.BOLD,25));
+                    static_money.setBounds(625, 389, 150,40);
+                    static_money.setText(String.valueOf(gainmoney));
                     add(static_money, JLayeredPane.DRAG_LAYER);
+
                     //static_money.setVisible(false);
                     //add(statics,JLayeredPane.DRAG_LAYER);
+                    System.out.println("exp:" + gainexp);
+                    System.out.println("money" + gainmoney);
+                    house.setExp(house.getExp()+gainexp);
+                    house.setHoldMoney(house.getHoldMoney()+gainmoney);
+
 
                     checkImg = new ImageIcon("data/dinosaur/OK鍵.png");
                     checkBtn = new JButton(checkImg);
@@ -385,6 +397,10 @@ public class Mouse extends JLayeredPane{
                     checkBtn.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
+                            //timer.stop();
+                            time2.stop();
+                            time3.stop();
+                            //shadowTimer.stop();
                             mainFrame.changeToMainScreen();
                         }
                     });
@@ -393,7 +409,16 @@ public class Mouse extends JLayeredPane{
                     but[score.getLast()].setIcon(null);
                     System.out.println(score.getLast());
                     score.setScore(0);
-                    jfb.setText("得分：0");
+                    //jfb.setText("得分 : 0");
+                    add(statics,JLayeredPane.DRAG_LAYER);
+                    try {
+                        time2.wait();
+                    }
+                    catch(Exception ex) {
+                        System.out.println("stop");
+                        time2.stop();
+                    }
+
                 }
             }
         });
