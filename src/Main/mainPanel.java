@@ -38,8 +38,8 @@ public class mainPanel extends JPanel {
         mouseToolTip.setVisible(true);
         this.add(mouseToolTip);
 
-        //肝
 
+        //肝
         JLabel liver = new JLabel();
         liver.setBounds(35, 350, 300, 300);
             //眼鏡+竹蜻蜓+翅膀+彈簧鞋
@@ -127,7 +127,7 @@ public class mainPanel extends JPanel {
         //肝的名稱
         JLabel name = new JLabel();
         name.setIcon(new ImageIcon("data/main/" + house.getRole() + ".png"));
-        name.setBounds(208, 42, 166, 52);
+        name.setBounds(208, 42, 170, 52);
         add(name);
 
         //等級
@@ -139,7 +139,14 @@ public class mainPanel extends JPanel {
         //經驗
         JLabel exp = new JLabel();
         JTextField exptxt = new JTextField();
-        exptxt.setText(Integer.toString(house.getExp()));
+        if(house.getLevel()==1)
+            exptxt.setText(Integer.toString(house.getExp())+"/1000");
+        else if(house.getLevel()==2)
+            exptxt.setText(Integer.toString(house.getExp())+"/3000");
+        else if(house.getLevel()==3)
+            exptxt.setText(Integer.toString(house.getExp())+"/6000");
+        else
+            exptxt.setText(Integer.toString(house.getExp())+"/10000");
         exp.setBounds(620, 44, 229, 52);
         exptxt.setBounds(670, 44, 167, 52);
         TextFieldFix(exptxt);
