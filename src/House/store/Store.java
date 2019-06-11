@@ -22,6 +22,7 @@ public class Store extends JPanel {
     public Store(Main mainFrame,House house) {
         this.mainFrame=mainFrame;
         this.house=house;
+        this.setBackground(Color.WHITE);
         setLayout(null);
         setPreferredSize(new Dimension(728,598));
         item = new JButton();
@@ -43,8 +44,8 @@ public class Store extends JPanel {
 
         add(equip);
         add(item);
-        b1 = new JButton("時間加倍券",iconB1);
-        b2 = new JButton("經驗加倍券",iconB2);
+        b1 = new JButton("經驗加倍券",iconB1);
+        b2 = new JButton("金錢加倍券",iconB2);
         b3 = new JButton("電蚊拍",iconB3);
         b4 = new JButton("增時卡",iconB4);
         b5 = new JButton("地下室鑰匙",iconB5);

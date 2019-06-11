@@ -8,16 +8,13 @@ import Frogger.main.FroggerPanel;
 import House.bag.BagLayerPane;
 import House.house.House;
 import Main.mainPanel;
-
-import House.bag.BagWindow;
-import House.store.Store;
 import HitMouse.Mouse;
 import House.store.StoreLayerPane;
 import Stock.main.StockWindow;
 
 import javax.sound.sampled.*;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
@@ -165,10 +162,10 @@ public class Main extends JFrame {
     // 切換至商店
     public void changeToShop(){
         StoreLayerPane store = new StoreLayerPane(this,this.house);
-
         this.setTitle("商店");
         this.setContentPane(store);
         this.setVisible(true);
+        this.setBackground(Color.WHITE);
         store.requestFocus();
     }
 
@@ -178,6 +175,7 @@ public class Main extends JFrame {
         this.setTitle("背包");
         this.setContentPane(bagLayerPane);
         this.setVisible(true);
+        this.setBackground(Color.WHITE);
         bagLayerPane.requestFocus();
     }
 

@@ -4,6 +4,7 @@ import javax.swing.*;
 import Main.*;
 import House.house.House;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -26,7 +27,7 @@ public class BagLayerPane extends JLayeredPane {
         this.frame = frame;
         this.house = house;
         BagWindow bagWindow= new BagWindow(frame,house);
-        bagWindow.setBounds(300,0,900,675);
+        bagWindow.setBounds(370,20,900,675);
         add(bagWindow,JLayeredPane.DEFAULT_LAYER);
         int heightTotal=0;
         backToMainImage = new ImageIcon("data/Bag&Store/backhome.png");

@@ -31,7 +31,7 @@ public class StoreLayerPane extends JLayeredPane {
         this.frame = frame;
         this.house = house;
         Store store= new Store(frame,house);
-        store.setBounds(300,0,900,675);
+        store.setBounds(370,20,900,675);
         add(store,JLayeredPane.DEFAULT_LAYER);
         int heightTotal=0;
         gameBarImage = new ImageIcon("data/Bag&Store/storebar.png");

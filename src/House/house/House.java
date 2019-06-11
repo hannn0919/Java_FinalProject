@@ -66,7 +66,7 @@ public class House {
     public void setExp(int num)
     {
         exp=num;
-        if(1000<num&&num<=2000){
+        if(1000<num&&num<=3000){
             level=2;
         } else if(num<=6000){
             level=3;
