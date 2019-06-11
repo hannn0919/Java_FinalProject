@@ -138,14 +138,15 @@ public class mainPanel extends JPanel {
         //經驗
         JLabel exp = new JLabel();
         JTextField exptxt = new JTextField();
+        exptxt.setFont(new Font("微軟正黑體",Font.BOLD,17));
         if(house.getLevel()==1)
-            exptxt.setText(Integer.toString(house.getExp())+"/1000");
+            exptxt.setText(Integer.toString(house.getExp())+" / 1000");
         else if(house.getLevel()==2)
-            exptxt.setText(Integer.toString(house.getExp())+"/3000");
+            exptxt.setText(Integer.toString(house.getExp())+" / 3000");
         else if(house.getLevel()==3)
-            exptxt.setText(Integer.toString(house.getExp())+"/6000");
+            exptxt.setText(Integer.toString(house.getExp())+" / 6000");
         else
-            exptxt.setText(Integer.toString(house.getExp())+"/10000");
+            exptxt.setText(Integer.toString(house.getExp())+" / 10000");
         exp.setBounds(620, 44, 229, 52);
         exptxt.setBounds(670, 44, 167, 52);
         TextFieldFix(exptxt);
@@ -155,6 +156,7 @@ public class mainPanel extends JPanel {
         //錢錢
         JLabel money = new JLabel();
         JTextField moneytxt = new JTextField();
+        moneytxt.setFont(new Font("微軟正黑體",Font.BOLD,17));
         moneytxt.setText(Integer.toString(house.getHoldMoney()));
         money.setBounds(900, 40, 222, 54);
         moneytxt.setBounds(950, 40, 160, 54);
