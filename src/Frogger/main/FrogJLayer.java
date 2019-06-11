@@ -80,7 +80,7 @@ public class FrogJLayer extends JLayeredPane {
 
         startImg = new ImageIcon("data/dinosaur/開始遊戲按鈕.png");
         startBtn = new JButton(startImg);
-        startBtn.setBounds(660, 510, 140, 50);
+        startBtn.setBounds(660, 510, 160, 60);
         startBtn.addActionListener(handle);
         add(startBtn, JLayeredPane.DEFAULT_LAYER);
 
