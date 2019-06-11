@@ -39,10 +39,10 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
     private JLabel txt_Time;
     private JLabel expFromMain;
     private JLabel moneyFromMain;
-    private JLabel exp;
-    private JLabel score;
+   // private JLabel exp;
+    //private JLabel score;
     private boolean isRunning = false;
-    private long time=60;///////全部時間
+    private long time=5;///////全部時間
     /**
      * 存放圖片的目錄，簡單起見，存放圖片的目錄中圖片個數為初始化的行列數乘積的一半
      */
@@ -62,6 +62,7 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
     private JButton swing; 
     private JButton addsec;
     private JButton openall;
+    private JButton btnOk;
     private JCheckBox check_swing;
     private JCheckBox check_doubleexp;
     private JCheckBox check_doublemoney;
@@ -70,12 +71,17 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
     private ImageIcon disCountImage;
     private ImageIcon expandMoneyImage;
     private ImageIcon ruleImage;
+    private ImageIcon endImage;
     private ImageIcon testCharacterImage;
     private ImageIcon introduceImg;
     private ImageIcon btnStartImage;
     private ImageIcon swing_card;
+    private ImageIcon btnOkImage;
     private JLabel introduce;
     private JLabel lbl_Pic = new JLabel();
+    //private JLabel okLabel;
+    private JLabel end_money;
+    private JLabel end_exp;
     private ImageIcon bgIcon = null;
     private PicPanel panel_1;
     private PicPanel panel_2;
@@ -89,7 +95,10 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
     private JLabel disCountLabel;
     private JLabel expandMoneyLabel;
     private JLabel ruleLabel;
+    private JLabel endLabel;
     private JLabel testCharacterLabel;
+    private int exp=100;
+    private int money=250;
     private Main mainFrame;
     private House house;
 
@@ -106,17 +115,17 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
         add(introduce, JLayeredPane.POPUP_LAYER);
 
 
-        check_swing = new JCheckBox("翅膀");
+        /*check_swing = new JCheckBox("翅膀");
         check_swing.setFont(new Font("微軟正黑體", Font.PLAIN, 23));
         check_swing.setBorderPainted(false);
         check_swing.setFocusPainted(false);
         check_swing.setContentAreaFilled(false);
         check_swing.setBounds(500, 460, 150, 30);
-        add(check_swing, JLayeredPane.DRAG_LAYER);
+        add(check_swing, JLayeredPane.DRAG_LAYER);*/
 
         check_doubleexp = new JCheckBox("經驗加倍卡");
         check_doubleexp .setFont(new Font("微軟正黑體", Font.PLAIN, 23));
-        check_doubleexp .setBounds(680, 460, 150, 30);
+        check_doubleexp .setBounds(580, 460, 150, 30);
         check_doubleexp .setBorderPainted(false);
         check_doubleexp .setFocusPainted(false);
         check_doubleexp .setContentAreaFilled(false);
@@ -127,7 +136,7 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
         check_doublemoney.setBorderPainted(false);
         check_doublemoney.setFocusPainted(false);
         check_doublemoney.setContentAreaFilled(false);
-        check_doublemoney.setBounds(860, 460, 150, 30);
+        check_doublemoney.setBounds(810, 460, 150, 30);
         add(check_doublemoney, JLayeredPane.DRAG_LAYER);
 
         expFromMain = new JLabel("");
@@ -213,7 +222,8 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
              public void actionPerformed(ActionEvent e) {
                 remove(btnStart);//移掉開始按鈕
                  remove(introduce);
-                 remove(check_swing);
+                 //
+                 // remove(check_swing);
                  remove(check_doubleexp);
                  remove(check_doublemoney);
                  repaint();
@@ -235,33 +245,27 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
             }
          });
 
-        /*.addActionListener(new AbstractAction() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                timer3.start();
-            }
-        });*/
 
         addsec.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                timer2.start();
+                if(house.getItem("增時卡")>0){
+                    house.setItem("增時卡",house.getItem("增時卡")-1 );
+                    timer2.start();
+                }
             }
         });
         openall.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                openallcard();
-                timer4.start();
+                if(house.getItem("再看一次")>0){
+                    house.setItem("再看一次",house.getItem("再看一次")-1 );
+                    openallcard();
+                    timer4.start();
+                }
             }
         });
 
-        check_swing.addActionListener(new AbstractAction() {///////測試用裝備  翅膀
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
 
     }
 
@@ -272,11 +276,58 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
             time--;
 
             if(time==0){
-                JOptionPane.showMessageDialog(null, "共找出" + count + "對");//共找出幾對  要記得改
+                house.gameSettlementmistake(1, count);
+
+                endImage = new ImageIcon("data/cards/遊戲結算.png");
+                endLabel = new JLabel(endImage);
+                endLabel.setBounds(510, 150, endImage.getIconWidth(),endImage.getIconHeight());
+                add(endLabel,JLayeredPane.POPUP_LAYER);
+
+                btnOkImage = new ImageIcon("data/cards/OK鍵.png");
+                btnOk = new JButton(btnOkImage);
+                btnOk.setBounds(670, 450, btnOkImage.getIconWidth(),btnOkImage.getIconHeight());
+                add(btnOk,JLayeredPane.DRAG_LAYER);
+                btnOk.setBorderPainted(false);
+                btnOk.setBorder(null);
+                //btnOk.setFocusPainted(false);
+                btnOk.setContentAreaFilled(false);
+                btnOk.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        mainFrame.changeToMainScreen();
+                    }
+                });
+
+               //////////////////結算///////////////////////////
+
+                if(check_doubleexp.isSelected()){
+                    exp=200;//100*2
+                }
+                if(check_doublemoney.isSelected()){
+                    money=500;//250*2
+                }
+                /////////////////////////////////////////////////
+                house.setExp(house.getExp()+count*exp);//返回
+                house.setHoldMoney(house.getHoldMoney()+ count*money );//返回
+                //////////////////////////////////////////////////////////
+
+                end_exp = new JLabel();
+                end_exp.setText(Integer.toString(count*exp));//exp 每翻一對+100
+                end_exp.setFont(new Font("Hollywood Hills",Font.BOLD,23));
+                end_exp.setBounds(720, 260, 150, 25);
+                add(end_exp,JLayeredPane.DRAG_LAYER);
+
+                end_money = new JLabel();
+                end_money.setText(Integer.toString(count*money));//money 每翻一對+250
+                end_money.setFont(new Font("Hollywood Hills",Font.BOLD,23));
+                end_money.setBounds(720,390,150,25);
+                add(end_money,JLayeredPane.DRAG_LAYER);
+                ////////////////////////////////////////////////////////////////
+
                 backToMainButton.setEnabled(true);
                 // 結束後重新初始化一下面板以便於下一次的執行
                 count = 0;
-                panel_Pic.removeAll();
+                //panel_Pic.removeAll();
                 txt_Time.setText(null);
                 panel_Pic.validate();
                 isRunning = false;
@@ -370,15 +421,14 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
                 //panel_1.lbl_Pic
                 //panel_1.setPicPath("data/cards/icon/backhome.png");
             }
-
-            ////////////////////////////////////////////////////////swing
-            if(panel_swing.picPath.compareTo(panel_1.picPath)==0){//相同
-                swing_card = new ImageIcon(picture[5]);
-                panel_swing.lbl_Pic.setIcon(swing_card);
-                panel_1.lbl_Pic.setIcon(swing_card);
+            if(house.getEquipment("翅膀")>0){
+                count++;//因為會有一對
+                if(panel_swing.picPath.compareTo(panel_1.picPath)==0){//相同
+                    swing_card = new ImageIcon(picture[5]);
+                    panel_swing.lbl_Pic.setIcon(swing_card);
+                    panel_1.lbl_Pic.setIcon(swing_card);
+                }
             }
-
-            ///////////////////////////////////////////////////////////////
         }
     }
 
@@ -459,8 +509,8 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
 
     public void addCount() {
         count++;
-        expFromMain.setText(Integer.toString(house.getExp()+count*100));//exp 每翻一對+100
-        moneyFromMain.setText(Integer.toString(house.getHoldMoney()+count*250));//money 每翻一對+250
+        //expFromMain.setText(Integer.toString(house.getExp());//exp 每翻一對+100
+        //moneyFromMain.setText(Integer.toString(house.getHoldMoney());//money 每翻一對+250
     }
 
     public boolean isRunning() {
