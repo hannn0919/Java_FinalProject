@@ -222,14 +222,6 @@ public class FroggerPanel extends JPanel
                     police.update();
                 }
                 if(frog.win()){
-                    house.setExp( house.getExp() + time / 6 / house.getLevel());
-                    if(time > 3000){
-                        house.setHoldMoney(house.getHoldMoney() + 3000);
-                    }else if(time > 1000){
-                        house.setHoldMoney(house.getHoldMoney() + 2500);
-                    }else if(time > 0){
-                        house.setHoldMoney(house.getHoldMoney() + 2000);
-                    }
                     endTime = time;
                     time = 0;
                     timer.cancel();
