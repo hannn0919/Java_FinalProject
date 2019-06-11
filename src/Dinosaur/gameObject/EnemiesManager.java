@@ -40,9 +40,13 @@ public class EnemiesManager {
     }
 
     public void draw(Graphics g) {
+        for(int i = 0; i< enemies.size();++i){
+            enemies.get(i).draw(g);
+        }
+        /*
         for(Enemy e : enemies) {
             e.draw(g);
-        }
+        }*/
     }
 
     private Enemy createEnemy() {

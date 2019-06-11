@@ -64,9 +64,13 @@ public class Clouds {
     }
 
     public void draw(Graphics g) {
+        for(int i = 0; i< listCloud.size();++i){
+            g.drawImage(cloud, (int) listCloud.get(i).posX, listCloud.get(i).posY, null);
+        }
+        /*
         for(ImageCloud imgLand : listCloud) {
             g.drawImage(cloud, (int) imgLand.posX, imgLand.posY, null);
-        }
+        }*/
     }
 
     private class ImageCloud {
