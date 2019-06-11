@@ -271,9 +271,5 @@ public class FroggerPanel extends JPanel
         stepX = oneStep / 2;
     }
 
-    public ImageIcon resize(int width, int height, ImageIcon img) {
-        Image i = img.getImage();
-        Image new_img = i.getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        return  new ImageIcon(new_img);
-    }
+
 } // end class PaintPanel
