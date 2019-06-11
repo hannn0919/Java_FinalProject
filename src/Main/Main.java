@@ -7,6 +7,7 @@ import Frogger.main.FrogJLayer;
 import Frogger.main.FroggerPanel;
 import House.bag.BagLayerPane;
 import House.house.House;
+import Main.mainPanel;
 
 import House.bag.BagWindow;
 import House.store.Store;
@@ -75,8 +76,11 @@ public class Main extends JFrame {
         hamstermusic.stop();
         froggermusic.stop();
         cardmusic.stop();
+        mainPanel mainScreen = new mainPanel(this, this.house);
         this.setTitle("大學肝什麼");
         this.setContentPane(mainScreen);
+        this.setVisible(true);
+        mainScreen.requestFocus();
     }
 
     // 切換至過馬路

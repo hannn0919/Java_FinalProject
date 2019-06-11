@@ -87,7 +87,7 @@ public class EnterScreen extends JPanel{
 
     public void buttonSound() {
         try {
-            File soundFile = new File("music/buttonClicked.wav");
+            File soundFile = new File("music/enterbutton.wav");
             AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
             Clip clip = AudioSystem.getClip();
             clip.open(audioIn);
