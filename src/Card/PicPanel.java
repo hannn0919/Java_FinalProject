@@ -20,14 +20,14 @@ import javax.swing.border.LineBorder;
  */
 public class PicPanel extends JPanel {
     private static final long serialVersionUID = 2172162568449349737L;
-    private String picPath;
-    private JLabel lbl_Pic = new JLabel();
-    private ImageIcon bgIcon = new ImageIcon("data/cards/icon/backhome.png");
-    private ImageIcon cardback = new ImageIcon("data/cards/icon/backhome.png");
+    protected String picPath;//路徑
+    protected JLabel lbl_Pic = new JLabel();
+    private ImageIcon bgIcon = new ImageIcon("data/cards/icon/test_charater.png");
+    private ImageIcon cardback = new ImageIcon("data/cards/icon/test_charater.png");
     private boolean isShow = false;
     private RememberCard parent;
     private boolean finished = false;
-    private Timer backtimer;
+    //private Timer backtimer;
 
     public PicPanel(RememberCard rememberCard, String picPath) {
         this.picPath = picPath;
@@ -140,6 +140,7 @@ public class PicPanel extends JPanel {
     protected void setCardback(){
         lbl_Pic.setIcon(cardback);
     }
+
 
     /**
      * 當找到配對的圖片面板後設置完成狀態為true，此時點選圖片面板已經無效了。
