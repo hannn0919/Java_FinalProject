@@ -62,8 +62,8 @@ public class RememberCard extends JLayeredPane {
     private JButton addsec;
     private JButton openall;
     private JCheckBox check_swing;
-    private JCheckBox check_addsec;
-    private JCheckBox check_openall;
+    private JCheckBox check_doubleexp;
+    private JCheckBox check_doublemoney;
    
     private ImageIcon backToMainImage;
     private ImageIcon disCountImage;
@@ -104,7 +104,7 @@ public class RememberCard extends JLayeredPane {
         add(introduce, JLayeredPane.POPUP_LAYER);
 
 
-        check_swing = new JCheckBox("翻開一對");
+        check_swing = new JCheckBox("翅膀");
         check_swing.setFont(new Font("微軟正黑體", Font.PLAIN, 23));
         check_swing.setBorderPainted(false);
         check_swing.setFocusPainted(false);
@@ -112,21 +112,21 @@ public class RememberCard extends JLayeredPane {
         check_swing.setBounds(500, 460, 150, 30);
         add(check_swing, JLayeredPane.DRAG_LAYER);
 
-        check_addsec = new JCheckBox("加時卡");
-        check_addsec.setFont(new Font("微軟正黑體", Font.PLAIN, 23));
-        check_addsec.setBounds(680, 460, 150, 30);
-        check_addsec.setBorderPainted(false);
-        check_addsec.setFocusPainted(false);
-        check_addsec.setContentAreaFilled(false);
-        add(check_addsec, JLayeredPane.DRAG_LAYER);
+        check_doubleexp = new JCheckBox("經驗加倍卡");
+        check_doubleexp .setFont(new Font("微軟正黑體", Font.PLAIN, 23));
+        check_doubleexp .setBounds(680, 460, 150, 30);
+        check_doubleexp .setBorderPainted(false);
+        check_doubleexp .setFocusPainted(false);
+        check_doubleexp .setContentAreaFilled(false);
+        add(check_doubleexp, JLayeredPane.DRAG_LAYER);
 
-        check_openall = new JCheckBox("翻開全部");
-        check_openall.setFont(new Font("微軟正黑體", Font.PLAIN, 23));
-        check_openall.setBorderPainted(false);
-        check_openall.setFocusPainted(false);
-        check_openall.setContentAreaFilled(false);
-        check_openall.setBounds(860, 460, 150, 30);
-        add(check_openall, JLayeredPane.DRAG_LAYER);
+        check_doublemoney = new JCheckBox("金錢加倍卡");
+        check_doublemoney.setFont(new Font("微軟正黑體", Font.PLAIN, 23));
+        check_doublemoney.setBorderPainted(false);
+        check_doublemoney.setFocusPainted(false);
+        check_doublemoney.setContentAreaFilled(false);
+        check_doublemoney.setBounds(860, 460, 150, 30);
+        add(check_doublemoney, JLayeredPane.DRAG_LAYER);
 
         expFromMain = new JLabel("");
         expFromMain.setFont(new Font("Hollywood Hills",Font.BOLD,17));
@@ -192,15 +192,15 @@ public class RememberCard extends JLayeredPane {
         btnStart.setContentAreaFilled(false);
         //
 
-        swing = new JButton("翻一對");
+        //swing = new JButton("翻一對");
         addsec = new JButton("加時");
         openall = new JButton("看全部");
 
-        swing.setBounds(200,550,100,30);
+        //swing.setBounds(200,550,100,30);
         addsec.setBounds(200,580,100,30);
         openall.setBounds(200,610,100,30);
 
-        add(swing, JLayeredPane.MODAL_LAYER);
+        //add(swing, JLayeredPane.MODAL_LAYER);
         add(addsec, JLayeredPane.MODAL_LAYER);
         add(openall, JLayeredPane.MODAL_LAYER);
         //Rule r = new Rule();
@@ -211,8 +211,8 @@ public class RememberCard extends JLayeredPane {
                 remove(btnStart);//移掉開始按鈕
                  remove(introduce);
                  remove(check_swing);
-                 remove(check_addsec);
-                 remove(check_openall);
+                 remove(check_doubleexp);
+                 remove(check_doublemoney);
                  repaint();
                 panel_Pic = new JPanel();
                 panel_ans = new JPanel();
@@ -232,12 +232,13 @@ public class RememberCard extends JLayeredPane {
             }
          });
 
-        swing.addActionListener(new AbstractAction() {
+        /*.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 timer3.start();
             }
-        });
+        });*/
+
         addsec.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
