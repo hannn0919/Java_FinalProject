@@ -45,7 +45,7 @@ public class Land {
             previousPosX = element.posX;
         }
         if(firstElement.posX < -land1.getWidth()) {
-            listLand.remove(firstElement);
+            listLand.remove(0);
             firstElement.posX = previousPosX + land1.getWidth();
             setImageLand(firstElement);
             listLand.add(firstElement);
@@ -64,9 +64,13 @@ public class Land {
     }
 
     public void draw(Graphics g) {
+        for(int i = 0; i< listLand.size();++i){
+            g.drawImage(listLand.get(i).image, (int) listLand.get(i).posX, LAND_POSY, null);
+        }
+        /*
         for(ImageLand imgLand : listLand) {
             g.drawImage(imgLand.image, (int) imgLand.posX, LAND_POSY, null);
-        }
+        }*/
     }
 
     private int getTypeOfLand() {

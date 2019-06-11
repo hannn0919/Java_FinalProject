@@ -110,7 +110,7 @@ public class GameScreen extends JPanel implements Runnable {
     public void paint(Graphics g) {
         g.setColor(Color.decode("#f7f7f7"));
         g.fillRect(0, 0, getWidth(), getHeight());
-
+        land.draw(g);
         switch (gameState) {
             case START_GAME_STATE:
                 mainCharacter.draw(g);
@@ -118,7 +118,7 @@ public class GameScreen extends JPanel implements Runnable {
             case GAME_PLAYING_STATE:
             case GAME_OVER_STATE:
                 clouds.draw(g);
-                land.draw(g);
+                //land.draw(g);
                 enemiesManager.draw(g);
                 mainCharacter.draw(g);
                 g.setColor(Color.BLACK);
