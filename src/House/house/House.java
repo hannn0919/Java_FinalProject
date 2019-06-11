@@ -1,4 +1,4 @@
-package House.house;
+﻿package House.house;
 
 import Stock.main.StockWindow;
 import java.util.HashMap;
@@ -82,13 +82,14 @@ public class House {
     public void setExp(int num)
     {
         exp=num;
-        if(1000<num&&num<=3000){
+        if(1000<=num&&num<3000){
             level=2;
-        } else if(num<=6000){
+        } else if(num>=3000&&num<6000){
             level=3;
-        }else if(num<10000){
+        }else if(num>=6000&&num<10000){
             level=4;
         }else if(num>=10000) {
+            level=4;
             exp=10000;
         }
         setLevel(level);
