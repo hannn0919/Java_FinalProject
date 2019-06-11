@@ -2,26 +2,19 @@ package Card;///////game=1
 
 import java.awt.*;
 import java.awt.event.*;
-import java.io.*;
+import java.io.IOException;
 import java.util.Random;
 import java.util.LinkedList;
-import javax.imageio.*;
 import java.io.File;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-import java.util.ArrayList;
-import java.util.TimerTask;
 import javax.swing.*;
-//import javax.swing.border.Border;
-//import javax.swing.border.TitledBorder;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
+import javax.sound.sampled.*;
+
+
+//import HitMouse.gameobject.Sound;
 import Main.*;
 import House.house.House;
-
 
 
 /**
@@ -29,7 +22,7 @@ import House.house.House;
  */
 public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
     private JFrame frame;
-    //private  JFrame tips;
+
     /**
      * 初始化遊戲的行列數，行列數成績必須為偶數
      */
@@ -39,10 +32,9 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
     private JLabel txt_Time;
     private JLabel expFromMain;
     private JLabel moneyFromMain;
-   // private JLabel exp;
-    //private JLabel score;
+
     private boolean isRunning = false;
-    private long time=5;///////全部時間
+    private long time=60;///////全部時間
     /**
      * 存放圖片的目錄，簡單起見，存放圖片的目錄中圖片個數為初始化的行列數乘積的一半
      */
@@ -51,19 +43,22 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
 
     protected boolean isStart;
     private PicPanel preOne = null;
+    private PicPanel panel_1;
+    private PicPanel panel_2;
+
     private File file = new File(picDir);
     private File[] pics = file.listFiles();
-    /**
-     * 用於標示已找到的對數
-     */
-    private int count;
+
+
     private JPanel panel_Pic;/////////////右邊
     private JPanel panel_ans;
-    private JButton swing; 
+
     private JButton addsec;
     private JButton openall;
     private JButton btnOk;
-    private JCheckBox check_swing;
+    private JButton btnStart;//開始按鈕
+    private JButton backToMainButton;
+
     private JCheckBox check_doubleexp;
     private JCheckBox check_doublemoney;
    
@@ -77,36 +72,110 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
     private ImageIcon btnStartImage;
     private ImageIcon swing_card;
     private ImageIcon btnOkImage;
+    private ImageIcon addsecImage;
+    private ImageIcon openallImage;
+    private ImageIcon bgIcon = null;
+
     private JLabel introduce;
     private JLabel lbl_Pic = new JLabel();
-    //private JLabel okLabel;
     private JLabel end_money;
     private JLabel end_exp;
-    private ImageIcon bgIcon = null;
-    private PicPanel panel_1;
-    private PicPanel panel_2;
-
-    private JButton btnStart;//開始按鈕
-    private JButton backToMainButton;
-    
-    private final int SHIFT=300;
-   
-
     private JLabel disCountLabel;
     private JLabel expandMoneyLabel;
     private JLabel ruleLabel;
     private JLabel endLabel;
     private JLabel testCharacterLabel;
+
+    private final int SHIFT=300;
+    private int count;
     private int exp=100;
     private int money=250;
+
     private Main mainFrame;
     private House house;
+
+    public ImageIcon resize(int width, int height, ImageIcon img) {
+        Image i = img.getImage();
+        Image new_img = i.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        return  new ImageIcon(new_img);
+    }
+
+    public void buttonSound() {
+        try {
+            File soundFile = new File("music/buttonClicked.wav");
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            clip.start();
+
+        } catch (UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (LineUnavailableException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private class MouseHandler implements  MouseListener{
+        @Override public void mousePressed(MouseEvent e){
+            setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        }
+        @Override public void mouseReleased(MouseEvent e){}
+        @Override
+        public void mouseClicked(MouseEvent e) {}
+        @Override
+        public void mouseEntered(MouseEvent e){
+            if(e.getSource()==check_doubleexp) {
+                buttonSound();
+                //check_doubleexp.setIcon(resize(check_doubleexp.getIcon(). getIconWidth()+10, check_doubleexp.getIcon().getIconHeight()+10, (ImageIcon)check_doubleexp.getIcon()));
+                setCursor(new Cursor(Cursor.HAND_CURSOR));
+            }
+            else if(e.getSource()==check_doublemoney){
+                buttonSound();
+                //check_doublemoney.setIcon(resize(check_doublemoney.getIcon().getIconWidth()+10,check_doublemoney.getIcon().getIconHeight()+10,(ImageIcon)check_doublemoney.getIcon()));
+                setCursor(new Cursor(Cursor.HAND_CURSOR));
+            }
+            else if(e.getSource()==btnStart){
+                buttonSound();
+                btnStart.setIcon(resize(btnStart.getIcon().getIconWidth()+10,btnStart.getIcon().getIconHeight()+10,(ImageIcon)btnStart.getIcon()));
+                setCursor(new Cursor(Cursor.HAND_CURSOR));
+            }
+            else if(e.getSource()==btnOk){
+                buttonSound();
+                btnOk.setIcon(resize(btnOk.getIcon().getIconWidth()+10,btnOk.getIcon().getIconHeight()+10,(ImageIcon)btnOk.getIcon()));
+                setCursor(new Cursor(Cursor.HAND_CURSOR));
+            }
+            else if(e.getSource()==backToMainButton){
+                buttonSound();
+                backToMainButton.setIcon(resize(backToMainButton.getIcon().getIconWidth()+10,backToMainButton.getIcon().getIconHeight()+10,(ImageIcon)backToMainButton.getIcon()));
+                setCursor(new Cursor(Cursor.HAND_CURSOR));
+            }
+        }
+        @Override
+        public void mouseExited(MouseEvent arg0) {
+            if(arg0.getSource()==btnOk){
+                btnOk.setIcon(new ImageIcon("data/cards/OK鍵.png"));
+                setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+            }
+            else if(arg0.getSource()==btnStart) {
+                btnStart.setIcon(new ImageIcon("data/cards/開始遊戲按鈕.png"));
+                setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+            }
+            else if(arg0.getSource()==backToMainButton) {
+                backToMainButton.setIcon(new ImageIcon("data/gamebar/backhome.png"));
+                setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+            }
+        }
+    }
 
     //private JLayeredPane layeredPane;
     public RememberCard(Main mainFrame,House house) {
 
         this.house=house;
         this.mainFrame=mainFrame;
+        MouseHandler mouseHandler = new MouseHandler();
+        //buttonSound mouseHandler = new MouseHandler();
 
 
         introduceImg = new ImageIcon("data/cards/introduce_test.png");
@@ -115,13 +184,6 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
         add(introduce, JLayeredPane.POPUP_LAYER);
 
 
-        /*check_swing = new JCheckBox("翅膀");
-        check_swing.setFont(new Font("微軟正黑體", Font.PLAIN, 23));
-        check_swing.setBorderPainted(false);
-        check_swing.setFocusPainted(false);
-        check_swing.setContentAreaFilled(false);
-        check_swing.setBounds(500, 460, 150, 30);
-        add(check_swing, JLayeredPane.DRAG_LAYER);*/
 
         check_doubleexp = new JCheckBox("經驗加倍卡");
         check_doubleexp .setFont(new Font("微軟正黑體", Font.PLAIN, 23));
@@ -129,6 +191,11 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
         check_doubleexp .setBorderPainted(false);
         check_doubleexp .setFocusPainted(false);
         check_doubleexp .setContentAreaFilled(false);
+        check_doubleexp.addMouseListener(mouseHandler);
+
+        if(house.getItem("經驗加倍券")==0){
+            check_doubleexp.setEnabled(false);
+        }
         add(check_doubleexp, JLayeredPane.DRAG_LAYER);
 
         check_doublemoney = new JCheckBox("金錢加倍卡");
@@ -136,6 +203,10 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
         check_doublemoney.setBorderPainted(false);
         check_doublemoney.setFocusPainted(false);
         check_doublemoney.setContentAreaFilled(false);
+        check_doublemoney.addMouseListener(mouseHandler);
+        if(house.getItem("金錢加倍券")==0){
+            check_doublemoney.setEnabled(false);
+        }
         check_doublemoney.setBounds(810, 460, 150, 30);
         add(check_doublemoney, JLayeredPane.DRAG_LAYER);
 
@@ -159,12 +230,14 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
         backToMainButton.setBorder(null);
         backToMainButton.setFocusPainted(false);
         backToMainButton.setContentAreaFilled(false);
+        backToMainButton.addMouseListener(mouseHandler);
         backToMainButton.addActionListener(new ActionListener() {
              @Override
              public void actionPerformed(ActionEvent e) {
                  mainFrame.changeToMainScreen();
              }
          });
+
 
         disCountImage = new ImageIcon("data/cards/icon/discount.png");
         disCountLabel = new JLabel(disCountImage);
@@ -202,28 +275,35 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
         btnStart.setBorder(null);
         btnStart.setFocusPainted(false);
         btnStart.setContentAreaFilled(false);
-        //
+        btnStart.addMouseListener(mouseHandler);
 
-        //swing = new JButton("翻一對");
-        addsec = new JButton("加時");
-        openall = new JButton("看全部");
-
-        //swing.setBounds(200,550,100,30);
-        addsec.setBounds(200,580,100,30);
-        openall.setBounds(200,610,100,30);
-
-        //add(swing, JLayeredPane.MODAL_LAYER);
+        addsecImage = new ImageIcon("data/cards/增時卡.png");
+        addsec = new JButton(addsecImage);
+        addsec.setBounds(200,530,addsecImage.getIconWidth(),addsecImage.getIconHeight());
         add(addsec, JLayeredPane.MODAL_LAYER);
+
+        openallImage = new ImageIcon("data/cards/再看一次.png");
+        openall = new JButton(openallImage);
+        openall.setBounds(200,590,openallImage.getIconWidth(),openallImage.getIconHeight());
         add(openall, JLayeredPane.MODAL_LAYER);
-        //Rule r = new Rule();
+
+
+        btnStart.setBounds(660,520,btnStartImage.getIconWidth(),btnStartImage.getIconHeight());
+
+        btnOkImage = new ImageIcon("data/cards/OK鍵.png");
+        btnOk = new JButton(btnOkImage);
+        btnOk.setBorderPainted(false);
+        btnOk.setBorder(null);
+        btnOk.setFocusPainted(false);
+        btnOk.setContentAreaFilled(false);
+        add(btnOk,JLayeredPane.DRAG_LAYER);
+        btnOk.addMouseListener(mouseHandler);
         
         btnStart.addActionListener(new ActionListener() {
              @Override
              public void actionPerformed(ActionEvent e) {
-                remove(btnStart);//移掉開始按鈕
+                 remove(btnStart);//移掉開始按鈕
                  remove(introduce);
-                 //
-                 // remove(check_swing);
                  remove(check_doubleexp);
                  remove(check_doublemoney);
                  repaint();
@@ -241,6 +321,12 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
                     return;
                 }
                 setRunning(true);
+                if(house.getItem("增時卡")==0){
+                    addsec.setEnabled(false);
+                }
+                 if(house.getItem("再看一次")==0){
+                     openall.setEnabled(false);
+                 }
                 startGame();
             }
          });
@@ -283,14 +369,10 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
                 endLabel.setBounds(510, 150, endImage.getIconWidth(),endImage.getIconHeight());
                 add(endLabel,JLayeredPane.POPUP_LAYER);
 
-                btnOkImage = new ImageIcon("data/cards/OK鍵.png");
-                btnOk = new JButton(btnOkImage);
-                btnOk.setBounds(670, 450, btnOkImage.getIconWidth(),btnOkImage.getIconHeight());
-                add(btnOk,JLayeredPane.DRAG_LAYER);
-                btnOk.setBorderPainted(false);
-                btnOk.setBorder(null);
-                //btnOk.setFocusPainted(false);
-                btnOk.setContentAreaFilled(false);
+
+
+                btnOk.setBounds(670, 465, btnOkImage.getIconWidth()+10,btnOkImage.getIconHeight()+10);
+
                 btnOk.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
