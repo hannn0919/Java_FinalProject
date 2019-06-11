@@ -7,6 +7,7 @@ import House.bag.BagWindow;
 import Main.*;
 import House.house.House;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,17 +16,16 @@ public class StoreLayerPane extends JLayeredPane {
     private House house;
 
     private ImageIcon backToMainImage;//回到主程式的圖片
-    //  private ImageIcon disCountImage;//到數計時的圖片
     private ImageIcon expandMoneyImage;//經驗 前 肝的組合圖片
     private ImageIcon ruleImage;//簡單規則介紹的底圖
     private ImageIcon gameBarImage;
-
-
     private JButton backToMainButton;
     //  private JLabel disCountLabel;
     private JLabel expandMoneyLabel;
-    private JLabel ruleLabel;
     private JLabel gameBarLabel;
+    private JLabel expFromMain;
+    private JLabel moneyFromMain;
+    private Timer time;
 
     public StoreLayerPane(Main frame, House house){
         this.frame = frame;
@@ -50,11 +50,10 @@ public class StoreLayerPane extends JLayeredPane {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.changeToMainScreen();
+                time.stop();
             }
         });
         heightTotal+=backToMainImage.getIconHeight();
-
-
 
 
         ruleImage = new ImageIcon("data/Bag&Store/rule.png");
@@ -66,5 +65,24 @@ public class StoreLayerPane extends JLayeredPane {
         expandMoneyLabel = new JLabel(expandMoneyImage);
         expandMoneyLabel.setBounds(0, heightTotal, expandMoneyImage.getIconWidth(), expandMoneyImage.getIconHeight());
         add(expandMoneyLabel, JLayeredPane.POPUP_LAYER);
+
+        expFromMain = new JLabel("");
+        expFromMain.setFont(new Font("Hollywood Hills",Font.BOLD,17));
+        expFromMain.setBounds(140,heightTotal+13,150,25);
+        expFromMain.setText(Integer.toString(house.getExp()));
+        add(expFromMain,JLayeredPane.DRAG_LAYER);
+
+        moneyFromMain = new JLabel("");
+        moneyFromMain.setFont(new Font("Hollywood Hills",Font.BOLD,17));
+        moneyFromMain.setBounds(140,heightTotal+50,150,25);
+        moneyFromMain.setText(Integer.toString(house.getHoldMoney()));
+        add(moneyFromMain,JLayeredPane.DRAG_LAYER);
+        time = new Timer(200, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                moneyFromMain.setText(Integer.toString(house.getHoldMoney()));
+            }
+        });
+        time.start();
     }
 }

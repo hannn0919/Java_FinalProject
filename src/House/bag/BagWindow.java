@@ -253,7 +253,7 @@ public class BagWindow extends JPanel {
                     int opt= JOptionPane.showConfirmDialog(null, "可看到影子下的真實面貌\n--------確定要裝備嗎?--------", "", JOptionPane.YES_NO_OPTION);
                     // 0=yes, 1=no
                     if(opt==0){
-                        if(house.getEquipment("透視眼鏡") == 1)
+                        if(house.getEquipment("透視眼鏡") == 0)
                             JOptionPane.showConfirmDialog(null, "無此道具!!!", "", JOptionPane.DEFAULT_OPTION);
                         else
                             house.useEquipment("透視眼鏡");

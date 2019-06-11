@@ -1,6 +1,7 @@
 package House.store;
 import House.house.House;
 import Main.Main;
+import House.store.StoreLayerPane;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
