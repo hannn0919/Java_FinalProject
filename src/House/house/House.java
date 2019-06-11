@@ -10,11 +10,27 @@ public class House {
     private static int exp;
     private static int holdMoney;
     private Map<String,Integer> map = new HashMap<String, Integer>();
+    private Map<String,Integer> map2 = new HashMap<String, Integer>();
     private float[] stock;
     private float[] stockPrs;
     private int[] stockTicket;
     private double[][][] data;
-
+    private int cardTotalMoney;
+    private int cardTotalExp;
+    private int cardTotalPair;
+    private int cardTotalPlay;
+    private int hamsterTotalMoney;
+    private int hamsterTotalExp;
+    private int hamsterTotalMistake;
+    private int hamsterTotalPlay;
+    private int froggerTotalMoney;
+    private int froggerTotalExp;
+    private int froggerTotalDied;
+    private int froggerTotalPlay;
+    private int dinosaurTotalMoney;
+    private int dinosaurTotalExp;
+    private int dinosaurTotalDied;
+    private int dinosaurTotalPlay;
     public House()
     {
         this.holdMoney = 1000;
@@ -95,6 +111,47 @@ public class House {
     public void setEquipment(String element)
     {
         map.put(element, 2);
+    }
+
+    public void gameSettlementSomething(int game,int money,int EXP){
+        if(game==1){
+            cardTotalMoney+=money;
+            cardTotalExp+=EXP;
+        }else if(game==2){
+            hamsterTotalMoney+=money;
+            hamsterTotalExp+=EXP;
+        }else if(game==3){
+            froggerTotalMoney+=money;
+            froggerTotalExp+=EXP;
+        }else if(game==4){
+            dinosaurTotalMoney+=money;
+            dinosaurTotalExp+=EXP;
+        }
+    }
+
+    public void gameSettlementItem(String element){
+        if(map2.containsKey(element)) {
+            int num = map2.get(element);
+            map2.put(element, num + 1);
+        }
+        else
+            map2.put(element,1);
+    }
+
+    public void gameSettlementmistake(int game,int time){
+        if(game==1){
+            cardTotalPair+=time;
+            cardTotalPlay++;
+        }else if(game==2){
+            hamsterTotalMistake+=time;
+            hamsterTotalPlay++;
+        }else if(game==3){
+            froggerTotalDied+=time;
+            froggerTotalPlay++;
+        }else if(game==4){
+            dinosaurTotalDied+=time;
+            dinosaurTotalPlay++;
+        }
     }
 
     //get the holding money
