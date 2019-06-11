@@ -17,7 +17,7 @@ import javax.swing.border.LineBorder;
 
 /**
  * @author jqs
- *
+
  *         圖片面板，主要實現了圖片的顯示與圖片相同判斷
  */
 public class PicPanel extends JPanel {
@@ -25,6 +25,7 @@ public class PicPanel extends JPanel {
     private String picPath;
     private JLabel lbl_Pic = new JLabel();
     private ImageIcon bgIcon = null;
+    private ImageIcon cardback = new ImageIcon("data/cards/icon/backhome.png");
     private boolean isShow = false;
     private RememberCard parent;
     private boolean finished = false;
@@ -35,6 +36,7 @@ public class PicPanel extends JPanel {
         this.setBorder(new CompoundBorder(null, new LineBorder(new Color(0, 0, 0), 1)));
         this.setLayout(new BorderLayout());
         this.add(lbl_Pic, BorderLayout.CENTER);
+
         this.addMouseListener(mouseAdapter);
         initLabelImage();
     }
@@ -86,7 +88,7 @@ public class PicPanel extends JPanel {
                                 catch (InterruptedException e1) {
                                     e1.printStackTrace();
                                 }
-                                lbl_Pic.setIcon(null);
+                                lbl_Pic.setIcon(cardback);
                                 isShow = !isShow;
                                 repaint();
                                 preOne.getMouseListeners()[0].mouseClicked(null);
@@ -97,7 +99,7 @@ public class PicPanel extends JPanel {
                         lbl_Pic.setIcon(bgIcon);
                     }
                     else {
-                        lbl_Pic.setIcon(null);
+                        lbl_Pic.setIcon(cardback);
                     }
                     repaint();
                 };
@@ -114,7 +116,6 @@ public class PicPanel extends JPanel {
         private boolean checkRight(PicPanel curOne, PicPanel preOne) {
             return curOne.getPicPath().equals(preOne.getPicPath()) && !curOne.equals(preOne);
         }
-
 
     };
 

@@ -33,8 +33,8 @@ public class RememberCard extends JLayeredPane {
     /**
      * 初始化遊戲的行列數，行列數成績必須為偶數
      */
-    private static final int ROWS = 6;
-    private static final int COLUMNS = 5;
+    private static final int ROWS = 5;
+    private static final int COLUMNS = 6;
     private static final long serialVersionUID = -8908268719780973221L;
     private JLabel txt_Time;
     private JLabel expFromMain;
@@ -42,7 +42,7 @@ public class RememberCard extends JLayeredPane {
     private JLabel exp;
     private JLabel score;
     private boolean isRunning = false;
-    private long time=30;
+    private long time=60;
     /**
      * 存放圖片的目錄，簡單起見，存放圖片的目錄中圖片個數為初始化的行列數乘積的一半
      */
@@ -320,13 +320,15 @@ public class RememberCard extends JLayeredPane {
     private void initPicPanels() {
         panel_Pic.setLayout(new GridLayout(ROWS, COLUMNS, 10, 10));//10是間隙
         panel_ans.setLayout(new GridLayout(ROWS, COLUMNS, 10, 10));//10是間隙
-
+        panel_Pic.setBackground( Color.ORANGE);
+        panel_ans.setBackground( Color.ORANGE);
         initPictureIndex();//初始化圖片的索引並賦值每個圖片的路徑
         //System.out.println(ROWS * COLUMNS);
         for (int i = 0; i < ROWS * COLUMNS; i++) {
 
             panel_1 = new PicPanel(this, picture[i]);
             panel_Pic.add(panel_1);
+            panel_1.setBorder(null);
             //panel_ans.add(panel_1);
 
             repaint();
@@ -336,6 +338,7 @@ public class RememberCard extends JLayeredPane {
             panel_2 = new PicPanel(this, picture[i]);
             //panel_Pic.add(panel_1);
             panel_ans.add(panel_2);
+            panel_ans.setBorder(null);
 
             repaint();
         }
@@ -354,12 +357,14 @@ public class RememberCard extends JLayeredPane {
                 panel_1 = (PicPanel)comp;
                 panel_2=(PicPanel)comp;
                 panel_1.setLabelPicNull();
+                //panel_1.setPicPath("data/cards/icon/backhome.png");
             }
         }
     }
 
 
     /**
+     *
      * 初始化圖片的索引並賦值每個圖片的路徑
      */
     private void initPictureIndex() {
