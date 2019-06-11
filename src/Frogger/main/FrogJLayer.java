@@ -196,7 +196,7 @@ public class FrogJLayer extends JLayeredPane {
                 add(timeLabel,JLayeredPane.PALETTE_LAYER);
                 if(time == 0){
                     int gainExp , gainMoney;
-                    gainExp = house.getExp() + time / 6 / house.getLevel();
+                    gainExp = time / 6 / house.getLevel();
                     if(froggerPanel.endTime > 3000){
                         gainMoney = 3000;
                     }else if(froggerPanel.endTime > 1000){
