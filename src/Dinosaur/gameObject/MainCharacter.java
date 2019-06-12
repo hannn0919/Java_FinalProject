@@ -95,8 +95,8 @@ public class MainCharacter {
         return speedX;
     }
 
-    public  void setinvIncible(){
-        invincible = true;
+    public  void setinvIncible(boolean t){
+        invincible = t;
     }
 
     public void setSpeedX(float speedX) {

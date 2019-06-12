@@ -24,6 +24,8 @@ public class DinoJLayer extends JLayeredPane {
     private JLabel introduce, disCountLabel, expandMoneyLabel, ruleLabel;
     private JLabel expFromMain, moneyFromMain, statics, timeLabel;
     private JLabel static_pxp, static_money;
+    private JLabel liverLabel;
+    private ImageIcon liverImg;
 
     private JCheckBox expcard, moneycard, prop;
 
@@ -138,7 +140,8 @@ public class DinoJLayer extends JLayeredPane {
                     int gainmoney = (int)game.max * meg + m;
                     if(game.expcard == true) gainexp *= 2;
                     if(game.moneycard == true) gainmoney *= 2;
-
+                    house.gameSettlementSomething(4, gainmoney, gainexp);
+                    house.gameSettlementmistake(4, game.getDieTime());
                     static_pxp.setText(String.valueOf(gainexp));
                     static_money.setText(String.valueOf(gainmoney));
                     house.setExp(house.getExp()+gainexp);
@@ -152,9 +155,11 @@ public class DinoJLayer extends JLayeredPane {
             }
         }, 0, 10);
 
+        int heightTotal=0;
+
         backToMainImage = new ImageIcon("data/gamebar/backhome.png");
         backToMainButton = new JButton(backToMainImage);
-        backToMainButton.setBounds(0, 0, backToMainImage.getIconWidth(), backToMainImage.getIconHeight());
+        backToMainButton.setBounds(0, heightTotal, backToMainImage.getIconWidth(), backToMainImage.getIconHeight());
         add(backToMainButton, JLayeredPane.DEFAULT_LAYER);
         backToMainButton.setBorderPainted(false);
         backToMainButton.setBorder(null);
@@ -162,26 +167,46 @@ public class DinoJLayer extends JLayeredPane {
         backToMainButton.setContentAreaFilled(false);
         backToMainButton.addActionListener(handle);
         backToMainButton.addMouseListener(mouseHandler);
+        heightTotal += backToMainImage.getIconHeight();
 
         disCountImage = new ImageIcon("data/gamebar/discount.png");
         disCountLabel = new JLabel(disCountImage);
-        disCountLabel.setBounds(0, backToMainImage.getIconHeight(), disCountImage.getIconWidth(), disCountImage.getIconHeight());
+        disCountLabel.setBounds(0, heightTotal, disCountImage.getIconWidth(), disCountImage.getIconHeight());
         add(disCountLabel, JLayeredPane.DEFAULT_LAYER);
+        heightTotal += disCountImage.getIconHeight();
 
         ruleImage = new ImageIcon("data/dinosaur/rule.png");
         ruleLabel = new JLabel(ruleImage);
-        ruleLabel.setBounds(0, backToMainImage.getIconHeight() + disCountImage.getIconHeight(), ruleImage.getIconWidth(), ruleImage.getIconHeight());
+        ruleLabel.setBounds(0, heightTotal, ruleImage.getIconWidth(), ruleImage.getIconHeight());
         add(ruleLabel, JLayeredPane.DEFAULT_LAYER);
+        heightTotal += ruleImage.getIconHeight();
+
+        String character = "data/dinosaur/character/"+house.getLevel()+"/肝";
+        if(house.getEquipment("透視眼鏡")==1){
+            character += "+眼鏡";
+        }
+
+        if(house.getEquipment("竹蜻蜓")==1){
+            character += "+竹蜻蜓";
+        }
+
+        if(house.getEquipment("翅膀")==1){
+            character += "+翅膀";
+        }
+
+        if(house.getEquipment("彈簧鞋")==1){
+            character += "+彈簧鞋";
+
+        }
+        liverImg = new ImageIcon( character+".png");//偷個恐龍圖片
+        liverLabel = new JLabel(liverImg);
+        liverLabel.setBounds(30,heightTotal+100,liverImg.getIconWidth(),liverImg.getIconHeight());
+        add(liverLabel,JLayeredPane.DRAG_LAYER);
 
         expandMoneyImage = new ImageIcon("data/gamebar/expandmoney.png");
         expandMoneyLabel = new JLabel(expandMoneyImage);
         expandMoneyLabel.setBounds(0, backToMainImage.getIconHeight() + disCountImage.getIconHeight() + ruleImage.getIconHeight(), expandMoneyImage.getIconWidth(), expandMoneyImage.getIconHeight());
         add(expandMoneyLabel, JLayeredPane.DEFAULT_LAYER);
-
-        int heightTotal=0;
-        heightTotal+=backToMainImage.getIconHeight();
-        heightTotal+=disCountImage.getIconHeight();
-        heightTotal+=ruleImage.getIconHeight();
 
         expFromMain = new JLabel("");
         expFromMain.setFont(new Font("Hollywood Hills",Font.BOLD,17));
@@ -231,8 +256,22 @@ public class DinoJLayer extends JLayeredPane {
                     house.setItem("金錢加倍券", house.getItem("金錢加倍券")-1);
                 }
                 if (event.getItem() == prop) {
-                    game.mainCharacter.setinvIncible();
+                    game.mainCharacter.setinvIncible(true);
                     house.setItem("電蚊拍", house.getItem("電蚊拍")-1);
+                }
+            }
+            if (chkbox == ItemEvent.DESELECTED) {
+                if (event.getItem() == expcard) {
+                    game.expcard = true;
+                    house.setItem("經驗加倍券", house.getItem("經驗加倍券")+1);
+                }
+                if (event.getItem() == moneycard) {
+                    game.moneycard = true;
+                    house.setItem("金錢加倍券", house.getItem("金錢加倍券")+1);
+                }
+                if (event.getItem() == prop) {
+                    game.mainCharacter.setinvIncible(false);
+                    house.setItem("電蚊拍", house.getItem("電蚊拍")+1);
                 }
             }
         }

@@ -41,6 +41,7 @@ public class GameScreen extends JPanel implements Runnable {
     private boolean isKeyPressed;
     public boolean expcard = false;
     public boolean moneycard = false;
+    private int dieTime = 0;
 
     private int gameState = START_GAME_STATE;
 
@@ -215,9 +216,14 @@ public class GameScreen extends JPanel implements Runnable {
         }
     }
 
+    public int getDieTime(){
+        return dieTime;
+    }
+
     // 若角色死亡，重置遊戲
     private void resetGame() {
         speed = 5;
+        dieTime++;
         enemiesManager.reset();
         mainCharacter.dead(false);
         mainCharacter.reset();
