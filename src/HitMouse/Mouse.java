@@ -32,8 +32,8 @@ public class Mouse extends JLayeredPane{
     private ImageIcon ruleImage;//簡單規則介紹的底圖
     private ImageIcon fist; //拳頭的圖片
     private ImageIcon heart;//愛心的圖片
-    private ImageIcon staticsImg;
-    private ImageIcon checkImg;
+    private ImageIcon staticsImg;//結算頁面底圖
+    private ImageIcon checkImg;//OK按鈕
 
 
    // private JButton btnStart;//開始按鈕
@@ -251,18 +251,27 @@ public class Mouse extends JLayeredPane{
              startBtn.addActionListener(new ActionListener() {
                  @Override
                  public void actionPerformed(ActionEvent e) {
+                     if(house.getEquipment("透視眼鏡")==1) equipIsUsed=true;
+                     else equipIsUsed=false;
                      remove(moneycard);
 
                      remove(startBtn);
                      remove(introduce);
                      remove(expcard);
                      repaint();
-                     equipIsUsed = false;
+
                      score.setStarttime(System.currentTimeMillis());
-                     timer.start();
-                     time2.start();
-                     time3.start();
-                     shadowTimer.start();
+                     if(equipIsUsed == false){
+                         timer.start();
+                         time2.start();
+                         time3.start();
+                         shadowTimer.start();
+                     }
+                     else{
+                         timer.start();
+                         time2.start();
+                         time3.start();
+                     }
                  }
              });
              add(startBtn, JLayeredPane.DRAG_LAYER);
@@ -311,16 +320,16 @@ public class Mouse extends JLayeredPane{
         add(btnItemScoreDouble,JLayeredPane.MODAL_LAYER);
         if(house.getItem("加倍卡")<=0) btnItemScoreDouble.setEnabled(false);
         else btnItemScoreDouble.setEnabled(true);
-        /*
+
         btnEquipment = new JButton("裝備");
         btnEquipment.setBounds(200,550,100,30);
-        add(btnEquipment,JLayeredPane.MODAL_LAYER);
+        //add(btnEquipment,JLayeredPane.MODAL_LAYER);
         btnEquipment.addActionListener((new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                score.setScore(score.getScore()+20);
+                equipIsUsed=true;
             }
-        }));*/
+        }));
 
         itemScoreDouble = new Timer(10000, new ActionListener() {
             @Override
@@ -430,10 +439,22 @@ public class Mouse extends JLayeredPane{
          timer=new Timer(score.getSd()+750,new ActionListener() {//主要圖片出現
 
             public void actionPerformed(ActionEvent e) {
-                int choose=(int) (2 * Math.random());
+                int windowpos=secureRandom.nextInt(12);
+                int choose=secureRandom.nextInt(2);
 
-                if( choose==0 || specialCard==1)  but[score.getLast()].setIcon(teacher[secureRandom.nextInt(6)]);
-                else but[score.getLast()].setIcon(student[secureRandom.nextInt(5)]);
+
+                if(equipIsUsed==false){
+                    if( choose==0 || specialCard==1)  but[score.getLast()].setIcon(teacher[secureRandom.nextInt(6)]);
+                    else but[score.getLast()].setIcon(student[secureRandom.nextInt(5)]);
+                }
+                else{
+                    but[score.getLast()].setIcon(null);
+                    obBut[score.getLast()].setIcon(null);
+                    score.setLast(windowpos);
+                    if( choose==0 || specialCard==1)  but[score.getLast()].setIcon(teacher[secureRandom.nextInt(6)]);
+                    else but[score.getLast()].setIcon(student[secureRandom.nextInt(5)]);
+                }
+
 
             }
          });
@@ -441,8 +462,14 @@ public class Mouse extends JLayeredPane{
         //timer2 生成最後的得分訊息
         time2=new Timer(2,new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                timer.setDelay(score.getSd());//設定地鼠出現速度
-                shadowTimer.setDelay(score.getSd());
+                if(equipIsUsed==false){
+                    timer.setDelay(score.getSd());//設定地鼠出現速度
+                    shadowTimer.setDelay(score.getSd());
+                }
+
+                else
+                    timer.setDelay(score.getSd());
+
                 jfb.setText("得分 : "+score.getScore());
                 djs.setText((score.getStarttime()/1000+score.getDjs()-System.currentTimeMillis()/1000)+"");
                 if((score.getStarttime()/1000+score.getDjs()-System.currentTimeMillis()/1000)==0)
@@ -493,6 +520,7 @@ public class Mouse extends JLayeredPane{
                             time2.stop();
                             time3.stop();
                             shadowTimer.stop();
+                            equipIsUsed=false;
                             mainFrame.changeToMainScreen();
                         }
                     });
