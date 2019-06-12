@@ -196,6 +196,15 @@ public class Main extends JFrame {
         byebye.requestFocus();
     }
 
+    //切換至結算畫面
+    public void changeToSettlement(){
+        GameSettlement endOfGame = new GameSettlement(this, this.house);
+        this.setTitle("結算統計");
+        this.setContentPane(endOfGame);
+        this.setVisible(true);
+        endOfGame.requestFocus();
+    }
+
     // 設定登入頁面背景音樂
     private void Entermusic() {
         try {
