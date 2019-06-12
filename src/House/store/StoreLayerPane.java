@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 public class StoreLayerPane extends JLayeredPane {
     private Main frame;
     private House house;
-
+    private ImageIcon liverImg;
     private ImageIcon backToMainImage;//回到主程式的圖片
     private ImageIcon expandMoneyImage;//經驗 前 肝的組合圖片
     private ImageIcon ruleImage;//簡單規則介紹的底圖
@@ -25,6 +25,7 @@ public class StoreLayerPane extends JLayeredPane {
     private JLabel gameBarLabel;
     private JLabel expFromMain;
     private JLabel moneyFromMain;
+    private JLabel liverLabel;
     private Timer time;
 
     public StoreLayerPane(Main frame, House house){
@@ -83,6 +84,29 @@ public class StoreLayerPane extends JLayeredPane {
                 moneyFromMain.setText(Integer.toString(house.getHoldMoney()));
             }
         });
+        String character = "data/dinosaur/character/"+house.getLevel()+"/肝";
+        if(house.getEquipment("透視眼鏡")==1){
+            character += "+眼鏡";
+        }
+
+        if(house.getEquipment("竹蜻蜓")==1){
+            character += "+竹蜻蜓";
+        }
+
+        if(house.getEquipment("翅膀")==1){
+            character += "+翅膀";
+        }
+
+        if(house.getEquipment("彈簧鞋")==1){
+            character += "+彈簧鞋";
+
+        }
+        liverImg = new ImageIcon( character+".png");//偷個恐龍圖片
+        System.out.println(liverImg);
+        liverLabel = new JLabel(liverImg);
+        liverLabel.setBounds(30,heightTotal+100,liverImg.getIconWidth(),liverImg.getIconHeight());
+        System.out.println(liverImg.getIconWidth()+" "+liverImg.getIconHeight());
+        add(liverLabel,JLayeredPane.DRAG_LAYER);
         time.start();
     }
 }
