@@ -210,6 +210,10 @@ public class FrogJLayer extends JLayeredPane {
                     }
                     if(froggerPanel.expCard == true) gainExp *= 2;
                     if(froggerPanel.moneyCard == true) gainMoney *= 2;
+                    gainMoney -= 300 * froggerPanel.died;
+                    house.gameSettlementSomething( 3,gainMoney,gainExp);
+                    house.gameSettlementmistake(3, froggerPanel.died);
+
                     static_pxp.setText(String.valueOf(gainExp));
                     static_money.setText(String.valueOf(gainMoney));
                     house.setExp(house.getExp()+gainExp);
@@ -326,6 +330,25 @@ public class FrogJLayer extends JLayeredPane {
                 if (event.getItem() == underKey) {
                     froggerPanel.underKey = true;
                     house.setItem("地下道鑰匙", house.getItem("地下道鑰匙")-1);
+                }
+
+            }
+            if (chkbox == ItemEvent.DESELECTED) {
+                if (event.getItem() == expCard) {
+                    froggerPanel.expCard = false;
+                    house.setItem("經驗加倍券", house.getItem("經驗加倍券")+1);
+                }
+                if (event.getItem() == moneyCard) {
+                    froggerPanel.moneyCard = false;
+                    house.setItem("金錢加倍券", house.getItem("金錢加倍券")+1);
+                }
+                if (event.getItem() == policeCard) {
+                    froggerPanel.noPolice = false;
+                    house.setItem("警察卡", house.getItem("警察卡")+1);
+                }
+                if (event.getItem() == underKey) {
+                    froggerPanel.underKey = false;
+                    house.setItem("地下道鑰匙", house.getItem("地下道鑰匙")+1);
                 }
 
             }

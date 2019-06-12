@@ -34,6 +34,8 @@ public class FroggerPanel extends JPanel
     private Car[] CarsRoadThree = new Car[4];
     private Car[] CarsRoadFour = new Car[6];
     private Car police;
+    public int hitByPolice = 0;
+    public int died = 0;
     private int policeShow;
     private UnderWay[] underWays = new UnderWay[3];
     private int end;
@@ -145,6 +147,8 @@ public class FroggerPanel extends JPanel
         }else setStep(1);
 
         this.end = 1;
+        died = 0;
+        hitByPolice = 0;
         cars = new ArrayList<>();
         frog = new Frog(Frog.startX, Frog.startY, 70, 70, character + ".png");
         policeTime = 6000 - random.nextInt(2000);
@@ -169,7 +173,18 @@ public class FroggerPanel extends JPanel
         for(int i = 0; i< 3;i++){
             underWays[i] = new UnderWay(225, 545 - i * 240, 80, 80, "underWay.png");
         }
-
+        if(noPolice){
+            house.gameSettlementItem("警察卡");
+        }
+        if(expCard){
+            house.gameSettlementItem("經驗加倍券");
+        }
+        if(moneyCard){
+            house.gameSettlementItem("金錢加倍券");
+        }
+        if(underKey){
+            house.gameSettlementItem("地下道鑰匙");
+        }
 
     }
 
@@ -200,7 +215,6 @@ public class FroggerPanel extends JPanel
                 if( time % 2000 == 0){
                     policeTime = time - random.nextInt(2000) ;
                     police.setX(900);
-                    System.out.println("policeTime = " + policeTime);
                 }
                 if(end == 0){
                     timer.cancel();
@@ -209,6 +223,7 @@ public class FroggerPanel extends JPanel
                     if(c.intersect(frog)){
                         frog.setX(Frog.startX);
                         frog.setY(Frog.startY);
+                        died++;
                     }
                     c.update();
                 }
@@ -216,8 +231,9 @@ public class FroggerPanel extends JPanel
                     if(police.intersect(frog) ){
                         frog.setX(Frog.startX);
                         frog.setY(Frog.startY);
+                        died++;
                         if(!noPolice)
-                            house.setHoldMoney(house.getHoldMoney() - 300); // 抓到罰三百
+                            hitByPolice++;
                     }
                     police.update();
                 }
