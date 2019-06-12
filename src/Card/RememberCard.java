@@ -72,6 +72,7 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
     private ImageIcon btnOkImage;
     private ImageIcon addsecImage;
     private ImageIcon openallImage;
+    private ImageIcon liverImg;
 
 
     private JLabel introduce;
@@ -82,6 +83,7 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
     private JLabel ruleLabel;
     private JLabel endLabel;
     private JLabel testCharacterLabel;
+    private JLabel liverLabel;
 
 
     private int count;
@@ -284,10 +286,28 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
         /////左邊經驗和金錢圖片/////////
 
         /////左邊的肝/////////
-        testCharacterImage = new ImageIcon("data/cards/icon/test_charater.png");
-        testCharacterLabel = new JLabel(testCharacterImage);
-        testCharacterLabel.setBounds(0,397,testCharacterImage.getIconWidth(),testCharacterImage.getIconHeight());
-        add(testCharacterLabel,JLayeredPane.DEFAULT_LAYER);
+        String character = "data/dinosaur/character/"+house.getLevel()+"/肝";
+        if(house.getEquipment("透視眼鏡")==1){
+            character += "+眼鏡";
+        }
+
+        if(house.getEquipment("竹蜻蜓")==1){
+            character += "+竹蜻蜓";
+        }
+
+        if(house.getEquipment("翅膀")==1){
+            character += "+翅膀";
+        }
+
+        if(house.getEquipment("彈簧鞋")==1){
+            character += "+彈簧鞋";
+
+        }
+        liverImg = new ImageIcon( character+".png");//偷個恐龍圖片
+        liverLabel = new JLabel(liverImg);
+        liverLabel.setBounds(30,500,liverImg.getIconWidth(),liverImg.getIconHeight());
+        add(liverLabel,JLayeredPane.DRAG_LAYER);
+        
         /////左邊的肝/////////
 
 
