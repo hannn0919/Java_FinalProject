@@ -3,13 +3,10 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;
-import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.awt.event.ActionListener;
-import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import javax.imageio.*;
@@ -23,7 +20,6 @@ import Main.*;
 
 public class FroggerPanel extends JPanel
 {
-
     private Timer timer;
     public int time = 6000;
     private Image frogImage;
@@ -52,7 +48,6 @@ public class FroggerPanel extends JPanel
     public boolean underKey = false;
     public int endTime = 0;
 
-    // set up GUI and register key event handler
     public FroggerPanel(Main mainFrame, House house)
     {
         this.random = new Random();
@@ -66,11 +61,7 @@ public class FroggerPanel extends JPanel
         repaint();
         Keylisten listener = new Keylisten();
         this.addKeyListener(listener);
-        // handle frame mouse motion event
-        //requestFocusInWindow();
-        //gameStart();
     }
-
 
     public class Keylisten extends KeyAdapter
     {
@@ -247,14 +238,10 @@ public class FroggerPanel extends JPanel
         }, 0, 10);
     }
 
-    // draw ovals in a 4-by-4 bounding box at specified locations on window
     @Override
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g); // clears drawing area
-        //g.fillRect( 610, 550, frog.getW(), frog.getH());
-        //g.fillRect(frog.getX()+20, frog.getY()+20,frog.getW(), frog.getH());
-
 
         try {
             Image backGroundImage = ImageIO.read(new File("data/Frogger/image/froggerBackGround2.png"));
@@ -276,16 +263,11 @@ public class FroggerPanel extends JPanel
                 System.out.println("No example.jpg!!");
         }
 
-//        for(int i =0;i<3;i++){
-//            g.fillRect(underWays[i].getX(), underWays[i].getY(), underWays[i].getW(), underWays[i].getH());
-//        }
-//        g.fillRect(Frog.endX, Frog.endY, frog.getW(),frog.getH());
     }
 
     public void setStep(int k) {
         stepY = k * oneStep;
         stepX = oneStep / 2;
     }
-
 
 } // end class PaintPanel

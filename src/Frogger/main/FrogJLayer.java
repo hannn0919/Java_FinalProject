@@ -12,9 +12,6 @@ import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static com.sun.java.accessibility.util.AWTEventMonitor.addItemListener;
-
-
 public class FrogJLayer extends JLayeredPane {
     private Main frame;
     private House house;
@@ -210,15 +207,13 @@ public class FrogJLayer extends JLayeredPane {
                     }
                     if(froggerPanel.expCard == true) gainExp *= 2;
                     if(froggerPanel.moneyCard == true) gainMoney *= 2;
-                    gainMoney -= 300 * froggerPanel.died;
+                    gainMoney -= 300 * froggerPanel.hitByPolice;
                     house.gameSettlementSomething( 3,gainMoney,gainExp);
                     house.gameSettlementmistake(3, froggerPanel.died);
-
                     static_pxp.setText(String.valueOf(gainExp));
                     static_money.setText(String.valueOf(gainMoney));
                     house.setExp(house.getExp()+gainExp);
                     house.setHoldMoney(house.getHoldMoney()+gainMoney);
-
                     timer.cancel();
                     checkBtn.setVisible(true);
                     statics.setVisible(true);
