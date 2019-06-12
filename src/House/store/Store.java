@@ -1,7 +1,6 @@
 package House.store;
 import House.house.House;
 import Main.Main;
-import House.store.StoreLayerPane;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -10,15 +9,18 @@ import java.io.*;
 import javax.imageio.*;
 
 public class Store extends JPanel {
-    private  JButton b1, b2, b3, b4, b5, b6, b7, b8, b9;
-    private  JButton e1, e2, e3, e4;
-    private  JButton item, equip;
-    private  BufferedImage backGround;
-    private  boolean IsBackGround=true;
+    private JButton b1, b2, b3, b4, b5, b6, b7, b8, b9;
+    private JButton e1, e2, e3, e4;
+    private JButton item, equip;
+    private BufferedImage backGround;
+    private boolean IsBackGround=true;
+    private static boolean E1=true,E2=true,E3=true,E4=true;
     private Main mainFrame;
     private House house;
     private ImageIcon iconB1,iconB2,iconB3,iconB4,iconB5,iconB6,iconB7,iconB8,iconB9;
     private ImageIcon iconE1,iconE2,iconE3,iconE4;
+    ButtonHandler handler;
+    MouseHandler handler2;
 
     public Store(Main mainFrame,House house) {
         this.mainFrame=mainFrame;
@@ -73,6 +75,7 @@ public class Store extends JPanel {
         setButtonE(e3);
         setButtonE(e4);
 
+       // if(E1==false) e1.setEnabled(false);
         b1.addMouseListener(handler2);
         b2.addMouseListener(handler2);
         b3.addMouseListener(handler2);
@@ -82,10 +85,14 @@ public class Store extends JPanel {
         b7.addMouseListener(handler2);
         b8.addMouseListener(handler2);
         b9.addMouseListener(handler2);
-        e1.addMouseListener(handler2);
-        e2.addMouseListener(handler2);
-        e3.addMouseListener(handler2);
-        e4.addMouseListener(handler2);
+        if(E1!=false)
+            e1.addMouseListener(handler2);
+        if(E2!=false)
+            e2.addMouseListener(handler2);
+        if(E3!=false)
+            e3.addMouseListener(handler2);
+        if(E4!=false)
+            e4.addMouseListener(handler2);
 
         b1.setBounds(142,32,172,174);
         b2.setBounds(314,32,200,174);
@@ -154,13 +161,13 @@ public class Store extends JPanel {
                 b8.setText("售價為1,000");
             } else if (event.getSource() == b9) {
                 b9.setText("售價為1,000");
-            } else if (event.getSource() == e1) {
+            } else if (event.getSource() == e1&&E1!=false) {
                 e1.setText("售價為3,000");
-            } else if (event.getSource() == e2) {
+            } else if (event.getSource() == e2&&E2!=false) {
                 e2.setText("售價為3,000");
-            } else if (event.getSource() == e3) {
+            } else if (event.getSource() == e3&&E3!=false) {
                 e3.setText("售價為3,000");
-            } else if (event.getSource() == e4) {
+            } else if (event.getSource() == e4&&E4!=false) {
                 e4.setText("售價為3,000");
             }
         }
@@ -295,7 +302,7 @@ public class Store extends JPanel {
                 }
                 else
                     JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
-            } else if (event.getSource() == e1) {
+            } else if (event.getSource() == e1&&E1!=false) {
                 int opt = JOptionPane.showConfirmDialog(null, "起點向前移動100公尺\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 if(opt == 0){
                     if(house.getHoldMoney()-3000>=0){
@@ -304,13 +311,15 @@ public class Store extends JPanel {
                         else {
                             house.setHoldMoney(house.getHoldMoney()-3000);
                             house.setEquipment("竹蜻蜓");
+                            E1=false;
+                            e1.removeMouseListener(handler2);
                         }
                     }
                     else
                         JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
                 }
                 // 0=yes, 1=no
-            } else if (event.getSource() == e2) {
+            } else if (event.getSource() == e2&&E2!=false) {
                 int opt=  JOptionPane.showConfirmDialog(null, "可看到影子下的真實面貌\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 // 0=yes, 1=no
                 if(house.getHoldMoney()-3000>=0) {
@@ -320,12 +329,14 @@ public class Store extends JPanel {
                         else {
                             house.setHoldMoney(house.getHoldMoney()-3000);
                             house.setEquipment("透視眼鏡");
+                            E2=false;
+                            e2.removeMouseListener(handler2);
                         }
                     }
                 }
                 else
                     JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
-            } else if (event.getSource() == e3) {
+            } else if (event.getSource() == e3&&E3!=false) {
                 int opt= JOptionPane.showConfirmDialog(null, "可以一次前進兩格\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 // 0=yes, 1=no
                 if(house.getHoldMoney()-3000>=0) {
@@ -335,12 +346,14 @@ public class Store extends JPanel {
                         else {
                             house.setHoldMoney(house.getHoldMoney() - 3000);
                             house.setEquipment("彈簧鞋");
+                            E3=false;
+                            e3.removeMouseListener(handler2);
                         }
                     }
                 }
                 else
                     JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
-            } else if (event.getSource() == e4) {
+            } else if (event.getSource() == e4&&E4!=false) {
                 int opt= JOptionPane.showConfirmDialog(null, "系統自動翻出一對配對組合\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 // 0=yes, 1=no
                 if(house.getHoldMoney()-3000>=0) {
@@ -350,6 +363,8 @@ public class Store extends JPanel {
                         else {
                             house.setHoldMoney(house.getHoldMoney()-3000);
                             house.setEquipment("翅膀");
+                            E4=false;
+                            e4.removeMouseListener(handler2);
                         }
                     }
                 }
@@ -409,10 +424,22 @@ public class Store extends JPanel {
         try {
             if(IsBackGround) {
                 backGround = ImageIO.read(new File("data//Bag&Store/背包-裝備.png"));
-                iconE1 = new ImageIcon("data//Bag&Store/竹蜻蜓.png");
-                iconE2 = new ImageIcon("data//Bag&Store/透視眼鏡.png");
-                iconE3 = new ImageIcon("data//Bag&Store/彈簧鞋.png");
-                iconE4 = new ImageIcon("data//Bag&Store/翅膀.png");
+                if(E1==true)
+                    iconE1 = new ImageIcon("data//Bag&Store/竹蜻蜓.png");
+                else
+                    iconE1 = new ImageIcon("data//Bag&Store/竹蜻蜓out.png");
+                if(E2==true)
+                    iconE2 = new ImageIcon("data//Bag&Store/透視眼鏡.png");
+                else
+                    iconE2 = new ImageIcon("data//Bag&Store/透視眼鏡out.png");
+                if(E3==true)
+                    iconE3 = new ImageIcon("data//Bag&Store/彈簧鞋.png");
+                else
+                    iconE3 = new ImageIcon("data//Bag&Store/彈簧鞋out.png");
+                if(E4==true)
+                    iconE4 = new ImageIcon("data//Bag&Store/翅膀.png");
+                else
+                    iconE4 = new ImageIcon("data//Bag&Store/翅膀out.png");
                 e1.setIcon(iconE1);
                 e2.setIcon(iconE2);
                 e3.setIcon(iconE3);
