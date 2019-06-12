@@ -1,12 +1,9 @@
 package Card;
 
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 
+import javax.swing.SwingUtilities;
 import Card.RememberCard;
 
-//private Main mainframe;
-//private House house;
 public class CardGame {
 
     public static void main(String[] args) {
