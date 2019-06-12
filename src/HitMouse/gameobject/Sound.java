@@ -7,7 +7,7 @@ public class Sound {
     private static Clip kissSound;
     public static void HitSound(){
         try {
-            File soundFile = new File("data/music/hit.wav");
+            File soundFile = new File("data/HitMouse/music/hit.wav");
             AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
             hitSound = AudioSystem.getClip();
             hitSound.open(audioIn);
@@ -38,7 +38,7 @@ public class Sound {
     }
     public static void KissSound(){
         try {
-            File soundFile = new File("data/music/kiss.wav");
+            File soundFile = new File("data/HitMouse/music/kiss.wav");
             AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
             kissSound = AudioSystem.getClip();
             kissSound.open(audioIn);
