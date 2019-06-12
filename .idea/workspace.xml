@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3654a9fa-f7dd-4cde-a891-63b6d81e107a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Final_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Final_Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Project/Card/RememberCard$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/Card/RememberCard$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Project/Card/RememberCard$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/Card/RememberCard$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Project/Card/RememberCard$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/Card/RememberCard$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Project/Card/RememberCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/Card/RememberCard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Project/Dinosaur/gameObject/Clouds$ImageCloud.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/Dinosaur/gameObject/Clouds$ImageCloud.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Project/Dinosaur/gameObject/Clouds.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/Dinosaur/gameObject/Clouds.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Project/Dinosaur/gameObject/EnemiesManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/Dinosaur/gameObject/EnemiesManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Project/Frogger/main/FroggerPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/Frogger/main/FroggerPanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Project/Frogger/main/FroggerPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/Frogger/main/FroggerPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Project/House/house/House.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/House/house/House.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Project/House/store/Store$ButtonHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/House/store/Store$ButtonHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Project/House/store/Store.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Project/House/store/Store.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HitMouse/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HitMouse/Mouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/House/bag/BagLayerPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/House/bag/BagLayerPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/House/store/StoreLayerPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/House/store/StoreLayerPane.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,52 +18,32 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/HitMouse/MouseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="96" column="15" selection-start-line="96" selection-start-column="15" selection-end-line="96" selection-end-column="15" />
+            <state relative-caret-position="76">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/HitMouse/Mouse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="325" column="10" selection-start-line="325" selection-start-column="10" selection-end-line="325" selection-end-column="10" />
+            <state relative-caret-position="334">
+              <caret line="228" column="53" lean-forward="true" selection-start-line="206" selection-start-column="13" selection-end-line="228" selection-end-column="53" />
               <folding>
-                <element signature="e#12358#12359#0" expanded="true" />
-                <element signature="e#12425#12426#0" expanded="true" />
-                <element signature="e#12853#12854#0" expanded="true" />
-                <element signature="e#12898#12899#0" expanded="true" />
+                <element signature="e#14721#14722#0" expanded="true" />
+                <element signature="e#15194#15195#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/House/bag/BagWindow.java">
+        <entry file="file://$PROJECT_DIR$/src/Stock/main/StockWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4161">
-              <caret line="58" column="30" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Dinosaur/userinterface/DinoJLayer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="234" column="36" selection-start-line="234" selection-start-column="35" selection-end-line="234" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Frogger/main/FroggerPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="779">
-              <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+            <state relative-caret-position="167">
+              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -85,10 +52,23 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Dinosaur/userinterface/GameScreen.java">
+        <entry file="file://$PROJECT_DIR$/src/House/bag/BagLayerPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="112" selection-start-line="112" selection-end-line="112" />
+            <state relative-caret-position="323">
+              <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+              <folding>
+                <element signature="e#1562#1563#0" expanded="true" />
+                <element signature="e#1620#1621#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/House/store/StoreLayerPane.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -111,7 +91,12 @@
       <find>time2</find>
       <find>電</find>
       <find>startBtn</find>
+      <find>change</find>
       <find>equip</find>
+      <find>分數</find>
+      <find>肝</find>
+      <find>Syste</find>
+      <find>liver</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -130,13 +115,15 @@
         <option value="$PROJECT_DIR$/src/Stock/main/StockWindow.java" />
         <option value="$PROJECT_DIR$/src/Stock/main/StockPanel.java" />
         <option value="$PROJECT_DIR$/src/Main/mainPanel.java" />
-        <option value="$PROJECT_DIR$/src/Main/Main.java" />
         <option value="$PROJECT_DIR$/src/House/house/House.java" />
         <option value="$PROJECT_DIR$/src/Dinosaur/userinterface/DinoJLayer.java" />
         <option value="$PROJECT_DIR$/src/Dinosaur/userinterface/GameScreen.java" />
         <option value="$PROJECT_DIR$/src/Dinosaur/gameObject/Land.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/Main/Main.java" />
         <option value="$PROJECT_DIR$/src/HitMouse/Mouse.java" />
+        <option value="$PROJECT_DIR$/src/House/bag/BagLayerPane.java" />
+        <option value="$PROJECT_DIR$/src/House/store/StoreLayerPane.java" />
       </list>
     </option>
   </component>
@@ -160,26 +147,12 @@
             <path>
               <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Card" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Dinosaur" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Dinosaur" type="462c0819:PsiDirectoryNode" />
-              <item name="userinterface" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
@@ -198,14 +171,28 @@
               <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
+              <item name="House" type="462c0819:PsiDirectoryNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Stock" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Stock" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -270,7 +257,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13203754" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1347185" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -327,7 +314,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitattributes" />
     <entry file="file://$PROJECT_DIR$/src/Dinosaur/util/Resource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -421,13 +407,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HitMouse/gameobject/MyPanel.java" />
-    <entry file="file://$PROJECT_DIR$/src/HitMouse/MouseTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/gamebar/backhome.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -436,13 +415,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/mainPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5073">
-          <caret line="274" column="13" selection-start-line="274" selection-start-column="13" selection-end-line="274" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -498,34 +470,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/House/store/StoreLayerPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Frogger/main/FroggerPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Stock/main/StockWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-589">
-          <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -545,56 +493,113 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Card/PicPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        <state relative-caret-position="149">
+          <caret line="24" column="70" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/gamebar/expandmoney.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Card/RememberCard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
+        <state relative-caret-position="285">
           <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="96" column="15" selection-start-line="96" selection-start-column="15" selection-end-line="96" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dinosaur/userinterface/GameScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="112" selection-start-line="112" selection-end-line="112" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Dinosaur/userinterface/DinoJLayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
+        <state relative-caret-position="2778">
           <caret line="234" column="36" selection-start-line="234" selection-start-column="35" selection-end-line="234" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Dinosaur/userinterface/GameScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1668">
+          <caret line="112" selection-start-line="112" selection-end-line="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Frogger/main/FroggerPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="135" column="21" selection-start-line="135" selection-start-column="12" selection-end-line="135" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Stock/main/StockWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/House/bag/BagWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4161">
+        <state relative-caret-position="441">
           <caret line="58" column="30" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HitMouse/Mouse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="325" column="10" selection-start-line="325" selection-start-column="10" selection-end-line="325" selection-end-column="10" />
+        <state relative-caret-position="334">
+          <caret line="228" column="53" lean-forward="true" selection-start-line="206" selection-start-column="13" selection-end-line="228" selection-end-column="53" />
           <folding>
-            <element signature="e#12358#12359#0" expanded="true" />
-            <element signature="e#12425#12426#0" expanded="true" />
-            <element signature="e#12853#12854#0" expanded="true" />
-            <element signature="e#12898#12899#0" expanded="true" />
+            <element signature="e#14721#14722#0" expanded="true" />
+            <element signature="e#15194#15195#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/mainPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="123" column="44" lean-forward="true" selection-start-line="123" selection-start-column="44" selection-end-line="123" selection-end-column="44" />
+          <folding>
+            <element signature="e#9580#12259#0" expanded="true" />
+            <element signature="e#12258#12259#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HitMouse/MouseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/House/bag/BagLayerPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+          <folding>
+            <element signature="e#1562#1563#0" expanded="true" />
+            <element signature="e#1620#1621#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/House/store/StoreLayerPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
         </state>
       </provider>
     </entry>

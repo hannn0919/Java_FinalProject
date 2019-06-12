@@ -34,6 +34,7 @@ public class Mouse extends JLayeredPane{
     private ImageIcon heart;//愛心的圖片
     private ImageIcon staticsImg;//結算頁面底圖
     private ImageIcon checkImg;//OK按鈕
+    private ImageIcon liverImg;
 
 
    // private JButton btnStart;//開始按鈕
@@ -58,6 +59,7 @@ public class Mouse extends JLayeredPane{
     private JLabel disCountLabel;
     private JLabel expandMoneyLabel;
     private JLabel ruleLabel;
+    private JLabel liverLabel;
 
     private JLabel djs;
     private JLabel expFromMain;
@@ -97,6 +99,17 @@ public class Mouse extends JLayeredPane{
                 if (event.getItem() == moneycard) {
                     moneyDoubleUsed= true;
                     house.setItem("金錢加倍券", house.getItem("金錢加倍券")-1);
+                }
+
+            }
+            if (chkbox == ItemEvent.DESELECTED) {
+                if (event.getItem() == expcard) {
+                    expDoubleUsed = true;
+                    house.setItem("經驗加倍券", house.getItem("經驗加倍券")+1);
+                }
+                if (event.getItem() == moneycard) {
+                    moneyDoubleUsed= true;
+                    house.setItem("金錢加倍券", house.getItem("金錢加倍券")+1);
                 }
 
             }
@@ -159,7 +172,7 @@ public class Mouse extends JLayeredPane{
          backGroundLabel = new JLabel(imageBackGround);
          backGroundLabel.setBounds(SHIFT, 0, imageBackGround.getIconWidth(), imageBackGround.getIconHeight());
          add(backGroundLabel, JLayeredPane.DEFAULT_LAYER);
-         {
+
              int heightTotal=0;
              backToMainImage = new ImageIcon("data/gamebar/backhome.png");
              backToMainButton = new JButton(backToMainImage);
@@ -189,8 +202,31 @@ public class Mouse extends JLayeredPane{
              expandMoneyImage = new ImageIcon("data/gamebar/expandMoney.png");
              expandMoneyLabel = new JLabel(expandMoneyImage);
              expandMoneyLabel.setBounds(0, heightTotal, expandMoneyImage.getIconWidth(), expandMoneyImage.getIconHeight());
-
              add(expandMoneyLabel, JLayeredPane.DEFAULT_LAYER);
+
+             String character = "data/dinosaur/character/"+house.getLevel()+"/肝";
+             if(house.getEquipment("透視眼鏡")==1){
+                 character += "+眼鏡";
+             }
+
+             if(house.getEquipment("竹蜻蜓")==1){
+                 character += "+竹蜻蜓";
+             }
+
+             if(house.getEquipment("翅膀")==1){
+                 character += "+翅膀";
+             }
+
+             if(house.getEquipment("彈簧鞋")==1){
+                 character += "+彈簧鞋";
+
+             }
+             liverImg = new ImageIcon( character+".png");//偷個恐龍圖片
+             System.out.println(liverImg);
+             liverLabel = new JLabel(liverImg);
+             liverLabel.setBounds(30,heightTotal+100,liverImg.getIconWidth(),liverImg.getIconHeight());
+             System.out.println(liverImg.getIconWidth()+" "+liverImg.getIconHeight());
+             add(liverLabel,JLayeredPane.DRAG_LAYER);
 
              score =new Score();
              score2 = new Score();
@@ -210,7 +246,7 @@ public class Mouse extends JLayeredPane{
              moneyFromMain.setBounds(140,heightTotal+50,150,25);
              moneyFromMain.setText(Integer.toString(house.getHoldMoney()));
              add(moneyFromMain,JLayeredPane.MODAL_LAYER);
-         }
+
 
          {
              introduceImg = new ImageIcon("data/HitMouse/introduce.png");
@@ -309,14 +345,26 @@ public class Mouse extends JLayeredPane{
       //  btnStart.setBounds(736+SHIFT, 35, 125, 59);
        // add(btnStart,JLayeredPane.MODAL_LAYER);
 
-        btnItemOnlyTeacher = new JButton("Teacher");
-        btnItemOnlyTeacher.setBounds(200,580,100,30);
+        btnItemOnlyTeacher = new JButton();
+        btnItemOnlyTeacher.setBounds(180,heightTotal+130,100,50);
+        btnItemOnlyTeacher.setBorderPainted(false);
+        btnItemOnlyTeacher.setBorder(null);
+        btnItemOnlyTeacher.setFocusPainted(false);
+        btnItemOnlyTeacher.setContentAreaFilled(false);
+         //btnItemOnlyTeacher.setBounds(200,200,200,200);
+        btnItemOnlyTeacher.setIcon(new ImageIcon("data/HitMouse/老師卡按鈕.png"));
         add(btnItemOnlyTeacher,JLayeredPane.MODAL_LAYER);
         if(house.getItem("老師卡")<=0) btnItemOnlyTeacher.setEnabled(false);
         else btnItemOnlyTeacher.setEnabled(true);
 
-        btnItemScoreDouble = new JButton("分數加倍");
-        btnItemScoreDouble.setBounds(200,610,100,30);
+
+        btnItemScoreDouble = new JButton();
+        btnItemScoreDouble.setBounds(180,heightTotal+180,100,50);
+        btnItemScoreDouble.setIcon(new ImageIcon("data/HitMouse/分數加倍按鈕.png"));
+        btnItemScoreDouble.setBorderPainted(false);
+        btnItemScoreDouble.setBorder(null);
+        btnItemScoreDouble.setFocusPainted(false);
+        btnItemScoreDouble.setContentAreaFilled(false);
         add(btnItemScoreDouble,JLayeredPane.MODAL_LAYER);
         if(house.getItem("加倍卡")<=0) btnItemScoreDouble.setEnabled(false);
         else btnItemScoreDouble.setEnabled(true);
