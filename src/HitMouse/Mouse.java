@@ -222,10 +222,10 @@ public class Mouse extends JLayeredPane{
 
              }
              liverImg = new ImageIcon( character+".png");//偷個恐龍圖片
-             System.out.println(liverImg);
+            // System.out.println(liverImg);
              liverLabel = new JLabel(liverImg);
              liverLabel.setBounds(30,heightTotal+100,liverImg.getIconWidth(),liverImg.getIconHeight());
-             System.out.println(liverImg.getIconWidth()+" "+liverImg.getIconHeight());
+             //System.out.println(liverImg.getIconWidth()+" "+liverImg.getIconHeight());
              add(liverLabel,JLayeredPane.DRAG_LAYER);
 
              score =new Score();
