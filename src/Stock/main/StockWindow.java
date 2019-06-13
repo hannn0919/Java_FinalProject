@@ -538,6 +538,9 @@ public class StockWindow extends JPanel {
             e.printStackTrace();
         }
     }
+    public String toString(){
+        return "I am from Stock";
+    }
 //
 //    @Override
 //    public void paintComponent(Graphics g) {

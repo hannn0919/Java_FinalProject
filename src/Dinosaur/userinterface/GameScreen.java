@@ -17,7 +17,7 @@ import Dinosaur.gameObject.Land;
 import Dinosaur.gameObject.MainCharacter;
 import Dinosaur.util.Resource;
 import House.house.House;
-import Main.Main;
+import Main.*;
 
 public class GameScreen extends JPanel implements Runnable {
 
@@ -171,6 +171,12 @@ public class GameScreen extends JPanel implements Runnable {
     private class Keylisten extends KeyAdapter {
         @Override
         public void keyPressed(KeyEvent e) {
+            ////////////patchTest/////////
+            if (e.getKeyCode() == KeyEvent.VK_Q){
+                mainPanel mainScreen = new mainPanel(frame, house);
+                frame.setContentPane(mainScreen);
+            }
+            ////////////patchTestFinish/////////
             if (e.getKeyCode() == KeyEvent.VK_P)
                 frame.changeToMainScreen();
             if (!isKeyPressed) {
