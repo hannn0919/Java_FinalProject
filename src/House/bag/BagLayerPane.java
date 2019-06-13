@@ -96,4 +96,7 @@ public class BagLayerPane extends JLayeredPane {
         System.out.println(liverImg.getIconWidth()+" "+liverImg.getIconHeight());
         add(liverLabel,JLayeredPane.DRAG_LAYER);
     }
+    public String toString(){
+        return "I am in Bag";
+    }
 }

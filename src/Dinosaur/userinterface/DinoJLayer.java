@@ -347,5 +347,8 @@ public class DinoJLayer extends JLayeredPane {
             e.printStackTrace();
         }
     }
+    public String toString(){
+        return "I am in Dinosaur";
+    }
 
 }

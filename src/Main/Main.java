@@ -12,6 +12,8 @@ import Stock.main.StockWindow;
 import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
@@ -21,13 +23,28 @@ public class Main extends JFrame {
     private Clip dinosaurmusic, hamstermusic, froggermusic, cardmusic;  // 各遊戲畫面背景音樂
     private JPanel mainScreen;  // 主畫面panel
     private House house;    // 倉庫，所有數據資料
-
+    private Container lastLayeredPane;
+    int i;
+    private Timer patchTime = new Timer(1000, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println(lastLayeredPane+""+i);
+            i++;
+            System.out.println(Main.this.getContentPane());
+            if(Main.this.getContentPane()!=lastLayeredPane){
+                System.out.println("閃退");
+                Main.this.setContentPane(lastLayeredPane);
+            }
+            lastLayeredPane=Main.this.getContentPane();
+        }
+    });
     public Main(){
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1200, 675);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setTitle("大學肝什麼");
+
         house = new House();
         this.mainScreen = new mainPanel(this, this.house);
         // 所有遊戲畫面背景音樂初始化
@@ -64,6 +81,7 @@ public class Main extends JFrame {
 
     // 切換至主畫面
     public void changeToMainScreen() {
+        patchTime.stop();
         entermusic.stop();
         //mainmusic.loop(Clip.LOOP_CONTINUOUSLY);    // 將音樂切換至主畫面背景音樂，其他音樂暫停撥放
         dinosaurmusic.stop();
@@ -95,6 +113,8 @@ public class Main extends JFrame {
         this.setContentPane(frog);
         this.setVisible(true);
         frog.requestFocus();
+        lastLayeredPane=this.getContentPane();
+        patchTime.start();
     }
 
     // 切換至小恐龍
@@ -110,6 +130,8 @@ public class Main extends JFrame {
         this.setContentPane(dinosaur);
         this.setVisible(true);
         dinosaur.requestFocus();
+        lastLayeredPane=this.getContentPane();
+        patchTime.start();
     }
 
     //切換至打地鼠
@@ -125,6 +147,8 @@ public class Main extends JFrame {
         this.setContentPane(mouse);
         this.setVisible(true);
         mouse.requestFocus();
+        lastLayeredPane=this.getContentPane();
+        patchTime.start();
     }
 
 
@@ -141,6 +165,8 @@ public class Main extends JFrame {
         this.setContentPane(card);
         this.setVisible(true);
         card.requestFocus();
+        lastLayeredPane=this.getContentPane();
+        patchTime.start();
     }
 
     // 切換至股市系統
@@ -158,6 +184,8 @@ public class Main extends JFrame {
         this.setContentPane(stock);
         this.setVisible(true);
         stock.requestFocus();
+        lastLayeredPane=this.getContentPane();
+        patchTime.start();
     }
 
 
@@ -169,6 +197,8 @@ public class Main extends JFrame {
         this.setVisible(true);
         this.setBackground(Color.WHITE);
         store.requestFocus();
+        lastLayeredPane=this.getContentPane();
+        patchTime.start();
     }
 
     // 切換至背包
@@ -179,6 +209,8 @@ public class Main extends JFrame {
         this.setVisible(true);
         this.setBackground(Color.WHITE);
         bagLayerPane.requestFocus();
+        lastLayeredPane=this.getContentPane();
+        patchTime.start();
     }
 
     //切換至畢業畫面

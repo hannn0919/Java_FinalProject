@@ -701,6 +701,8 @@ public class Mouse extends JLayeredPane{
          });
 //        frame.setVisible(true);
     }
-
+    public String toString(){
+        return "I am in Mouse";
+    }
 
 }

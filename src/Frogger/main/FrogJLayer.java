@@ -373,5 +373,7 @@ public class FrogJLayer extends JLayeredPane {
         button.setFocusPainted(false);
         button.setBorder(null);
     }
-
+    public String toString(){
+        return "I am in Frog";
+    }
 }

@@ -109,4 +109,7 @@ public class StoreLayerPane extends JLayeredPane {
         add(liverLabel,JLayeredPane.DRAG_LAYER);
         time.start();
     }
+    public String toString(){
+        return "I am in Store";
+    }
 }
