@@ -279,7 +279,7 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
         /////左邊規則圖片/////////
 
         /////左邊經驗和金錢圖片/////////
-        expandMoneyImage = new ImageIcon("data/cards/icon/expandMoney.png");
+        expandMoneyImage = new ImageIcon("data/gamebar/expandMoney.png");
         expandMoneyLabel = new JLabel(expandMoneyImage);
         expandMoneyLabel.setBounds(0,backToMainImage.getIconHeight()+disCountImage.getIconHeight()+ruleImage.getIconHeight(),expandMoneyImage.getIconWidth(),expandMoneyImage.getIconHeight());
         add(expandMoneyLabel,JLayeredPane.DEFAULT_LAYER);
@@ -418,7 +418,7 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
             txt_Time.setText(time + "");
             time--;
 
-            if(time==-2){
+            if(time==-2||count==15){//不是0 是因為要加上翻牌的三秒  翻開全部
                 house.gameSettlementmistake(1, count);///回傳玩了一次和翻了幾對
 
                 endImage = new ImageIcon("data/cards/遊戲結算.png");
@@ -510,14 +510,12 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
     private void initPicPanels() {
         panel_Pic.setLayout(new GridLayout(ROWS, COLUMNS, 20, 20));//10是間隙
         panel_ans.setLayout(new GridLayout(ROWS, COLUMNS, 20, 20));//10是間隙
-        //panel_Pic.setBounds();
         panel_Pic.setBackground( Color.ORANGE);
         panel_ans.setBackground( Color.ORANGE);
         initPictureIndex();//初始化圖片的索引並賦值每個圖片的路徑
 
         for (int i = 0; i < ROWS * COLUMNS; i++) {
             panel_1 = new PicPanel(this, picture[i]);///小格的卡片
-            //panel_1.setSize(new Dimension(110, 160));
             panel_1.setBorder(null);
             panel_Pic.add(panel_1);///加入右邊遊戲面板
             repaint();
