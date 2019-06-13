@@ -24,18 +24,32 @@ public class Main extends JFrame {
     private JPanel mainScreen;  // 主畫面panel
     private House house;    // 倉庫，所有數據資料
     private Container lastLayeredPane;
+    //強制回到主畫面(模擬閃退)
+    public void brutalChangeToMainScreen(){
+        mainPanel mainScreen = new mainPanel(this, this.house);
+        this.setContentPane(mainScreen);
+    }
     int i;
+    //暫時性補丁
     private Timer patchTime = new Timer(1000, new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println(lastLayeredPane+""+i);
             i++;
             System.out.println(Main.this.getContentPane());
-            if(Main.this.getContentPane()!=lastLayeredPane){
+
+            //9秒後模擬閃退一次
+            if(i%10==9) {
+                brutalChangeToMainScreen();
+            }
+
+            else if(Main.this.getContentPane()!=lastLayeredPane){
                 System.out.println("閃退");
                 Main.this.setContentPane(lastLayeredPane);
+                Main.this.setVisible(true);
+                mainScreen.requestFocus();
             }
-            lastLayeredPane=Main.this.getContentPane();
+            if(i%10!=9) lastLayeredPane=Main.this.getContentPane();
         }
     });
     public Main(){
@@ -328,6 +342,8 @@ public class Main extends JFrame {
             e.printStackTrace();
         }
     }
+
+
 
     // 設定倉庫資料數據
     public void sethouse(House house) {

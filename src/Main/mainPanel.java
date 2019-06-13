@@ -380,7 +380,9 @@ public class mainPanel extends JPanel {
             }
         }
     }
-
+    public  String toString(){
+        return "I am in mainPanel";
+    }
 }
 
 

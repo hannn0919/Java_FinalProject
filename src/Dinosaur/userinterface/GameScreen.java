@@ -173,8 +173,7 @@ public class GameScreen extends JPanel implements Runnable {
         public void keyPressed(KeyEvent e) {
             ////////////patchTest/////////
             if (e.getKeyCode() == KeyEvent.VK_Q){
-                mainPanel mainScreen = new mainPanel(frame, house);
-                frame.setContentPane(mainScreen);
+                frame.brutalChangeToMainScreen();
             }
             ////////////patchTestFinish/////////
             if (e.getKeyCode() == KeyEvent.VK_P)
