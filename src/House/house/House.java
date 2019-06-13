@@ -36,7 +36,7 @@ public class House {
         this.holdMoney = 1000;
         this.level = 1;
         this.role = "鮮嫩小心肝";
-        this.exp = 0;
+        this.exp = 9850;
         this.stock = new float[4];
         this.stockTicket = new int[4];
         this.stockPrs = new float[4];
@@ -153,6 +153,71 @@ public class House {
             dinosaurTotalDied+=time;
             dinosaurTotalPlay++;
         }
+    }
+
+    public int getTotalMoney(int game){
+        if(game==1){
+            return cardTotalMoney;
+        }
+        else if(game==2){
+            return hamsterTotalMoney;
+        }
+        else if(game==3){
+            return froggerTotalMoney;
+        }
+        else if(game==4){
+            return dinosaurTotalMoney;
+        }
+        return 0;
+    }
+
+    public int getTotalExp(int game){
+        if(game==1){
+            return cardTotalExp;
+        }
+        else if (game==2){
+            return hamsterTotalExp;
+        }
+        else if(game==3){
+            return  froggerTotalExp;
+        }
+        else if(game==4){
+            return  dinosaurTotalExp;
+        }
+        return 0;
+    }
+
+    public int getTotalMistake(int game){
+        if(game==1){
+            return cardTotalPair;
+        }
+        else if(game==2){
+            return hamsterTotalMistake;
+        }
+        else if(game==3){
+            return  froggerTotalDied;
+        }
+        else if(game==4){
+            return  dinosaurTotalDied;
+        }
+        return  0;
+    }
+
+    public int getTotalPlay(int game){
+        if(game==1){
+            return cardTotalPlay;
+        }
+        else if(game==2){
+            return  hamsterTotalPlay;
+        }
+        else if(game==3){
+            return  froggerTotalPlay;
+        }
+        else if(game==4){
+            return  dinosaurTotalDied;
+
+        }
+        return 0;
     }
 
     //get the holding money

@@ -75,7 +75,6 @@ public class Store extends JPanel {
         setButtonE(e3);
         setButtonE(e4);
 
-       // if(E1==false) e1.setEnabled(false);
         b1.addMouseListener(handler2);
         b2.addMouseListener(handler2);
         b3.addMouseListener(handler2);

@@ -1,12 +1,8 @@
 package House.store;
 
-
 import javax.swing.*;
-
-import House.bag.BagWindow;
 import Main.*;
 import House.house.House;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,7 +16,6 @@ public class StoreLayerPane extends JLayeredPane {
     private ImageIcon ruleImage;//簡單規則介紹的底圖
     private ImageIcon gameBarImage;
     private JButton backToMainButton;
-    //  private JLabel disCountLabel;
     private JLabel expandMoneyLabel;
     private JLabel gameBarLabel;
     private JLabel expFromMain;
@@ -55,11 +50,7 @@ public class StoreLayerPane extends JLayeredPane {
             }
         });
         heightTotal+=backToMainImage.getIconHeight();
-
-
         ruleImage = new ImageIcon("data/Bag&Store/rule.png");
-
-        //add(ruleLabel, JLayeredPane.DEFAULT_LAYER);
         heightTotal+=ruleImage.getIconHeight();
 
         expandMoneyImage = new ImageIcon("data/gamebar/expandMoney.png");
@@ -99,8 +90,8 @@ public class StoreLayerPane extends JLayeredPane {
 
         if(house.getEquipment("彈簧鞋")==1){
             character += "+彈簧鞋";
-
         }
+
         liverImg = new ImageIcon( character+".png");//偷個恐龍圖片
         System.out.println(liverImg);
         liverLabel = new JLabel(liverImg);

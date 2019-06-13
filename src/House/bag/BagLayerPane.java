@@ -3,7 +3,6 @@ package House.bag;
 import javax.swing.*;
 import Main.*;
 import House.house.House;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +15,6 @@ public class BagLayerPane extends JLayeredPane {
     private ImageIcon ruleImage;//簡單規則介紹的底圖
     private ImageIcon liverImg;
     private JButton backToMainButton;
-  //  private JLabel disCountLabel;
     private JLabel expandMoneyLabel;
     private JLabel ruleLabel;
     private JLabel expFromMain;
@@ -45,10 +43,6 @@ public class BagLayerPane extends JLayeredPane {
             }
         });
         heightTotal+=backToMainImage.getIconHeight();
-
-
-
-
         ruleImage = new ImageIcon("data/Bag&Store/rule.png");
         ruleLabel = new JLabel(ruleImage);
         ruleLabel.setBounds(0, heightTotal, ruleImage.getIconWidth(), ruleImage.getIconHeight());
@@ -87,8 +81,8 @@ public class BagLayerPane extends JLayeredPane {
 
         if(house.getEquipment("彈簧鞋")==1){
             character += "+彈簧鞋";
-
         }
+
         liverImg = new ImageIcon( character+".png");//偷個恐龍圖片
         System.out.println(liverImg);
         liverLabel = new JLabel(liverImg);
