@@ -17,36 +17,17 @@ public class FrogJLayer extends JLayeredPane {
     private House house;
     private FroggerPanel froggerPanel;
 
-    private ImageIcon backToMainImage;
-    private ImageIcon disCountImage;
-    private ImageIcon expandMoneyImage;
-    private ImageIcon ruleImage;
-    private ImageIcon testCharacterImage;
-
-    private ImageIcon startImg;
-    private ImageIcon staticsImg;
-    private ImageIcon checkImg;
-    private ImageIcon introduceImg;
-    private JButton checkBtn;
-    private JButton startBtn;
+    private ImageIcon backToMainImage, disCountImage, expandMoneyImage, ruleImage;
+    private ImageIcon startImg,staticsImg, checkImg, introduceImg;
+    private JButton checkBtn,startBtn;
     private JLabel introduce;
     private ImageIcon liverImg;
     private JLabel liverLabel;
-
-
     private JButton backToMainButton;
-    private JLabel disCountLabel;
-    private JLabel expandMoneyLabel;
-    private JLabel ruleLabel;
-    private JLabel testCharacterLabel;
-    private JLabel expFromMain;
-    private JLabel moneyFromMain;
-
-    private JLabel statics;
-    private JLabel static_pxp, static_money;
-
+    private JLabel disCountLabel,expandMoneyLabel,ruleLabel;
+    private JLabel expFromMain,moneyFromMain;
+    private JLabel static_pxp, static_money,statics;
     private JCheckBox expCard, moneyCard, policeCard, underKey;
-
     private Timer timer;
     private int time;
     private JLabel timeLabel;
@@ -57,7 +38,6 @@ public class FrogJLayer extends JLayeredPane {
 
         Handler handle = new Handler();
         UseItem useItem = new UseItem();
-
 
         expCard = new JCheckBox("經驗加倍卡");
         Itemset(expCard);
@@ -74,8 +54,6 @@ public class FrogJLayer extends JLayeredPane {
         underKey = new JCheckBox("地下道鑰匙");
         Itemset(underKey);
         if(house.getItem("地下道鑰匙")<=0) underKey.setEnabled(false);
-
-
 
         startImg = new ImageIcon("data/dinosaur/開始遊戲按鈕.png");
         startBtn = new JButton(startImg);
@@ -129,13 +107,11 @@ public class FrogJLayer extends JLayeredPane {
         add(statics, JLayeredPane.DEFAULT_LAYER);
         statics.setVisible(false);
 
-
         MouseHandler mouseHandler = new MouseHandler();
         cleanButtom(checkBtn);
         cleanButtom(startBtn);
         checkBtn.addMouseListener(mouseHandler);
         startBtn.addMouseListener(mouseHandler);
-
 
         froggerPanel = new FroggerPanel(frame,house);
         froggerPanel.setBounds(300,0,1200,675);
@@ -144,7 +120,6 @@ public class FrogJLayer extends JLayeredPane {
         timeLabel = new JLabel(String.valueOf(time/100));
         timeLabel.setFont(new Font("微軟正黑體", Font.BOLD, 32));
         //計時60秒
-
 
         backToMainImage = new ImageIcon("data/gamebar/backhome.png");
         backToMainButton = new JButton(backToMainImage);
@@ -171,24 +146,21 @@ public class FrogJLayer extends JLayeredPane {
         if(house.getEquipment("透視眼鏡")==1){
             character += "+眼鏡";
         }
-
         if(house.getEquipment("竹蜻蜓")==1){
             character += "+竹蜻蜓";
         }
-
         if(house.getEquipment("翅膀")==1){
             character += "+翅膀";
         }
-
         if(house.getEquipment("彈簧鞋")==1){
             character += "+彈簧鞋";
 
         }
-        liverImg = new ImageIcon( character+".png");//偷個恐龍圖片
+        ImageIcon temp =  new ImageIcon( character+".png");
+        liverImg = resize(temp.getIconWidth()+50, temp.getIconHeight()+40, (ImageIcon) temp);
         liverLabel = new JLabel(liverImg);
         liverLabel.setBounds(30,backToMainImage.getIconHeight()+disCountImage.getIconHeight()+ruleImage.getIconHeight()+100,liverImg.getIconWidth(),liverImg.getIconHeight());
         add(liverLabel,JLayeredPane.DRAG_LAYER);
-
 
         expandMoneyImage = new ImageIcon("data/gamebar/expandmoney.png");
         expandMoneyLabel = new JLabel(expandMoneyImage);
@@ -230,8 +202,8 @@ public class FrogJLayer extends JLayeredPane {
                         gainExp = 200;
                         gainMoney = 1000;
                     }
-                    if(froggerPanel.expCard == true) gainExp *= 2;
-                    if(froggerPanel.moneyCard == true) gainMoney *= 2;
+                    if(froggerPanel.expCard) gainExp *= 2;
+                    if(froggerPanel.moneyCard) gainMoney *= 2;
                     gainMoney -= 300 * froggerPanel.hitByPolice;
                     house.gameSettlementSomething( 3,gainMoney,gainExp);
                     house.gameSettlementmistake(3, froggerPanel.died);
@@ -271,9 +243,12 @@ public class FrogJLayer extends JLayeredPane {
                 startBtn.setIcon(resize(startBtn.getIcon().getIconWidth()+10,startBtn.getIcon().getIconHeight()+10,(ImageIcon)startBtn.getIcon()));
                 setCursor(new Cursor(Cursor.HAND_CURSOR));
             }else if(e.getSource()==backToMainButton){
-                buttonSound();
-                backToMainButton.setIcon(resize(backToMainButton.getIcon().getIconWidth()+10,backToMainButton.getIcon().getIconHeight()+10,(ImageIcon)backToMainButton.getIcon()));
-                setCursor(new Cursor(Cursor.HAND_CURSOR));
+                if(backToMainButton.isEnabled()){
+                    buttonSound();
+                    backToMainButton.setIcon(resize(backToMainButton.getIcon().getIconWidth()+10,backToMainButton.getIcon().getIconHeight()+10,(ImageIcon)backToMainButton.getIcon()));
+                    setCursor(new Cursor(Cursor.HAND_CURSOR));
+                }
+
             }
         }
         @Override
@@ -397,8 +372,5 @@ public class FrogJLayer extends JLayeredPane {
         button.setContentAreaFilled(false);
         button.setFocusPainted(false);
         button.setBorder(null);
-    }
-    public String toString(){
-        return "I am in Frog";
     }
 }

@@ -6,7 +6,6 @@ import Main.Main;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.LineAndShapeRenderer;
@@ -44,9 +43,9 @@ public class StockWindow extends JPanel {
     private Font f = new Font("微軟正黑體", Font.BOLD, 20);
     private JLabel StockPic;
     private int select = 0;
-    private ImageIcon backToMainImage, expandMoneyImage, ruleImage;
+    private ImageIcon backToMainImage, expandMoneyImage, ruleImage, liverIcon;
     private JButton backToMainButton;
-    private JLabel expandMoneyLabel, ruleLabel;
+    private JLabel expandMoneyLabel, ruleLabel, liverLabel;
     private JLabel expFromMain, moneyFromMain;
 
 
@@ -164,7 +163,7 @@ public class StockWindow extends JPanel {
         saleMoneyField.setBounds(850, 530, 200, 40);
         saleMoneyField.setEditable(false);
 
-        pronoucingLabel = new JLabel("test");
+        pronoucingLabel = new JLabel("");
         pronoucingLabel.setBounds(680, 600, 500, 30);
         pronoucingLabel.setFont(f);
 
@@ -201,6 +200,22 @@ public class StockWindow extends JPanel {
         ruleLabel.setBounds(0, backToMainImage.getIconHeight(), ruleImage.getIconWidth(), ruleImage.getIconHeight());
         add(ruleLabel);
 
+        String character = "data/dinosaur/character/"+house.getLevel()+"/肝";
+        if(house.getEquipment("透視眼鏡")==1) character += "+眼鏡";
+
+        if(house.getEquipment("竹蜻蜓")==1) character += "+竹蜻蜓";
+
+        if(house.getEquipment("翅膀")==1) character += "+翅膀";
+
+        if(house.getEquipment("彈簧鞋")==1) character += "+彈簧鞋";
+
+        character += ".png";
+        // 左側欄位下方主角顯示Label設置
+        ImageIcon temp = new ImageIcon(character);
+        ImageIcon liverImg = resize(temp.getIconWidth()+50, temp.getIconHeight()+40, temp);
+        liverLabel = new JLabel(liverImg);
+        liverLabel.setBounds(50,backToMainImage.getIconHeight()+ruleImage.getIconHeight()+80,liverImg.getIconWidth(),liverImg.getIconHeight());
+        add(liverLabel);
 
         int heightTotal = 0;
         heightTotal += backToMainImage.getIconHeight();
@@ -308,11 +323,11 @@ public class StockWindow extends JPanel {
                     makePNG(i);
                 }
             }
-            resetall();
+            reSetAll();
         }
     }
 
-    public void resetall() {
+    public void reSetAll() {
         ticketNumField.setText(String.valueOf(house.getStockTicket()[select]));
         Price.setText(String.format("%.2f", house.getStock()[select]));
         percent.setText(String.format("%.2f", house.getStockPrs()[select]));
@@ -337,14 +352,10 @@ public class StockWindow extends JPanel {
     }
 
     public static void nextStock(House h) {
-
         for (int i = 0; i < 4; i++) {
-            //h.setStockLast(i, h.getStock()[i]);
             h.setStockPrs(i, getNextPercent());
             h.setStock(i, h.getStock()[i] * (1F + h.getStockPrs()[i]));
         }
-
-
     }
 
     public static float getNextPercent() {
@@ -410,9 +421,6 @@ public class StockWindow extends JPanel {
         renderer.setBaseShapesVisible(true); // series 点（即数据点）可见
         renderer.setBaseLinesVisible(true); // series 点（即数据点）间有连线可见
         renderer.setSeriesStroke(0, new BasicStroke(5F));
-//        renderer.setUseSeriesOffset(); // 设置偏移量
-        //renderer.setBaseItemLabelGenerator(new StandardCategoryItemLabelGenerator());
-        //renderer.setBaseItemLabelsVisible(true);
         return jfreechart;
     }
 
@@ -440,15 +448,10 @@ public class StockWindow extends JPanel {
         public void mousePressed(MouseEvent e) {
             setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         }
-
         @Override
-        public void mouseReleased(MouseEvent e) {
-        }
-
+        public void mouseReleased(MouseEvent e) {}
         @Override
-        public void mouseClicked(MouseEvent e) {
-        }
-
+        public void mouseClicked(MouseEvent e) {}
         @Override
         public void mouseEntered(MouseEvent e) {
             if (e.getSource() == BuyButton) {
@@ -506,7 +509,6 @@ public class StockWindow extends JPanel {
                 Stock4.setIcon(new ImageIcon("data/Stock/image/" + STOCK[3] + ".png"));
                 setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
-
         }
     }
 
@@ -533,16 +535,4 @@ public class StockWindow extends JPanel {
             e.printStackTrace();
         }
     }
-//
-//    @Override
-//    public void paintComponent(Graphics g) {
-//        super.paintComponent(g); // clears drawing area
-//        try{
-//            Image Pic = ImageIO.read(new File("data/Stock/Stock" + select + ".png"));
-//            g.drawImage(Pic,560, 20 , null);
-//        }
-//        catch (Exception ex) {
-//            System.out.println("No example.jpg!!");
-//        }
-//    }
 }

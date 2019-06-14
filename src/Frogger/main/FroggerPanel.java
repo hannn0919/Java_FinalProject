@@ -1,6 +1,6 @@
 package Frogger.main;
 import java.awt.Graphics;
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;
 import java.util.ArrayList;
@@ -22,7 +22,6 @@ public class FroggerPanel extends JPanel
 {
     private Timer timer;
     public int time = 6000;
-    private Image frogImage;
     private ArrayList<Car> cars;
     private Frog frog;
     private Car[] CarsRoadOne = new Car[5];
@@ -118,8 +117,6 @@ public class FroggerPanel extends JPanel
     private void Init()
     {
         String character = "data/role/"+"LV"+house.getLevel()+"/肝";
-
-
         if(house.getEquipment("透視眼鏡")==1){
             character += "+眼鏡";
         }
@@ -244,19 +241,19 @@ public class FroggerPanel extends JPanel
         super.paintComponent(g); // clears drawing area
 
         try {
-            Image backGroundImage = ImageIO.read(new File("data/Frogger/image/froggerBackGround2.png"));
+            Image k = ImageIO.read(new File("data/Frogger/image/froggerBackGround2.png"));
+            Image backGroundImage = k.getScaledInstance(917, 675, Image.SCALE_SMOOTH);
             g.drawImage(backGroundImage, 0, 0, null);
             Image t= ImageIO.read(new File(frog.getImageName()));
             Image frogImage = t.getScaledInstance(frog.getW(), frog.getW(), Image.SCALE_SMOOTH);
-
             g.drawImage(frogImage, frog.getX(), frog.getY(), null);
             for (Car c : cars) {
                 Image tempImage = ImageIO.read(new File("data/Frogger/image/" + c.getImageName()));
                 g.drawImage(tempImage, c.getX() - 5, c.getY() - 5, null);
             }
-            if(policeShow == 1){
+            if(policeShow == 1) {
                 Image tempImage = ImageIO.read(new File("data/Frogger/image/" + police.getImageName()));
-                g.drawImage(tempImage, police.getX()-5, police.getY()-5, null);
+                g.drawImage(tempImage, police.getX() - 5, police.getY() - 5, null);
             }
         }
         catch (Exception ex) {
@@ -269,5 +266,4 @@ public class FroggerPanel extends JPanel
         stepY = k * oneStep;
         stepX = oneStep / 2;
     }
-
 } // end class PaintPanel
