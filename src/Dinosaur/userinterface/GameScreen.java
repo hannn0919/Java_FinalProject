@@ -171,10 +171,6 @@ public class GameScreen extends JPanel implements Runnable {
     private class Keylisten extends KeyAdapter {
         @Override
         public void keyPressed(KeyEvent e) {
-            ////////////patchTest/////////
-            if (e.getKeyCode() == KeyEvent.VK_Q){
-                frame.brutalChangeToMainScreen();
-            }
             ////////////patchTestFinish/////////
             if (e.getKeyCode() == KeyEvent.VK_P)
                 frame.changeToMainScreen();

@@ -21,14 +21,12 @@ import java.io.IOException;
 public class Main extends JFrame {
     private Clip entermusic, mainmusic; // 各遊戲畫面背景音樂
     private Clip dinosaurmusic, hamstermusic, froggermusic, cardmusic;  // 各遊戲畫面背景音樂
-    private JPanel mainScreen;  // 主畫面panel
+    private mainPanel mainScreen;  // 主畫面panel
     private House house;    // 倉庫，所有數據資料
     private Container lastLayeredPane;
+
     //強制回到主畫面(模擬閃退)
-    public void brutalChangeToMainScreen(){
-        mainPanel mainScreen = new mainPanel(this, this.house);
-        this.setContentPane(mainScreen);
-    }
+
     int i;
     //暫時性補丁
     private Timer patchTime = new Timer(1000, new ActionListener() {
@@ -36,20 +34,13 @@ public class Main extends JFrame {
         public void actionPerformed(ActionEvent e) {
             System.out.println(lastLayeredPane+""+i);
             i++;
-            System.out.println(Main.this.getContentPane());
-
-            //9秒後模擬閃退一次
-            if(i%10==9) {
-                brutalChangeToMainScreen();
-            }
-
-            else if(Main.this.getContentPane()!=lastLayeredPane){
+            if(Main.this.getContentPane()!=lastLayeredPane){
                 System.out.println("閃退");
+                System.out.println(lastLayeredPane);
                 Main.this.setContentPane(lastLayeredPane);
                 Main.this.setVisible(true);
-                mainScreen.requestFocus();
+                lastLayeredPane.requestFocusInWindow();
             }
-            if(i%10!=9) lastLayeredPane=Main.this.getContentPane();
         }
     });
     public Main(){
@@ -107,7 +98,7 @@ public class Main extends JFrame {
         }
         else{
             System.out.println("Change to Main from "+this.getContentPane());
-            mainPanel mainScreen = new mainPanel(this, this.house);
+            mainScreen = new mainPanel(this, this.house);
             this.setTitle("大學肝什麼");
             this.setContentPane(mainScreen);
             this.setVisible(true);
@@ -127,8 +118,8 @@ public class Main extends JFrame {
         this.setTitle("馬路如虎口，抓到罰三百");
         this.setContentPane(frog);
         this.setVisible(true);
-        frog.requestFocus();
-        lastLayeredPane=this.getContentPane();
+        lastLayeredPane = frog;
+        //lastLayeredPane.requestFocus();
         patchTime.start();
     }
 

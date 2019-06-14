@@ -44,6 +44,7 @@ public class drama extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e) {
                 //點選後進入登入畫面
+                timer.cancel();
                 mainFrame.changeToMainScreen();
             }
         });

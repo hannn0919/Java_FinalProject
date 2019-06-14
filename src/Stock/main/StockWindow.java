@@ -49,7 +49,7 @@ public class StockWindow extends JPanel {
     private JLabel expandMoneyLabel, ruleLabel;
     private JLabel expFromMain, moneyFromMain;
 
-    private Timer timer;
+
 
     public static final String STOCK[] = {
             "微積分", "普通物理", "線性代數", "程式設計"
@@ -222,13 +222,6 @@ public class StockWindow extends JPanel {
         expandMoneyLabel = new JLabel(expandMoneyImage);
         expandMoneyLabel.setBounds(0, backToMainImage.getIconHeight() + ruleImage.getIconHeight(), expandMoneyImage.getIconWidth(), expandMoneyImage.getIconHeight());
         add(expandMoneyLabel);
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                moneyFromMain.setText(Integer.toString(house.getHoldMoney()));
-            }
-        }, 0, 10);
     }
 
     private class Handler implements ActionListener {
@@ -248,6 +241,7 @@ public class StockWindow extends JPanel {
                         house.setStockTicket(select, house.getStockTicket()[select]
                                 - Integer.parseInt(saleticketField.getText()));
                         house.setHoldMoney(house.getHoldMoney() + dollar);
+                        moneyFromMain.setText(Integer.toString(house.getHoldMoney()));
                         pronoucingLabel.setText("謝謝惠顧");
                     }
                 } catch (NumberFormatException e) {
@@ -266,6 +260,7 @@ public class StockWindow extends JPanel {
                         house.setStockTicket(select, house.getStockTicket()[select]
                                 + Integer.parseInt(buyticketField.getText()));
                         house.setHoldMoney(house.getHoldMoney() - dollar);
+                        moneyFromMain.setText(Integer.toString(house.getHoldMoney()));
                         pronoucingLabel.setText("謝謝惠顧");
                     }
                 } catch (NumberFormatException e) {
