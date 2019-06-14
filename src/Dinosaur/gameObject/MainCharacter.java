@@ -31,7 +31,7 @@ public class MainCharacter {
     private float speedY;
     private Rectangle rectBound;
 
-    public double score = 0;
+    private double score = 0;
 
     private int state = NORMAL_RUN;
 
@@ -195,5 +195,9 @@ public class MainCharacter {
         if(score % 100 == 0) {
             scoreUpSound.play();
         }
+    }
+
+    public double getScore(){
+        return score;
     }
 }

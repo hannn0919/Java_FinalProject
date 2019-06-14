@@ -13,14 +13,12 @@ public class mainPanel extends JPanel {
 
     private Main mainFrame;
     private House house;
-    private JLabel name, LV, exp, money;
     private JLabel mouseToolTip;
     private Polygon card;
     private Polygon hamster;
     private Polygon frogger;
     private Polygon dinosaur;
     private JButton shopBtn, bagBtn, stockBtn;     //股市商店背包button
-    private ImageIcon namePic, LVPic, expPic, moneyPic;
     private boolean cardIn= false;
     private boolean hamsterIn= false;
     private boolean froggerIn= false;
@@ -40,7 +38,7 @@ public class mainPanel extends JPanel {
 
         //肝
         JLabel liver = new JLabel();
-        liver.setBounds(35, 350, 300, 300);
+        liver.setBounds(35, 380, 300, 300);
             //眼鏡+竹蜻蜓+翅膀+彈簧鞋
             if(house.getEquipment("透視眼鏡")==1&&house.getEquipment("竹蜻蜓")==1&&house.getEquipment("翅膀")==1&&house.getEquipment("彈簧鞋")==1)
                 liver.setIcon(new ImageIcon("data/role/LV" + house.getLevel() +"/肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png"));

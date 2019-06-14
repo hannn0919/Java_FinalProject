@@ -24,41 +24,45 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/Dinosaur/userinterface/DinoJLayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="29" column="10" lean-forward="true" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+            <state relative-caret-position="187">
+              <caret line="127" column="27" selection-start-line="127" selection-start-column="27" selection-end-line="127" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main/drama.java">
+        <entry file="file://$PROJECT_DIR$/src/Dinosaur/userinterface/GameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6">
-              <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/HitMouse/MouseTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="-3308">
+              <caret line="52" column="27" lean-forward="true" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#7029#7030#0" expanded="true" />
+                <element signature="e#7066#7067#0" expanded="true" />
+                <element signature="e#7093#7094#0" expanded="true" />
+                <element signature="e#7119#7120#0" expanded="true" />
+                <element signature="e#7157#7158#0" expanded="true" />
+                <element signature="e#7186#7187#0" expanded="true" />
+                <element signature="e#7231#7232#0" expanded="true" />
+                <element signature="e#7255#7256#0" expanded="true" />
+                <element signature="e#7227#7228#0" expanded="true" />
+                <element signature="e#7258#7259#0" expanded="true" />
+                <element signature="e#7374#7375#0" expanded="true" />
+                <element signature="e#7401#7402#0" expanded="true" />
+                <element signature="e#7434#7435#0" expanded="true" />
+                <element signature="e#7460#7461#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/HitMouse/Mouse.java">
+        <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="529" column="52" selection-start-line="529" selection-start-column="52" selection-end-line="529" selection-end-column="52" />
-              <folding>
-                <element signature="e#27854#27855#0" expanded="true" />
-                <element signature="e#27892#27893#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="397">
+              <caret line="304" lean-forward="true" selection-start-line="304" selection-end-line="304" />
             </state>
           </provider>
         </entry>
@@ -66,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main/mainPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="618">
-              <caret line="378" column="40" selection-start-line="378" selection-start-column="40" selection-end-line="378" selection-end-column="40" />
+            <state relative-caret-position="-1482">
+              <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
               <folding>
                 <element signature="e#16222#16223#0" expanded="true" />
                 <element signature="e#16264#16265#0" expanded="true" />
@@ -77,48 +81,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Stock/main/StockWindow.java">
+        <entry file="file://$PROJECT_DIR$/src/Dinosaur/gameObject/Land.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="534" column="5" selection-start-line="534" selection-start-column="5" selection-end-line="534" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="1501">
+              <caret line="86" selection-start-line="86" selection-end-line="86" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Dinosaur/userinterface/GameScreen.java">
+        <entry file="file://$PROJECT_DIR$/src/Dinosaur/gameObject/MainCharacter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2983">
-              <caret line="174" column="48" selection-start-line="174" selection-start-column="48" selection-end-line="174" selection-end-column="48" />
+            <state relative-caret-position="359">
+              <caret line="200" column="21" selection-start-line="200" selection-start-column="21" selection-end-line="200" selection-end-column="21" />
               <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Stock/main/MainStock.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Card/RememberCard.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11552">
-              <caret line="637" column="28" selection-start-line="637" selection-start-column="28" selection-end-line="637" selection-end-column="28" />
-              <folding>
-                <element signature="e#9590#9591#0" expanded="true" />
-                <element signature="e#9654#9655#0" expanded="true" />
-                <element signature="e#16737#16738#0" expanded="true" />
-                <element signature="e#16815#16816#0" expanded="true" />
+                <element signature="e#5598#5599#0" expanded="true" />
+                <element signature="e#5626#5627#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -129,6 +107,33 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="76">
               <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main/GameSettlement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main/EnterScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="627">
+              <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main/drama.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -196,9 +201,9 @@
         <option value="$PROJECT_DIR$/src/Card/RememberCard.java" />
         <option value="$PROJECT_DIR$/src/Stock/main/StockWindow.java" />
         <option value="$PROJECT_DIR$/src/Dinosaur/userinterface/GameScreen.java" />
+        <option value="$PROJECT_DIR$/src/HitMouse/Mouse.java" />
         <option value="$PROJECT_DIR$/src/Main/mainPanel.java" />
         <option value="$PROJECT_DIR$/src/Main/Main.java" />
-        <option value="$PROJECT_DIR$/src/HitMouse/Mouse.java" />
       </list>
     </option>
   </component>
@@ -211,13 +216,15 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1200" />
     <option name="width" value="720" />
-    <option name="height" value="1049" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -239,13 +246,14 @@
               <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Card" type="462c0819:PsiDirectoryNode" />
+              <item name="Dinosaur" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Dinosaur" type="462c0819:PsiDirectoryNode" />
+              <item name="gameObject" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
@@ -253,12 +261,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Dinosaur" type="462c0819:PsiDirectoryNode" />
               <item name="userinterface" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="HitMouse" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
@@ -283,8 +285,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -293,7 +293,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559900731301" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560528636876" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/jar/jfreechart-1.0.19.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -334,7 +334,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Final_Project.jar" type="JarApplication" temporary="true">
+    <configuration name="Final_Project.jar" type="JarApplication" factoryName="JAR Application" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/Final_Project_jar/Final_Project.jar" />
       <method v="2" />
     </configuration>
@@ -359,10 +359,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1575067" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15298508" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -371,7 +371,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4978678" visible="true" weight="0.3711048" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4978678" visible="true" weight="0.37093276" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -419,10 +419,9 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Dinosaur/userinterface/GameWindow.java" />
     <entry file="file://$PROJECT_DIR$/src/Dinosaur/gameObject/Enemy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
+        <state relative-caret-position="76">
           <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
         </state>
       </provider>
@@ -430,7 +429,7 @@
     <entry file="file://$PROJECT_DIR$/src/Dinosaur/gameObject/Cactus.java" />
     <entry file="file://$PROJECT_DIR$/src/Dinosaur/gameObject/Clouds.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="76">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -454,7 +453,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Dinosaur/gameObject/Bug.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
+        <state relative-caret-position="19">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
@@ -467,7 +466,7 @@
     <entry file="file://$PROJECT_DIR$/src/Dinosaur/userinterface/LabelDemo.java" />
     <entry file="file://$PROJECT_DIR$/src/Dinosaur/gameObject/Water.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="114">
           <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
         </state>
       </provider>
@@ -475,8 +474,11 @@
     <entry file="file://$PROJECT_DIR$/src/House/house/HouseTest.java" />
     <entry file="file://$PROJECT_DIR$/src/Dinosaur/gameObject/EnemiesManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+        <state relative-caret-position="-38">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -509,16 +511,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/EnterScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Dinosaur/gameObject/Land.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1425">
+        <state relative-caret-position="1501">
           <caret line="86" selection-start-line="86" selection-end-line="86" />
         </state>
       </provider>
@@ -565,10 +560,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Dinosaur/gameObject/MainCharacter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1634">
-          <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
+        <state relative-caret-position="359">
+          <caret line="200" column="21" selection-start-line="200" selection-start-column="21" selection-end-line="200" selection-end-column="21" />
           <folding>
-            <element signature="e#3026#3027#0" expanded="true" />
+            <element signature="e#5598#5599#0" expanded="true" />
+            <element signature="e#5626#5627#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -605,13 +601,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dinosaur/userinterface/DinoJLayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6441">
-          <caret line="354" selection-start-line="354" selection-end-line="354" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/House/store/StoreLayerPane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1843">
@@ -638,10 +627,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Dinosaur/userinterface/GameScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2983">
-          <caret line="174" column="48" selection-start-line="174" selection-start-column="48" selection-end-line="174" selection-end-column="48" />
+        <state relative-caret-position="-3308">
+          <caret line="52" column="27" lean-forward="true" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#7029#7030#0" expanded="true" />
+            <element signature="e#7066#7067#0" expanded="true" />
+            <element signature="e#7093#7094#0" expanded="true" />
+            <element signature="e#7119#7120#0" expanded="true" />
+            <element signature="e#7157#7158#0" expanded="true" />
+            <element signature="e#7186#7187#0" expanded="true" />
+            <element signature="e#7231#7232#0" expanded="true" />
+            <element signature="e#7255#7256#0" expanded="true" />
+            <element signature="e#7227#7228#0" expanded="true" />
+            <element signature="e#7258#7259#0" expanded="true" />
+            <element signature="e#7374#7375#0" expanded="true" />
+            <element signature="e#7401#7402#0" expanded="true" />
+            <element signature="e#7434#7435#0" expanded="true" />
+            <element signature="e#7460#7461#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -666,38 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/graduation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/mainPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="378" column="40" selection-start-line="378" selection-start-column="40" selection-end-line="378" selection-end-column="40" />
-          <folding>
-            <element signature="e#16222#16223#0" expanded="true" />
-            <element signature="e#16264#16265#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="29" column="10" lean-forward="true" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/drama.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6">
-          <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/HitMouse/MouseTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -713,6 +684,59 @@
             <element signature="e#27854#27855#0" expanded="true" />
             <element signature="e#27892#27893#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/graduation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/GameSettlement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/EnterScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/drama.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/mainPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1482">
+          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+          <folding>
+            <element signature="e#16222#16223#0" expanded="true" />
+            <element signature="e#16264#16265#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Dinosaur/userinterface/DinoJLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="127" column="27" selection-start-line="127" selection-start-column="27" selection-end-line="127" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="304" lean-forward="true" selection-start-line="304" selection-end-line="304" />
         </state>
       </provider>
     </entry>

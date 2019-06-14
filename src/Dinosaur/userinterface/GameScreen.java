@@ -4,8 +4,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -26,27 +26,28 @@ public class GameScreen extends JPanel implements Runnable {
     private static final int GAME_OVER_STATE = 2;
 
     private Timer timer;
-    public int time = 6000;
+    private int time = 6000;
 
     private Main frame;
     private House house;
 
     private Land land;
-    public MainCharacter mainCharacter;
+    private MainCharacter mainCharacter;
     private EnemiesManager enemiesManager;
     private Clouds clouds;
-    public Thread thread;
+    private Thread thread;
     private float speed=5;
-    public double max = 0;
+    private double max = 0;
     private boolean isKeyPressed;
-    public boolean expcard = false;
-    public boolean moneycard = false;
+    private boolean expCard = false;
+    private boolean moneyCard = false;
     private int dieTime = 0;
 
     private int gameState = START_GAME_STATE;
 
     private BufferedImage replayButtonImage, gameOverButtonImage;
 
+    // constructor 初始化基本物件、加上Listener
     public GameScreen(Main frame, House house) {
         this.setFocusable(true);
         this.frame = frame;
@@ -95,7 +96,7 @@ public class GameScreen extends JPanel implements Runnable {
             enemiesManager.update();
             mainCharacter.setSpeedX(speed);
             speed += 0.003;
-            if(mainCharacter.score > max) max = mainCharacter.score;
+            if(mainCharacter.getScore() > max) max = mainCharacter.getScore();
             if (enemiesManager.isCollision()) {
                 if(!mainCharacter.invincible) {
                     mainCharacter.playDeadSound();
@@ -124,7 +125,7 @@ public class GameScreen extends JPanel implements Runnable {
                 mainCharacter.draw(g);
                 g.setColor(Color.BLACK);
                 g.drawString("Best Score : " + (int) max, 580, 20);
-                g.drawString("Score : " + (int) mainCharacter.score, 750, 20);
+                g.drawString("Score : " + (int) mainCharacter.getScore(), 750, 20);
                 if (gameState == GAME_OVER_STATE) {
                     g.drawImage(gameOverButtonImage, 305, 280, null);
                     g.drawImage(replayButtonImage, 388, 300, null);
@@ -171,9 +172,6 @@ public class GameScreen extends JPanel implements Runnable {
     private class Keylisten extends KeyAdapter {
         @Override
         public void keyPressed(KeyEvent e) {
-            ////////////patchTestFinish/////////
-            if (e.getKeyCode() == KeyEvent.VK_P)
-                frame.changeToMainScreen();
             if (!isKeyPressed) {
                 isKeyPressed = true;
                 switch (gameState) {
@@ -195,7 +193,6 @@ public class GameScreen extends JPanel implements Runnable {
                             resetGame();
                         }
                         break;
-
                 }
             }
         }
@@ -211,14 +208,7 @@ public class GameScreen extends JPanel implements Runnable {
         }
 
         @Override
-        public void keyTyped(KeyEvent e) {
-            // TODO Auto-generated method stub
-
-        }
-    }
-
-    public int getDieTime(){
-        return dieTime;
+        public void keyTyped(KeyEvent e) {}
     }
 
     // 若角色死亡，重置遊戲
@@ -230,4 +220,35 @@ public class GameScreen extends JPanel implements Runnable {
         mainCharacter.reset();
     }
 
+    public int getDieTime(){
+        return dieTime;
+    }
+
+    public MainCharacter getMainCharacter(){
+        return  mainCharacter;
+    }
+
+    public int getTime(){
+        return time;
+    }
+
+    public boolean getExpCard(){
+        return expCard;
+    }
+
+    public void setExpCard(boolean s){
+        expCard = s;
+    }
+
+    public boolean getMoneyCard(){
+        return moneyCard;
+    }
+
+    public void setMoneyCard(boolean s){
+        moneyCard = s;
+    }
+
+    public double getMax(){
+        return max;
+    }
 }
