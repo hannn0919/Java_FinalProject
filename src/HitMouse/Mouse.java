@@ -396,7 +396,7 @@ public class Mouse extends JLayeredPane{
         btnItemScoreDouble.addActionListener(new ActionListener() {
              @Override
              public void actionPerformed(ActionEvent e) {
-                 System.out.println("分數加倍卡"+ house.getItem("加倍卡"));
+
                  if(house.getItem("加倍卡")>=1){
                      house.setItem("加倍卡",house.getItem("加倍卡")-1);
                      score.setAddScore(score.getAddScore()*2);
@@ -547,10 +547,7 @@ public class Mouse extends JLayeredPane{
                     static_money.setText(String.valueOf(gainmoney));
                     add(static_money, JLayeredPane.DRAG_LAYER);
 
-                    //static_money.setVisible(false);
-                    //add(statics,JLayeredPane.DRAG_LAYER);
-                    System.out.println("exp:" + gainexp);
-                    System.out.println("money" + gainmoney);
+
                     house.setExp(house.getExp()+gainexp);
                     house.setHoldMoney(house.getHoldMoney()+gainmoney);
 
@@ -582,7 +579,7 @@ public class Mouse extends JLayeredPane{
                     add(checkBtn, new Integer(600));
 
                     but[score.getLast()].setIcon(null);
-                    System.out.println(score.getLast());
+
                     score.setScore(0);
                     //jfb.setText("得分 : 0");
                     add(statics,JLayeredPane.DRAG_LAYER);
@@ -590,7 +587,7 @@ public class Mouse extends JLayeredPane{
                         time2.wait();
                     }
                     catch(Exception ex) {
-                        System.out.println("stop");
+
                         time2.stop();
                     }
 

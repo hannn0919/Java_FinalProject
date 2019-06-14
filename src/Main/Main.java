@@ -77,7 +77,7 @@ public class Main extends JFrame {
             this.changeToGraduation();
         }
         else{
-            System.out.println("Change to Main from "+this.getContentPane());
+
             mainScreen = new mainPanel(this, this.house);
             this.setTitle("大學肝什麼");
             this.setContentPane(mainScreen);
