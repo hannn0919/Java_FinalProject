@@ -20,7 +20,7 @@ import java.io.IOException;
 
 public class Main extends JFrame {
     private Clip entermusic, mainmusic; // 各遊戲畫面背景音樂
-    private Clip dinosaurmusic, hamstermusic, froggermusic, cardmusic;  // 各遊戲畫面背景音樂
+    private Clip dinosaurmusic, hamstermusic, froggermusic, cardmusic, graduationmusic;  // 各遊戲畫面背景音樂
     private mainPanel mainScreen;  // 主畫面panel
     private House house;    // 倉庫，所有數據資料
 
@@ -41,6 +41,7 @@ public class Main extends JFrame {
         Hamstermusic();
         Froggermusic();
         Cardmusic();
+        Graduationmusic();
         ///////////////
 
         this.changeToEnterScreen(); // 將主畫面切置登入頁面
@@ -178,6 +179,7 @@ public class Main extends JFrame {
 
     //切換至畢業畫面
     public void changeToGraduation(){
+        graduationmusic.start();
         mainmusic.stop();
         dinosaurmusic.stop();
         hamstermusic.stop();
@@ -281,6 +283,22 @@ public class Main extends JFrame {
             AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
             cardmusic = AudioSystem.getClip();
             cardmusic.open(audioIn);
+        } catch (UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (LineUnavailableException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // 設定畢業背景音樂
+    private void Graduationmusic() {
+        try {
+            File soundFile = new File("music/graduation.wav");
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+            graduationmusic = AudioSystem.getClip();
+            graduationmusic.open(audioIn);
         } catch (UnsupportedAudioFileException e) {
             e.printStackTrace();
         } catch (IOException e) {
