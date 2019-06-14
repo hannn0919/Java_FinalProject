@@ -203,7 +203,7 @@ public class DinoJLayer extends JLayeredPane {
         Icon temp = new ImageIcon(character);
         liverImg = resize(temp.getIconWidth()+50, temp.getIconHeight()+40, (ImageIcon) temp);
         liverLabel = new JLabel(liverImg);
-        liverLabel.setBounds(30,heightTotal+100,liverImg.getIconWidth(),liverImg.getIconHeight());
+        liverLabel.setBounds(50,heightTotal+80,liverImg.getIconWidth(),liverImg.getIconHeight());
         add(liverLabel,JLayeredPane.DRAG_LAYER);
 
         // 顯示錢與經驗值Label設置
@@ -239,8 +239,7 @@ public class DinoJLayer extends JLayeredPane {
                 remove(introduce);
                 backToMainButton.setEnabled(false);
                 game.startGame();
-                game.requestFocus();;
-
+                game.requestFocus();
             } else if (e.getSource() == backToMainButton) {
                 frame.changeToMainScreen();
             } else if (e.getSource() == checkBtn) {
