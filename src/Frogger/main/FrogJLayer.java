@@ -30,6 +30,8 @@ public class FrogJLayer extends JLayeredPane {
     private JButton checkBtn;
     private JButton startBtn;
     private JLabel introduce;
+    private ImageIcon liverImg;
+    private JLabel liverLabel;
 
 
     private JButton backToMainButton;
@@ -164,6 +166,29 @@ public class FrogJLayer extends JLayeredPane {
         ruleLabel = new JLabel(ruleImage);
         ruleLabel.setBounds(0,backToMainImage.getIconHeight()+disCountImage.getIconHeight(),ruleImage.getIconWidth(),ruleImage.getIconHeight());
         add(ruleLabel,JLayeredPane.DEFAULT_LAYER);
+
+        String character = "data/dinosaur/character/"+house.getLevel()+"/肝";
+        if(house.getEquipment("透視眼鏡")==1){
+            character += "+眼鏡";
+        }
+
+        if(house.getEquipment("竹蜻蜓")==1){
+            character += "+竹蜻蜓";
+        }
+
+        if(house.getEquipment("翅膀")==1){
+            character += "+翅膀";
+        }
+
+        if(house.getEquipment("彈簧鞋")==1){
+            character += "+彈簧鞋";
+
+        }
+        liverImg = new ImageIcon( character+".png");//偷個恐龍圖片
+        liverLabel = new JLabel(liverImg);
+        liverLabel.setBounds(30,backToMainImage.getIconHeight()+disCountImage.getIconHeight()+ruleImage.getIconHeight()+100,liverImg.getIconWidth(),liverImg.getIconHeight());
+        add(liverLabel,JLayeredPane.DRAG_LAYER);
+
 
         expandMoneyImage = new ImageIcon("data/gamebar/expandmoney.png");
         expandMoneyLabel = new JLabel(expandMoneyImage);

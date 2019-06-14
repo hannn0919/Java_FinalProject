@@ -240,7 +240,7 @@ public class StockWindow extends JPanel {
                 int dollar = (int) (Integer.parseInt(saleticketField.getText()) * 200 * house.getStock()[select]);
                 saleMoneyField.setText(dollar + " 元");
                 try {
-                    if (Integer.parseInt(buyticketField.getText()) == 0) {
+                    if (Integer.parseInt(saleticketField.getText()) == 0) {
                         pronoucingLabel.setText("請輸入要賣出幾張股票，每張兩百股");
                     } else if (house.getStockTicket()[select] < Integer.parseInt(saleticketField.getText())) {
                         pronoucingLabel.setText("股票張數不足無法賣出");
@@ -537,9 +537,6 @@ public class StockWindow extends JPanel {
         } catch (LineUnavailableException e) {
             e.printStackTrace();
         }
-    }
-    public String toString(){
-        return "I am from Stock";
     }
 //
 //    @Override
