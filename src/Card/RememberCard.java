@@ -643,9 +643,7 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
     public void setRunning(boolean isRunning) {
         this.isRunning = isRunning;
     }
-    public String toString(){
-        return "I am in Card";
-    }
+    
 }
 
 
