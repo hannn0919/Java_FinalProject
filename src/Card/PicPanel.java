@@ -18,12 +18,12 @@ import javax.swing.border.LineBorder;
  */
 public class PicPanel extends JPanel {
     private static final long serialVersionUID = 2172162568449349737L;
+    private RememberCard parent;
     protected String picPath;//路徑
     protected JLabel lbl_Pic = new JLabel();
-    private ImageIcon bgIcon = new ImageIcon("data/cards/icon/test_charater.png");
-    private ImageIcon cardback = new ImageIcon("data/cards/icon/test_charater.png");
+    private ImageIcon bgIcon = new ImageIcon();
+    private ImageIcon cardBack = new ImageIcon("data/cards/icon/test_charater.png");
     private boolean isShow = false;
-    private RememberCard parent;
     private boolean finished = false;
 
     public PicPanel(RememberCard rememberCard, String picPath) {
@@ -40,9 +40,6 @@ public class PicPanel extends JPanel {
         return picPath;
     }
 
-    public void setPicPath(String picPath) {
-        this.picPath = picPath;
-    }
 
     /**
      * 圖片面板的滑鼠事件監聽，配對過程在此完成
@@ -83,7 +80,7 @@ public class PicPanel extends JPanel {
                                 catch (InterruptedException e1) {
                                     e1.printStackTrace();
                                 }
-                                lbl_Pic.setIcon(cardback);
+                                lbl_Pic.setIcon(cardBack);
                                 isShow = !isShow;
                                 repaint();
                                 preOne.getMouseListeners()[0].mouseClicked(null);
@@ -94,7 +91,7 @@ public class PicPanel extends JPanel {
                         lbl_Pic.setIcon(bgIcon);
                     }
                     else {
-                        lbl_Pic.setIcon(cardback);
+                        lbl_Pic.setIcon(cardBack);
                     }
                     repaint();
                 };
@@ -132,7 +129,7 @@ public class PicPanel extends JPanel {
         }
     }
     protected void setCardback(){
-        lbl_Pic.setIcon(cardback);
+        lbl_Pic.setIcon(cardBack);
     }
 
 
@@ -144,10 +141,4 @@ public class PicPanel extends JPanel {
     protected void setFinished(boolean b) {
         finished = b;
     }
-
-    public void setLabelPicNull() {
-        lbl_Pic.setIcon(null);
-    }
 }
-
-

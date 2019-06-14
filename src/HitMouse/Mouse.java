@@ -221,12 +221,12 @@ public class Mouse extends JLayeredPane{
                  character += "+彈簧鞋";
 
              }
-             liverImg = new ImageIcon( character+".png");//偷個恐龍圖片
-            // System.out.println(liverImg);
-             liverLabel = new JLabel(liverImg);
-             liverLabel.setBounds(30,heightTotal+100,liverImg.getIconWidth(),liverImg.getIconHeight());
-             //System.out.println(liverImg.getIconWidth()+" "+liverImg.getIconHeight());
-             add(liverLabel,JLayeredPane.DRAG_LAYER);
+         liverImg = new ImageIcon( character+".png");//偷個恐龍圖片
+         liverImg=resize(liverImg.getIconWidth()+50, liverImg.getIconHeight()+40, (ImageIcon)liverImg);
+         liverLabel = new JLabel(liverImg);
+         liverLabel.setBounds(50,heightTotal+80,liverImg.getIconWidth(),liverImg.getIconHeight());
+         add(liverLabel,JLayeredPane.PALETTE_LAYER);
+
 
              score =new Score();
              score2 = new Score();
@@ -347,7 +347,7 @@ public class Mouse extends JLayeredPane{
        // add(btnStart,JLayeredPane.MODAL_LAYER);
 
         btnItemOnlyTeacher = new JButton();
-        btnItemOnlyTeacher.setBounds(180,heightTotal+130,100,50);
+        btnItemOnlyTeacher.setBounds(100,heightTotal+210,100,50);
         btnItemOnlyTeacher.setBorderPainted(false);
         btnItemOnlyTeacher.setBorder(null);
         btnItemOnlyTeacher.setFocusPainted(false);
@@ -360,7 +360,7 @@ public class Mouse extends JLayeredPane{
 
 
         btnItemScoreDouble = new JButton();
-        btnItemScoreDouble.setBounds(180,heightTotal+180,100,50);
+        btnItemScoreDouble.setBounds(195,heightTotal+210,100,50);
         btnItemScoreDouble.setIcon(new ImageIcon("data/HitMouse/分數加倍按鈕.png"));
         btnItemScoreDouble.setBorderPainted(false);
         btnItemScoreDouble.setBorder(null);

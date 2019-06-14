@@ -51,15 +51,15 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
     private JPanel panel_Pic;//右邊遊戲面板
     private JPanel panel_ans;//openall時顯示
 
-    private JButton addsec;//增時卡
-    private JButton openall;//翻開全部
+    private JButton addSec;//增時卡
+    private JButton openAll;//翻開全部
     private JButton btnOk;//結算時ok按鈕
     private JButton btnStart;//開始按鈕
     private JButton backToMainButton;//返回主畫面
 
     private JCheckBox check_doubleexp;//兩倍經驗卡
     private JCheckBox check_doublemoney;//兩倍金錢卡
-   
+
     private ImageIcon backToMainImage;
     private ImageIcon disCountImage;
     private ImageIcon expandMoneyImage;
@@ -70,8 +70,8 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
     private ImageIcon btnStartImage;
     private ImageIcon swing_card;
     private ImageIcon btnOkImage;
-    private ImageIcon addsecImage;
-    private ImageIcon openallImage;
+    private ImageIcon addSecImage;
+    private ImageIcon openAllImage;
     private ImageIcon liverImg;
 
 
@@ -145,18 +145,20 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
                 setCursor(new Cursor(Cursor.HAND_CURSOR));
             }
             else if(e.getSource()==backToMainButton){
+                if(backToMainButton.isEnabled()==true){
+                    buttonSound();
+                    backToMainButton.setIcon(resize(backToMainButton.getIcon().getIconWidth()+10,backToMainButton.getIcon().getIconHeight()+10,(ImageIcon)backToMainButton.getIcon()));
+                    setCursor(new Cursor(Cursor.HAND_CURSOR));
+                }
+            }
+            else if(e.getSource()==addSec){
                 buttonSound();
-                backToMainButton.setIcon(resize(backToMainButton.getIcon().getIconWidth()+10,backToMainButton.getIcon().getIconHeight()+10,(ImageIcon)backToMainButton.getIcon()));
+                addSec.setIcon(resize(addSec.getIcon().getIconWidth()+10,addSec.getIcon().getIconHeight()+10,(ImageIcon)addSec.getIcon()));
                 setCursor(new Cursor(Cursor.HAND_CURSOR));
             }
-            else if(e.getSource()==addsec){
+            else if(e.getSource()==openAll){
                 buttonSound();
-                addsec.setIcon(resize(addsec.getIcon().getIconWidth()+10,addsec.getIcon().getIconHeight()+10,(ImageIcon)addsec.getIcon()));
-                setCursor(new Cursor(Cursor.HAND_CURSOR));
-            }
-            else if(e.getSource()==openall){
-                buttonSound();
-                openall.setIcon(resize(openall.getIcon().getIconWidth()+10,openall.getIcon().getIconHeight()+10,(ImageIcon)openall.getIcon()));
+                openAll.setIcon(resize(openAll.getIcon().getIconWidth()+10,openAll.getIcon().getIconHeight()+10,(ImageIcon)openAll.getIcon()));
                 setCursor(new Cursor(Cursor.HAND_CURSOR));
             }
         }
@@ -174,12 +176,12 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
                 backToMainButton.setIcon(new ImageIcon("data/gamebar/backhome.png"));
                 setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
-            else if(arg0.getSource()==addsec) {
-                addsec.setIcon(new ImageIcon("data/cards/增時卡.png"));
+            else if(arg0.getSource()==addSec) {
+                addSec.setIcon(new ImageIcon("data/cards/增時卡.png"));
                 setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
-            else if(arg0.getSource()==openall) {
-                openall.setIcon(new ImageIcon("data/cards/再看一次.png"));
+            else if(arg0.getSource()==openAll) {
+                openAll.setIcon(new ImageIcon("data/cards/再看一次.png"));
                 setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
         }
@@ -251,11 +253,11 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
         backToMainButton.addMouseListener(mouseHandler);
         add(backToMainButton,JLayeredPane.DEFAULT_LAYER);
         backToMainButton.addActionListener(new ActionListener() {
-             @Override
-             public void actionPerformed(ActionEvent e) {
-                 mainFrame.changeToMainScreen();
-             }
-         });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainFrame.changeToMainScreen();
+            }
+        });
         //////返回主畫面/////////////
 
         /////顯示剩下時間/////////
@@ -304,25 +306,26 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
 
         }
         liverImg = new ImageIcon( character+".png");//偷個恐龍圖片
+        liverImg=resize(liverImg.getIconWidth()+50, liverImg.getIconHeight()+40, (ImageIcon)liverImg);
         liverLabel = new JLabel(liverImg);
-        liverLabel.setBounds(30,500,liverImg.getIconWidth(),liverImg.getIconHeight());
-        add(liverLabel,JLayeredPane.DRAG_LAYER);
-        
+        liverLabel.setBounds(50,470,liverImg.getIconWidth(),liverImg.getIconHeight());
+        add(liverLabel,JLayeredPane.POPUP_LAYER);
+
         /////左邊的肝/////////
 
 
         /////左下的道具按鈕///////
         //////加十秒//////////////
-        addsecImage = new ImageIcon("data/cards/增時卡.png");
-        addsec = new JButton(addsecImage);
-        addsec.setBorderPainted(false);
-        addsec.setBorder(null);
-        addsec.setFocusPainted(false);
-        addsec.setContentAreaFilled(false);
-        addsec.addMouseListener(mouseHandler);
-        addsec.setBounds(180,520,addsecImage.getIconWidth(),addsecImage.getIconHeight());
-        add(addsec, JLayeredPane.MODAL_LAYER);
-        addsec.addActionListener(new AbstractAction() {
+        addSecImage = new ImageIcon("data/cards/增時卡.png");
+        addSec = new JButton(addSecImage);
+        addSec.setBorderPainted(false);
+        addSec.setBorder(null);
+        addSec.setFocusPainted(false);
+        addSec.setContentAreaFilled(false);
+        addSec.addMouseListener(mouseHandler);
+        addSec.setBounds(100,600,addSecImage.getIconWidth(),addSecImage.getIconHeight());
+        add(addSec, JLayeredPane.DRAG_LAYER);
+        addSec.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(house.getItem("增時卡")>0){//道具>1
@@ -333,21 +336,21 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
         });
         //////加十秒/////////////
         //////翻開全部十秒///////
-        openallImage = new ImageIcon("data/cards/再看一次.png");
-        openall = new JButton(openallImage);
-        openall.setBorderPainted(false);
-        openall.setBorder(null);
-        openall.setFocusPainted(false);
-        openall.setContentAreaFilled(false);
-        openall.addMouseListener(mouseHandler);
-        openall.setBounds(180,570,openallImage.getIconWidth(),openallImage.getIconHeight());
-        add(openall, JLayeredPane.MODAL_LAYER);
-        openall.addActionListener(new AbstractAction() {
+        openAllImage = new ImageIcon("data/cards/再看一次.png");
+        openAll = new JButton(openAllImage);
+        openAll.setBorderPainted(false);
+        openAll.setBorder(null);
+        openAll.setFocusPainted(false);
+        openAll.setContentAreaFilled(false);
+        openAll.addMouseListener(mouseHandler);
+        openAll.setBounds(195,600,openAllImage.getIconWidth(),openAllImage.getIconHeight());
+        add(openAll, JLayeredPane.DRAG_LAYER);
+        openAll.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(house.getItem("再看一次")>0){//道具>1
                     house.setItem("再看一次",house.getItem("再看一次")-1 );//使用道具  道具-1
-                    openallcard();
+                    openAllCard();
                     timer4.start();
                 }
             }
@@ -377,38 +380,39 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
         btnStart.addMouseListener(mouseHandler);
         add(btnStart,JLayeredPane.DRAG_LAYER);
         btnStart.addActionListener(new ActionListener() {
-             @Override
-             public void actionPerformed(ActionEvent e) {
-                 remove(btnStart);//移掉開始按鈕
-                 remove(introduce);//移掉規則
-                 remove(check_doubleexp);//移掉經驗加倍
-                 remove(check_doublemoney);//移掉金錢加倍
-                 repaint();
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                remove(btnStart);//移掉開始按鈕
+                remove(introduce);//移掉規則
+                remove(check_doubleexp);//移掉經驗加倍
+                remove(check_doublemoney);//移掉金錢加倍
+                repaint();
 
-                 panel_Pic = new JPanel();//增加右邊遊戲面板
-                 panel_Pic.setBounds(300, 0, 900, 655);
-                 add(panel_Pic, JLayeredPane.MODAL_LAYER);//100
+                panel_Pic = new JPanel();//增加右邊遊戲面板
+                panel_Pic.setBounds(300, 0, 900, 655);
+                add(panel_Pic, JLayeredPane.MODAL_LAYER);//100
 
-                 panel_ans = new JPanel();//增加答案面板
-                 panel_ans.setBounds(300, 0, 900, 655);
-                 panel_ans.setVisible(true);
-                 add(panel_ans, JLayeredPane.DEFAULT_LAYER);//0
+                panel_ans = new JPanel();//增加答案面板
+                panel_ans.setBounds(300, 0, 900, 655);
+                panel_ans.setVisible(true);
+                add(panel_ans, JLayeredPane.DEFAULT_LAYER);//0
 
 
-                 backToMainButton.setEnabled(false);////返回主畫面失效
-                 if (isRunning) {
-                     return;
-                 }
-                 setRunning(true);
-                 if(house.getItem("增時卡")==0){ //如果沒有增時卡 失效
-                     addsec.setEnabled(false);
-                 }
-                 if(house.getItem("再看一次")==0){  //如果沒有翻開全部  失效
-                     openall.setEnabled(false);
-                 }
-                 startGame();//開始遊戲
+                backToMainButton.setEnabled(false);////返回主畫面失效
+                if (isRunning) {
+                    return;
+                }
+                setRunning(true);
+                if(house.getItem("增時卡")==0){ //如果沒有增時卡 失效
+                    addSec.setEnabled(false);
+
+                }
+                if(house.getItem("再看一次")==0){  //如果沒有翻開全部  失效
+                    openAll.setEnabled(false);
+                }
+                startGame();//開始遊戲
             }
-         });
+        });
         //////////////開始遊戲按鈕/////////////////
     }
 
@@ -417,7 +421,12 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
             txt_Time.setFont(new Font("微軟正黑體", Font.BOLD, 32));;
             txt_Time.setText(time + "");
             time--;
-
+            if(house.getItem("增時卡")==0){ //如果沒有增時卡 失效
+                addSec.setEnabled(false);
+            }
+            if(house.getItem("再看一次")==0){  //如果沒有翻開全部  失效
+                openAll.setEnabled(false);
+            }
             if(time==-2||count==15){//不是0 是因為要加上翻牌的三秒  翻開全部
                 house.gameSettlementmistake(1, count);///回傳玩了一次和翻了幾對
 
@@ -434,7 +443,7 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
                     }
                 });
 
-               //////////////////結算///////////////////////////
+                //////////////////結算///////////////////////////
 
                 if(check_doubleexp.isSelected()){
                     exp=200;//100*2
@@ -472,14 +481,14 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
         }
     });
 
-    Timer timer2 = new Timer(1, new ActionListener() {//addsec
+    Timer timer2 = new Timer(1, new ActionListener() {//addSec
         public void actionPerformed(ActionEvent e) {
             time=time+10;
             timer2.stop();
         }
     });
 
-    Timer timer4 = new Timer(10000, new ActionListener() {//openall 10sec
+    Timer timer4 = new Timer(10000, new ActionListener() {//openAll 10sec
         public void actionPerformed(ActionEvent e) {
             mainFrame.remove(panel_ans);///移掉答案面板
             repaint();
@@ -499,7 +508,7 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
         }.start();
     }
 
-    private void openallcard(){//翻開全部十秒
+    private void openAllCard(){//翻開全部十秒
         add(panel_ans ,JLayeredPane.DRAG_LAYER);//400
         panel_ans.setVisible(true);
     }
@@ -638,7 +647,5 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
         return "I am in Card";
     }
 }
-
-
 
 
