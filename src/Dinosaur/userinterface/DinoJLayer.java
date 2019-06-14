@@ -198,8 +198,10 @@ public class DinoJLayer extends JLayeredPane {
         if(house.getEquipment("彈簧鞋")==1)
             character += "+彈簧鞋";
 
+        character += ".png";
         // 左側欄位下方主角顯示Label設置
-        liverImg = new ImageIcon( character+".png");//偷個恐龍圖片
+        Icon temp = new ImageIcon(character);
+        liverImg = resize(temp.getIconWidth()+50, temp.getIconHeight()+40, (ImageIcon) temp);
         liverLabel = new JLabel(liverImg);
         liverLabel.setBounds(30,heightTotal+100,liverImg.getIconWidth(),liverImg.getIconHeight());
         add(liverLabel,JLayeredPane.DRAG_LAYER);
