@@ -287,6 +287,7 @@ public class Mouse extends JLayeredPane{
              startBtn.addActionListener(new ActionListener() {
                  @Override
                  public void actionPerformed(ActionEvent e) {
+                     backToMainButton.setEnabled(false);
                      if(house.getEquipment("透視眼鏡")==1) equipIsUsed=true;
                      else equipIsUsed=false;
                      remove(moneycard);
@@ -526,6 +527,7 @@ public class Mouse extends JLayeredPane{
                     shadowTimer.stop();
                     but[score.getLast()].setIcon(null);
                     obBut[score.getLast()].setIcon(null);
+                    backToMainButton.setEnabled(true);
 //                    add(statics,JLayeredPane.DRAG_LAYER);
                     //JOptionPane.showMessageDialog(frame, "Game Over\n 您的得分為："+score.getScore(),"得分信息",JOptionPane.PLAIN_MESSAGE);
                     int gainexp = score.getScore()*24+500;
@@ -564,12 +566,16 @@ public class Mouse extends JLayeredPane{
                     checkBtn.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            timer.stop();
-                            time2.stop();
-                            time3.stop();
-                            shadowTimer.stop();
-                            equipIsUsed=false;
-                            mainFrame.changeToMainScreen();
+
+                            if(backToMainButton.isEnabled() == true){
+                                timer.stop();
+                                time2.stop();
+                                time3.stop();
+                                shadowTimer.stop();
+                                equipIsUsed=false;
+                                mainFrame.changeToMainScreen();
+                            }
+
                         }
                     });
                     checkBtn.addMouseListener(mouseHandler);
@@ -689,14 +695,18 @@ public class Mouse extends JLayeredPane{
          backToMainButton.addActionListener(new ActionListener() {
              @Override
              public void actionPerformed(ActionEvent e) {
-                 mainFrame.changeToMainScreen();
-
-               //  house.debugString="Back to main from HitMouse";
-               //  mainPanel.debugText.setText( house.debugString );
+                 if(backToMainButton.isEnabled()==true){
                  timer.stop();
                  time2.stop();
                  time3.stop();
                  shadowTimer.stop();
+                 mainFrame.changeToMainScreen();
+
+             }
+
+               //  house.debugString="Back to main from HitMouse";
+               //  mainPanel.debugText.setText( house.debugString );
+
              }
          });
 //        frame.setVisible(true);
