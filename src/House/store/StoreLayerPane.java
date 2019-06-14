@@ -91,16 +91,20 @@ public class StoreLayerPane extends JLayeredPane {
         if(house.getEquipment("彈簧鞋")==1){
             character += "+彈簧鞋";
         }
-
-        liverImg = new ImageIcon( character+".png");//偷個恐龍圖片
-        System.out.println(liverImg);
+        character += ".png";
+        Icon temp = new ImageIcon(character);
+        liverImg = resize(temp.getIconWidth()+50, temp.getIconHeight()+40, (ImageIcon) temp);
+       // liverImg = new ImageIcon( character+".png");//偷個恐龍圖片
         liverLabel = new JLabel(liverImg);
-        liverLabel.setBounds(30,heightTotal+100,liverImg.getIconWidth(),liverImg.getIconHeight());
-        System.out.println(liverImg.getIconWidth()+" "+liverImg.getIconHeight());
+        liverLabel.setBounds(50,heightTotal+80,liverImg.getIconWidth(),liverImg.getIconHeight());
         add(liverLabel,JLayeredPane.DRAG_LAYER);
         time.start();
     }
-    public String toString(){
-        return "I am in Store";
+
+    // 改變圖片大小
+    public ImageIcon resize(int width, int height, ImageIcon img) {
+        Image i = img.getImage();
+        Image new_img = i.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        return  new ImageIcon(new_img);
     }
 }
