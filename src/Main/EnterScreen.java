@@ -81,7 +81,7 @@ public class EnterScreen extends JPanel{
                 int result = fileChooser.showOpenDialog(mainFrame);
                 if (result == JFileChooser.APPROVE_OPTION) {
                     String filename = fileChooser.getSelectedFile().getPath();
-
+                    mainFrame.setFileName(fileChooser.getSelectedFile().getName().replace(".txt",""));
                     House temp = new House();
                     try {
                         File file = new File(filename);
