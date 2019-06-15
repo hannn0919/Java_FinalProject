@@ -5,6 +5,7 @@
 *.iml
 *.xml
 *.class
+out/
 gen
 
 # Ignore Mac DS_Store files
