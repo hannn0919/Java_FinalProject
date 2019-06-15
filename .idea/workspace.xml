@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f9eae02d-787d-4301-9cef-f013c4557730" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/backhome.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/backhome.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/exp.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/exp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/expandmoney.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/expandmoney.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/rule.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/rule.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/storebar.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/storebar.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/再看一次.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/再看一次.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/加倍卡.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/加倍卡.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/地下道鑰匙.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/地下道鑰匙.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/增時卡.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/增時卡.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/彈簧鞋out.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/彈簧鞋out.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/竹蜻蜓out.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/竹蜻蜓out.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/翅膀out.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/翅膀out.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/老師卡.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/老師卡.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/背包-裝備.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/背包-裝備.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/背包-道具.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/背包-道具.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/警察卡.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/警察卡.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/透視眼鏡.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/透視眼鏡.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/透視眼鏡out.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/透視眼鏡out.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/錢加倍.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/錢加倍.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Bag&amp;Store/電蚊拍.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bag&amp;Store/電蚊拍.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Frogger/image/bluecarl.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Frogger/image/bluecarl.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Frogger/image/character70.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Frogger/image/character70.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Frogger/image/characterOrigin.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Frogger/image/characterOrigin.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Frogger/image/characters50.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Frogger/image/characters50.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Frogger/image/chararters70.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Frogger/image/chararters70.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Frogger/image/chatacter.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Frogger/image/chatacter.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Frogger/image/frogBackground.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Frogger/image/frogBackground.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Frogger/image/froggerBackground2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Frogger/image/froggerBackground2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Frogger/image/orangecarl.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Frogger/image/orangecarl.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Frogger/image/orangecarr.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Frogger/image/orangecarr.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Frogger/image/police170r.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Frogger/image/police170r.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Frogger/image/rule.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Frogger/image/rule.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Frogger/image/truck170l.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Frogger/image/truck170l.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Frogger/image/truck170r.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Frogger/image/truck170r.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Frogger/image/truck200r.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Frogger/image/truck200r.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Frogger/image/遊戲規則.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Frogger/image/遊戲規則.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/OK鍵.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/OK鍵.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/Student/47.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/Student/47.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/Student/廖.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/Student/廖.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/Student/欣仔.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/Student/欣仔.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/Student/涵涵.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/Student/涵涵.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/Student/王瑋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/Student/王瑋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/Teacher/shadow.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/Teacher/shadow.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/Teacher/張光遠.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/Teacher/張光遠.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/Teacher/林英仁.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/Teacher/林英仁.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/Teacher/清池.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/Teacher/清池.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/Teacher/茂旭.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/Teacher/茂旭.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/Teacher/辛華昀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/Teacher/辛華昀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/Teacher/馬尚彬.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/Teacher/馬尚彬.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/background/background.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/background/background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/background/歡迎各位同學蒞臨電機二館.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/background/歡迎各位同學蒞臨電機二館.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/background/窗戶.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/background/窗戶.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/icon/backhome.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/icon/backhome.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/icon/discount.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/icon/discount.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/icon/expandmoney.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/icon/expandmoney.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/icon/rule.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/icon/rule.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/icon/test_charater.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/icon/test_charater.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/image/fist.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/image/fist.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/image/heart.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/image/heart.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/image/start.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/image/start.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/introduce.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/introduce.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/music/hit.wav" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/music/hit.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/music/kiss.wav" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/music/kiss.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/分數加倍按鈕.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/分數加倍按鈕.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/老師卡按鈕.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/老師卡按鈕.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/遊戲結算.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/遊戲結算.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/HitMouse/開始遊戲按鈕.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/HitMouse/開始遊戲按鈕.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Stock/Stock0.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Stock/Stock0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Stock/Stock1.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Stock/Stock1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Stock/Stock2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Stock/Stock2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Stock/Stock3.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Stock/Stock3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Stock/image/rule.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Stock/image/rule.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Stock/image/微積分.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Stock/image/微積分.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Stock/image/普通物理.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Stock/image/普通物理.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Stock/image/程式設計.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Stock/image/程式設計.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Stock/image/線性代數.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Stock/image/線性代數.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Stock/image/股市background.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Stock/image/股市background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Stock/image/買入.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Stock/image/買入.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Stock/image/賣出.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Stock/image/賣出.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/OK鍵.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/OK鍵.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/10.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/10.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/10.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/11.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/11.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/11.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/11.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/12.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/12.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/12.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/12.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/13.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/13.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/13.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/13.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/14.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/14.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/14.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/14.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/15.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/15.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/15.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/15.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/4.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/6.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/7.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/8.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/c/9.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/c/9.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/expandmoney.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/expandmoney.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/icon/background.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/icon/background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/icon/backhome.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/icon/backhome.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/icon/discount.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/icon/discount.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/icon/expandmoney.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/icon/expandmoney.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/icon/rule.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/icon/rule.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/icon/test_charater.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/icon/test_charater.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/icon/大家遊戲左邊的欄位.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/icon/大家遊戲左邊的欄位.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/introduce_test.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/introduce_test.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/再看一次.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/再看一次.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/增時卡.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/增時卡.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/遊戲結算.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/遊戲結算.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cards/開始遊戲按鈕.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/cards/開始遊戲按鈕.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/OK鍵.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/OK鍵.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/bug.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/bug.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+眼鏡+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+眼鏡+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+眼鏡+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+眼鏡+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+眼鏡+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+眼鏡+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+眼鏡+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+眼鏡+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+眼鏡+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+眼鏡+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+眼鏡+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+眼鏡+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+眼鏡.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+眼鏡.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳+肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/close/肝憋腳.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/肝+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/肝+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/肝+眼鏡+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/肝+眼鏡+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/肝+眼鏡+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/肝+眼鏡+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/肝+眼鏡+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/肝+眼鏡+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/肝+眼鏡+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/肝+眼鏡+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/肝+眼鏡+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/肝+眼鏡+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/肝+眼鏡+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/肝+眼鏡+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/肝+眼鏡.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/肝+眼鏡.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/肝+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/肝+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/肝+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/肝+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/肝+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/肝+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/肝+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/肝+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/肝+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/肝+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/肝+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/肝+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/1/肝.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/1/肝.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/LV2肝+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/LV2肝+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/LV2肝+眼鏡+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/LV2肝+眼鏡+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+眼鏡+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+眼鏡+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+眼鏡+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+眼鏡+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+眼鏡+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+眼鏡+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+眼鏡+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+眼鏡+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+眼鏡+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+眼鏡+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+眼鏡+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+眼鏡+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+眼鏡.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+眼鏡.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/close/肝憋腳.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/肝+眼鏡+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/肝+眼鏡+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/肝+眼鏡+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/肝+眼鏡+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/肝+眼鏡+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/肝+眼鏡+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/肝+眼鏡+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/肝+眼鏡+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/肝+眼鏡+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/肝+眼鏡+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/肝+眼鏡.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/肝+眼鏡.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/肝+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/肝+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/肝+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/肝+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/肝+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/肝+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/肝+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/肝+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/肝+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/肝+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/肝+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/肝+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/2/肝.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/2/肝.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+眼鏡+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+眼鏡+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+眼鏡+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+眼鏡+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+眼鏡+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+眼鏡+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+眼鏡+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+眼鏡+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+眼鏡+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+眼鏡+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+眼鏡+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+眼鏡+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+眼鏡.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+眼鏡.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/close/肝憋腳.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/肝+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/肝+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/肝+眼鏡+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/肝+眼鏡+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/肝+眼鏡+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/肝+眼鏡+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/肝+眼鏡+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/肝+眼鏡+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/肝+眼鏡+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/肝+眼鏡+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/肝+眼鏡+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/肝+眼鏡+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/肝+眼鏡+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/肝+眼鏡+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/肝+眼鏡.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/肝+眼鏡.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/肝+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/肝+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/肝+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/肝+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/肝+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/肝+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/肝+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/肝+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/肝+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/肝+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/肝+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/肝+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/3/肝.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/3/肝.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+眼鏡+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+眼鏡+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+眼鏡+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+眼鏡+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+眼鏡+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+眼鏡+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+眼鏡+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+眼鏡+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+眼鏡+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+眼鏡+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+眼鏡+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+眼鏡+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+眼鏡.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+眼鏡.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/close/肝憋腳.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/肝+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/肝+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/肝+眼鏡+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/肝+眼鏡+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/肝+眼鏡+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/肝+眼鏡+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/肝+眼鏡+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/肝+眼鏡+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/肝+眼鏡+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/肝+眼鏡+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/肝+眼鏡+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/肝+眼鏡+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/肝+眼鏡+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/肝+眼鏡+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/肝+眼鏡.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/肝+眼鏡.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/肝+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/肝+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/肝+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/肝+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/肝+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/肝+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/肝+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/肝+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/肝+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/肝+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/肝+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/肝+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/character/4/肝.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/character/4/肝.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/cloud1.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/cloud1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/dead.wav" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/dead.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/gameover_text.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/gameover_text.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/introduce.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/introduce.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/jump.wav" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/jump.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/land1.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/land1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/land2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/land2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/land3.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/land3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/replay_button.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/replay_button.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/rule.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/rule.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/scoreup.wav" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/scoreup.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/水灘1.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/水灘1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/水灘2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/水灘2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/遊戲結算.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/遊戲結算.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dinosaur/開始遊戲按鈕.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/dinosaur/開始遊戲按鈕.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/gamebar/backhome.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/gamebar/backhome.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/gamebar/discount.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/gamebar/discount.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/gamebar/expandmoney.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/gamebar/expandmoney.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/gamebar/hitMouseRule.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/gamebar/hitMouseRule.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/gamebar/rule.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/gamebar/rule.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/LV1.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/LV1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/LV2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/LV2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/LV3.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/LV3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/LV4.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/LV4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/backhome.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/backhome.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/byebyebyebye.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/byebyebyebye.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/exp.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/exp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/mainPic.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/mainPic.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/money.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/money.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/tmp.gif" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/tmp.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/主畫面.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/主畫面.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/商店.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/商店.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/商店2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/商店2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/小心肝硬化.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/小心肝硬化.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/尚未硬化的肝.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/尚未硬化的肝.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/已經快不行了的肝.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/已經快不行了的肝.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/快不行了的肝.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/快不行了的肝.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/畢業returnBTN.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/畢業returnBTN.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/畢業證書.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/畢業證書.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/股市.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/股市.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/股市2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/股市2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/背包.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/背包.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/背包2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/背包2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/載入遊戲.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/載入遊戲.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/載入遊戲小.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/載入遊戲小.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/進入遊戲1.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/進入遊戲1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/進入遊戲2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/進入遊戲2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/進入遊戲3.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/進入遊戲3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/進入遊戲4.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/進入遊戲4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/開始遊戲.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/開始遊戲.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/main/鮮嫩小心肝.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/main/鮮嫩小心肝.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/music/hit.wav" beforeDir="false" afterPath="$PROJECT_DIR$/data/music/hit.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/music/kiss.wav" beforeDir="false" afterPath="$PROJECT_DIR$/data/music/kiss.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV1/LV1肝.psd" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV1/LV1肝.psd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV1/肝+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV1/肝+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV1/肝+眼鏡+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV1/肝+眼鏡+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV1/肝+眼鏡+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV1/肝+眼鏡+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV1/肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV1/肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV1/肝+眼鏡+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV1/肝+眼鏡+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV1/肝+眼鏡+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV1/肝+眼鏡+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV1/肝+眼鏡+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV1/肝+眼鏡+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV1/肝+眼鏡+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV1/肝+眼鏡+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV1/肝+眼鏡.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV1/肝+眼鏡.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV1/肝+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV1/肝+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV1/肝+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV1/肝+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV1/肝+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV1/肝+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV1/肝+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV1/肝+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV1/肝+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV1/肝+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV1/肝+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV1/肝+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV1/肝.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV1/肝.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV2/LV2肝.psd" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV2/LV2肝.psd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV2/肝+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV2/肝+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV2/肝+眼鏡+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV2/肝+眼鏡+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV2/肝+眼鏡+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV2/肝+眼鏡+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV2/肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV2/肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV2/肝+眼鏡+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV2/肝+眼鏡+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV2/肝+眼鏡+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV2/肝+眼鏡+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV2/肝+眼鏡+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV2/肝+眼鏡+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV2/肝+眼鏡+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV2/肝+眼鏡+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV2/肝+眼鏡.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV2/肝+眼鏡.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV2/肝+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV2/肝+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV2/肝+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV2/肝+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV2/肝+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV2/肝+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV2/肝+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV2/肝+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV2/肝+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV2/肝+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV2/肝+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV2/肝+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV2/肝.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV2/肝.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV3/LV3肝.psd" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV3/LV3肝.psd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV3/肝+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV3/肝+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV3/肝+眼鏡+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV3/肝+眼鏡+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV3/肝+眼鏡+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV3/肝+眼鏡+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV3/肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV3/肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV3/肝+眼鏡+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV3/肝+眼鏡+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV3/肝+眼鏡+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV3/肝+眼鏡+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV3/肝+眼鏡+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV3/肝+眼鏡+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV3/肝+眼鏡+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV3/肝+眼鏡+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV3/肝+眼鏡.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV3/肝+眼鏡.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV3/肝+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV3/肝+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV3/肝+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV3/肝+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV3/肝+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV3/肝+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV3/肝+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV3/肝+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV3/肝+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV3/肝+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV3/肝+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV3/肝+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV3/肝.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV3/肝.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV4/LV4肝.psd" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV4/LV4肝.psd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV4/肝+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV4/肝+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV4/肝+眼鏡+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV4/肝+眼鏡+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV4/肝+眼鏡+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV4/肝+眼鏡+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV4/肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV4/肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV4/肝+眼鏡+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV4/肝+眼鏡+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV4/肝+眼鏡+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV4/肝+眼鏡+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV4/肝+眼鏡+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV4/肝+眼鏡+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV4/肝+眼鏡+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV4/肝+眼鏡+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV4/肝+眼鏡.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV4/肝+眼鏡.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV4/肝+竹蜻蜓+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV4/肝+竹蜻蜓+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV4/肝+竹蜻蜓+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV4/肝+竹蜻蜓+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV4/肝+竹蜻蜓+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV4/肝+竹蜻蜓+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV4/肝+竹蜻蜓.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV4/肝+竹蜻蜓.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV4/肝+翅膀+彈簧鞋.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV4/肝+翅膀+彈簧鞋.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV4/肝+翅膀.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV4/肝+翅膀.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/role/LV4/肝.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/role/LV4/肝.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jar/jcommon-1.0.23.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jar/jcommon-1.0.23.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jar/jfreechart-1.0.19.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jar/jfreechart-1.0.19.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/bubbleSound.wav" beforeDir="false" afterPath="$PROJECT_DIR$/music/bubbleSound.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/buttonClicked.wav" beforeDir="false" afterPath="$PROJECT_DIR$/music/buttonClicked.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/card.wav" beforeDir="false" afterPath="$PROJECT_DIR$/music/card.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/dinosaur.wav" beforeDir="false" afterPath="$PROJECT_DIR$/music/dinosaur.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/enter.wav" beforeDir="false" afterPath="$PROJECT_DIR$/music/enter.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/enterbutton.wav" beforeDir="false" afterPath="$PROJECT_DIR$/music/enterbutton.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/frogger.wav" beforeDir="false" afterPath="$PROJECT_DIR$/music/frogger.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/game.wav" beforeDir="false" afterPath="$PROJECT_DIR$/music/game.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/graduation.wav" beforeDir="false" afterPath="$PROJECT_DIR$/music/graduation.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/hamster.wav" beforeDir="false" afterPath="$PROJECT_DIR$/music/hamster.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final_Project/META-INF/Final_Project.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Card/PicPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Card/PicPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Card/RememberCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Card/RememberCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dinosaur/gameObject/Bug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dinosaur/gameObject/Bug.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dinosaur/gameObject/Clouds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dinosaur/gameObject/Clouds.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dinosaur/gameObject/EnemiesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dinosaur/gameObject/EnemiesManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dinosaur/gameObject/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dinosaur/gameObject/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dinosaur/gameObject/Land.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dinosaur/gameObject/Land.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dinosaur/gameObject/MainCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dinosaur/gameObject/MainCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dinosaur/gameObject/Water.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dinosaur/gameObject/Water.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dinosaur/userinterface/DinoJLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dinosaur/userinterface/DinoJLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dinosaur/userinterface/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dinosaur/userinterface/GameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dinosaur/util/Animation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dinosaur/util/Animation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dinosaur/util/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dinosaur/util/Resource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frogger/main/FrogJLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frogger/main/FrogJLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frogger/main/FroggerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frogger/main/FroggerPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frogger/util/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frogger/util/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frogger/util/Frog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frogger/util/Frog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frogger/util/Rectengle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frogger/util/Rectengle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frogger/util/UnderWay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frogger/util/UnderWay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HitMouse/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HitMouse/Mouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HitMouse/gameobject/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HitMouse/gameobject/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HitMouse/gameobject/Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HitMouse/gameobject/Score.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HitMouse/gameobject/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HitMouse/gameobject/Sound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/House/bag/BagLayerPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/House/bag/BagLayerPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/House/bag/BagWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/House/bag/BagWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/House/house/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/House/house/House.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/House/store/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/House/store/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/House/store/StoreLayerPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/House/store/StoreLayerPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/EnterScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/EnterScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/GameSettlement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/GameSettlement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/drama.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/drama.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/graduation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/graduation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/mainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/mainPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Stock/main/StockWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Stock/main/StockWindow.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="49" column="11" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="800" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Final_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Final_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Main" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="final_project" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560591698897" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f9eae02d-787d-4301-9cef-f013c4557730" name="Default Changelist" comment="" />
+      <created>1560588355798</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1560588355798</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26037195" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32911393" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+    </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="49" column="11" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>12</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Final_Project</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>12</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>jcommon-1.0.23</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
