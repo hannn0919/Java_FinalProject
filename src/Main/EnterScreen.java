@@ -1,10 +1,13 @@
 package Main;
 
+import House.house.House;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseListener;
 import java.io.*;
 import javax.sound.sampled.*;
+import Main.drama;
 import java.awt.event.MouseEvent;
 import javax.swing.border.EmptyBorder;
 
@@ -12,6 +15,8 @@ import javax.swing.border.EmptyBorder;
 public class EnterScreen extends JPanel{
 
     private Main mainFrame;
+    private House house;
+    private drama dramaGo;
     private JButton btnNew,btnLoad;
 
     public EnterScreen(Main mainFrame){
@@ -49,8 +54,10 @@ public class EnterScreen extends JPanel{
         @Override public void mouseReleased(MouseEvent e){}
         @Override
         public void mouseClicked(MouseEvent e) {
-            if(e.getSource()==btnNew)
+            if(e.getSource()==btnNew){
+                house = new House();
                 mainFrame.stratDrama();
+            }
             else if(e.getSource()==btnLoad)
                 mainFrame.changeToMainScreen();
         }
