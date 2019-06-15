@@ -1,21 +1,24 @@
 package Main;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt .*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class drama extends JPanel{
 
     private Main mainFrame;
+    private JButton draBtn;
     int time = 4400;
 
     public drama(Main mainFrame) {
+
+        this.mainFrame = mainFrame;
+        this.setSize(1200, 675);
+        this.setBorder(new EmptyBorder(5, 5, 5, 5));
+        this.setLayout(null);
 
         Timer timer = new Timer();
         timer.schedule(new TimerTask(){
@@ -29,14 +32,9 @@ public class drama extends JPanel{
             }
         }, 0, 10);
 
-        this.mainFrame = mainFrame;
-        this.setSize(1200, 675);
-        this.setBorder(new EmptyBorder(5, 5, 5, 5));
-        this.setLayout(null);
-
-
-        Icon startDrama = new ImageIcon("data/main/tmp.gif");
-        JButton draBtn = new JButton(startDrama);
+        ImageIcon icon = new ImageIcon("data/main/tmp.gif");
+        JButton draBtn = new JButton(icon);
+        icon.getImage().flush();
         draBtn.setBounds(0, 0, 1200, 675);
 
 
@@ -49,7 +47,6 @@ public class drama extends JPanel{
             }
         });
         add(draBtn);
-
 
     }
 
