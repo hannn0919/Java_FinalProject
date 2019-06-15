@@ -12,10 +12,10 @@ import Stock.main.StockWindow;
 import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.*;
+import java.util.Map;
 
 
 public class Main extends JFrame {
@@ -23,16 +23,18 @@ public class Main extends JFrame {
     private Clip dinosaurmusic, hamstermusic, froggermusic, cardmusic, graduationmusic;  // 各遊戲畫面背景音樂
     private mainPanel mainScreen;  // 主畫面panel
     private House house;    // 倉庫，所有數據資料
+    private boolean gameStart = false;
+    private String fileName = new String("");
 
     public Main(){
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.setSize(1200, 675);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setTitle("大學肝什麼");
 
         house = new House();
-        this.mainScreen = new mainPanel(this, this.house);
+        mainScreen = new mainPanel(this, this.house);
 
         // 所有遊戲畫面背景音樂初始化
         Entermusic();
@@ -315,10 +317,90 @@ public class Main extends JFrame {
         this.house = house;
     }
 
-    public static void main(String[] args) {
-        Main mainFrame = new Main();
-        mainFrame.house = new House();
-        mainFrame.setVisible(true);
+    public boolean getGameStart() {
+        return this.gameStart;
     }
 
+    public void setGameStart(boolean t) {
+        this.gameStart = t;
+    }
+
+    public void setFileName(String name) {
+        this.fileName = name;
+    }
+
+    public void saveFile() {
+        PrintWriter writer;
+        try {
+            writer = new PrintWriter("file/" + fileName + ".txt", "UTF-8");
+            writer.println();
+            Map<String, Integer> houseData = this.house.getObject();
+            for (String key : houseData.keySet()) {
+                writer.print(key);
+                writer.print(" ");
+                writer.println(houseData.get(key));
+            }
+            System.out.println("角色資料存檔完成");
+            writer.println();
+            writer.println("股市資料1");
+            float [] stockData1 = this.house.getStock();
+            for(int i=0;i<4;i++)
+                writer.println(stockData1[i]);
+            writer.println();
+            writer.println("股市資料2");
+            float [] stockData2 = this.house.getStockPrs();
+            for(int i=0;i<4;i++)
+                writer.println(stockData2[i]);
+            writer.println();
+            writer.println("股市資料3");
+            int [] stockData3 = this.house.getStockTicket();
+            for(int i=0;i<4;i++)
+                writer.println(stockData3[i]);
+            writer.println();
+            writer.println("股市資料4");
+            double[][][] stockData4 = this.house.getData();
+            for(int i=0;i<4;i++)
+                for(int j=0;j<1;j++)
+                    for(int k=0;k<10;k++)
+                        writer.println(stockData4[i][j][k]);
+
+            System.out.println("股市資料存檔完成");
+            writer.close();
+        } catch (FileNotFoundException | UnsupportedEncodingException e1) {
+            e1.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    Main mainFrame = new Main();
+                    mainFrame.setVisible(true);
+
+                    mainFrame.addWindowListener(new WindowAdapter() {
+                        @Override
+                        public void windowClosing(WindowEvent windowEvent) {
+                            if (mainFrame.getGameStart()) {
+                                int choose = JOptionPane.showConfirmDialog(mainFrame,"是否要存檔?", "關閉視窗", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                                if (choose == JOptionPane.YES_OPTION){
+                                    mainFrame.saveFile();
+                                    System.exit(0);
+                                }
+                                else System.exit(0);
+                            }
+                            else {
+                                System.exit(0);
+                            }
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 }

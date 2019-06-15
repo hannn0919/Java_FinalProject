@@ -161,6 +161,7 @@ public class FroggerPanel extends JPanel
         for(int i = 0; i< 3;i++){
             underWays[i] = new UnderWay(225, 545 - i * 240, 80, 80, "underWay.png");
         }
+        /*
         if(noPolice){
             house.gameSettlementItem("警察卡");
         }
@@ -173,7 +174,7 @@ public class FroggerPanel extends JPanel
         if(underKey){
             house.gameSettlementItem("地下道鑰匙");
         }
-
+*/
     }
 
     public void gameStart()

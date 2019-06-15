@@ -10,7 +10,6 @@ public class House {
     private static int exp;
     private static int holdMoney;
     private Map<String,Integer> map = new HashMap<String, Integer>();
-    private Map<String,Integer> map2 = new HashMap<String, Integer>();
     private float[] stock;
     private float[] stockPrs;
     private int[] stockTicket;
@@ -31,12 +30,13 @@ public class House {
     private int dinosaurTotalExp;
     private int dinosaurTotalDied;
     private int dinosaurTotalPlay;
+
     public House()
     {
         this.holdMoney = 1000;
         this.level = 1;
         this.role = "鮮嫩小心肝";
-        this.exp = 9850;
+        this.exp = 0;
         this.stock = new float[4];
         this.stockTicket = new int[4];
         this.stockPrs = new float[4];
@@ -62,6 +62,46 @@ public class House {
         map.put("加倍卡",0);
         map.put("再看一次",0);
 
+    }
+
+    public Map<String,Integer> getObject(){
+        map.put("level", getLevel());
+        map.put("exp", getExp());
+        map.put("holdMoney", getHoldMoney());
+        map.put("經驗加倍券", getItem("經驗加倍券"));
+        map.put("金錢加倍券", getItem("金錢加倍券"));
+        map.put("電蚊拍", getItem("電蚊拍"));
+        map.put("增時卡", getItem("增時卡"));
+        map.put("地下道鑰匙", getItem("地下道鑰匙"));
+        map.put("警察卡", getItem("警察卡"));
+        map.put("老師卡", getItem("老師卡"));
+        map.put("加倍卡", getItem("加倍卡"));
+        map.put("再看一次", getItem("再看一次"));
+        map.put("cardTotalMoney", getTotalMoney(1));
+        map.put("hamsterTotalMoney", getTotalMoney(2));
+        map.put("froggerTotalMoney", getTotalMoney(3));
+        map.put("dinosaurTotalMoney", getTotalMoney(4));
+
+        map.put("cardTotalExp", getTotalExp(1));
+        map.put("hamsterTotalExp", getTotalExp(2));
+        map.put("froggerTotalExp", getTotalExp(3));
+        map.put("dinosaurTotalExp", getTotalExp(4));
+
+        map.put("cardTotalPair", getTotalMistake(1));
+        map.put("hamsterTotalMistake", getTotalMistake(2));
+        map.put("froggerTotalDied", getTotalMistake(3));
+        map.put("dinosaurTotalDied", getTotalMistake(4));
+
+        map.put("cardTotalPlay", getTotalPlay(1));
+        map.put("hamsterTotalPlay", getTotalPlay(2));
+        map.put("froggerTotalPlay", getTotalPlay(3));
+        map.put("dinosaurTotalPlay", getTotalPlay(4));
+
+        map.put("竹蜻蜓", getEquipment("竹蜻蜓"));
+        map.put("透視眼鏡", getEquipment("透視眼鏡"));
+        map.put("彈簧鞋", getEquipment("彈簧鞋"));
+        map.put("翅膀", getEquipment("翅膀"));
+        return map;
     }
 
     //set the role
@@ -128,15 +168,6 @@ public class House {
             dinosaurTotalMoney+=money;
             dinosaurTotalExp+=EXP;
         }
-    }
-
-    public void gameSettlementItem(String element){
-        if(map2.containsKey(element)) {
-            int num = map2.get(element);
-            map2.put(element, num + 1);
-        }
-        else
-            map2.put(element,1);
     }
 
     public void gameSettlementmistake(int game,int time){
@@ -266,6 +297,10 @@ public class House {
             map.put(element,1);
     }
 
+    public void sEquipment(String element, int t){
+            map.put(element,t);
+    }
+
     //get stock
     public float[] getStock()
     {
@@ -292,6 +327,10 @@ public class House {
         stockPrs[i] = f;
     }
 
+    public void setData(int i, int j, int k, double num){
+        data[i][j][k] = num;
+    }
+
     //get stock
     public float[] getStockPrs()
     {
@@ -309,5 +348,45 @@ public class House {
             }
             data[i][0][9] = getStock()[i];
         }
+    }
+
+    public void setCardTotalMoney(int t){
+        cardTotalMoney = t;
+    }public void setCardTotalExp(int t){
+        cardTotalExp = t;
+    }public void setCardTotalPair(int t){
+        cardTotalPair = t;
+    }public void setCardTotalPlay(int t){
+        cardTotalPlay = t;
+    }
+
+    public void setHamsterTotalMoney(int t){
+        hamsterTotalMoney = t;
+    }public void setHamsterTotalExp(int t){
+        hamsterTotalExp = t;
+    }public void setHamsterTotalMistake(int t){
+        hamsterTotalMistake = t;
+    }public void setHamsterTotalPlay(int t){
+        hamsterTotalPlay = t;
+    }
+
+    public void setFroggerTotalMoney(int t){
+        froggerTotalMoney = t;
+    }public void setFroggerTotalExp(int t){
+        froggerTotalExp = t;
+    }public void setFroggerTotalDied(int t){
+        froggerTotalDied = t;
+    }public void setFroggerTotalPlay(int t){
+        froggerTotalPlay = t;
+    }
+
+    public void setDinosaurTotalMoney(int t){
+        dinosaurTotalMoney = t;
+    }public void setDinosaurTotalExp(int t){
+        dinosaurTotalExp = t;
+    }public void setDinosaurTotalDied(int t){
+        dinosaurTotalDied = t;
+    }public void setDinosaurTotalPlay(int t){
+        dinosaurTotalPlay = t;
     }
 }
