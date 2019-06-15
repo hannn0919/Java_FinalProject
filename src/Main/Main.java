@@ -26,7 +26,7 @@ public class Main extends JFrame {
 
     public Main(){
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(1217, 715);
+        this.setSize(1200, 675);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setTitle("大學肝什麼");
@@ -41,7 +41,6 @@ public class Main extends JFrame {
         Hamstermusic();
         Froggermusic();
         Cardmusic();
-        Graduationmusic();
         ///////////////
 
         this.changeToEnterScreen(); // 將主畫面切置登入頁面
@@ -179,7 +178,7 @@ public class Main extends JFrame {
 
     //切換至畢業畫面
     public void changeToGraduation(){
-        graduationmusic.start();
+        Graduationmusic();
         mainmusic.stop();
         dinosaurmusic.stop();
         hamstermusic.stop();
@@ -299,6 +298,7 @@ public class Main extends JFrame {
             AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
             graduationmusic = AudioSystem.getClip();
             graduationmusic.open(audioIn);
+            graduationmusic.start();
         } catch (UnsupportedAudioFileException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -311,7 +311,7 @@ public class Main extends JFrame {
 
 
     // 設定倉庫資料數據
-    public void sethouse(House house) {
+    public void setHouse(House house) {
         this.house = house;
     }
 

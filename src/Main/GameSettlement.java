@@ -16,7 +16,7 @@ public class GameSettlement extends JPanel{
         this.house=house;
         setLayout(null);
         JLabel label = new JLabel();
-        label.setBounds(0, 0, image.getIconWidth(), image.getIconHeight());
+        label.setBounds(-10, -25, image.getIconWidth(), image.getIconHeight());
         label.setIcon(image);
         JLabel labelC2 = new JLabel(String.format(""+house.getTotalMoney(1)));
         JLabel labelC3 = new JLabel(String.format(""+house.getTotalPlay(1)));

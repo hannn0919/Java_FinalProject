@@ -157,9 +157,9 @@ public class FrogJLayer extends JLayeredPane {
 
         }
         ImageIcon temp =  new ImageIcon( character+".png");
-        liverImg = resize(temp.getIconWidth()+50, temp.getIconHeight()+40, (ImageIcon) temp);
+        liverImg = resize(temp.getIconWidth()+40, temp.getIconHeight()+32, (ImageIcon) temp);
         liverLabel = new JLabel(liverImg);
-        liverLabel.setBounds(30,backToMainImage.getIconHeight()+disCountImage.getIconHeight()+ruleImage.getIconHeight()+100,liverImg.getIconWidth(),liverImg.getIconHeight());
+        liverLabel.setBounds(50,backToMainImage.getIconHeight()+disCountImage.getIconHeight()+ruleImage.getIconHeight()+80,liverImg.getIconWidth(),liverImg.getIconHeight());
         add(liverLabel,JLayeredPane.DRAG_LAYER);
 
         expandMoneyImage = new ImageIcon("data/gamebar/expandmoney.png");

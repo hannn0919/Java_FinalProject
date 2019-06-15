@@ -201,7 +201,7 @@ public class DinoJLayer extends JLayeredPane {
         character += ".png";
         // 左側欄位下方主角顯示Label設置
         Icon temp = new ImageIcon(character);
-        liverImg = resize(temp.getIconWidth()+50, temp.getIconHeight()+40, (ImageIcon) temp);
+        liverImg = resize(temp.getIconWidth()+40, temp.getIconHeight()+32, (ImageIcon) temp);
         liverLabel = new JLabel(liverImg);
         liverLabel.setBounds(50,heightTotal+80,liverImg.getIconWidth(),liverImg.getIconHeight());
         add(liverLabel,JLayeredPane.DRAG_LAYER);

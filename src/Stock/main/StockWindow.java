@@ -212,7 +212,7 @@ public class StockWindow extends JPanel {
         character += ".png";
         // 左側欄位下方主角顯示Label設置
         ImageIcon temp = new ImageIcon(character);
-        ImageIcon liverImg = resize(temp.getIconWidth()+50, temp.getIconHeight()+40, temp);
+        ImageIcon liverImg = resize(temp.getIconWidth()+40, temp.getIconHeight()+32, temp);
         liverLabel = new JLabel(liverImg);
         liverLabel.setBounds(50,backToMainImage.getIconHeight()+ruleImage.getIconHeight()+80,liverImg.getIconWidth(),liverImg.getIconHeight());
         add(liverLabel);

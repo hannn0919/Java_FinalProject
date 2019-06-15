@@ -81,7 +81,7 @@ public class BagLayerPane extends JLayeredPane {
         }
         character += ".png";
         Icon temp = new ImageIcon(character);
-        liverImg = resize(temp.getIconWidth()+50, temp.getIconHeight()+40, (ImageIcon) temp);
+        liverImg = resize(temp.getIconWidth()+40, temp.getIconHeight()+32, (ImageIcon) temp);
         // liverImg = new ImageIcon( character+".png");//偷個恐龍圖片
         liverLabel = new JLabel(liverImg);
         liverLabel.setBounds(50,heightTotal+80,liverImg.getIconWidth(),liverImg.getIconHeight());

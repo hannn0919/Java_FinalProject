@@ -38,7 +38,7 @@ public class mainPanel extends JPanel {
 
         //肝
         JLabel liver = new JLabel();
-        liver.setBounds(35, 380, 300, 300);
+        liver.setBounds(35, 360, 300, 300);
             //眼鏡+竹蜻蜓+翅膀+彈簧鞋
             if(house.getEquipment("透視眼鏡")==1&&house.getEquipment("竹蜻蜓")==1&&house.getEquipment("翅膀")==1&&house.getEquipment("彈簧鞋")==1)
                 liver.setIcon(new ImageIcon("data/role/LV" + house.getLevel() +"/肝+眼鏡+竹蜻蜓+翅膀+彈簧鞋.png"));
@@ -166,7 +166,7 @@ public class mainPanel extends JPanel {
         money.setIcon(new ImageIcon("data/main/money.png"));
 
         card = new Polygon();
-        card.addPoint(471,171);
+        card.addPoint(471,141);
         card.addPoint(360,250);
         card.addPoint(1017,247);
         card.addPoint(1110,140);

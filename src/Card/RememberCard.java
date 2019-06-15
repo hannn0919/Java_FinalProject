@@ -306,9 +306,9 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
 
         }
         liverImg = new ImageIcon( character+".png");//偷個恐龍圖片
-        liverImg=resize(liverImg.getIconWidth()+50, liverImg.getIconHeight()+40, (ImageIcon)liverImg);
+        liverImg=resize(liverImg.getIconWidth()+25, liverImg.getIconHeight()+20, (ImageIcon)liverImg);
         liverLabel = new JLabel(liverImg);
-        liverLabel.setBounds(50,470,liverImg.getIconWidth(),liverImg.getIconHeight());
+        liverLabel.setBounds(50,468,liverImg.getIconWidth(),liverImg.getIconHeight());
         add(liverLabel,JLayeredPane.POPUP_LAYER);
 
         /////左邊的肝/////////
@@ -323,7 +323,7 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
         addSec.setFocusPainted(false);
         addSec.setContentAreaFilled(false);
         addSec.addMouseListener(mouseHandler);
-        addSec.setBounds(100,600,addSecImage.getIconWidth(),addSecImage.getIconHeight());
+        addSec.setBounds(97,587,addSecImage.getIconWidth(),addSecImage.getIconHeight());
         add(addSec, JLayeredPane.DRAG_LAYER);
         addSec.addActionListener(new AbstractAction() {
             @Override
@@ -343,7 +343,7 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
         openAll.setFocusPainted(false);
         openAll.setContentAreaFilled(false);
         openAll.addMouseListener(mouseHandler);
-        openAll.setBounds(195,600,openAllImage.getIconWidth(),openAllImage.getIconHeight());
+        openAll.setBounds(195,587,openAllImage.getIconWidth(),openAllImage.getIconHeight());
         add(openAll, JLayeredPane.DRAG_LAYER);
         openAll.addActionListener(new AbstractAction() {
             @Override

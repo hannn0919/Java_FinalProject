@@ -241,8 +241,7 @@ public class FroggerPanel extends JPanel
         super.paintComponent(g); // clears drawing area
 
         try {
-            Image k = ImageIO.read(new File("data/Frogger/image/froggerBackGround2.png"));
-            Image backGroundImage = k.getScaledInstance(917, 675, Image.SCALE_SMOOTH);
+            Image backGroundImage = ImageIO.read(new File("data/Frogger/image/froggerBackGround2.png"));
             g.drawImage(backGroundImage, 0, 0, null);
             Image t= ImageIO.read(new File(frog.getImageName()));
             Image frogImage = t.getScaledInstance(frog.getW(), frog.getW(), Image.SCALE_SMOOTH);
