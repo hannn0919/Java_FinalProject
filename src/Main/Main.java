@@ -58,7 +58,7 @@ public class Main extends JFrame {
 
     // 切換至登入頁面
     public void changeToEnterScreen() {
-        //entermusic.loop(Clip.LOOP_CONTINUOUSLY);    // 將音樂切換至登入頁面背景音樂，其他音樂暫停撥放
+        entermusic.loop(Clip.LOOP_CONTINUOUSLY);    // 將音樂切換至登入頁面背景音樂，其他音樂暫停撥放
         mainmusic.stop();
         dinosaurmusic.stop();
         hamstermusic.stop();
@@ -71,7 +71,7 @@ public class Main extends JFrame {
     // 切換至主畫面
     public void changeToMainScreen() {
         entermusic.stop();
-        //mainmusic.loop(Clip.LOOP_CONTINUOUSLY);    // 將音樂切換至主畫面背景音樂，其他音樂暫停撥放
+        mainmusic.loop(Clip.LOOP_CONTINUOUSLY);    // 將音樂切換至主畫面背景音樂，其他音樂暫停撥放
         dinosaurmusic.stop();
         hamstermusic.stop();
         froggermusic.stop();
@@ -96,7 +96,7 @@ public class Main extends JFrame {
         mainmusic.stop();
         dinosaurmusic.stop();
         hamstermusic.stop();
-        //froggermusic.loop(Clip.LOOP_CONTINUOUSLY);      // 將音樂切換至遊戲背景音樂，其他音樂暫停撥放
+        froggermusic.loop(Clip.LOOP_CONTINUOUSLY);      // 將音樂切換至遊戲背景音樂，其他音樂暫停撥放
         cardmusic.stop();
         FrogJLayer frog = new FrogJLayer(this, this.house);
         this.setTitle("馬路如虎口，抓到罰三百");
@@ -108,7 +108,7 @@ public class Main extends JFrame {
     public void changeToDinosaur(){
         entermusic.stop();
         mainmusic.stop();
-        //dinosaurmusic.loop(Clip.LOOP_CONTINUOUSLY);      // 將音樂切換至遊戲背景音樂，其他音樂暫停撥放
+        dinosaurmusic.loop(Clip.LOOP_CONTINUOUSLY);      // 將音樂切換至遊戲背景音樂，其他音樂暫停撥放
         hamstermusic.stop();
         froggermusic.stop();
         cardmusic.stop();
@@ -123,7 +123,7 @@ public class Main extends JFrame {
         entermusic.stop();
         mainmusic.stop();
         dinosaurmusic.stop();
-        //hamstermusic.loop(Clip.LOOP_CONTINUOUSLY);      // 將音樂切換至遊戲背景音樂，其他音樂暫停撥放
+        hamstermusic.loop(Clip.LOOP_CONTINUOUSLY);      // 將音樂切換至遊戲背景音樂，其他音樂暫停撥放
         froggermusic.stop();
         cardmusic.stop();
         Mouse mouse = new Mouse(this, this.house);
@@ -141,7 +141,7 @@ public class Main extends JFrame {
         dinosaurmusic.stop();
         hamstermusic.stop();
         froggermusic.stop();
-        //cardmusic.loop(Clip.LOOP_CONTINUOUSLY);      // 將音樂切換至遊戲背景音樂，其他音樂暫停撥放
+        cardmusic.loop(Clip.LOOP_CONTINUOUSLY);      // 將音樂切換至遊戲背景音樂，其他音樂暫停撥放
         RememberCard card = new RememberCard(this, this.house);
         this.setTitle("消滅一對是一對");
         this.setContentPane(card);
