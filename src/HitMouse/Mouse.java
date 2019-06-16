@@ -534,8 +534,8 @@ public class Mouse extends JLayeredPane{
 
                     int gainExp = score.getScore()*24+500;
                     int gainMoney = score.getScore()*47+800;
-                    house.gameSettlementSomething( 3,gainMoney,gainExp);
-                    house.gameSettlementmistake(3, wrongHit);
+                    house.gameSettlementSomething( 2,gainMoney,gainExp);
+                    house.gameSettlementmistake(2, wrongHit);
                     if(expDoubleUsed) gainExp*=2;
                     if(moneyDoubleUsed) gainMoney*=2;
                     static_pxp = new JLabel();
