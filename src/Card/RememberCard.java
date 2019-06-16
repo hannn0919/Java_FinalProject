@@ -453,9 +453,10 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
                     money=500;//250*2
                     house.setItem("金錢加倍券",house.getItem("金錢加倍券")-1 );//使用道具  道具-1
                 }
-                /////////////////////////////////////////////////
+                ///////////////////////////////////////////
                 house.setExp(house.getExp()+count*exp);//返回
                 house.setHoldMoney(house.getHoldMoney()+ count*money );//返回
+
                 //////////////////////////////////////////////////////////
 
                 //////結算的經驗和金錢/////////////
@@ -470,6 +471,8 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
                 end_money.setFont(new Font("Hollywood Hills",Font.BOLD,23));
                 end_money.setBounds(720,390,150,25);
                 add(end_money,JLayeredPane.DRAG_LAYER);
+                ////////////////////////////////
+                house.gameSettlementSomething( 1, count*money , count*exp);//返回這次遊戲所拿到的經驗和金錢(用於結算畫面)
                 //////結算的經驗和金錢/////////////
 
                 // 結束後重新初始化一下面板以便於下一次的執行
