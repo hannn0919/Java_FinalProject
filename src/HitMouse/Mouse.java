@@ -495,13 +495,16 @@ public class Mouse extends JLayeredPane{
                 if(equipIsUsed==false){
                     if( choose==0 || specialCard==1)  but[score.getLast()].setIcon(teacher[secureRandom.nextInt(6)]);
                     else but[score.getLast()].setIcon(student[secureRandom.nextInt(5)]);
+                    System.out.println(but[score.getLast()].getIcon().toString());
                 }
                 else{
+                    but[score.getLast()].setEnabled(true);
                     but[score.getLast()].setIcon(null);
                     obBut[score.getLast()].setIcon(null);
                     score.setLast(windowpos);
                     if( choose==0 || specialCard==1)  but[score.getLast()].setIcon(teacher[secureRandom.nextInt(6)]);
                     else but[score.getLast()].setIcon(student[secureRandom.nextInt(5)]);
+                    System.out.println(but[score.getLast()].getIcon().toString());
                 }
 
 
@@ -621,9 +624,9 @@ public class Mouse extends JLayeredPane{
             but[i].addMouseListener(new MouseListener() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    if(but[ii].getIcon() != null && !Character.shadow.equals(but[ii].getIcon().toString())){//按下去不適Shadow
+                    if(but[ii].getIcon() != null && !Character.shadow.equals(but[ii].getIcon().toString())){//按下去不是Shadow
                         int c = e.getButton();// 得到按下的滑鼠鍵
-                        String temp=but[ii].getIcon().toString();
+                        String temp=but[score.getLast()].getIcon().toString();
                         if (c == MouseEvent.BUTTON1){ // 判斷是滑鼠左鍵按下
 
                             Sound.KissSound();
@@ -635,19 +638,16 @@ public class Mouse extends JLayeredPane{
                                 if(judge==true) score.setScore(score.getScore() + score.getAddScore());
                                 else score.setScore(score.getScore() - score.getMinusScore());
                             }
-
-
                             obBut[score.getLast()].setIcon(heart);
                             //but[score.getLast()].setEnabled(false);
                             //Sound.KissSound();
 
                         }
                         if (c == MouseEvent.BUTTON3) {// 判斷是滑鼠右鍵按下
-
                             Sound.HitSound();
                             boolean judge=false;
                             for(int j=0;j<5;j++){
-                                if(Character.students[j].equals(but[ii].getIcon().toString())) judge=true;
+                                if(Character.students[j].equals(temp = but[score.getLast()].getIcon().toString())) judge=true;
                             }
                             if(but[score.getLast()].isEnabled()==true){
                                 if(judge==true) score.setScore(score.getScore() + score.getAddScore());
@@ -658,7 +658,8 @@ public class Mouse extends JLayeredPane{
                             //but[score.getLast()].setEnabled(false);
                         }
 
-                        if(!Character.shadow.equals(but[ii].getIcon().toString())) {
+                        if(!Character.shadow.equals(but[score.getLast()].getIcon().toString())) {
+                            //temp = but[score.getLast()].getIcon().toString();
                            but[score.getLast()].setEnabled(false);
                            but[score.getLast()].setDisabledIcon(new ImageIcon(temp));
                            //but[score.getLast()].setIcon(null);
