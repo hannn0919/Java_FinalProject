@@ -389,11 +389,11 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
                 repaint();
 
                 panel_Pic = new JPanel();//增加右邊遊戲面板
-                panel_Pic.setBounds(300, 0, 900, 655);
+                panel_Pic.setBounds(300, 0, 900, 640);
                 add(panel_Pic, JLayeredPane.MODAL_LAYER);//100
 
                 panel_ans = new JPanel();//增加答案面板
-                panel_ans.setBounds(300, 0, 900, 655);
+                panel_ans.setBounds(300, 0, 900, 640);
                 panel_ans.setVisible(true);
                 add(panel_ans, JLayeredPane.DEFAULT_LAYER);//0
 
