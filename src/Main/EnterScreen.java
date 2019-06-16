@@ -69,6 +69,9 @@ public class EnterScreen extends JPanel{
                         return;
                     }
                 }
+                File file = null;
+                file = new File("file");
+                if(!file.exists()) file.mkdirs();
                 house = new House();
                 mainFrame.setFileName(name);
                 mainFrame.setHouse(house);
