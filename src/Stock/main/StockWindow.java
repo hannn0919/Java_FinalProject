@@ -222,13 +222,13 @@ public class StockWindow extends JPanel {
         heightTotal += ruleImage.getIconHeight();
 
         expFromMain = new JLabel("");
-        expFromMain.setFont(new Font("Hollywood Hills", Font.BOLD, 17));
+        expFromMain.setFont(new Font("微軟正黑體", Font.BOLD, 17));
         expFromMain.setBounds(140, heightTotal + 13, 150, 25);
         expFromMain.setText(Integer.toString(house.getExp()));
         add(expFromMain, JLayeredPane.MODAL_LAYER);
 
         moneyFromMain = new JLabel("");
-        moneyFromMain.setFont(new Font("Hollywood Hills", Font.BOLD, 17));
+        moneyFromMain.setFont(new Font("微軟正黑體", Font.BOLD, 17));
         moneyFromMain.setBounds(140, heightTotal + 50, 150, 25);
         moneyFromMain.setText(Integer.toString(house.getHoldMoney()));
         add(moneyFromMain, JLayeredPane.MODAL_LAYER);
