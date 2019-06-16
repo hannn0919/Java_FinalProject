@@ -35,7 +35,7 @@ public class drama extends JPanel{
         ImageIcon icon = new ImageIcon("data/main/tmp.gif");
         JButton draBtn = new JButton(icon);
         icon.getImage().flush();
-        draBtn.setBounds(0, 0, 1200, 675);
+        draBtn.setBounds(-10, -25, 1200, 675);
 
 
         draBtn.addMouseListener(new MouseAdapter() {
