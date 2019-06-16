@@ -25,6 +25,8 @@ public class Main extends JFrame {
     private House house;    // 倉庫，所有數據資料
     private boolean gameStart = false;
     private String fileName = new String("");
+    private Object[] options = {"查看"};
+
 
     public Main(){
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -74,16 +76,17 @@ public class Main extends JFrame {
         hamstermusic.stop();
         froggermusic.stop();
         cardmusic.stop();
-        if(house.getExp()>=10000){
-            this.changeToGraduation();
-        }
-        else{
 
-            mainScreen = new mainPanel(this, this.house);
-            this.setTitle("大學肝什麼");
-            this.setContentPane(mainScreen);
-            this.setVisible(true);
-            mainScreen.requestFocus();
+        mainScreen = new mainPanel(this, this.house);
+        this.setTitle("大學肝什麼");
+        this.setContentPane(mainScreen);
+        this.setVisible(true);
+        mainScreen.requestFocus();
+
+        if(house.getExp()>=10000){
+            JFrame.setDefaultLookAndFeelDecorated(true);
+            JOptionPane.showOptionDialog(null,"啾咪，您有一則訊息要接收！", "提示信息來囉^.<",JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+            this.changeToGraduation();
         }
     }
 

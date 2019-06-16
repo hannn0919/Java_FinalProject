@@ -33,10 +33,10 @@ public class House {
 
     public House()
     {
-        this.holdMoney = 1000;
+        this.holdMoney = 10000;
         this.level = 1;
         this.role = "鮮嫩小心肝";
-        this.exp = 0;
+        this.exp = 9820;
         this.stock = new float[4];
         this.stockTicket = new int[4];
         this.stockPrs = new float[4];
@@ -245,7 +245,7 @@ public class House {
             return  froggerTotalPlay;
         }
         else if(game==4){
-            return  dinosaurTotalDied;
+            return  dinosaurTotalPlay;
 
         }
         return 0;

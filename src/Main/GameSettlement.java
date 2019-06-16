@@ -102,7 +102,7 @@ public class GameSettlement extends JPanel{
         backToMainButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainFrame.changeToMainScreen();
+                mainFrame.changeToGraduation();
             }
         });
         add(label);
