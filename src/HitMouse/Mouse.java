@@ -18,7 +18,7 @@ import java.security.SecureRandom;
 
 
 public class Mouse extends JLayeredPane{
-
+    private int wrongHit=0;
     private JFrame frame;
 
     private ImageIcon imageBackGround;//背景圖
@@ -495,7 +495,7 @@ public class Mouse extends JLayeredPane{
                 if(equipIsUsed==false){
                     if( choose==0 || specialCard==1)  but[score.getLast()].setIcon(teacher[secureRandom.nextInt(6)]);
                     else but[score.getLast()].setIcon(student[secureRandom.nextInt(5)]);
-                    System.out.println(but[score.getLast()].getIcon().toString());
+                    ////System.out.println(but[score.getLast()].getIcon().toString());
                 }
                 else{
                     but[score.getLast()].setEnabled(true);
@@ -504,7 +504,7 @@ public class Mouse extends JLayeredPane{
                     score.setLast(windowpos);
                     if( choose==0 || specialCard==1)  but[score.getLast()].setIcon(teacher[secureRandom.nextInt(6)]);
                     else but[score.getLast()].setIcon(student[secureRandom.nextInt(5)]);
-                    System.out.println(but[score.getLast()].getIcon().toString());
+                    //System.out.println(but[score.getLast()].getIcon().toString());
                 }
 
 
@@ -531,28 +531,29 @@ public class Mouse extends JLayeredPane{
                     but[score.getLast()].setIcon(null);
                     obBut[score.getLast()].setIcon(null);
                     backToMainButton.setEnabled(true);
-//                    add(statics,JLayeredPane.DRAG_LAYER);
-                    //JOptionPane.showMessageDialog(frame, "Game Over\n 您的得分為："+score.getScore(),"得分信息",JOptionPane.PLAIN_MESSAGE);
-                    int gainexp = score.getScore()*24+500;
-                    int gainmoney = score.getScore()*47+800;
-                    if(expDoubleUsed) gainexp*=2;
-                    if(moneyDoubleUsed) gainmoney*=2;
+
+                    int gainExp = score.getScore()*24+500;
+                    int gainMoney = score.getScore()*47+800;
+                    house.gameSettlementSomething( 3,gainMoney,gainExp);
+                    house.gameSettlementmistake(3, wrongHit);
+                    if(expDoubleUsed) gainExp*=2;
+                    if(moneyDoubleUsed) gainMoney*=2;
                     static_pxp = new JLabel();
                     static_pxp.setFont(new Font("微軟正黑體",Font.BOLD,25));
                     static_pxp.setBounds(625, 238, 150,40);
-                    static_pxp.setText(String.valueOf(gainexp));
+                    static_pxp.setText(String.valueOf(gainExp));
                     add(static_pxp, JLayeredPane.DRAG_LAYER);
                     //static_pxp.setVisible(false);
 
                     static_money = new JLabel();
                     static_money.setFont(new Font("微軟正黑體",Font.BOLD,25));
                     static_money.setBounds(625, 389, 150,40);
-                    static_money.setText(String.valueOf(gainmoney));
+                    static_money.setText(String.valueOf(gainMoney));
                     add(static_money, JLayeredPane.DRAG_LAYER);
 
 
-                    house.setExp(house.getExp()+gainexp);
-                    house.setHoldMoney(house.getHoldMoney()+gainmoney);
+                    house.setExp(house.getExp()+gainExp);
+                    house.setHoldMoney(house.getHoldMoney()+gainMoney);
 
 
                     checkImg = new ImageIcon("data/HitMouse/OK鍵.png");
@@ -636,7 +637,10 @@ public class Mouse extends JLayeredPane{
                             }
                             if(but[score.getLast()].isEnabled()==true){
                                 if(judge==true) score.setScore(score.getScore() + score.getAddScore());
-                                else score.setScore(score.getScore() - score.getMinusScore());
+                                else {
+                                    score.setScore(score.getScore() - score.getMinusScore());
+                                    wrongHit++;
+                                }
                             }
                             obBut[score.getLast()].setIcon(heart);
                             //but[score.getLast()].setEnabled(false);
@@ -651,7 +655,10 @@ public class Mouse extends JLayeredPane{
                             }
                             if(but[score.getLast()].isEnabled()==true){
                                 if(judge==true) score.setScore(score.getScore() + score.getAddScore());
-                                else score.setScore(score.getScore() - score.getMinusScore());
+                                else {
+                                    score.setScore(score.getScore() - score.getMinusScore());
+                                    wrongHit++;
+                                }
                             }
 
                             obBut[score.getLast()].setIcon(fist);
