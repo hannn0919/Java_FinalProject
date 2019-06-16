@@ -447,9 +447,11 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
 
                 if(check_doubleexp.isSelected()){
                     exp=200;//100*2
+                    house.setItem("經驗加倍券",house.getItem("經驗加倍券")-1 );//使用道具  道具-1
                 }
                 if(check_doublemoney.isSelected()){
                     money=500;//250*2
+                    house.setItem("金錢加倍券",house.getItem("金錢加倍券")-1 );//使用道具  道具-1
                 }
                 /////////////////////////////////////////////////
                 house.setExp(house.getExp()+count*exp);//返回
