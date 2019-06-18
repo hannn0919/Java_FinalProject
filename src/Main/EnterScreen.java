@@ -163,6 +163,8 @@ public class EnterScreen extends JPanel{
                             }
                             line = br.readLine(); // 一次讀入一行資料
                         }
+                        reader.close();
+                        br.close();
                         mainFrame.setHouse(temp);
                         mainFrame.setGameStart(true);
                         mainFrame.changeToMainScreen();
