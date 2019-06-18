@@ -14,7 +14,6 @@ public class Store extends JPanel {
     private JButton item, equip;
     private BufferedImage backGround;
     private boolean IsBackGround=true;
-    private static boolean E1=true,E2=true,E3=true,E4=true;
     private Main mainFrame;
     private House house;
     private ImageIcon iconB1,iconB2,iconB3,iconB4,iconB5,iconB6,iconB7,iconB8,iconB9;
@@ -84,13 +83,13 @@ public class Store extends JPanel {
         b7.addMouseListener(handler2);
         b8.addMouseListener(handler2);
         b9.addMouseListener(handler2);
-        if(E1!=false)
+        if(house.getEquipment("竹蜻蜓")==0)
             e1.addMouseListener(handler2);
-        if(E2!=false)
+        if(house.getEquipment("透視眼鏡")==0)
             e2.addMouseListener(handler2);
-        if(E3!=false)
+        if(house.getEquipment("彈簧鞋")==0)
             e3.addMouseListener(handler2);
-        if(E4!=false)
+        if(house.getEquipment("翅膀")==0)
             e4.addMouseListener(handler2);
 
         b1.setBounds(142,32,172,174);
@@ -160,13 +159,13 @@ public class Store extends JPanel {
                 b8.setText("售價為1,000");
             } else if (event.getSource() == b9) {
                 b9.setText("售價為1,000");
-            } else if (event.getSource() == e1&&E1!=false) {
+            } else if (event.getSource() == e1&&house.getEquipment("竹蜻蜓")==0) {
                 e1.setText("售價為3,000");
-            } else if (event.getSource() == e2&&E2!=false) {
+            } else if (event.getSource() == e2&&house.getEquipment("透視眼鏡")==0) {
                 e2.setText("售價為3,000");
-            } else if (event.getSource() == e3&&E3!=false) {
+            } else if (event.getSource() == e3&&house.getEquipment("彈簧鞋")==0) {
                 e3.setText("售價為3,000");
-            } else if (event.getSource() == e4&&E4!=false) {
+            } else if (event.getSource() == e4&&house.getEquipment("翅膀")==0) {
                 e4.setText("售價為3,000");
             }
         }
@@ -204,104 +203,96 @@ public class Store extends JPanel {
         //當遊玩者點下道具或裝備時的反應
         public void mousePressed(MouseEvent event) {//當滑鼠按下物件時
             if (event.getSource() == b1) {
-               int opt= JOptionPane.showConfirmDialog(null, "遊戲結算時，獲得兩倍經驗\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
-                if(house.getHoldMoney()-1500>=0) {
-                    if (opt == 0) {
-                        house.setHoldMoney(house.getHoldMoney()-1500);
-                        house.setItem("經驗加倍券",house.getItem("經驗加倍券")+1);
-                    }
+                int opt= JOptionPane.showConfirmDialog(null, "遊戲結算時，獲得兩倍經驗\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
+                if (opt == 0) {
+                    if (house.getHoldMoney() - 1500 >= 0) {
+                        house.setHoldMoney(house.getHoldMoney() - 1500);
+                        house.setItem("經驗加倍券", house.getItem("經驗加倍券") + 1);
+                    } else
+                        JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
                 }
-                else
-                    JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
             } else if (event.getSource() == b2) {
                 int opt= JOptionPane.showConfirmDialog(null, "遊戲結算時，獲得兩倍金錢\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 // 0=yes, 1=no
-                if(house.getHoldMoney()-1500>=0) {
-                    if (opt == 0) {
+                if (opt == 0) {
+                    if (house.getHoldMoney() - 1500 >= 0) {
                         house.setHoldMoney(house.getHoldMoney() - 1500);
-                        house.setItem("金錢加倍券",house.getItem("金錢加倍券")+1);
-                    }
+                        house.setItem("金錢加倍券", house.getItem("金錢加倍券") + 1);
+                    } else
+                        JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
                 }
-                else
-                    JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
             } else if (event.getSource() == b3) {
                 int opt= JOptionPane.showConfirmDialog(null, "變身無敵狀態，效果維持十秒\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 // 0=yes, 1=no
-                if(house.getHoldMoney()-1000>=0) {
-                    if (opt == 0) {
-                        house.setHoldMoney(house.getHoldMoney()-1000);
-                        house.setItem("電蚊拍",house.getItem("電蚊拍")+1);
-                    }
+                if (opt == 0) {
+                    if (house.getHoldMoney() - 1000 >= 0) {
+                        house.setHoldMoney(house.getHoldMoney() - 1000);
+                        house.setItem("電蚊拍", house.getItem("電蚊拍") + 1);
+                    } else
+                        JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
                 }
-                else
-                    JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
             } else if (event.getSource() == b4) {
                 int opt= JOptionPane.showConfirmDialog(null, "記憶時間延長10秒\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 // 0=yes, 1=no
-                if(house.getHoldMoney()-1000>=0) {
-                    if (opt == 0) {
-                        house.setHoldMoney(house.getHoldMoney()-1000);
-                        house.setItem("增時卡",house.getItem("增時卡")+1);
-                    }
+                if (opt == 0) {
+                    if (house.getHoldMoney() - 1000 >= 0) {
+                        house.setHoldMoney(house.getHoldMoney() - 1000);
+                        house.setItem("增時卡", house.getItem("增時卡") + 1);
+                    } else
+                        JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
                 }
-                else
-                    JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
             } else if (event.getSource() == b5) {
                 int opt= JOptionPane.showConfirmDialog(null, "起點向前移至分隔島\n-------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 // 0=yes, 1=no
-                if(house.getHoldMoney()-1000>=0) {
-                    if (opt == 0) {
-                        house.setHoldMoney(house.getHoldMoney()-1000);
-                        house.setItem("地下道鑰匙",house.getItem("地下道鑰匙")+1);
-                    }
+                if (opt == 0) {
+                    if (house.getHoldMoney() - 1000 >= 0) {
+                        house.setHoldMoney(house.getHoldMoney() - 1000);
+                        house.setItem("地下道鑰匙", house.getItem("地下道鑰匙") + 1);
+                    } else
+                        JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
                 }
-                else
-                    JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
             } else if (event.getSource() == b6) {
                 int opt= JOptionPane.showConfirmDialog(null, "被警察抓到時不需處罰\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 // 0=yes, 1=no
-                if(house.getHoldMoney()-1000>=0) {
-                    if (opt == 0) {
-                        house.setHoldMoney(house.getHoldMoney()-1000);
-                        house.setItem("警察卡",house.getItem("警察卡")+1);
-                    }
+                if (opt == 0) {
+                    if (house.getHoldMoney() - 1000 >= 0) {
+                        house.setHoldMoney(house.getHoldMoney() - 1000);
+                        house.setItem("警察卡", house.getItem("警察卡") + 1);
+                    } else
+                        JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
                 }
-                else
-                    JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
             } else if (event.getSource() == b7) {
                 int opt= JOptionPane.showConfirmDialog(null, "只會出現老師，效果維持10秒\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 // 0=yes, 1=no
-                if(house.getHoldMoney()-1000>=0) {
-                    if (opt == 0) {
-                        house.setHoldMoney(house.getHoldMoney()-1000);
-                        house.setItem("老師卡",house.getItem("老師卡")+1);
-                    }
+                if (opt == 0) {
+                    if (house.getHoldMoney() - 1000 >= 0) {
+                        house.setHoldMoney(house.getHoldMoney() - 1000);
+                        house.setItem("老師卡", house.getItem("老師卡") + 1);
+                    } else
+                        JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
                 }
-                else
-                    JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
             } else if (event.getSource() == b8) {
                 int opt= JOptionPane.showConfirmDialog(null, "分數增為兩倍，效果維持10秒\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 // 0=yes, 1=no
-                if(house.getHoldMoney()-1000>=0) {
-                    if (opt == 0) {
-                        house.setHoldMoney(house.getHoldMoney()-1000);
-                        house.setItem("加倍卡",house.getItem("加倍卡")+1);
-                    }
+                if (opt == 0) {
+                    if (house.getHoldMoney() - 1000 >= 0) {
+                        house.setHoldMoney(house.getHoldMoney() - 1000);
+                        house.setItem("加倍卡", house.getItem("加倍卡") + 1);
+                    } else
+                        JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
                 }
-                else
-                    JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
             } else if (event.getSource() == b9) {
                 int opt= JOptionPane.showConfirmDialog(null, "將所有牌翻至正面看10秒\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 // 0=yes, 1=no
-                if(house.getHoldMoney()-1000>=0) {
-                    if (opt == 0) {
+                if (opt == 0) {
+                    if(house.getHoldMoney()-1000>=0) {
                         house.setHoldMoney(house.getHoldMoney()-1000);
                         house.setItem("再看一次",house.getItem("再看一次")+1);
                     }
+                    else
+                        JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
                 }
-                else
-                    JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
-            } else if (event.getSource() == e1&&E1!=false) {
+            } else if (event.getSource() == e1&&house.getEquipment("竹蜻蜓")==0) {
                 int opt = JOptionPane.showConfirmDialog(null, "起點向前移動100公尺\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 if(opt == 0){
                     if(house.getHoldMoney()-3000>=0){
@@ -310,7 +301,6 @@ public class Store extends JPanel {
                         else {
                             house.setHoldMoney(house.getHoldMoney()-3000);
                             house.setEquipment("竹蜻蜓");
-                            E1=false;
                             e1.removeMouseListener(handler2);
                         }
                     }
@@ -318,57 +308,54 @@ public class Store extends JPanel {
                         JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
                 }
                 // 0=yes, 1=no
-            } else if (event.getSource() == e2&&E2!=false) {
-                int opt=  JOptionPane.showConfirmDialog(null, "可看到影子下的真實面貌\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
+            } else if (event.getSource() == e2&&house.getEquipment("透視眼鏡")==0) {
+                int opt = JOptionPane.showConfirmDialog(null, "可看到影子下的真實面貌\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 // 0=yes, 1=no
-                if(house.getHoldMoney()-3000>=0) {
-                    if (opt == 0) {
+                if (opt == 0) {
+                    if (house.getHoldMoney() - 3000 >= 0) {
                         if (house.getEquipment("透視眼鏡") != 0)
                             JOptionPane.showConfirmDialog(null, "已擁有此道具!!!", "", JOptionPane.DEFAULT_OPTION);
                         else {
-                            house.setHoldMoney(house.getHoldMoney()-3000);
+                            house.setHoldMoney(house.getHoldMoney() - 3000);
                             house.setEquipment("透視眼鏡");
-                            E2=false;
                             e2.removeMouseListener(handler2);
                         }
                     }
+                    else
+                        JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
                 }
-                else
-                    JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
-            } else if (event.getSource() == e3&&E3!=false) {
+            } else if (event.getSource() == e3&&house.getEquipment("彈簧鞋")==0) {
                 int opt= JOptionPane.showConfirmDialog(null, "可以一次前進兩格\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 // 0=yes, 1=no
-                if(house.getHoldMoney()-3000>=0) {
-                    if (opt == 0) {
+                if (opt == 0) {
+                    if (house.getHoldMoney() - 3000 >= 0) {
                         if (house.getEquipment("彈簧鞋") != 0)
                             JOptionPane.showConfirmDialog(null, "已擁有此道具!!!", "", JOptionPane.DEFAULT_OPTION);
                         else {
                             house.setHoldMoney(house.getHoldMoney() - 3000);
                             house.setEquipment("彈簧鞋");
-                            E3=false;
                             e3.removeMouseListener(handler2);
                         }
                     }
+                    else
+                        JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
                 }
-                else
-                    JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
-            } else if (event.getSource() == e4&&E4!=false) {
-                int opt= JOptionPane.showConfirmDialog(null, "系統自動翻出一對配對組合\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
+            } else if (event.getSource() == e4&&house.getEquipment("翅膀")==0) {
+                int opt = JOptionPane.showConfirmDialog(null, "系統自動翻出一對配對組合\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 // 0=yes, 1=no
-                if(house.getHoldMoney()-3000>=0) {
-                    if (opt == 0) {
+                if (opt == 0) {
+                    if (house.getHoldMoney() - 3000 >= 0) {
                         if (house.getEquipment("翅膀") != 0)
                             JOptionPane.showConfirmDialog(null, "已擁有此道具!!!", "", JOptionPane.DEFAULT_OPTION);
                         else {
-                            house.setHoldMoney(house.getHoldMoney()-3000);
+                            house.setHoldMoney(house.getHoldMoney() - 3000);
                             house.setEquipment("翅膀");
-                            E4=false;
                             e4.removeMouseListener(handler2);
                         }
                     }
+                    else
+                        JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
                 }
-                else
-                    JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
             }
         }
     }
@@ -423,19 +410,19 @@ public class Store extends JPanel {
         try {
             if(IsBackGround) {
                 backGround = ImageIO.read(new File("data//Bag&Store/背包-裝備.png"));
-                if(E1==true)
+                if(house.getEquipment("竹蜻蜓")==0)
                     iconE1 = new ImageIcon("data//Bag&Store/竹蜻蜓.png");
                 else
                     iconE1 = new ImageIcon("data//Bag&Store/竹蜻蜓out.png");
-                if(E2==true)
+                if(house.getEquipment("透視眼鏡")==0)
                     iconE2 = new ImageIcon("data//Bag&Store/透視眼鏡.png");
                 else
                     iconE2 = new ImageIcon("data//Bag&Store/透視眼鏡out.png");
-                if(E3==true)
+                if(house.getEquipment("彈簧鞋")==0)
                     iconE3 = new ImageIcon("data//Bag&Store/彈簧鞋.png");
                 else
                     iconE3 = new ImageIcon("data//Bag&Store/彈簧鞋out.png");
-                if(E4==true)
+                if(house.getEquipment("翅膀")==0)
                     iconE4 = new ImageIcon("data//Bag&Store/翅膀.png");
                 else
                     iconE4 = new ImageIcon("data//Bag&Store/翅膀out.png");
