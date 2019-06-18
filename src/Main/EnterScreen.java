@@ -88,7 +88,7 @@ public class EnterScreen extends JPanel{
                     House temp = new House();
                     try {
                         File file = new File(filename);
-                        InputStreamReader reader = new InputStreamReader(new FileInputStream(file));
+                        InputStreamReader reader = new InputStreamReader(new FileInputStream(file), "UTF-8");
                         BufferedReader br = new BufferedReader(reader);
                         String line = "";
                         line = br.readLine();
