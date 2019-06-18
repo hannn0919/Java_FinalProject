@@ -555,7 +555,7 @@ public class RememberCard extends JLayeredPane {  ///翻一對  exp100  money250
                 panel_1.setCardback();//放背面卡牌
             }
             if(house.getEquipment("翅膀")>0){
-                count++;//因為會有一對
+                count=1;//因為會有一對
                 if(panel_swing.picPath.compareTo(panel_1.picPath)==0){//相同
                     swing_card = new ImageIcon(picture[5]);
                     panel_swing.lbl_Pic.setIcon(swing_card);//翻開
