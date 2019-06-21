@@ -102,12 +102,6 @@ public class FroggerPanel extends JPanel
                         setStep(2);
                     }else setStep(1);
                     break;
-                case KeyEvent.VK_P:
-                    time =0;
-                    timer.cancel();
-                    mainFrame.changeToMainScreen();
-                    end = 0;
-                    break;
                 default:
                     System.out.println(key2);
             }
