@@ -232,7 +232,7 @@ public class Store extends JPanel {
                         JOptionPane.showConfirmDialog(null, "擁有金額不足!!!", "", JOptionPane.DEFAULT_OPTION);
                 }
             } else if (event.getSource() == b4) {
-                int opt= JOptionPane.showConfirmDialog(null, "記憶時間延長10秒\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
+                int opt= JOptionPane.showConfirmDialog(null, "增加遊戲時間10秒\n--------確定要購買嗎?--------", "", JOptionPane.YES_NO_OPTION);
                 // 0=yes, 1=no
                 if (opt == 0) {
                     if (house.getHoldMoney() - 1000 >= 0) {

@@ -219,7 +219,7 @@ public class BagWindow extends JPanel {
                     JOptionPane.showConfirmDialog(null, "變身無敵狀態，效果維持十秒\n", "", JOptionPane.DEFAULT_OPTION);
                     house.getItem("電蚊拍");
                 } else if (event.getSource() == b4) {
-                    JOptionPane.showConfirmDialog(null, "記憶時間延長10秒\n", "", JOptionPane.DEFAULT_OPTION);
+                    JOptionPane.showConfirmDialog(null, "增加遊戲時間10秒\n", "", JOptionPane.DEFAULT_OPTION);
                     house.getItem("增時卡");
                 } else if (event.getSource() == b5) {
                     JOptionPane.showConfirmDialog(null, "起點向前移至分隔島\n", "", JOptionPane.DEFAULT_OPTION);
