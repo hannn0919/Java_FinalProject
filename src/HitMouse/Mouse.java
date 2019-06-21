@@ -399,7 +399,8 @@ public class Mouse extends JLayeredPane{
 
                  if(house.getItem("加倍卡")>=1){
                      house.setItem("加倍卡",house.getItem("加倍卡")-1);
-                     score.setAddScore(score.getAddScore()*2);
+                     if(house.getItem("加倍卡")<=0) btnItemScoreDouble.setEnabled(false);
+                    score.setAddScore(score.getAddScore()*2);
 
                      score.setMinusScore(0);
                      itemScoreDouble.start();
@@ -413,7 +414,9 @@ public class Mouse extends JLayeredPane{
                 specialCard=1;
                 if(house.getItem("老師卡")>=1){
                     house.setItem("老師卡",house.getItem("老師卡")-1);
+                    if(house.getItem("老師卡")<=0) btnItemOnlyTeacher.setEnabled(false);
                     itemTeacherTime.start();
+
                 }
             }
         });
