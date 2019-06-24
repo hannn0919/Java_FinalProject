@@ -5,7 +5,7 @@
 
 *由於股市部分折線圖有使用librart -> Jfreechart ，若使用IDE執行請先將資料夾jar中的兩個jar檔新增至library。
 
-*ppt及Demo影片檔因檔案太大無法一併上傳至Github，有一起壓縮進zip檔。
+*ppt及Demo影片檔因檔案太大無法一併上傳至Github，但有一起壓縮進zip檔，Github上附上pdf檔(無法撥放影片)。
 
 *特別注意角色的部分是會隨著等級、裝備變化的!(包含主畫面、遊戲中出現的角色)
 
