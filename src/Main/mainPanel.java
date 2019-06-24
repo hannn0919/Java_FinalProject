@@ -288,6 +288,7 @@ public class mainPanel extends JPanel {
         button.setContentAreaFilled(false);
         button.setFocusPainted(false);
         button.setBorder(null);
+        button.setBorderPainted(false);
     }
 
     //點下去的音效

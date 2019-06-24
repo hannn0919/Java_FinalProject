@@ -230,6 +230,7 @@ public class EnterScreen extends JPanel{
         button.setContentAreaFilled(false);
         button.setFocusPainted(false);
         button.setBorder(null);
+        button.setBorderPainted(false);
     }
 
 }

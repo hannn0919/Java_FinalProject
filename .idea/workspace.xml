@@ -39,8 +39,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main/EnterScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1311">
-              <caret line="82" column="85" selection-start-line="82" selection-start-column="85" selection-end-line="82" selection-end-column="85" />
+            <state relative-caret-position="317">
+              <caret line="231" column="31" lean-forward="true" selection-start-line="231" selection-start-column="31" selection-end-line="232" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Main/mainPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="290" column="39" selection-start-line="290" selection-start-column="39" selection-end-line="290" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -60,13 +69,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/HitMouse/Mouse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="401" column="84" selection-start-line="401" selection-start-column="84" selection-end-line="401" selection-end-column="84" />
+            <state relative-caret-position="7258">
+              <caret line="401" column="62" selection-start-line="401" selection-start-column="62" selection-end-line="401" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Stock/main/StockWindow.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="95">
@@ -152,15 +161,15 @@
         <option value="$PROJECT_DIR$/src/House/bag/BagLayerPane.java" />
         <option value="$PROJECT_DIR$/src/Frogger/main/FrogJLayer.java" />
         <option value="$PROJECT_DIR$/src/Card/RememberCard.java" />
-        <option value="$PROJECT_DIR$/src/Main/mainPanel.java" />
         <option value="$PROJECT_DIR$/src/Dinosaur/userinterface/DinoJLayer.java" />
         <option value="$PROJECT_DIR$/src/Frogger/main/FroggerPanel.java" />
         <option value="$PROJECT_DIR$/src/Stock/main/StockWindow.java" />
         <option value="$PROJECT_DIR$/src/Dinosaur/userinterface/GameScreen.java" />
         <option value="$PROJECT_DIR$/src/House/house/House.java" />
         <option value="$PROJECT_DIR$/src/Main/Main.java" />
-        <option value="$PROJECT_DIR$/src/Main/EnterScreen.java" />
         <option value="$PROJECT_DIR$/src/HitMouse/Mouse.java" />
+        <option value="$PROJECT_DIR$/src/Main/EnterScreen.java" />
+        <option value="$PROJECT_DIR$/src/Main/mainPanel.java" />
       </list>
     </option>
   </component>
@@ -170,7 +179,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="330" />
     <option name="width" value="1595" />
     <option name="height" value="1050" />
@@ -180,7 +189,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -242,6 +250,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -291,7 +300,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Final_Project.jar" type="JarApplication" temporary="true">
+    <configuration name="Final_Project.jar" type="JarApplication" factoryName="JAR Application" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/Final_Project_jar/Final_Project.jar" />
       <method v="2" />
     </configuration>
@@ -316,10 +325,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2969169" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3001066" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -328,7 +337,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4978678" visible="true" weight="0.3753541" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4978678" visible="true" weight="0.37527114" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -336,7 +345,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5021322" side_tool="true" weight="0.28091106" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49626866" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49626866" weight="0.3275488" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -553,13 +562,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/mainPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6973">
-          <caret line="376" column="40" selection-start-line="376" selection-start-column="40" selection-end-line="376" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Card/PicPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -602,20 +604,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/EnterScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1311">
-          <caret line="82" column="85" selection-start-line="82" selection-start-column="85" selection-end-line="82" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/House/house/House.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="38" column="19" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/House/store/Store.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3857">
@@ -628,8 +616,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HitMouse/Mouse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="401" column="84" selection-start-line="401" selection-start-column="84" selection-end-line="401" selection-end-column="84" />
+        <state relative-caret-position="7258">
+          <caret line="401" column="62" selection-start-line="401" selection-start-column="62" selection-end-line="401" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/House/house/House.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="38" column="19" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -637,6 +632,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/EnterScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="231" column="31" lean-forward="true" selection-start-line="231" selection-start-column="31" selection-end-line="232" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/mainPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="290" column="39" selection-start-line="290" selection-start-column="39" selection-end-line="290" selection-end-column="39" />
         </state>
       </provider>
     </entry>
